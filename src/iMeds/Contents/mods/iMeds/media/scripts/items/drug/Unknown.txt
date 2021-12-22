@@ -1,0 +1,17 @@
+module iMeds {
+    imports {
+        Base
+    }
+
+    item UnknownPack
+    {
+        Weight = 0.1,
+        Type = Normal,
+        DisplayName = UI_Item_UnknownPack_Name,
+        Icon = PillPackPink,
+        Medical = TRUE,
+        DisplayCategory = FirstAid,
+        StaticModel = UnknownPack,
+        WorldStaticModel = UnknownPackGround,
+    }
+}

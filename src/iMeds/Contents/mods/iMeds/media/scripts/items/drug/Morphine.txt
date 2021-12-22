@@ -1,0 +1,32 @@
+module iMeds {
+    imports {
+        Base
+    }
+
+    item Morphine
+    {
+        Weight = 0.05,
+        Type = Drainable,
+        UseDelta = 1,
+        DisplayName = UI_Item_Morphine_Name,
+        Icon = AmpouleRed,
+        Medical = TRUE,
+        DisplayCategory = FirstAid,
+        StaticModel = Ampoule,
+        WorldStaticModel = AmpouleGround,
+    }
+
+    item MorphinePack
+    {
+        Weight = 0.5,
+        Type = Drainable,
+        UseDelta = 0.1,
+        DisplayName = UI_Item_MorphinePack_Name,
+        Icon = MorphinePack,
+        Tooltip = UI_Item_MorphinePack_Description,
+        Medical = TRUE,
+        DisplayCategory = FirstAid,
+        StaticModel = MorphinePack,
+        WorldStaticModel = MorphinePackGround,
+    }
+}

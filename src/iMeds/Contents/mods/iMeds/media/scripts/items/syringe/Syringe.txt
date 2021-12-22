@@ -1,0 +1,83 @@
+module iMeds {
+    imports {
+        Base
+    }
+
+    item SyringePack
+    {
+        Weight = 0.5,
+        Type = Drainable,
+        Icon = SyringePack,
+        UseDelta = 0.1,
+        DisplayName = UI_Item_SyringePack_Name,
+        Tooltip = UI_Item_SyringePack_Description,
+        DisplayCategory = FirstAid,
+        WorldStaticModel = SyringePackGround,
+        StaticModel = SyringePack,
+    }
+
+    item Syringe
+    {
+        Weight = 0.05,
+        Type = Normal,
+        Icon = Syringe,
+        DisplayName = UI_Item_Syringe_Name,
+        Tooltip = UI_Item_Syringe_Description,
+        DisplayCategory = FirstAid,
+        WorldStaticModel = SyringeGround,
+        StaticModel = Syringe,
+    }
+
+    item NeedlePack
+    {
+        Weight = 0.5,
+        Type = Drainable,
+        UseDelta = 0.01,
+        Icon = NeedlePack,
+        DisplayName = UI_Item_NeedlePack_Name,
+        Tooltip = UI_Item_NeedlePack_Description,
+        DisplayCategory = FirstAid,
+        WorldStaticModel = NeedlePackGround,
+        StaticModel = NeedlePack,
+    }
+
+    item Needle
+    {
+        Weight = 0.005,
+        Type = Normal,
+        Icon = InjectionNeedle,
+        DisplayName = UI_Item_Needle_Name,
+        Tooltip = UI_Item_Needle_Description,
+        DisplayCategory = FirstAid,
+        WorldStaticModel = InjectionNeedleGround,
+        StaticModel = InjectionNeedle,
+    }
+
+    item SyringeWithNeedle
+    {
+        Weight = 0.055,
+        Type = Drainable,
+        UseDelta = 0.2,
+        Icon = EmptySyringeWithNeedle,
+        DisplayName = UI_Item_SyringeWithNeedle_Name,
+        Tooltip = UI_Item_SyringeWithNeedle_Description,
+        DisplayCategory = FirstAid,
+        cantBeConsolided = TRUE,
+        WorldStaticModel = SyringeGround,
+        StaticModel = Syringe,
+    }
+
+    item FullSyringeWithNeedle
+    {
+        Weight = 0.05,
+        Type = Drainable,
+        UseDelta = 0.2,
+        Icon = FullSyringeWithNeedle,
+        DisplayName = UI_Item_FullSyringeWithNeedle_Name,
+        Tooltip = UI_Item_FullSyringeWithNeedle_Description,
+        DisplayCategory = FirstAid,
+        cantBeConsolided = TRUE,
+        WorldStaticModel = SyringeGround,
+        StaticModel = Syringe,
+    }
+}

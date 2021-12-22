@@ -1,0 +1,39 @@
+ItemName_RU = {
+    ItemName_iMeds.EmptyBloodBag = "Пустой пакет крови",
+    ItemName_iMeds.FullBloodBag = "Полный пакет крови",
+    ItemName_iMeds.PeripheralVenousCatheter = "Катетер для внутривенного переливания",
+    ItemName_iMeds.BloodVolumeReducer = "Системный предмет",
+    ItemName_iMeds.DrugApplier = "Системный предмет",
+    ItemName_iMeds.SyringePack = "Упаковка шприцев 5 мл.",
+    ItemName_iMeds.Syringe = "Шприц 5 мл.",
+    ItemName_iMeds.NeedlePack = "Упаковка инъекционных игл",
+    ItemName_iMeds.Needle = "Инъекционная игла",
+    ItemName_iMeds.SyringeWithNeedle = "Шприц для в/в в/м инъекций",
+    ItemName_iMeds.FullSyringeWithNeedle = "Шприц с препаратом",
+    ItemName_iMeds.BloodVolumeIncreaser = "Системный предмет",
+
+    ItemName_iMeds.Alkagin = "Алкагин",
+    ItemName_iMeds.AlkaginPack = "Упаковка алкагина",
+
+    ItemName_iMeds.BismuthSubsalicylate = "Висмута Субсалицилат",
+    ItemName_iMeds.BismuthSubsalicylatePack = "Упаковка препарата (Висмута Субсалицилат)",
+
+    ItemName_iMeds.Morphine = "Ампула морфия",
+    ItemName_iMeds.MorphinePack = "Упаковка ампул морфия",
+
+    ItemName_iMeds.Naloxon = "Ампула налоксона",
+    ItemName_iMeds.NaloxonPack = "Упаковка ампул налоксона",
+
+    ItemName_iMeds.Butamirate = "Бутамират",
+    ItemName_iMeds.ButamiratePack = "Упаковка бутамирата",
+
+    ItemName_iMeds.HemoStop = "ГемоСтоп",
+    ItemName_iMeds.HemoStopPack = "Упаковка "ГемоСтоп"",
+
+    ItemName_iMeds.Umifenovir = "Умифеновир",
+    ItemName_iMeds.UmifenovirPack = "Упаковка умифеновира",
+
+    ItemName_iMeds.UnknownPack = "Упаковка неизвестного препарата",
+
+    ItemName_iMeds.BloodTestingKit = "Комплект для определения группы крови",
+}

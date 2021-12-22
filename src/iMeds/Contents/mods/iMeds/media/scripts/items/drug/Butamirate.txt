@@ -1,0 +1,32 @@
+module iMeds {
+    imports {
+        Base
+    }
+
+    item Butamirate
+    {
+        Weight = 0.25,
+        Type = Drainable,
+        UseDelta = 0.005,
+        DisplayName = UI_Item_Butamirate_Name,
+        Icon = Butamirate,
+        Medical = TRUE,
+        DisplayCategory = FirstAid,
+        StaticModel = Butamirate,
+        WorldStaticModel = ButamirateGround,
+    }
+
+    item ButamiratePack
+    {
+        Weight = 0.3,
+        Type = Drainable,
+        UseDelta = 1,
+        DisplayName = UI_Item_ButamiratePack_Name,
+        Icon = ButamiratePack,
+        Tooltip = UI_Item_ButamiratePack_Description,
+        Medical = TRUE,
+        DisplayCategory = FirstAid,
+        StaticModel = ButamiratePack,
+        WorldStaticModel = ButamiratePackGround,
+    }
+}

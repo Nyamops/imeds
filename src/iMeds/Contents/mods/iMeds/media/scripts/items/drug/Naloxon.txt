@@ -1,0 +1,32 @@
+module iMeds {
+    imports {
+        Base
+    }
+
+    item Naloxon
+    {
+        Weight = 0.05,
+        Type = Drainable,
+        UseDelta = 1,
+        DisplayName = UI_Item_Naloxon_Name,
+        Icon = AmpouleYellow,
+        Medical = TRUE,
+        DisplayCategory = FirstAid,
+        StaticModel = Ampoule,
+        WorldStaticModel = AmpouleGround,
+    }
+
+    item NaloxonPack
+    {
+        Weight = 0.5,
+        Type = Drainable,
+        UseDelta = 0.1,
+        DisplayName = UI_Item_NaloxonPack_Name,
+        Icon = NaloxonPack,
+        Tooltip = UI_Item_NaloxonPack_Description,
+        Medical = TRUE,
+        DisplayCategory = FirstAid,
+        StaticModel = NaloxonPack,
+        WorldStaticModel = NaloxonPackground,
+    }
+}

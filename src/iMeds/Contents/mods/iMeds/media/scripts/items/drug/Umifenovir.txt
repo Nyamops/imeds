@@ -1,0 +1,32 @@
+module iMeds {
+    imports {
+        Base
+    }
+
+    item Umifenovir
+    {
+        Weight = 0.1,
+        Type = Drainable,
+        UseDelta = 0.2,
+        DisplayName = UI_Item_Umifenovir_Name,
+        Icon = Blister,
+        Medical = TRUE,
+        DisplayCategory = FirstAid,
+        StaticModel = Blister,
+        WorldStaticModel = BlisterGround,
+    }
+
+    item UmifenovirPack
+    {
+        Weight = 0.15,
+        Type = Drainable,
+        UseDelta = 1,
+        DisplayName = UI_Item_UmifenovirPack_Name,
+        Icon = PillPackRed,
+        Tooltip = UI_Item_UmifenovirPack_Description,
+        Medical = TRUE,
+        DisplayCategory = FirstAid,
+        StaticModel = UmifenovirPack,
+        WorldStaticModel = UmifenavirPackGround,
+    }
+}

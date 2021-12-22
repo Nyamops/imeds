@@ -1,0 +1,32 @@
+module iMeds {
+    imports {
+        Base
+    }
+
+    item BismuthSubsalicylate
+    {
+        Weight = 0.1,
+        Type = Drainable,
+        UseDelta = 0.02,
+        DisplayName = UI_Item_BismuthSubsalicylate_Name,
+        Icon = PillRed,
+        Medical = TRUE,
+        DisplayCategory = FirstAid,
+        StaticModel = PillBottle,
+        WorldStaticModel = Vitamins_Ground,
+    }
+
+    item BismuthSubsalicylatePack
+    {
+        Weight = 0.15,
+        Type = Drainable,
+        UseDelta = 1,
+        DisplayName = UI_Item_BismuthSubsalicylatePack_Name,
+        Icon = PillPackBlue,
+        Tooltip = UI_Item_BismuthSubsalicylatePack_Description,
+        Medical = TRUE,
+        DisplayCategory = FirstAid,
+        StaticModel = BismuthSubsalicylatePack,
+        WorldStaticModel = BismuthSubsalicylatePackGround,
+    }
+}

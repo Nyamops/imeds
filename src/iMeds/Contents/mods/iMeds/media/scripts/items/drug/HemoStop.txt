@@ -1,0 +1,32 @@
+module iMeds {
+    imports {
+        Base
+    }
+
+    item HemoStop
+    {
+        Weight = 0.05,
+        Type = Drainable,
+        UseDelta = 0.05,
+        DisplayName = UI_Item_HemoStop_Name,
+        Icon = HemoStop,
+        Medical = TRUE,
+        DisplayCategory = FirstAid,
+        StaticModel = HemoStop,
+        WorldStaticModel = HemoStopGround,
+    }
+
+    item HemoStopPack
+    {
+        Weight = 0.1,
+        Type = Drainable,
+        UseDelta = 0.5,
+        DisplayName = UI_Item_HemoStopPack_Name,
+        Icon = HemoStopPack,
+        Tooltip = UI_Item_HemoStopPack_Description,
+        Medical = TRUE,
+        DisplayCategory = FirstAid,
+        StaticModel = HemoStopPack,
+        WorldStaticModel = HemoStopPackGround,
+    }
+}

@@ -1,0 +1,32 @@
+module iMeds {
+    imports {
+        Base
+    }
+
+    item Alkagin
+    {
+        Weight = 0.05,
+        Type = Drainable,
+        UseDelta = 1,
+        DisplayName = UI_Item_Alkagin_Name,
+        Icon = AmpouleGreen,
+        Medical = TRUE,
+        DisplayCategory = FirstAid,
+        StaticModel = Ampoule,
+        WorldStaticModel = AmpouleGround,
+    }
+
+    item AlkaginPack
+    {
+        Weight = 0.5,
+        Type = Drainable,
+        UseDelta = 0.1,
+        DisplayName = UI_Item_AlkaginPack_Name,
+        Icon = AlkaginPack,
+        Tooltip = UI_Item_AlkaginPack_Description,
+        Medical = TRUE,
+        DisplayCategory = FirstAid,
+        StaticModel = AlkaginPack,
+        WorldStaticModel = AlkaginPackGround,
+    }
+}
