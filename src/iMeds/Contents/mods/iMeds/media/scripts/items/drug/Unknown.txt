@@ -7,7 +7,7 @@ module iMeds {
     {
         Weight = 0.1,
         Type = Normal,
-        DisplayName = UI_Item_UnknownPack_Name,
+        DisplayName = Unknown Pack,
         Icon = PillPackPink,
         Medical = TRUE,
         DisplayCategory = FirstAid,
