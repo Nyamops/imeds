@@ -1,5 +1,6 @@
 version=0.0.1
-title=Immersive Medicine
+id=2709400082
+title=Immersive Medicine [Revised]
 description=
-tags=
-visibility=private
+tags=Build 41;Items;Misc;Multiplayer;Realistic;Traits
+visibility=friendsOnly
