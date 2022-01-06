@@ -4,6 +4,10 @@ local normalEffect = function()
     end
 
     if Survivor:getBlood():getDrugs()[Butamirate.alias].isActive then
+        if not getPlayer():getBodyDamage():isHasACold() then
+            return false
+        end
+
         --- 1 - sneeze
         --- 2 - cough
         --- 3 - tissue sneeze
