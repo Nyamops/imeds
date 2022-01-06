@@ -49,7 +49,7 @@ UI_EN = {
     UI_Item_ButamiratePack_Name = "Butamirate pack",
     UI_Item_ButamiratePack_Description = "Antitussive agent of central action. Butamirate does not belong to the alkaloids of opium. It does not form addiction or addiction. Suppresses cough, having a direct effect on the cough center.",
 
-    UI_Item_HemoStopPack_Name = "HemoStop pack"",
+    UI_Item_HemoStopPack_Name = "HemoStop pack",
     UI_Item_HemoStopPack_Description = "Hemostatic powder.",
 
     UI_Item_UmifenovirPack_Name = "Umifenovir pack",
