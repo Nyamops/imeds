@@ -59,7 +59,13 @@ function AttachNeedleToSyringeAction:perform()
 
     syringe:setUsedDelta(0.0)
 
-    self.character:sendObjectChange('addItem', { item = syringe })
+    if isClient() then
+        local args = { id = self.character:getOnlineID(), item = syringe }
+        sendClientCommand(self.character, 'drug', AttachNeedleToSyringeCommand.defaultName, args)
+    else
+        self.character:sendObjectChange('addItem', { item = syringe })
+    end
+
     self.syringe:Use()
     self.needle:Use()
 end
