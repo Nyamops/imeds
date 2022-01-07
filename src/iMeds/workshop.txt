@@ -1,6 +1,6 @@
 version=1
 id=2709866494
-title=Immersive Medicine [Revised]
+title=Immersive Medicine [Revised] Alpha
 tags=Build 41;Items;Misc;Multiplayer;Realistic;Traits
 visibility=public
 
@@ -18,7 +18,7 @@ description=[list]
 description=[*]Slight blood loss: slight fatigue and drowsiness;
 description=[*]Moderate blood loss: cold sweat, thirst;
 description=[*]Critical blood loss: blurred vision, feeling cold;
-description=[*]Fatal blood loss: complete exhaustion — don't forget to bring an obol with you
+description=[*]Fatal blood loss: complete exhaustion - don't forget to bring an obol with you
 description=[/list]
 description=
 description=Does the last point sound scary? Put the white slippers aside! Either stock up on blood packs of your group in advance, or ask your friend. Just be careful: suddenly he is infected or his group simply does not suit you.
@@ -58,9 +58,16 @@ description=I spent many days and nights developing and designing the mod. I wil
 description=
 description=[h1]The mod is still under development![/h1]
 description=
+description=[h1]Supported languages[/h1]
+description=[list]
+description=    [*] Spanish [ES] ([url=https://steamcommunity.com/id/Arkorinho]Arko Piktuviry[/url])
+description=    [*] Russian [RU]
+description=    [*] English [EN]
+description=[/list]
+description=
 description=[hr][/hr]
 description=
 description=Workshop ID: 2709866494
 description=Mod ID: iMeds
 description=[url=https://github.com/Nyamops/imeds]GitHub[/url]
-description=[url=https://discord.gg/waYtmQ7]Discord[/url]
+description=[url=https://discord.gg/UHRPcs9EbR]Discord[/url]
