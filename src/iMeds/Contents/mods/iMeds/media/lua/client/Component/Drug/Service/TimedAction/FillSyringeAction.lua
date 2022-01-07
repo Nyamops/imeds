@@ -67,7 +67,14 @@ function FillSyringeAction:perform()
     end
 
     if self.syringe:getFullType() == SyringeWithNeedle.fullType then
-        self.character:sendObjectChange('addItem', { item = syringe })
+
+        if isClient() then
+            local args = { id = self.character:getOnlineID(), item = syringe }
+            sendClientCommand(self.character, 'drug', FillSyringeCommand.defaultName, args)
+        else
+            self.character:sendObjectChange('addItem', { item = syringe })
+        end
+
         self.syringe:Use()
     end
 

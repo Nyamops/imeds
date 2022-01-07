@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Deploy Workshop" type="ShConfigurationType">
-    <option name="SCRIPT_TEXT" value="rm -r -fo ~/Zomboid/Workshop/iMeds; Copy-Item -Path ./src/iMeds -Destination ~/Zomboid/Workshop/iMeds -recurse -Force; exit" />
+  <configuration default="false" name="Deploy Mod" type="ShConfigurationType">
+    <option name="SCRIPT_TEXT" value="rm -r -fo ~/Zomboid/Workshop/iMeds; Copy-Item -Path ./src/iMeds -Destination ~/Zomboid/Workshop/iMeds -recurse -Force; rm -r -fo ~/Zomboid/mods/iMeds; Copy-Item -Path ./src/iMeds/Contents/mods/iMeds -Destination ~/Zomboid/mods/iMeds -recurse -Force; exit;" />
     <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
     <option name="SCRIPT_PATH" value="" />
     <option name="SCRIPT_OPTIONS" value="" />

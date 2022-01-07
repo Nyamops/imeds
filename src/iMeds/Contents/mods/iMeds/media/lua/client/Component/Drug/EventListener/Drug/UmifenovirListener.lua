@@ -25,7 +25,7 @@ local overdoseEffect = function()
     end
 
     if not Survivor:getBlood():getDrugs()[Umifenovir.alias].isOverdoseEffectApplied then
-        local duration = Umifenovir.durationByDosageForm[DosageForm.Oral.Pill] / 2
+        local duration = Umifenovir.durationByDosageForm[DosageForm.Oral.Pill.alias] / 2
         Survivor:getBlood():getDrugs()[Umifenovir.alias].duration = Survivor:getBlood():getDrugs()[Umifenovir.alias].duration - duration
     end
 end
