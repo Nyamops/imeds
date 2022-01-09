@@ -9,6 +9,10 @@ function OnBloodVolumeReducerDeleteListener:new()
         local fullBloodBag = BloodBagCreator:new():createFull()
         getPlayer():getSquare():AddWorldInventoryItem(fullBloodBag, 0.5, 0.5, 0)
 
+        if not SandboxVars.IsBloodSystemActive then
+            return false
+        end
+
         Survivor:getBlood():reduceVolume(fullBloodBag:getModData().blood.volume)
         Survivor:setEndurance(Survivor:getEndurance() - 0.35);
         Survivor:setFatigue(Survivor:getFatigue() + 0.45);

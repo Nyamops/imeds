@@ -1,0 +1,39 @@
+ItemName_CN = {
+    ItemName_iMeds.EmptyBloodBag = "空血袋",
+    ItemName_iMeds.FullBloodBag = "血袋",
+    ItemName_iMeds.PeripheralVenousCatheter = "留置针",
+    ItemName_iMeds.BloodVolumeReducer = "系统物品",
+    ItemName_iMeds.DrugApplier = "系统物品",
+    ItemName_iMeds.BloodVolumeIncreaser = "系统物品",
+    ItemName_iMeds.SyringePack = "包装5毫升注射器",
+    ItemName_iMeds.Syringe = "5毫升注射器",
+    ItemName_iMeds.NeedlePack = "包装注射器针头",
+    ItemName_iMeds.Needle = "注射器针头",
+    ItemName_iMeds.SyringeWithNeedle = "静脉/肌注用注射器",
+    ItemName_iMeds.FullSyringeWithNeedle = "含有药物的注射器",
+
+    ItemName_iMeds.Alkagin = "阿尔卡金",
+    ItemName_iMeds.AlkaginPack = "包装阿尔卡金",
+
+    ItemName_iMeds.BismuthSubsalicylate = "碱式水杨酸铋",
+    ItemName_iMeds.BismuthSubsalicylatePack = "包装碱式水杨酸铋",
+
+    ItemName_iMeds.Morphine = "吗啡",
+    ItemName_iMeds.MorphinePack = "包装吗啡",
+
+    ItemName_iMeds.Naloxon = "纳洛酮",
+    ItemName_iMeds.NaloxonPack = "包装纳洛酮",
+
+    ItemName_iMeds.Butamirate = "咳息定",
+    ItemName_iMeds.ButamiratePack = "包装咳息定",
+
+    ItemName_iMeds.HemoStop = "止血粉",
+    ItemName_iMeds.HemoStopPack = "包装止血粉",
+
+    ItemName_iMeds.Umifenovir = "盐酸阿比朵尔",
+    ItemName_iMeds.UmifenovirPack = "包装盐酸阿比朵尔",
+
+    ItemName_iMeds.UnknownPack = "包装未知药物",
+
+    ItemName_iMeds.BloodTestingKit = "血液检查套装",
+}

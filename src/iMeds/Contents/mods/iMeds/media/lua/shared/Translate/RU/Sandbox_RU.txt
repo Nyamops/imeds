@@ -1,0 +1,5 @@
+Sandbox_RU = {
+    Sandbox_BloodSystem = "—истема крови",
+    Sandbox_IsBloodSystemActive = "¬ключить систему крови",
+    Sandbox_IsBloodTypeSystemActive = "¬ключить группы крови",
+}

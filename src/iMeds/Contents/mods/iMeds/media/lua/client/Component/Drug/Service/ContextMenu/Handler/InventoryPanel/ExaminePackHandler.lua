@@ -3,9 +3,13 @@ ExaminePackHandler = {}
 function ExaminePackHandler:supports(item, player)
     self.items = {}
 
+    ---@type DrugPackStorage
+    local drugPackStorage = ZCore:getContainer():get('imeds.drug.storage.drug_pack_storage')
+
     if item:getModule() == 'iMeds'
         and item:getFullType() ~= UnknownPack.fullType
         and string.contains(item:getFullType(), 'Pack')
+        and drugPackStorage:getByFullType(item:getFullType()) ~= nil
     then
         table.insert(self.items, item)
     end

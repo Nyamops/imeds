@@ -36,4 +36,22 @@ ItemName_EN = {
     ItemName_iMeds.UnknownPack = "Unknown drug pack",
 
     ItemName_iMeds.BloodTestingKit = "Blood testing kit",
+
+    ItemName_iMeds.ErythrocyteSuspensionBagABN = "Erythrocyte suspension bag AB(IV) Rh-",
+    ItemName_iMeds.ErythrocyteSuspensionBagABP = "Erythrocyte suspension bag AB(IV) Rh+",
+    ItemName_iMeds.ErythrocyteSuspensionBagAN = "Erythrocyte suspension bag A(II) Rh-",
+    ItemName_iMeds.ErythrocyteSuspensionBagAP = "Erythrocyte suspension bag A(II) Rh+",
+    ItemName_iMeds.ErythrocyteSuspensionBagBN = "Erythrocyte suspension bag B(III) Rh-",
+    ItemName_iMeds.ErythrocyteSuspensionBagBP = "Erythrocyte suspension bag B(III) Rh+",
+    ItemName_iMeds.ErythrocyteSuspensionBagON = "Erythrocyte suspension bag O(I) Rh-",
+    ItemName_iMeds.ErythrocyteSuspensionBagOP = "Erythrocyte suspension bag O(I) Rh+",
+
+    ItemName_iMeds.PlasmaBagABN = "Blood plasma bag AB(IV) Rh-",
+    ItemName_iMeds.PlasmaBagABP = "Blood plasma bag AB(IV) Rh+",
+    ItemName_iMeds.PlasmaBagAN = "Blood plasma bag A(II) Rh-",
+    ItemName_iMeds.PlasmaBagAP = "Blood plasma bag A(II) Rh+",
+    ItemName_iMeds.PlasmaBagBN = "Blood plasma bag B(III) Rh-",
+    ItemName_iMeds.PlasmaBagBP = "Blood plasma bag B(III) Rh+",
+    ItemName_iMeds.PlasmaBagON = "Blood plasma bag O(I) Rh-",
+    ItemName_iMeds.PlasmaBagOP = "O(I)Rh+ blood plasma bag",
 }
