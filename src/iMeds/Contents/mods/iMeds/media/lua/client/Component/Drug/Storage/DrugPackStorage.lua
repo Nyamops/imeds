@@ -19,6 +19,18 @@ function DrugPackStorage:new()
         return indexedDrugs[ZombRand(1, #indexedDrugs)]
     end
 
+    ---@param fullType string
+    ---@return Pack|nil
+    function public:getByFullType(fullType)
+        for _, pack in pairs(private.packs) do
+            if pack:getFullType() == fullType then
+                return pack
+            end
+        end
+
+        return nil
+    end
+
     setmetatable(public, self)
     self.__index = self
     self.__metatable = 'DrugPackStorage'

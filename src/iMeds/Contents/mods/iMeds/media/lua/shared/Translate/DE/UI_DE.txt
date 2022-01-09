@@ -1,4 +1,4 @@
-UI_EN = {
+UI_DE = {
     UI_Item_EmptyBloodBag_Name = "Leerer Blutbeutel",
     UI_Item_EmptyBloodBag_Description = "Leerer Blutbeutel",
     UI_Item_FullBloodBag_Name = "Voller Blutbeutel",

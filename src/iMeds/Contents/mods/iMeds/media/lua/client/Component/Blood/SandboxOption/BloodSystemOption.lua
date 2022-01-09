@@ -1,0 +1,228 @@
+--local initialized = false
+--Events.OnTick.Add(function()
+--    if not initialized and getPlayer() and getPlayer():getOnlineID() then
+--        sendClientCommand(getPlayer(), 'config', 'getImmersiveMedicineConfig', { id = getPlayer():getOnlineID() })
+--        initialized = true
+--    end
+--end)
+--
+--Events.OnServerCommand.Add(
+--    function(module, command, package)
+--        if module == 'config' and command == 'receiveImmersiveMedicineConfig' then
+--            ImmersiveMedicineData = ModData.getOrCreate('immersiveMedicineData')
+--            ImmersiveMedicineData.IsBloodSystemActive = package.IsBloodSystemActive
+--            ImmersiveMedicineData.IsBloodTypeSystemActive = package.IsBloodTypeSystemActive
+--
+--            SandboxVars.IsBloodSystemActive = ImmersiveMedicineData.IsBloodSystemActive
+--            SandboxVars.IsBloodTypeSystemActive = ImmersiveMedicineData.IsBloodTypeSystemActive
+--        end
+--    end
+--)
+--
+--BloodSystemOption = {}
+--BloodSystemOption.create = ServerSettingsScreen.create
+--BloodSystemOption.getSandboxSettingsTable = ServerSettingsScreen.getSandboxSettingsTable
+--
+--BloodSystemOption.onButtonApply = ISServerSandboxOptionsUI.onButtonApply
+--function ISServerSandboxOptionsUI:onButtonApply()
+--    BloodSystemOption.onButtonApply(self)
+--    sendClientCommand(getPlayer(), 'config', 'getImmersiveMedicineConfig', { id = getPlayer():getOnlineID() })
+--end
+--
+--
+----TODO вынести в сервис
+--BloodSystemOption.add = function()
+--    BooleanSandboxOption.new(getSandboxOptions(), 'IsBloodSystemActive', true)
+--    getSandboxOptions():getOptionByName('IsBloodSystemActive'):setPageName('BloodSystem')
+--
+--    BooleanSandboxOption.new(getSandboxOptions(), 'IsBloodTypeSystemActive', true)
+--    getSandboxOptions():getOptionByName('IsBloodTypeSystemActive'):setPageName('BloodSystem')
+--end
+--
+--BloodSystemOption.add()
+--
+--function ServerSettingsScreen.getSandboxSettingsTable()
+--    local settings = BloodSystemOption.getSandboxSettingsTable(self)
+--
+--    local isBloodSystemActive = getSandboxOptions():getOptionByName('IsBloodSystemActive')
+--    local isBloodTypeSystemActive = getSandboxOptions():getOptionByName('IsBloodTypeSystemActive')
+--
+--    table.insert(settings, {
+--        name = 'Immersive Medicine',
+--        settings = {
+--            {
+--                type = 'checkbox',
+--                default = isBloodSystemActive:getDefaultValue(),
+--                name = isBloodSystemActive:getShortName(),
+--                translatedName = getText('Sandbox_' .. isBloodSystemActive:getShortName()),
+--            },
+--            {
+--                type = 'checkbox',
+--                default = isBloodTypeSystemActive:getDefaultValue(),
+--                name = isBloodTypeSystemActive:getShortName(),
+--                translatedName = getText('Sandbox_' .. isBloodTypeSystemActive:getShortName()),
+--            },
+--        }
+--    })
+--
+--    return settings
+--end
+--
+--local SettingsTable
+--
+--function ServerSettingsScreen:create()
+--    BloodSystemOption.create(self)
+--    BloodSystemOption.add()
+--
+--    for _, category in ipairs(SettingsTable) do
+--        self.pageEdit.controls[category.name] = {}
+--        self.pageEdit.groupBox[category.name] = {}
+--
+--        local item = {}
+--        item.category = category
+--        self.pageEdit.listbox:addItem(category.name, item)
+--        for _, page in ipairs(category.pages) do
+--            if not page.steamOnly or getSteamModeActive() then
+--                item = {}
+--                item.page = page
+--                item.panel = self.pageEdit:createPanel(category, page)
+--                self.pageEdit.listbox:addItem(page.name, item)
+--            end
+--        end
+--    end
+--
+--    local private = {}
+--    private.pageEdit = self.pageEdit
+--    private.onSave = self.pageEdit.buttonAccept.onclick
+--    self.pageEdit.buttonAccept.onclick = function()
+--        local writer = getFileWriter(private.pageEdit.settings:getName() .. '_ImmersiveMedicine.ini', true, false)
+--        local isBloodSystemActive = private.pageEdit.controls.ImmersiveMedicine.IsBloodSystemActive.selected[1] and 'TRUE' or 'FALSE'
+--        writer:writeln('IsBloodSystemActive=' .. isBloodSystemActive)
+--
+--        local isBloodTypeSystemActive = private.pageEdit.controls.ImmersiveMedicine.IsBloodTypeSystemActive.selected[1] and 'TRUE' or 'FALSE'
+--        writer:writeln('IsBloodTypeSystemActive=' .. isBloodTypeSystemActive)
+--
+--        writer:close()
+--
+--        private.onSave(private.pageEdit)
+--    end
+--
+--    private.aboutToShow = self.pageEdit.aboutToShow
+--
+--    function self.pageEdit:aboutToShow()
+--        private.aboutToShow(self)
+--
+--        local reader = getFileReader(self.settings:getName() .. '_ImmersiveMedicine.ini', true)
+--        while true do
+--            local line = reader:readLine()
+--            if not line then
+--                reader:close()
+--                break
+--            end
+--
+--            local config = line:trim()
+--            if luautils.stringStarts(config, "IsBloodSystemActive=") then
+--                self.controls.ImmersiveMedicine.IsBloodSystemActive.selected[1] = string.split(config, '=')[2] == 'TRUE'
+--            end
+--
+--            if luautils.stringStarts(config, "IsBloodTypeSystemActive=") then
+--                self.controls.ImmersiveMedicine.IsBloodTypeSystemActive.selected[1] = string.split(config, '=')[2] == 'TRUE'
+--            end
+--        end
+--    end
+--end
+--
+--SettingsTable = {
+--    {
+--        name = "ImmersiveMedicine",
+--        pages = {
+--            {
+--                name = "BloodSystem",
+--                settings = {
+--                    { name = "IsBloodSystemActive" },
+--                    { name = "IsBloodTypeSystemActive" },
+--                }
+--            },
+--        },
+--    },
+--}
+--
+-----Duplicated block
+--local serverOptions = ServerOptions:new()
+--local missedSettings = {}
+--for i = 1, serverOptions:getNumOptions() do
+--    missedSettings[serverOptions:getOptionByIndex(i - 1):getName()] = true
+--end
+--
+--local pageByName = {}
+--for _, page in ipairs(SettingsTable[1].pages) do
+--    local pageName = page.title or page.name
+--    pageByName[pageName] = page
+--end
+--
+--for i = 1, getSandboxOptions():getNumOptions() do
+--    local option = getSandboxOptions():getOptionByIndex(i - 1)
+--    if option:isCustom() and option:getPageName() ~= nil then
+--        local page = pageByName[option:getPageName()]
+--        if not page then
+--            page = {}
+--            page.name = option:getPageName()
+--            page.settings = {}
+--            table.insert(SettingsTable[1].pages, page)
+--            pageByName[page.name] = page
+--        end
+--        table.insert(page.settings, { name = option:getName() })
+--    end
+--    missedSettings[option:getName()] = true
+--end
+--
+--for _, page in ipairs(SettingsTable[1].pages) do
+--    page.name = page.title or getText("Sandbox_" .. page.name)
+--    for _, setting in ipairs(page.settings) do
+--        local option = getSandboxOptions():getOptionByName(setting.name)
+--        if not option then
+--            error('unknown sandbox option "' .. setting.name .. "'")
+--        end
+--        --		option = option:asConfigOption()
+--        setting.translatedName = option:getTranslatedName()
+--        setting.tooltip = option:getTooltip()
+--        if option:getType() == "boolean" then
+--            setting.type = "checkbox"
+--            setting.default = option:getDefaultValue()
+--        elseif option:getType() == "double" then
+--            setting.type = "entry"
+--            setting.text = option:getValueAsString()
+--            setting.onlyNumbers = false -- TODO: UITextBox2 handle floating-point
+--        elseif option:getType() == "enum" then
+--            setting.type = "enum"
+--            setting.values = {}
+--            for k = 1, option:getNumValues() do
+--                if setting.name == "StartYear" then
+--                    table.insert(setting.values, tostring(getSandboxOptions():getFirstYear() + k - 1))
+--                elseif setting.name == "StartDay" then
+--                    table.insert(setting.values, tostring(k))
+--                else
+--                    table.insert(setting.values, option:getValueTranslationByIndex(k))
+--                end
+--            end
+--            setting.default = option:getDefaultValue();
+--        elseif option:getType() == "integer" then
+--            setting.type = "entry"
+--            setting.text = option:getValueAsString()
+--            setting.onlyNumbers = true
+--        elseif option:getType() == "string" then
+--            setting.type = "string"
+--            setting.text = option:getValue()
+--        elseif option:getType() == "text" then
+--            setting.type = "text"
+--            setting.text = option:getValue()
+--        else
+--            error("unknown sandbox option type " .. tostring(option:getType()))
+--        end
+--        missedSettings[option:getName()] = nil
+--    end
+--end
+--
+--for key, value in pairs(missedSettings) do
+--    print('MISSING in SettingsTable: ' .. key)
+--end

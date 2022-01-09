@@ -1,4 +1,4 @@
-ItemName_EN = {
+ItemName_DE = {
     ItemName_iMeds.EmptyBloodBag = "Leerer Blutbeutel",
     ItemName_iMeds.FullBloodBag = "Voller Blutbeutel",
     ItemName_iMeds.PeripheralVenousCatheter = "IV Katheter",

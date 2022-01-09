@@ -68,6 +68,8 @@ function TraitInitializer:new()
                 private:addMutualExclusives(trait)
             end
         end
+
+        TraitFactory.sortList();
     end
 
     setmetatable(public, self)
