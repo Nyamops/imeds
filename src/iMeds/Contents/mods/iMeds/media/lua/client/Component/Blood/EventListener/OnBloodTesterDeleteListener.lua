@@ -7,7 +7,7 @@ function OnBloodTesterDeleteListener:new()
 
     function public:update(data)
         local bloodTestingKit = InventoryItemFactory.CreateItem(BloodTestingKit.fullType)
-        bloodTestingKit:setTooltip(Survivor:getBlood():getGroup():getName())
+        bloodTestingKit:setName(Survivor:getBlood():getGroup():getName())
         bloodTestingKit:setUsedDelta(0)
         getPlayer():getSquare():AddWorldInventoryItem(bloodTestingKit, 0.5, 0.5, 0)
 

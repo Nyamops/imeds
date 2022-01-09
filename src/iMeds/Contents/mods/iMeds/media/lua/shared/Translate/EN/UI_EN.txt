@@ -123,4 +123,8 @@ UI_EN = {
 
     UI_Trait_Pharmacist_Name = "Pharmacist",
     UI_Trait_Pharmacist_Description = "Can identify drugs. Knows everything about the composition of medicines and indications for their use",
+    UI_Trait_Universal_Donor_Name = "Universal donor",
+    UI_Trail_Universal_Donor_Description = "Can become a donor for all other blood groups",
+    UI_Trait_Universal_Recipient_Name = "Universal recipient",
+    UI_Train_Universal_Recipient_Description = "Can accept blood of all other blood groups",
 }

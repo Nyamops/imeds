@@ -44,12 +44,12 @@ function TakeDrugsOralAction:start()
     end
 
     if self.character == self.otherPlayer then
+        self:setActionAnim(CharacterActionAnims.TakePills)
+        self.character:reportEvent("EventEating")
+    else
         self:setActionAnim('Loot')
         self.character:SetVariable('LootPosition', 'Mid')
         self.character:reportEvent("EventLootItem")
-    else
-        self:setActionAnim(CharacterActionAnims.TakePills)
-        self.character:reportEvent("EventEating")
     end
 
     self:setOverrideHandModels(self.item, nil)

@@ -17,10 +17,7 @@ end
 Events.OnClientCommand.Add(
     function(module, command, player, args)
         if module == 'drug' and command == TakeOneCommand.defaultName then
-            local argStr = ''
-            for k, v in pairs(args) do
-                argStr = argStr .. ' ' .. k .. '=' .. tostring(v)
-            end
+
 
             TakeOneCommand.execute(player, args)
         end
