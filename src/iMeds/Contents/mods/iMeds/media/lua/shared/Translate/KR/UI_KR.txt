@@ -1,4 +1,4 @@
-UI_EN = {
+UI_KR = {
     UI_Item_EmptyBloodBag_Name = "빈 혈액팩",
     UI_Item_EmptyBloodBag_Description = "빈 혈액팩",
     UI_Item_FullBloodBag_Name = "가득 찬 혈액팩",
@@ -123,7 +123,7 @@ UI_EN = {
 
     UI_Trait_Pharmacist_Name = "약리학자",
     UI_Trait_Pharmacist_Description = "약품을 판별할 수 있습니다. 약품의 성분과 용법을 알고 있습니다.",
-    UI_Trait_UniversalDonor_Name = "만능 헌혈자",
+    UI_Trait_UniversalDonor_Name = "만능 공혈자",
     UI_Trail_UniversalDonor_Description = "모든 혈액형에게 헌혈해줄 수 있습니다.",
     UI_Trait_UniversalRecipient_Name = "만능 수혈자",
     UI_Train_UniversalRecipient_Description = "모든 혈액형의 혈액을 수혈받을 수 있습니다.",
