@@ -1,0 +1,5 @@
+Sandbox_EN = {
+    Sandbox_BloodSystem = "혈액 시스템",
+    Sandbox_IsBloodSystemActive = "혈액 시스템 켜기",
+    Sandbox_IsBloodTypeSystemActive = "혈액형 켜기",
+}
