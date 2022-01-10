@@ -11,7 +11,7 @@ description=Are you surprised that in this world, all treatment consists of taki
 description=
 description=I think I've found a solution for you. Meet: [b]Immersive Medicine[/b]
 description=
-description=[h1]Blood transfusion system:[/h1]
+description=[h1]Blood transfusion system[/h1]
 description=Do you think it's enough to monitor the character's default health? You're wrong.
 description=Now you need to monitor the blood volume in your body:
 description=[list]
@@ -26,7 +26,7 @@ description=
 description=Becoming a donor is easy. You need: a blood testing kit, an empty blood bag, a catheter for intravenous transfusion. And a refrigerator. If you overdo it and you need to store a friend or blood bags somewhere.
 description=[i]To perform a blood transfusion, you need to select either the right or left forearm in the health panel[/i]
 description=
-description=[h1]Drugs and dosage forms:[/h1]
+description=[h1]Drugs and dosage forms[/h1]
 description=I have a whole line of drugs in store for you. There are not many of them yet, but the list will be replenished:
 description=[list]
 description=[*]Alkagine - an analgesic non-narcotic agent;
@@ -66,20 +66,20 @@ description=    [*] [b]You can turn off the blood group system[/b] - "Enable Blo
 description=It is responsible only for the compatibility of blood groups.
 description=[/list]
 description=
-description=[h1]Manual configuration:[/h1]
+description=[h1]Manual configuration[/h1]
 description=You need to modify a file.
 description=[code]
 description=Windows path: %HOMEDRIVE%%HOMEPATH%/Zomboid/Server/servertest_SandboxVars.lua
 description=Linux path: ~/Zomboid/Server/servertest_SandboxVars.lua
 description=[/code]
-description= "servertest" may be different if you use a custom server name. For example: [i]myserver_SandboxVars.lua[/i]
+description="servertest" may be different if you use a custom server name. For example: [i]myserver_SandboxVars.lua[/i]
 description=
 description=Append this to the bottom:
 description=[code]
 description=ImmersiveMedicine = {
 description=    IsBloodSystemActive = true,
 description=    IsBloodTypeSystemActive = true,
-description=},
+description=}
 description=[/code]
 description=
 description=[h1]The mod is still under development![/h1]
@@ -95,6 +95,7 @@ description=    [*] Italian    [IT] ([url=https://github.com/Nyamops/imeds/pull/
 description=    [*] French     [FR] ([url=https://github.com/Nyamops/imeds/pull/6]Fingbel[/url]) [i](May be incomplete)[/i]
 description=    [*] Portuguese [PT] ([url=https://steamcommunity.com/id/DarkxLight/]Richard[/url]) [i](May be incomplete)[/i]
 description=    [*] Brazilian  [BR] ([url=https://steamcommunity.com/id/DarkxLight/]Richard[/url]) [i](May be incomplete)[/i]
+description=    [*] Korean     [KR] ([url=https://github.com/Nyamops/imeds/pull/13]Dr_teray[/url]) [i](May be incomplete)[/i]
 description=[/list]
 description=
 description=[hr][/hr]
@@ -104,6 +105,6 @@ description=
 description=[url=https://ko-fi.com/nyamops][img]https://i.imgur.com/5zacwdR.png[/img][/url]
 description=[url=https://discord.gg/UHRPcs9EbR][img]https://i.imgur.com/Qh5001l.png[/img][/url]
 description=
+description=[url=https://github.com/Nyamops/imeds]GitHub[/url]
 description=Workshop ID: 2709866494
 description=Mod ID: iMeds
-description=[url=https://github.com/Nyamops/imeds]GitHub[/url]
