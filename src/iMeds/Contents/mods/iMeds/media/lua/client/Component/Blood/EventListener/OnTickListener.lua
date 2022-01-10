@@ -8,7 +8,7 @@ local updateBloodVolume = function()
         return false
     end
 
-    if not SandboxVars.IsBloodSystemActive then
+    if not SandboxVars.ImmersiveMedicine.IsBloodSystemActive then
         return false
     end
 

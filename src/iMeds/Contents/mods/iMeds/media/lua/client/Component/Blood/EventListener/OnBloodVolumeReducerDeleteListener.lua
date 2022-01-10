@@ -13,7 +13,7 @@ function OnBloodVolumeReducerDeleteListener:new()
 
         getPlayer():getSquare():AddWorldInventoryItem(fullBloodBag, 0.5, 0.5, 0)
 
-        if not SandboxVars.IsBloodSystemActive then
+        if not SandboxVars.ImmersiveMedicine.IsBloodSystemActive then
             return false
         end
 

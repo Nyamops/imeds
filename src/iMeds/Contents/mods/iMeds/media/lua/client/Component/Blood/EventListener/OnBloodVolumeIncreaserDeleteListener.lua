@@ -6,7 +6,7 @@ function OnBloodVolumeIncreaserDeleteListener:new()
     local public = {}
 
     function public:update(data)
-        if not SandboxVars.IsBloodSystemActive then
+        if not SandboxVars.ImmersiveMedicine.IsBloodSystemActive then
             return false
         end
 
@@ -22,7 +22,7 @@ function OnBloodVolumeIncreaserDeleteListener:new()
         Survivor:setPoisonLevel(data.blood.donor.poisonLevel / levelModifier + additionalPoisonLevel)
         Survivor:setIsInfected(data.blood.donor.isInfected)
 
-        if not SandboxVars.IsBloodTypeSystemActive then
+        if not SandboxVars.ImmersiveMedicine.IsBloodTypeSystemActive then
             return false
         end
 
