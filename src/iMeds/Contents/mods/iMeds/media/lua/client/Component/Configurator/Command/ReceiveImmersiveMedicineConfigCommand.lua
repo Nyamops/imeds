@@ -3,6 +3,10 @@ ReceiveImmersiveMedicineConfigCommand = {
     defaultName = 'receiveImmersiveMedicineConfig',
 }
 
+if not isClient() then
+    return
+end
+
 ReceiveImmersiveMedicineConfigCommand.execute = function(module, command, package)
     ImmersiveMedicineData = ModData.getOrCreate('ImmersiveMedicineData')
 
