@@ -4,7 +4,7 @@ local normalEffect = function()
     end
 
     if Survivor:getBlood():getDrugs()[Alkagin.alias].isActive then
-        Survivor:setPainReduction(20)
+        Survivor:setPainReduction(35)
     end
 end
 
