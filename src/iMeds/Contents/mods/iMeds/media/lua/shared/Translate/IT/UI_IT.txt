@@ -4,10 +4,10 @@ UI_IT = {
     UI_Item_FullBloodBag_Name = "Sacca di sangue piena",
     UI_Item_FullBloodBag_Description = "Una sacca di sangue piena.",
     UI_Item_PeripheralVenousCatheter_Name = "Agocannula",
-    UI_Item_PeripheralVenousCatheter_Description = "Ð€ utilizzato per la somministrazione endovenosa di farmaci.",
+    UI_Item_PeripheralVenousCatheter_Description = "? utilizzato per la somministrazione endovenosa di farmaci.",
 
     UI_Item_Alkagin_Name = "Alkagin",
-    UI_Item_Alkagin_Description = "Analgesico non narcotico. Ha effetto analgesico, antipiretico e antinfiammatorio debole, Ã¨ un derivato del pirazolone.",
+    UI_Item_Alkagin_Description = "Analgesico non narcotico. Ha effetto analgesico, antipiretico e antinfiammatorio debole, è un derivato del pirazolone.",
     UI_Item_Alkagin_SideEffects = "Nausea e vomito.",
 
     UI_Item_BismuthSubsalicylate_Name = "Subsalicilato di bismuto",
@@ -44,7 +44,7 @@ UI_IT = {
     UI_Item_BismuthSubsalicylatePack_Description = "Rimedio antiulcera e antidiarroico. Ha un effetto astringente e antiacido.",
 
     UI_Item_AlkaginPack_Name = "Confezione di Alkagin",
-    UI_Item_AlkaginPack_Description = "Analgesico non narcotico. Ha un effetto analgesico, antipiretico e debole antinfiammatorio, Ã¨ un derivato del pirazolone.",
+    UI_Item_AlkaginPack_Description = "Analgesico non narcotico. Ha un effetto analgesico, antipiretico e debole antinfiammatorio, è un derivato del pirazolone.",
 
     UI_Item_ButamiratePack_Name = "Confezione di Butamirato",
     UI_Item_ButamiratePack_Description = "Agente antitosse di azione centrale. Il butamirato non appartiene agli alcaloidi dell'oppio. Non forma dipendenza o dipendenza. Sopprime la tosse, avendo un effetto diretto sul centro della tosse.",
