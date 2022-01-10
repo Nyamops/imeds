@@ -126,5 +126,5 @@ UI_EN = {
     UI_Trait_UniversalDonor_Name = "Universal donor",
     UI_Trait_UniversalDonor_Description = "Can become a donor for all other blood groups",
     UI_Trait_UniversalRecipient_Name = "Universal recipient",
-    UI_Train_UniversalRecipient_Description = "Can accept blood of all other blood groups",
+    UI_Trait_UniversalRecipient_Description = "Can accept blood of all other blood groups",
 }
