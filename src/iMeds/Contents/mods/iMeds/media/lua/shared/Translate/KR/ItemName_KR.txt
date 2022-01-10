@@ -13,7 +13,7 @@ ItemName_KR = {
     ItemName_iMeds.FullSyringeWithNeedle = "약이 든 주사기",
 
     ItemName_iMeds.Alkagin = "설피린",
-    ItemName_iMeds.AlkaginPack = "설피린",
+    ItemName_iMeds.AlkaginPack = "설피린 팩",
 
     ItemName_iMeds.BismuthSubsalicylate = "차살리실산비스무트",
     ItemName_iMeds.BismuthSubsalicylatePack = "차살리실산비스무트 팩",
