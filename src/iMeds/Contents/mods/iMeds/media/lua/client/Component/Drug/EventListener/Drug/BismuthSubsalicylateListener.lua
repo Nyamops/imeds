@@ -14,7 +14,7 @@ local normalEffect = function()
             end
         end
 
-        local foodSicknessLevel = Survivor:getFoodSicknessLevel() - ZomboidGlobals.FoodSicknessDecrease * getGameTime():getMultiplier()
+        local foodSicknessLevel = Survivor:getFoodSicknessLevel() - ZomboidGlobals.FoodSicknessDecrease * 0.75 * getGameTime():getMultiplier()
         Survivor:setFoodSicknessLevel(foodSicknessLevel)
     end
 end

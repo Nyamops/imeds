@@ -1,5 +1,5 @@
 Sandbox_EN = {
-    Sandbox_BloodSystem = "Blood System",
+    Sandbox_ImmersiveMedicine = "Immersive medicine",
     Sandbox_IsBloodSystemActive = "Enable Blood System",
     Sandbox_IsBloodTypeSystemActive = "Enable Blood groups",
 }

@@ -1,7 +1,7 @@
 ItemName_FR = {
     ItemName_iMeds.EmptyBloodBag = "Poche de sang vide",
     ItemName_iMeds.FullBloodBag = "Poche de sang pleine",
-    ItemName_iMeds.PeripheralVenousCatheter = "CathÃ©ter",
+    ItemName_iMeds.PeripheralVenousCatheter = "Cathéter",
     ItemName_iMeds.BloodVolumeReducer = "System item",
     ItemName_iMeds.DrugApplier = "System item",
     ItemName_iMeds.BloodVolumeIncreaser = "System item",
@@ -10,7 +10,7 @@ ItemName_FR = {
     ItemName_iMeds.NeedlePack = "Paquet d'aiguilles d'injection",
     ItemName_iMeds.Needle = "Aiguilles d'injection",
     ItemName_iMeds.SyringeWithNeedle = "Seringue pour injections i/v i/m",
-    ItemName_iMeds.FullSyringeWithNeedle = "Seringue avec un mÃ©dicament",
+    ItemName_iMeds.FullSyringeWithNeedle = "Seringue avec un médicament",
 
     ItemName_iMeds.Alkagin = "Alkagin",
     ItemName_iMeds.AlkaginPack = "Paquet d'Alkagine",
@@ -33,7 +33,7 @@ ItemName_FR = {
     ItemName_iMeds.Umifenovir = "Umifenovir",
     ItemName_iMeds.UmifenovirPack = "Paquet de Umifenovir",
 
-    ItemName_iMeds.UnknownPack = "Paquet de mÃ©dicaments inconnu",
+    ItemName_iMeds.UnknownPack = "Paquet de médicaments inconnu",
 
     ItemName_iMeds.BloodTestingKit = "Kit de prise de sang",
 }

@@ -7,9 +7,13 @@ function OnBloodVolumeReducerDeleteListener:new()
 
     function public:update(data)
         local fullBloodBag = BloodBagCreator:new():createFull()
+        if Survivor:isKnowOwnBloodGroup() then
+            fullBloodBag:setName(string.format('%s (%s)', fullBloodBag:getName(), Survivor:getBlood():getGroup():getName()))
+        end
+
         getPlayer():getSquare():AddWorldInventoryItem(fullBloodBag, 0.5, 0.5, 0)
 
-        if not SandboxVars.IsBloodSystemActive then
+        if not SandboxVars.ImmersiveMedicine.IsBloodSystemActive then
             return false
         end
 

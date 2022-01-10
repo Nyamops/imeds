@@ -124,7 +124,7 @@ UI_CN = {
     UI_Trait_Pharmacist_Name = "执业药师",
     UI_Trait_Pharmacist_Description = "可以识别药品。了解药物的成分及其使用适应症。",
     UI_Trait_UniversalDonor_Name = "全适应供血者",
-    UI_Trail_UniversalDonor_Description = "可以为所有其他血型的人献血。",
+    UI_Trait_UniversalDonor_Description = "可以为所有其他血型的人献血。",
     UI_Trait_UniversalRecipient_Name = "全适应受血者",
-    UI_Train_UniversalRecipient_Description = "可以输入所有血型的血液。",
+    UI_Trait_UniversalRecipient_Description = "可以输入所有血型的血液。",
 }

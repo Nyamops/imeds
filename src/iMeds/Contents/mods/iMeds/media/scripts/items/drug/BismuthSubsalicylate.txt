@@ -7,7 +7,7 @@ module iMeds {
     {
         Weight = 0.1,
         Type = Drainable,
-        UseDelta = 0.02,
+        UseDelta = 0.05,
         DisplayName = Bismuth Subsalicylate,
         Icon = PillRed,
         Medical = TRUE,

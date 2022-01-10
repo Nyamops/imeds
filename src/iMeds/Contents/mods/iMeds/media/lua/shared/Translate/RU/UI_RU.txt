@@ -115,6 +115,7 @@ UI_RU = {
     UI_ContextMenu_ExamineDrug = "Изучить препарат",
     UI_ContextMenu_ExaminePack = "Изучить упаковку препарата",
     UI_ContextMenu_TestBlood = "Определить группу крови",
+    UI_ContextMenu_Rename = "Переименовать",
 
     UI_Window_DrugTitle = "Название препарата: %s",
     UI_Window_DrugDescription = "Описание препарата: %s",

@@ -18,8 +18,8 @@ module iMeds {
     {
         Weight = 0.5,
         Type = Food,
-        DaysFresh = 1,
-        DaysTotallyRotten = 2,
+        DaysFresh = 2,
+        DaysTotallyRotten = 3,
         DisplayName = Full Blood Bag,
         Icon = FullBloodBag,
         DisplayCategory = FirstAid,

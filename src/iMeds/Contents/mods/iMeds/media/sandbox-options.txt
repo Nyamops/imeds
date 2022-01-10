@@ -1,0 +1,13 @@
+VERSION = 1,
+
+option ImmersiveMedicine.IsBloodSystemActive
+{
+	type = boolean, default = true,
+	page = ImmersiveMedicine, translation = IsBloodSystemActive,
+}
+
+option ImmersiveMedicine.IsBloodTypeSystemActive
+{
+	type = boolean, default = true,
+	page = ImmersiveMedicine, translation = IsBloodTypeSystemActive,
+}

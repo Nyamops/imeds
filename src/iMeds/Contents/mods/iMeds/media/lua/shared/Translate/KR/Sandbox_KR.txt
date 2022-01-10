@@ -1,5 +1,5 @@
 Sandbox_KR = {
-    Sandbox_BloodSystem = "혈액 시스템",
-    Sandbox_IsBloodSystemActive = "혈액 시스템 켜기",
-    Sandbox_IsBloodTypeSystemActive = "혈액형 켜기",
+    Sandbox_ImmersiveMedicine = "$)CGw>W =C=:E[",
+    Sandbox_IsBloodSystemActive = "$)CGw>W =C=:E[ DQ1b",
+    Sandbox_IsBloodTypeSystemActive = "$)CGw>WG| DQ1b",
 }

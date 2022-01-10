@@ -1,9 +1,15 @@
-local isConfigReceived = false
-Events.OnTick.Add(
+if not isClient() then
+    return
+end
+
+Events.OnGameStart.Add(
     function()
-        if not isConfigReceived and getPlayer() and getPlayer():getOnlineID() then
-            sendClientCommand(getPlayer(), 'configurator', 'getImmersiveMedicineConfig', { id = getPlayer():getOnlineID() })
-            isConfigReceived = true
+        if SandboxVars.ImmersiveMedicine.IsBloodSystemActive == nil then
+            SandboxVars.ImmersiveMedicine.IsBloodSystemActive = true
+        end
+
+        if SandboxVars.ImmersiveMedicine.IsBloodTypeSystemActive == nil then
+            SandboxVars.ImmersiveMedicine.IsBloodTypeSystemActive = true
         end
     end
 )
