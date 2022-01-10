@@ -14,7 +14,7 @@ Naloxon = {
     },
     durationByDosageForm = {
         [DosageForm.Parenteral.Intravenous.alias] = 1 * 60,
-        [DosageForm.Parenteral.Intramuscular.alias] = 3 * 60,
+        [DosageForm.Parenteral.Intramuscular.alias] = 2 * 60,
     },
     onsetByDosageForm = {
         [DosageForm.Parenteral.Intravenous.alias] = 0,
