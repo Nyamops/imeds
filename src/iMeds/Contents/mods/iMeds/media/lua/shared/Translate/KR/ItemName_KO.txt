@@ -1,0 +1,57 @@
+ItemName_KO = {
+    ItemName_iMeds.EmptyBloodBag = "빈 혈액 팩",
+    ItemName_iMeds.FullBloodBag = "가득 찬 혈액 팩",
+    ItemName_iMeds.PeripheralVenousCatheter = "정맥 카테터",
+    ItemName_iMeds.BloodVolumeReducer = "시스템 아이템",
+    ItemName_iMeds.DrugApplier = "시스템 아이템",
+    ItemName_iMeds.BloodVolumeIncreaser = "시스템 아이템",
+    ItemName_iMeds.SyringePack = "5 ml 주사기 팩",
+    ItemName_iMeds.Syringe = "5 ml 주사기",
+    ItemName_iMeds.NeedlePack = "주삿바늘 팩",
+    ItemName_iMeds.Needle = "주삿바늘",
+    ItemName_iMeds.SyringeWithNeedle = "정맥, 근육주사용 주사기",
+    ItemName_iMeds.FullSyringeWithNeedle = "약이 든 주사기",
+
+    ItemName_iMeds.Alkagin = "설피린",
+    ItemName_iMeds.AlkaginPack = "설피린 팩",
+
+    ItemName_iMeds.BismuthSubsalicylate = "차살리실산비스무트",
+    ItemName_iMeds.BismuthSubsalicylatePack = "차살리실산비스무트 팩",
+
+    ItemName_iMeds.Morphine = "모르핀",
+    ItemName_iMeds.MorphinePack = "모르핀 팩",
+
+    ItemName_iMeds.Naloxon = "날록손",
+    ItemName_iMeds.NaloxonPack = "날록손 팩",
+
+    ItemName_iMeds.Butamirate = "부타미레이트",
+    ItemName_iMeds.ButamiratePack = "부타미레이트 팩",
+
+    ItemName_iMeds.HemoStop = "헤모스탑",
+    ItemName_iMeds.HemoStopPack = "헤모스탑 팩",
+
+    ItemName_iMeds.Umifenovir = "우미페노비르",
+    ItemName_iMeds.UmifenovirPack = "우미페노비르 팩",
+
+    ItemName_iMeds.UnknownPack = "알 수 없는 약 팩",
+
+    ItemName_iMeds.BloodTestingKit = "혈액형 검사 키트",
+
+    ItemName_iMeds.ErythrocyteSuspensionBagABN = "적혈구 팩 AB(IV) Rh-",
+    ItemName_iMeds.ErythrocyteSuspensionBagABP = "적혈구 팩 AB(IV) Rh+",
+    ItemName_iMeds.ErythrocyteSuspensionBagAN = "적혈구 팩 A(II) Rh-",
+    ItemName_iMeds.ErythrocyteSuspensionBagAP = "적혈구 팩 A(II) Rh+",
+    ItemName_iMeds.ErythrocyteSuspensionBagBN = "적혈구 팩 B(III) Rh-",
+    ItemName_iMeds.ErythrocyteSuspensionBagBP = "적혈구 팩 B(III) Rh+",
+    ItemName_iMeds.ErythrocyteSuspensionBagON = "적혈구 팩 O(I) Rh-",
+    ItemName_iMeds.ErythrocyteSuspensionBagOP = "적혈구 팩 O(I) Rh+",
+
+    ItemName_iMeds.PlasmaBagABN = "혈장 팩 AB(IV) Rh-",
+    ItemName_iMeds.PlasmaBagABP = "혈장 팩 AB(IV) Rh+",
+    ItemName_iMeds.PlasmaBagAN = "혈장 팩 A(II) Rh-",
+    ItemName_iMeds.PlasmaBagAP = "혈장 팩 A(II) Rh+",
+    ItemName_iMeds.PlasmaBagBN = "혈장 팩 B(III) Rh-",
+    ItemName_iMeds.PlasmaBagBP = "혈장 팩 B(III) Rh+",
+    ItemName_iMeds.PlasmaBagON = "혈장 팩 O(I) Rh-",
+    ItemName_iMeds.PlasmaBagOP = "혈장 팩 O(I) Rh+",
+}
