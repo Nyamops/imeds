@@ -34,6 +34,10 @@ UI_EN = {
     UI_Item_Umifenovir_Description = "Antiviral agent. Specifically suppresses influenza A and B viruses, coronavirus associated with severe acute respiratory syndrome.",
     UI_Item_Umifenovir_SideEffects = "-",
 
+    UI_Item_Nasivion_Name = "Nasivion",
+    UI_Item_Nasivion_Description = "Nasal drops in the form of a clear solution, with a faint smell of lavender.",
+    UI_Item_Nasivion_SideEffects = "-",
+
     UI_Item_NaloxonPack_Name = "Naloxone pack",
     UI_Item_NaloxonPack_Description = "Opioid receptor antagonist. Blocks opioid receptors, eliminates the central (including respiratory depression) and peripheral effects of opioids.",
 
@@ -54,6 +58,9 @@ UI_EN = {
 
     UI_Item_UmifenovirPack_Name = "Umifenovir pack",
     UI_Item_UmifenovirPack_Description = "Antiviral agent. Specifically suppresses influenza A and B viruses, a coronavirus associated with severe acute respiratory syndrome.",
+
+    UI_Item_NasivionPack_Name = "Nasivion pack",
+    UI_Item_NasivionPack_Description = "Nasal drops in the form of a clear solution, with a faint smell of lavender. Helps with a runny nose, reduces irritation of the mucous membrane.",
 
     UI_Item_BloodVolumeIncreaser_Name = "System item",
     UI_Item_BloodVolumeIncreaser_Description = "System item",

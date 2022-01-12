@@ -34,6 +34,10 @@ UI_RU = {
     UI_Item_Umifenovir_Description = "Противовирусное средство. Специфически подавляет вирусы гриппа А и В, коронавирус, ассоциированный с тяжелым острым респираторным синдромом.",
     UI_Item_Umifenovir_SideEffects = "-",
 
+    UI_Item_Nasivion_Name = "Упаковка називиона",
+    UI_Item_Nasivion_Description = "Капли назальные в виде прозрачного раствора, со слабым запахом лаванды.",
+    UI_Item_Nasivion_SideEffects = "-",
+
     UI_Item_NaloxonPack_Name = "Упаковка налоксона",
     UI_Item_NaloxonPack_Description = "Антагонист опиоидных рецепторов. Блокирует опиоидные рецепторы, устраняет центральное (в т.ч. угнетение дыхания) и периферическое действие опиоидов.",
 
@@ -54,6 +58,9 @@ UI_RU = {
 
     UI_Item_UmifenovirPack_Name = "Упаковка умифеновира",
     UI_Item_UmifenovirPack_Description = "Противовирусное средство. Специфически подавляет вирусы гриппа А и В, коронавирус, ассоциированный с тяжелым острым респираторным синдромом.",
+
+    UI_Item_NasivionPack_Name = "Упаковка умифеновира",
+    UI_Item_NasivionPack_Description = "Противовирусное средство. Специфически подавляет вирусы гриппа А и В, коронавирус, ассоциированный с тяжелым острым респираторным синдромом.",
 
     UI_Item_BloodVolumeIncreaser_Name = "Системный предмет",
     UI_Item_BloodVolumeIncreaser_Description = "Системный предмет",
