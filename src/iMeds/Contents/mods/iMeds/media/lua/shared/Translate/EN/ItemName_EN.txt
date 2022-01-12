@@ -31,7 +31,10 @@ ItemName_EN = {
     ItemName_iMeds.HemoStopPack = "HemoStop pack",
 
     ItemName_iMeds.Umifenovir = "Umifenovir",
-    ItemName_iMeds.UmifenovirPack = "umifenovir pack",
+    ItemName_iMeds.UmifenovirPack = "Umifenovir pack",
+
+    ItemName_iMeds.Nasivion = "Nasivion",
+    ItemName_iMeds.NasivionPack = "Nasivion pack",
 
     ItemName_iMeds.UnknownPack = "Unknown drug pack",
 
