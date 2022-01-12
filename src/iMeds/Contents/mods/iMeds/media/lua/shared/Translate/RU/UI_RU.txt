@@ -104,6 +104,8 @@ UI_RU = {
     UI_DosageForm_Parenteral_Intravenous_Action = "Выполнить внутривенную инъекцию",
     UI_DosageForm_Topical_Powder_Name = "Порошок для наружного применения",
     UI_DosageForm_Topical_Powder_Action = "Применить порошок",
+    UI_DosageForm_Intranasal_Drops_Name = "Капли для назального применения",
+    UI_DosageForm_Intranasal_Drops_Action = "Применить капли",
 
     UI_ContextMenu_Ml = "мл.",
     UI_ContextMenu_TakeOne = "Взять 1 шт.",

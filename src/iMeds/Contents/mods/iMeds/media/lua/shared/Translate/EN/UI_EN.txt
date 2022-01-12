@@ -104,6 +104,8 @@ UI_EN = {
     UI_DosageForm_Parenteral_Intravenous_Action = "Perform an intravenous injection",
     UI_DosageForm_Topical_Powder_Name = "Powder for external use",
     UI_DosageForm_Topical_Powder_Action = "Apply powder",
+    UI_DosageForm_Intranasal_Drops_Name = "Nose Drops",
+    UI_DosageForm_Intranasal_Drops_Action = "Apply drops",
 
     UI_ContextMenu_Ml = "ml.",
     UI_ContextMenu_TakeOne = "Take one",
