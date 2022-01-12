@@ -115,7 +115,7 @@ UI_EN = {
     UI_DosageForm_Intranasal_Drops_Action = "Apply drops",
 
     UI_ContextMenu_Ml = "ml.",
-    UI_ContextMenu_TakeOne = "Take one",
+    UI_ContextMenu_Take = "Take",
     UI_ContextMenu_FillSyringe = "Fill the syringe",
     UI_ContextMenu_AttachNeedleToSyringe = "Attach needle",
     UI_ContextMenu_DonateBlood = "Become a donor",

@@ -1,33 +1,31 @@
 ButamiratePackHandler = {}
 
 function ButamiratePackHandler:supports(item, player)
-    self.items = {}
-
     if item:getFullType() == ButamiratePack.fullType then
-        table.insert(self.items, item)
+        self.item = item
     end
 
-    return tableLength(self.items) > 0
+    return self.item ~= nil
 end
 
 function ButamiratePackHandler:getActionTitle()
-    return getText('UI_ContextMenu_TakeOne')
+    return getText('UI_ContextMenu_Take')
 end
 
 function ButamiratePackHandler:addSubMenu(player, subMenu)
-    for _, item in ipairs(self.items) do
-        subMenu:addOption(item:getName(), item, self.action, player)
+    for i = 1, round(self.item:getDrainableUsesFloat()) do
+        subMenu:addOption(i .. '', self.item, self.action, player, i)
     end
 end
 
-ButamiratePackHandler.action = function(item, player)
+ButamiratePackHandler.action = function(item, player, count)
     if luautils.haveToBeTransfered(player, item) then
         ISTimedActionQueue.add(
             ISInventoryTransferAction:new(player, item, item:getContainer(), player:getInventory())
         )
     end
 
-    ISTimedActionQueue.add(TakeOneFromButamiratePackAction:new(player, item))
+    ISTimedActionQueue.add(TakeOneFromButamiratePackAction:new(player, item, count))
 end
 
 ZCore:getContainer():register(

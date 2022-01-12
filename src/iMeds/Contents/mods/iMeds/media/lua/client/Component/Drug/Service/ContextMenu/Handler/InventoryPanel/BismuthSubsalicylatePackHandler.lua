@@ -1,33 +1,31 @@
 BismuthSubsalicylatePackHandler = {}
 
 function BismuthSubsalicylatePackHandler:supports(item, player)
-    self.items = {}
-
     if item:getFullType() == BismuthSubsalicylatePack.fullType then
-        table.insert(self.items, item)
+        self.item = item
     end
 
-    return tableLength(self.items) > 0
+    return self.item ~= nil
 end
 
 function BismuthSubsalicylatePackHandler:getActionTitle()
-    return getText('UI_ContextMenu_TakeOne')
+    return getText('UI_ContextMenu_Take')
 end
 
 function BismuthSubsalicylatePackHandler:addSubMenu(player, subMenu)
-    for _, item in ipairs(self.items) do
-        subMenu:addOption(item:getName(), item, self.action, player)
+    for i = 1, round(self.item:getDrainableUsesFloat()) do
+        subMenu:addOption(i .. '', self.item, self.action, player, i)
     end
 end
 
-BismuthSubsalicylatePackHandler.action = function(item, player)
+BismuthSubsalicylatePackHandler.action = function(item, player, count)
     if luautils.haveToBeTransfered(player, item) then
         ISTimedActionQueue.add(
             ISInventoryTransferAction:new(player, item, item:getContainer(), player:getInventory())
         )
     end
 
-    ISTimedActionQueue.add(TakeOneFromBismuthSubsalicylatePackAction:new(player, item))
+    ISTimedActionQueue.add(TakeOneFromBismuthSubsalicylatePackAction:new(player, item, count))
 end
 
 ZCore:getContainer():register(

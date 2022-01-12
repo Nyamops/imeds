@@ -106,7 +106,7 @@ UI_FR = {
     UI_DosageForm_Topical_Powder_Action = "Appliquer de la poudre",
 
     UI_ContextMenu_Ml = "ml.",
-    UI_ContextMenu_TakeOne = "Prendre un",
+    UI_ContextMenu_Take = "Prendre un",
     UI_ContextMenu_FillSyringe = "Remplir la seringue",
     UI_ContextMenu_AttachNeedleToSyringe = "Attacher l'aiguille",
     UI_ContextMenu_DonateBlood = "Donner son sang",

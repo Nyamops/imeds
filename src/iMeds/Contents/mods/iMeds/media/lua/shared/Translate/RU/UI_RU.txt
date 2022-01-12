@@ -115,7 +115,7 @@ UI_RU = {
     UI_DosageForm_Intranasal_Drops_Action = "Применить капли",
 
     UI_ContextMenu_Ml = "мл.",
-    UI_ContextMenu_TakeOne = "Взять 1 шт.",
+    UI_ContextMenu_Take = "Достать",
     UI_ContextMenu_FillSyringe = "Наполнить шприц",
     UI_ContextMenu_AttachNeedleToSyringe = "Присоединить иглу",
     UI_ContextMenu_DonateBlood = "Стать донором",

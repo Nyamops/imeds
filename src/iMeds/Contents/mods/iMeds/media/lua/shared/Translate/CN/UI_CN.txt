@@ -106,7 +106,7 @@ UI_CN = {
     UI_DosageForm_Topical_Powder_Action = "使用外用粉剂",
 
     UI_ContextMenu_Ml = "ml.",
-    UI_ContextMenu_TakeOne = "拿一份",
+    UI_ContextMenu_Take = "拿一份",
     UI_ContextMenu_FillSyringe = "装满注射器",
     UI_ContextMenu_AttachNeedleToSyringe = "给注射器装上针头",
     UI_ContextMenu_DonateBlood = "抽出血液",

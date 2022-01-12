@@ -106,7 +106,7 @@ UI_KR = {
     UI_DosageForm_Topical_Powder_Action = "가루 바르기",
 
     UI_ContextMenu_Ml = "ml.",
-    UI_ContextMenu_TakeOne = "하나 꺼내기",
+    UI_ContextMenu_Take = "하나 꺼내기",
     UI_ContextMenu_FillSyringe = "주사기 채우기",
     UI_ContextMenu_AttachNeedleToSyringe = "바늘 결합하기",
     UI_ContextMenu_DonateBlood = "헌혈하기",

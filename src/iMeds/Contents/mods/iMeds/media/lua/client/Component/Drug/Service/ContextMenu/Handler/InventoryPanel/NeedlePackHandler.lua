@@ -1,33 +1,35 @@
 NeedlePackHandler = {}
 
 function NeedlePackHandler:supports(item, player)
-    self.items = {}
-
     if item:getFullType() == NeedlePack.fullType then
-        table.insert(self.items, item)
+        self.item = item
     end
 
-    return tableLength(self.items) > 0
+    return self.item ~= nil
 end
 
 function NeedlePackHandler:getActionTitle()
-    return getText('UI_ContextMenu_TakeOne')
+    return getText('UI_ContextMenu_Take')
 end
 
 function NeedlePackHandler:addSubMenu(player, subMenu)
-    for _, item in ipairs(self.items) do
-        subMenu:addOption(item:getName(), item, self.action, player)
+    for i = 1, round(self.item:getDrainableUsesFloat()) do
+        if i > InventoryPanelMenuInitializer.maxItems then
+            break
+        end
+
+        subMenu:addOption(i .. '', self.item, self.action, player, i)
     end
 end
 
-NeedlePackHandler.action = function(item, player)
+NeedlePackHandler.action = function(item, player, count)
     if luautils.haveToBeTransfered(player, item) then
         ISTimedActionQueue.add(
             ISInventoryTransferAction:new(player, item, item:getContainer(), player:getInventory())
         )
     end
 
-    ISTimedActionQueue.add(TakeOneFromNeedlePackAction:new(player, item))
+    ISTimedActionQueue.add(TakeOneFromNeedlePackAction:new(player, item, count))
 end
 
 ZCore:getContainer():register(

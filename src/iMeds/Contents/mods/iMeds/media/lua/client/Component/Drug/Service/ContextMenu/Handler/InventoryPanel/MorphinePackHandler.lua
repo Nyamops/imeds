@@ -1,33 +1,31 @@
 MorphinePackHandler = {}
 
 function MorphinePackHandler:supports(item, player)
-    self.items = {}
-
     if item:getFullType() == MorphinePack.fullType then
-        table.insert(self.items, item)
+        self.item = item
     end
 
-    return tableLength(self.items) > 0
+    return self.item ~= nil
 end
 
 function MorphinePackHandler:getActionTitle()
-    return getText('UI_ContextMenu_TakeOne')
+    return getText('UI_ContextMenu_Take')
 end
 
 function MorphinePackHandler:addSubMenu(player, subMenu)
-    for _, item in ipairs(self.items) do
-        subMenu:addOption(item:getName(), item, self.action, player)
+    for i = 1, round(self.item:getDrainableUsesFloat()) do
+        subMenu:addOption(i .. '', self.item, self.action, player, i)
     end
 end
 
-MorphinePackHandler.action = function(item, player)
+MorphinePackHandler.action = function(item, player, count)
     if luautils.haveToBeTransfered(player, item) then
         ISTimedActionQueue.add(
             ISInventoryTransferAction:new(player, item, item:getContainer(), player:getInventory())
         )
     end
 
-    ISTimedActionQueue.add(TakeOneFromMorphinePackAction:new(player, item))
+    ISTimedActionQueue.add(TakeOneFromMorphinePackAction:new(player, item, count))
 end
 
 ZCore:getContainer():register(

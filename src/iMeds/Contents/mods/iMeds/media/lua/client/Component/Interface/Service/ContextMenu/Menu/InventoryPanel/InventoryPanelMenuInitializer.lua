@@ -1,5 +1,6 @@
 ---@class InventoryPanelMenuInitializer
 InventoryPanelMenuInitializer = {}
+InventoryPanelMenuInitializer.maxItems = 20
 
 InventoryPanelMenuInitializer.init = function(specificPlayer, context, items, test)
     if test and ISWorldObjectContextMenu.Test then

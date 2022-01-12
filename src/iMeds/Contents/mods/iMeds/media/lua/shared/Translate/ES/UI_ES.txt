@@ -106,7 +106,7 @@ UI_ES = {
     UI_DosageForm_Topical_Powder_Action = "Aplicar polvo",
 
     UI_ContextMenu_Ml = "ml.",
-    UI_ContextMenu_TakeOne = "Coger uno",
+    UI_ContextMenu_Take = "Coger uno",
     UI_ContextMenu_FillSyringe = "Llenar jeringuilla",
     UI_ContextMenu_AttachNeedleToSyringe = "Unir aguja",
     UI_ContextMenu_DonateBlood = "Hacerse donador",

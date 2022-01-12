@@ -1,33 +1,31 @@
 NasivionPackHandler = {}
 
 function NasivionPackHandler:supports(item, player)
-    self.items = {}
-
     if item:getFullType() == NasivionPack.fullType then
-        table.insert(self.items, item)
+        self.item = item
     end
 
-    return tableLength(self.items) > 0
+    return self.item ~= nil
 end
 
 function NasivionPackHandler:getActionTitle()
-    return getText('UI_ContextMenu_TakeOne')
+    return getText('UI_ContextMenu_Take')
 end
 
 function NasivionPackHandler:addSubMenu(player, subMenu)
-    for _, item in ipairs(self.items) do
-        subMenu:addOption(item:getName(), item, self.action, player)
+    for i = 1, round(self.item:getDrainableUsesFloat()) do
+        subMenu:addOption(i .. '', self.item, self.action, player, i)
     end
 end
 
-NasivionPackHandler.action = function(item, player)
+NasivionPackHandler.action = function(item, player, count)
     if luautils.haveToBeTransfered(player, item) then
         ISTimedActionQueue.add(
             ISInventoryTransferAction:new(player, item, item:getContainer(), player:getInventory())
         )
     end
 
-    ISTimedActionQueue.add(TakeOneFromNasivionPackAction:new(player, item))
+    ISTimedActionQueue.add(TakeOneFromNasivionPackAction:new(player, item, count))
 end
 
 ZCore:getContainer():register(
