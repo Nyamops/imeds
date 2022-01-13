@@ -1,20 +1,16 @@
 MorphinePackHandler = {}
 
 function MorphinePackHandler:supports(item, player)
-    if item:getFullType() == MorphinePack.fullType then
-        self.item = item
-    end
-
-    return self.item ~= nil
+    return item:getFullType() == MorphinePack.fullType
 end
 
 function MorphinePackHandler:getActionTitle()
     return getText('UI_ContextMenu_Take')
 end
 
-function MorphinePackHandler:addSubMenu(player, subMenu)
-    for i = 1, round(self.item:getDrainableUsesFloat()) do
-        subMenu:addOption(i .. '', self.item, self.action, player, i)
+function MorphinePackHandler:addSubMenu(subMenu, player, item)
+    for i = 1, round(item:getDrainableUsesFloat()) do
+        subMenu:addOption(i .. '', item, self.action, player, i)
     end
 end
 

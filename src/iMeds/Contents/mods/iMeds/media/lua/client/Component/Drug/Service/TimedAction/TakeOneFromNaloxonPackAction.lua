@@ -4,11 +4,7 @@ TakeOneFromNaloxonPackAction = {}
 TakeOneFromNaloxonPackAction = ISBaseTimedAction:derive('TakeOneFromNaloxonPackAction')
 
 function TakeOneFromNaloxonPackAction:isValid()
-    if self.item then
-        return self.character:getInventory():contains(self.item)
-    end
-
-    return false
+    return self.character:getInventory():contains(self.item)
 end
 
 function TakeOneFromNaloxonPackAction:start()
@@ -22,8 +18,20 @@ function TakeOneFromNaloxonPackAction:start()
 end
 
 function TakeOneFromNaloxonPackAction:update()
+    if self:isFinished() then
+        self:setOverrideHandModels(nil, nil)
+        self:forceComplete()
+
+        return
+    end
+
     local jobDelta = self.countStart - round(self.item:getDrainableUsesFloat())
-    self.item:setJobDelta(jobDelta / self.countStart)
+    self.item:setJobDelta(jobDelta / self.count)
+end
+
+function TakeOneFromNaloxonPackAction:isFinished()
+    return self.countStart - round(self.item:getDrainableUsesFloat()) >= self.count or
+        not self.character:getInventory():containsWithModule(self.item:getFullType())
 end
 
 function TakeOneFromNaloxonPackAction:animEvent(event, parameter)

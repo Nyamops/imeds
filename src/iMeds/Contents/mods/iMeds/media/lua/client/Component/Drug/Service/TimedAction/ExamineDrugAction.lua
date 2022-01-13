@@ -5,11 +5,7 @@ ExamineDrugAction = {}
 ExamineDrugAction = ISBaseTimedAction:derive('ExamineDrugAction')
 
 function ExamineDrugAction:isValid()
-    if self.item then
-        return self.character:getInventory():contains(self.item)
-    end
-
-    return false
+    return self.character:getInventory():contains(self.item)
 end
 
 function ExamineDrugAction:update()

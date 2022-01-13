@@ -1,20 +1,16 @@
 NaloxonPackHandler = {}
 
 function NaloxonPackHandler:supports(item, player)
-    if item:getFullType() == NaloxonPack.fullType then
-        self.item = item
-    end
-
-    return self.item ~= nil
+    return item:getFullType() == NaloxonPack.fullType
 end
 
 function NaloxonPackHandler:getActionTitle()
     return getText('UI_ContextMenu_Take')
 end
 
-function NaloxonPackHandler:addSubMenu(player, subMenu)
-    for i = 1, round(self.item:getDrainableUsesFloat()) do
-        subMenu:addOption(i .. '', self.item, self.action, player, i)
+function NaloxonPackHandler:addSubMenu(subMenu, player, item)
+    for i = 1, round(item:getDrainableUsesFloat()) do
+        subMenu:addOption(i .. '', item, self.action, player, i)
     end
 end
 

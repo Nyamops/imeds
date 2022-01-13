@@ -4,27 +4,19 @@ FillSyringeAction = {}
 FillSyringeAction = ISBaseTimedAction:derive('FillSyringeAction')
 
 function FillSyringeAction:isValid()
-    if self.syringe and self.drug then
-        return self.character:getInventory():contains(self.syringe) and self.character:getInventory():contains(self.drug)
-    end
-
-    return false
+    return self.character:getInventory():contains(self.syringe) and self.character:getInventory():contains(self.drug)
 end
 
 function FillSyringeAction:update()
-    if self.syringe and self.drug then
-        self.syringe:setJobDelta(self:getJobDelta())
-        self.drug:setJobDelta(self:getJobDelta())
-    end
+    self.syringe:setJobDelta(self:getJobDelta())
+    self.drug:setJobDelta(self:getJobDelta())
 end
 
 function FillSyringeAction:start()
-    if self.syringe and self.drug then
-        self.syringe:setJobType(self.jobType)
-        self.syringe:setJobDelta(0.0)
-        self.drug:setJobType(self.jobType)
-        self.drug:setJobDelta(0.0)
-    end
+    self.syringe:setJobType(self.jobType)
+    self.syringe:setJobDelta(0.0)
+    self.drug:setJobType(self.jobType)
+    self.drug:setJobDelta(0.0)
 
     self:setActionAnim('Loot')
     self.character:SetVariable('LootPosition', 'Mid')
@@ -33,20 +25,16 @@ function FillSyringeAction:start()
 end
 
 function FillSyringeAction:stop()
-    if self.syringe and self.drug then
-        self.syringe:setJobDelta(0.0)
-        self.drug:setJobDelta(0.0)
-    end
+    self.syringe:setJobDelta(0.0)
+    self.drug:setJobDelta(0.0)
 
     ISBaseTimedAction.stop(self)
 end
 
 function FillSyringeAction:perform()
     ISBaseTimedAction.perform(self)
-    if self.syringe and self.drug then
-        self.syringe:setJobDelta(0.0)
-        self.drug:setJobDelta(0.0)
-    end
+    self.syringe:setJobDelta(0.0)
+    self.drug:setJobDelta(0.0)
 
     local syringe = self.syringe
     if self.syringe:getFullType() == SyringeWithNeedle.fullType then
@@ -67,7 +55,6 @@ function FillSyringeAction:perform()
     end
 
     if self.syringe:getFullType() == SyringeWithNeedle.fullType then
-
         if isClient() then
             local args = { id = self.character:getOnlineID(), item = syringe }
             sendClientCommand(self.character, 'drug', FillSyringeCommand.defaultName, args)

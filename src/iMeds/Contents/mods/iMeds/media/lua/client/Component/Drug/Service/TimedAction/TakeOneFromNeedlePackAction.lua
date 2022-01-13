@@ -4,11 +4,7 @@ TakeOneFromNeedlePackAction = {}
 TakeOneFromNeedlePackAction = ISBaseTimedAction:derive('TakeOneFromNeedlePackAction')
 
 function TakeOneFromNeedlePackAction:isValid()
-    if self.item then
-        return self.character:getInventory():contains(self.item)
-    end
-
-    return false
+    return self.character:getInventory():contains(self.item)
 end
 
 function TakeOneFromNeedlePackAction:start()
@@ -22,8 +18,20 @@ function TakeOneFromNeedlePackAction:start()
 end
 
 function TakeOneFromNeedlePackAction:update()
+    if self:isFinished() then
+        self:setOverrideHandModels(nil, nil)
+        self:forceComplete()
+
+        return
+    end
+
     local jobDelta = self.countStart - round(self.item:getDrainableUsesFloat())
-    self.item:setJobDelta(jobDelta / self.countStart)
+    self.item:setJobDelta(jobDelta / self.count)
+end
+
+function TakeOneFromNeedlePackAction:isFinished()
+    return self.countStart - round(self.item:getDrainableUsesFloat()) >= self.count or
+        not self.character:getInventory():containsWithModule(self.item:getFullType())
 end
 
 function TakeOneFromNeedlePackAction:animEvent(event, parameter)

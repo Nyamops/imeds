@@ -4,11 +4,7 @@ TakeOneFromNasivionPackAction = {}
 TakeOneFromNasivionPackAction = ISBaseTimedAction:derive('TakeOneFromNasivionPackAction')
 
 function TakeOneFromNasivionPackAction:isValid()
-    if self.item then
-        return self.character:getInventory():contains(self.item)
-    end
-
-    return false
+    return self.character:getInventory():contains(self.item)
 end
 
 function TakeOneFromNasivionPackAction:start()
@@ -22,8 +18,20 @@ function TakeOneFromNasivionPackAction:start()
 end
 
 function TakeOneFromNasivionPackAction:update()
+    if self:isFinished() then
+        self:setOverrideHandModels(nil, nil)
+        self:forceComplete()
+
+        return
+    end
+
     local jobDelta = self.countStart - round(self.item:getDrainableUsesFloat())
-    self.item:setJobDelta(jobDelta / self.countStart)
+    self.item:setJobDelta(jobDelta / self.count)
+end
+
+function TakeOneFromNasivionPackAction:isFinished()
+    return self.countStart - round(self.item:getDrainableUsesFloat()) >= self.count or
+        not self.character:getInventory():containsWithModule(self.item:getFullType())
 end
 
 function TakeOneFromNasivionPackAction:animEvent(event, parameter)

@@ -4,26 +4,34 @@ TakeOneFromAlkaginPackAction = {}
 TakeOneFromAlkaginPackAction = ISBaseTimedAction:derive('TakeOneFromAlkaginPackAction')
 
 function TakeOneFromAlkaginPackAction:isValid()
-    if self.item then
-        return self.character:getInventory():contains(self.item)
-    end
-
-    return false
+    return self.character:getInventory():contains(self.item)
 end
 
 function TakeOneFromAlkaginPackAction:start()
     self.item:setJobType(self.jobType)
     self.item:setJobDelta(0.0)
 
-    self:setActionAnim(CharacterActionAnims.InsertBullets);
+    self:setActionAnim(CharacterActionAnims.InsertBullets)
 
     self:setOverrideHandModels(self.item:getStaticModel(), nil)
     self.countStart = round(self.item:getDrainableUsesFloat())
 end
 
 function TakeOneFromAlkaginPackAction:update()
-    local jobDelta = self.countStart - round(self.item:getDrainableUsesFloat())
-    self.item:setJobDelta(jobDelta / self.countStart)
+    if self:isFinished() then
+        self:setOverrideHandModels(nil, nil)
+        self:forceComplete()
+
+        return
+    end
+
+    local jobDelta = math.abs(self.countStart - round(self.item:getDrainableUsesFloat()))
+    self.item:setJobDelta(jobDelta / self.count)
+end
+
+function TakeOneFromAlkaginPackAction:isFinished()
+    return self.countStart - round(self.item:getDrainableUsesFloat()) >= self.count or
+        not self.character:getInventory():containsWithModule(self.item:getFullType())
 end
 
 function TakeOneFromAlkaginPackAction:animEvent(event, parameter)

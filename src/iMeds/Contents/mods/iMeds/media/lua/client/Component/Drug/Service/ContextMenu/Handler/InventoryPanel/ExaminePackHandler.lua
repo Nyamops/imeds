@@ -1,30 +1,21 @@
 ExaminePackHandler = {}
 
 function ExaminePackHandler:supports(item, player)
-    self.items = {}
-
     ---@type DrugPackStorage
     local drugPackStorage = ZCore:getContainer():get('imeds.drug.storage.drug_pack_storage')
 
-    if item:getModule() == 'iMeds'
+    return item:getModule() == 'iMeds'
         and item:getFullType() ~= UnknownPack.fullType
         and string.contains(item:getFullType(), 'Pack')
         and drugPackStorage:getByFullType(item:getFullType()) ~= nil
-    then
-        table.insert(self.items, item)
-    end
-
-    return tableLength(self.items) > 0
 end
 
 function ExaminePackHandler:getActionTitle()
     return getText('UI_ContextMenu_ExaminePack')
 end
 
-function ExaminePackHandler:addSubMenu(player, subMenu)
-    for _, item in ipairs(self.items) do
-        subMenu:addOption(item:getName(), item, self.action, player)
-    end
+function ExaminePackHandler:addSubMenu(subMenu, player, item)
+    subMenu:addOption(item:getName(), item, self.action, player)
 end
 
 ExaminePackHandler.action = function(item, player)

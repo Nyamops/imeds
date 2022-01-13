@@ -8,11 +8,7 @@ function TakeOneFromUnknownPackAction:isValid()
         return false
     end
 
-    if self.item then
-        return self.character:getInventory():contains(self.item)
-    end
-
-    return false
+    return self.character:getInventory():contains(self.item)
 end
 
 function TakeOneFromUnknownPackAction:start()
@@ -26,8 +22,20 @@ function TakeOneFromUnknownPackAction:start()
 end
 
 function TakeOneFromUnknownPackAction:update()
+    if self:isFinished() then
+        self:setOverrideHandModels(nil, nil)
+        self:forceComplete()
+
+        return
+    end
+
     local jobDelta = self.countStart - round(self.item:getDrainableUsesFloat())
-    self.item:setJobDelta(jobDelta / self.countStart)
+    self.item:setJobDelta(jobDelta / self.count)
+end
+
+function TakeOneFromUnknownPackAction:isFinished()
+    return self.countStart - round(self.item:getDrainableUsesFloat()) >= self.count or
+        not self.character:getInventory():containsWithModule(self.item:getFullType())
 end
 
 function TakeOneFromUnknownPackAction:animEvent(event, parameter)

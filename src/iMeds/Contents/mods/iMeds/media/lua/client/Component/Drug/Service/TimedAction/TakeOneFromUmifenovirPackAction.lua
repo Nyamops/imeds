@@ -4,11 +4,7 @@ TakeOneFromUmifenovirPackAction = {}
 TakeOneFromUmifenovirPackAction = ISBaseTimedAction:derive('TakeOneFromUmifenovirPackAction')
 
 function TakeOneFromUmifenovirPackAction:isValid()
-    if self.item then
-        return self.character:getInventory():contains(self.item)
-    end
-
-    return false
+    return self.character:getInventory():contains(self.item)
 end
 
 function TakeOneFromUmifenovirPackAction:start()
@@ -22,8 +18,20 @@ function TakeOneFromUmifenovirPackAction:start()
 end
 
 function TakeOneFromUmifenovirPackAction:update()
+    if self:isFinished() then
+        self:setOverrideHandModels(nil, nil)
+        self:forceComplete()
+
+        return
+    end
+
     local jobDelta = self.countStart - round(self.item:getDrainableUsesFloat())
-    self.item:setJobDelta(jobDelta / self.countStart)
+    self.item:setJobDelta(jobDelta / self.count)
+end
+
+function TakeOneFromUmifenovirPackAction:isFinished()
+    return self.countStart - round(self.item:getDrainableUsesFloat()) >= self.count or
+        not self.character:getInventory():containsWithModule(self.item:getFullType())
 end
 
 function TakeOneFromUmifenovirPackAction:animEvent(event, parameter)

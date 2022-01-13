@@ -1,20 +1,16 @@
 BismuthSubsalicylatePackHandler = {}
 
 function BismuthSubsalicylatePackHandler:supports(item, player)
-    if item:getFullType() == BismuthSubsalicylatePack.fullType then
-        self.item = item
-    end
-
-    return self.item ~= nil
+    return item:getFullType() == BismuthSubsalicylatePack.fullType
 end
 
 function BismuthSubsalicylatePackHandler:getActionTitle()
     return getText('UI_ContextMenu_Take')
 end
 
-function BismuthSubsalicylatePackHandler:addSubMenu(player, subMenu)
-    for i = 1, round(self.item:getDrainableUsesFloat()) do
-        subMenu:addOption(i .. '', self.item, self.action, player, i)
+function BismuthSubsalicylatePackHandler:addSubMenu(subMenu, player, item)
+    for i = 1, round(item:getDrainableUsesFloat()) do
+        subMenu:addOption(i .. '', item, self.action, player, i)
     end
 end
 

@@ -1,24 +1,20 @@
 NeedlePackHandler = {}
 
 function NeedlePackHandler:supports(item, player)
-    if item:getFullType() == NeedlePack.fullType then
-        self.item = item
-    end
-
-    return self.item ~= nil
+    return item:getFullType() == NeedlePack.fullType
 end
 
 function NeedlePackHandler:getActionTitle()
     return getText('UI_ContextMenu_Take')
 end
 
-function NeedlePackHandler:addSubMenu(player, subMenu)
-    for i = 1, round(self.item:getDrainableUsesFloat()) do
+function NeedlePackHandler:addSubMenu(subMenu, player, item)
+    for i = 1, round(item:getDrainableUsesFloat()) do
         if i > InventoryPanelMenuInitializer.maxItems then
             break
         end
 
-        subMenu:addOption(i .. '', self.item, self.action, player, i)
+        subMenu:addOption(i .. '', item, self.action, player, i)
     end
 end
 

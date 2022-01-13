@@ -4,11 +4,7 @@ TakeOneFromMorphinePackAction = {}
 TakeOneFromMorphinePackAction = ISBaseTimedAction:derive('TakeOneFromMorphinePackAction')
 
 function TakeOneFromMorphinePackAction:isValid()
-    if self.item then
-        return self.character:getInventory():contains(self.item)
-    end
-
-    return false
+    return self.character:getInventory():contains(self.item)
 end
 
 function TakeOneFromMorphinePackAction:start()
@@ -22,8 +18,20 @@ function TakeOneFromMorphinePackAction:start()
 end
 
 function TakeOneFromMorphinePackAction:update()
+    if self:isFinished() then
+        self:setOverrideHandModels(nil, nil)
+        self:forceComplete()
+
+        return
+    end
+
     local jobDelta = self.countStart - round(self.item:getDrainableUsesFloat())
-    self.item:setJobDelta(jobDelta / self.countStart)
+    self.item:setJobDelta(jobDelta / self.count)
+end
+
+function TakeOneFromMorphinePackAction:isFinished()
+    return self.countStart - round(self.item:getDrainableUsesFloat()) >= self.count or
+        not self.character:getInventory():containsWithModule(self.item:getFullType())
 end
 
 function TakeOneFromMorphinePackAction:animEvent(event, parameter)

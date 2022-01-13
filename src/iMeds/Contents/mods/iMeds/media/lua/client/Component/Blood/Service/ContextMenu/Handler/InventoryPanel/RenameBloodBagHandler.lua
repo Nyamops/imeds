@@ -10,7 +10,7 @@ function RenameBloodBagHandler:getActionTitle()
     return getText('UI_ContextMenu_Rename')
 end
 
-function RenameBloodBagHandler:addSubMenu(player, subMenu)
+function RenameBloodBagHandler:addSubMenu(subMenu, player, item)
     subMenu:addOption(self.item:getName(), self.item, self.onRename, player)
 end
 

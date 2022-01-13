@@ -1,20 +1,16 @@
 AlkaginPackHandler = {}
 
 function AlkaginPackHandler:supports(item, player)
-    if item:getFullType() == AlkaginPack.fullType then
-        self.item = item
-    end
-
-    return self.item ~= nil
+    return item:getFullType() == AlkaginPack.fullType
 end
 
 function AlkaginPackHandler:getActionTitle()
     return getText('UI_ContextMenu_Take')
 end
 
-function AlkaginPackHandler:addSubMenu(player, subMenu)
-    for i = 1, round(self.item:getDrainableUsesFloat()) do
-        subMenu:addOption(i .. '', self.item, self.action, player, i)
+function AlkaginPackHandler:addSubMenu(subMenu, player, item)
+    for i = 1, round(item:getDrainableUsesFloat()) do
+        subMenu:addOption(i .. '', item, self.action, player, i)
     end
 end
 

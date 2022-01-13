@@ -8,11 +8,7 @@ function HemoStopAction:isValid()
         return false
     end
 
-    if self.drug then
-        return self.character:getInventory():contains(self.drug)
-    end
-
-    return false
+    return self.character:getInventory():contains(self.drug)
 end
 
 function HemoStopAction:waitToStart()
@@ -30,18 +26,14 @@ function HemoStopAction:update()
         self.character:faceThisObject(self.otherPlayer)
     end
 
-    if self.drug then
-        self.drug:setJobDelta(self:getJobDelta())
-    end
+    self.drug:setJobDelta(self:getJobDelta())
 
     ISHealthPanel.setBodyPartActionForPlayer(self.otherPlayer, self.bodyPart, self, self.jobType, { takeDrugs = true })
 end
 
 function HemoStopAction:start()
-    if self.drug then
-        self.drug:setJobType(self.jobType)
-        self.drug:setJobDelta(0.0)
-    end
+    self.drug:setJobType(self.jobType)
+    self.drug:setJobDelta(0.0)
 
     if self.character == self.otherPlayer then
         self:setActionAnim(CharacterActionAnims.Bandage);
@@ -57,9 +49,7 @@ function HemoStopAction:start()
 end
 
 function HemoStopAction:stop()
-    if self.drug then
-        self.drug:setJobDelta(0.0)
-    end
+    self.drug:setJobDelta(0.0)
 
     ISHealthPanel.setBodyPartActionForPlayer(self.otherPlayer, self.bodyPart, nil, nil, nil)
     ISBaseTimedAction.stop(self)
@@ -67,9 +57,7 @@ end
 
 function HemoStopAction:perform()
     ISBaseTimedAction.perform(self)
-    if self.drug then
-        self.drug:setJobDelta(0.0)
-    end
+    self.drug:setJobDelta(0.0)
 
     if self.character:HasTrait('Hemophobic') then
         self.character:getStats():setPanic(self.character:getStats():getPanic() + 50);

@@ -5,19 +5,15 @@ function UnknownPackHandler:supports(item, player)
         return false
     end
 
-    if item:getFullType() == UnknownPack.fullType then
-        self.item = item
-    end
-
-    return self.item ~= nil
+    return item:getFullType() == UnknownPack.fullType
 end
 
 function UnknownPackHandler:getActionTitle()
     return getText('UI_ContextMenu_Take')
 end
 
-function UnknownPackHandler:addSubMenu(player, subMenu)
-    subMenu:addOption('1', self.item, self.action, player, 1)
+function UnknownPackHandler:addSubMenu(subMenu, player, item)
+    subMenu:addOption('1', item, self.action, player, 1)
 end
 
 UnknownPackHandler.action = function(item, player, count)

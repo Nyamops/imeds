@@ -4,20 +4,21 @@ InventoryPanelMenuInitializer.maxItems = 20
 
 InventoryPanelMenuInitializer.init = function(specificPlayer, context, items, test)
     if test and ISWorldObjectContextMenu.Test then
-        return true
+        return false
     end
 
     local player = getSpecificPlayer(specificPlayer)
     local clickedItems = items
 
     if #clickedItems > 1 then
-        return
+        return false
     end
 
     for _, item in ipairs(clickedItems) do
         if not instanceof(item, 'InventoryItem') then
             item = item.items[2]
         end
+
         if instanceof(item, 'InventoryItem') then
             InventoryPanelMenuInitializer.createMenu(player, context, item)
         end
@@ -33,10 +34,13 @@ InventoryPanelMenuInitializer.createMenu = function(player, context, item)
 
     for _, handler in ipairs(handlers) do
         if handler:supports(item, player) then
+            context:removeLastOption()
             local option = context:addOption(handler:getActionTitle(), nil)
             local subMenu = context:getNew(context)
             context:addSubMenu(option, subMenu)
-            handler:addSubMenu(player, subMenu)
+            handler:addSubMenu(subMenu, player, item)
+
+            break
         end
     end
 end
