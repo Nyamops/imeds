@@ -38,7 +38,7 @@ UI_EN = {
     UI_Item_Nasivion_Description = "Nasal drops in the form of a clear solution, with a faint smell of lavender.",
     UI_Item_Nasivion_SideEffects = "-",
 
-    UI_Item_Erythropoietin_Name = "Упаковка эритропоэтина",
+    UI_Item_Erythropoietin_Name = "Erythropoietin",
     UI_Item_Erythropoietin_Description = "One of the kidney hormones that controls the formation of red blood cells. According to its chemical structure, it is a glycoprotein. In sports, it is doping.",
     UI_Item_Erythropoietin_SideEffects = "Weakness, fatigue, headache, fainting, shortness of breath, hypertension.",
 
