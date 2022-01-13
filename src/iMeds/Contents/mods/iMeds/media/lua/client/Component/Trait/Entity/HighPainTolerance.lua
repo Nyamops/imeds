@@ -27,8 +27,15 @@ Events.OnTick.Add(
             return false
         end
 
-        if Survivor:getPainReduction() < 20 then
-            Survivor:setPainReduction(20)
+        if Survivor:getPainReduction() < 15 then
+            Survivor:setPainReduction(15)
         end
+
+        -- -25% to pain
+        getPlayer():getBodyDamage():setInitialWoundPain(60)
+        getPlayer():getBodyDamage():setInitialScratchPain(13)
+        getPlayer():getBodyDamage():setInitialThumpPain(10)
+        getPlayer():getBodyDamage():setInitialBitePain(18)
+        getPlayer():getBodyDamage():setContinualPainIncrease(0.00075)
     end
 )

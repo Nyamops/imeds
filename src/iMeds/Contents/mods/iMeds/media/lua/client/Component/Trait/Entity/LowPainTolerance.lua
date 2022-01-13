@@ -2,7 +2,7 @@ LowPainTolerance = {
     alias = 'LowPainTolerance',
     name = getText('UI_Trait_LowPainTolerance_Name'),
     description = getText('UI_Trait_LowPainTolerance_Description'),
-    cost = -4,
+    cost = -6,
     freeRecipes = {},
     freeTraits = {},
     xpBoosts = {},
@@ -19,4 +19,19 @@ ZCore:getContainer():register(
         LowPainTolerance
     },
     'imeds.trait.entity'
+)
+
+Events.OnTick.Add(
+    function()
+        if not getPlayer():HasTrait(LowPainTolerance.alias) then
+            return false
+        end
+
+        -- +25% to pain
+        getPlayer():getBodyDamage():setInitialWoundPain(100)
+        getPlayer():getBodyDamage():setInitialScratchPain(23)
+        getPlayer():getBodyDamage():setInitialThumpPain(18)
+        getPlayer():getBodyDamage():setInitialBitePain(31)
+        getPlayer():getBodyDamage():setContinualPainIncrease(0.00125)
+    end
 )
