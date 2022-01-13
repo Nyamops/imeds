@@ -14,6 +14,8 @@ local suburbsDistribution = {
                 "iMeds.SyringePack", 0.001,
                 "iMeds.NeedlePack", 0.001,
                 "iMeds.BloodTestingKit", 0.001,
+                "iMeds.NasivionPack", 0.001,
+                "iMeds.ErythropoietinPack", 0.001,
             }
         },
         inventorymale = {
@@ -32,6 +34,8 @@ local suburbsDistribution = {
                 "iMeds.SyringePack", 0.001,
                 "iMeds.NeedlePack", 0.001,
                 "iMeds.BloodTestingKit", 0.001,
+                "iMeds.NasivionPack", 0.001,
+                "iMeds.ErythropoietinPack", 0.001,
             }
         },
         medicine = {
@@ -47,6 +51,8 @@ local suburbsDistribution = {
                 "iMeds.PeripheralVenousCatheter", 1,
                 "iMeds.EmptyBloodBag", 1,
                 "iMeds.BloodTestingKit", 4,
+                "iMeds.NasivionPack", 0.1,
+                "iMeds.ErythropoietinPack", 0.03,
             },
         },
     },
@@ -62,6 +68,8 @@ local suburbsDistribution = {
             "iMeds.HemoStopPack", 0.03,
             "iMeds.SyringePack", 0.03,
             "iMeds.NeedlePack", 0.03,
+            "iMeds.NasivionPack", 0.1,
+            "iMeds.ErythropoietinPack", 0.03,
         },
     },
 
@@ -76,6 +84,8 @@ local suburbsDistribution = {
             "iMeds.HemoStopPack", 0.03,
             "iMeds.SyringePack", 0.03,
             "iMeds.NeedlePack", 0.03,
+            "iMeds.NasivionPack", 0.1,
+            "iMeds.ErythropoietinPack", 0.03,
         },
     },
 
@@ -93,6 +103,8 @@ local suburbsDistribution = {
             "iMeds.BloodTestingKit", 0.03,
             "iMeds.SyringePack", 0.03,
             "iMeds.NeedlePack", 0.03,
+            "iMeds.NasivionPack", 0.1,
+            "iMeds.ErythropoietinPack", 0.03,
         },
     },
 
@@ -120,6 +132,8 @@ local suburbsDistribution = {
             "iMeds.SyringePack", 0.5,
             "iMeds.NeedlePack", 0.5,
             "iMeds.NeedlePack", 0.5,
+            "iMeds.NasivionPack", 1,
+            "iMeds.ErythropoietinPack", 0.01,
         },
     },
 }
@@ -129,11 +143,23 @@ local proceduralDistributions = {
         ArmyStorageMedical = {
             items = {
                 "iMeds.BismuthSubsalicylatePack", 2,
+                "iMeds.BismuthSubsalicylatePack", 2,
+                "iMeds.BismuthSubsalicylatePack", 2,
+                "iMeds.BismuthSubsalicylatePack", 2,
 
+                "iMeds.AlkaginPack", 2,
+                "iMeds.AlkaginPack", 2,
+                "iMeds.AlkaginPack", 2,
                 "iMeds.AlkaginPack", 2,
 
                 "iMeds.UmifenovirPack", 2,
+                "iMeds.UmifenovirPack", 2,
+                "iMeds.UmifenovirPack", 2,
+                "iMeds.UmifenovirPack", 2,
 
+                "iMeds.MorphinePack", 0.5,
+                "iMeds.MorphinePack", 0.5,
+                "iMeds.MorphinePack", 0.5,
                 "iMeds.MorphinePack", 0.5,
 
                 "iMeds.UnknownPack", 0.5,
@@ -142,11 +168,19 @@ local proceduralDistributions = {
                 "iMeds.UnknownPack", 0.5,
 
                 "iMeds.ButamiratePack", 2,
+                "iMeds.ButamiratePack", 2,
+                "iMeds.ButamiratePack", 2,
+                "iMeds.ButamiratePack", 2,
 
+                "iMeds.BismuthSubsalicylatePack", 2,
+                "iMeds.BismuthSubsalicylatePack", 2,
+                "iMeds.BismuthSubsalicylatePack", 2,
                 "iMeds.BismuthSubsalicylatePack", 2,
 
                 "iMeds.HemoStopPack", 0.5,
                 "iMeds.HemoStopPack", 0.5,
+                "iMeds.HemoStopPack", 0.5,
+                "iMeds.HemoStopPack", 0.5,
 
                 "iMeds.PeripheralVenousCatheter", 0.5,
                 "iMeds.PeripheralVenousCatheter", 0.5,
@@ -165,7 +199,11 @@ local proceduralDistributions = {
 
                 "iMeds.SyringePack", 2,
                 "iMeds.SyringePack", 2,
+                "iMeds.SyringePack", 2,
+                "iMeds.SyringePack", 2,
 
+                "iMeds.NeedlePack", 2,
+                "iMeds.NeedlePack", 2,
                 "iMeds.NeedlePack", 2,
                 "iMeds.NeedlePack", 2,
 
@@ -218,6 +256,16 @@ local proceduralDistributions = {
                 "iMeds.PlasmaBagOP", 0.5,
                 "iMeds.PlasmaBagOP", 0.5,
                 "iMeds.PlasmaBagOP", 0.5,
+
+                "iMeds.NasivionPack", 2,
+                "iMeds.NasivionPack", 2,
+                "iMeds.NasivionPack", 2,
+                "iMeds.NasivionPack", 2,
+
+                "iMeds.ErythropoietinPack", 0.01,
+                "iMeds.ErythropoietinPack", 0.01,
+                "iMeds.ErythropoietinPack", 0.01,
+                "iMeds.ErythropoietinPack", 0.01,
             },
         },
 
@@ -281,6 +329,14 @@ local proceduralDistributions = {
                 "iMeds.NeedlePack", 4,
                 "iMeds.NeedlePack", 4,
                 "iMeds.NeedlePack", 4,
+                "iMeds.NasivionPack", 5,
+                "iMeds.NasivionPack", 5,
+                "iMeds.NasivionPack", 5,
+                "iMeds.NasivionPack", 5,
+                "iMeds.ErythropoietinPack", 0.5,
+                "iMeds.ErythropoietinPack", 0.5,
+                "iMeds.ErythropoietinPack", 0.5,
+                "iMeds.ErythropoietinPack", 0.5,
             },
         },
 
@@ -293,6 +349,7 @@ local proceduralDistributions = {
                 "iMeds.BloodTestingKit", 4,
                 "iMeds.SyringePack", 5,
                 "iMeds.NeedlePack", 5,
+                "iMeds.NasivionPack", 5,
             },
         },
 
@@ -399,6 +456,16 @@ local proceduralDistributions = {
                 "iMeds.PlasmaBagOP", 0.5,
                 "iMeds.PlasmaBagOP", 0.5,
                 "iMeds.PlasmaBagOP", 0.5,
+
+                "iMeds.NasivionPack", 5,
+                "iMeds.NasivionPack", 5,
+                "iMeds.NasivionPack", 5,
+                "iMeds.NasivionPack", 5,
+
+                "iMeds.ErythropoietinPack", 1,
+                "iMeds.ErythropoietinPack", 1,
+                "iMeds.ErythropoietinPack", 1,
+                "iMeds.ErythropoietinPack", 1,
             },
         },
 
@@ -445,6 +512,8 @@ local proceduralDistributions = {
                 "iMeds.SyringePack", 2,
                 "iMeds.NeedlePack", 2,
                 "iMeds.NeedlePack", 2,
+                "iMeds.NasivionPack", 5,
+                "iMeds.NasivionPack", 5,
             },
         },
     }
