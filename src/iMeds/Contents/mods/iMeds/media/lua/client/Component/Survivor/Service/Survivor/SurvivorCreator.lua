@@ -21,10 +21,10 @@ function SurvivorCreator:new(bloodGroupStorage)
 
         local bloodGroup = private.bloodGroupStorage:getRandomBloodGroup()
         if getPlayer():HasTrait(UniversalDonor.alias) then
-            bloodGroup = private.bloodGroupStorage:getById(BloodGroup.ABP)
+            bloodGroup = private.bloodGroupStorage:getById(BloodGroup.ON)
             Survivor:setIsKnowOwnBloodGroup(true)
         elseif getPlayer():HasTrait(UniversalRecipient.alias) then
-            bloodGroup = private.bloodGroupStorage:getById(BloodGroup.ON)
+            bloodGroup = private.bloodGroupStorage:getById(BloodGroup.ABP)
             Survivor:setIsKnowOwnBloodGroup(true)
         end
 
