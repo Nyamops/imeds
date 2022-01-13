@@ -34,13 +34,10 @@ InventoryPanelMenuInitializer.createMenu = function(player, context, item)
 
     for _, handler in ipairs(handlers) do
         if handler:supports(item, player) then
-            context:removeLastOption()
             local option = context:addOption(handler:getActionTitle(), nil)
             local subMenu = context:getNew(context)
             context:addSubMenu(option, subMenu)
             handler:addSubMenu(subMenu, player, item)
-
-            break
         end
     end
 end
