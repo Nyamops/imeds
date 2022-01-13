@@ -33,9 +33,9 @@ ItemName_FR = {
     ItemName_iMeds.Umifenovir = "Umifenovir",
     ItemName_iMeds.UmifenovirPack = "Paquet de Umifenovir",
 
-    ItemName_iMeds.UnknownPack = "Paquet de médicaments inconnu",
+    ItemName_iMeds.UnknownPack = "Paquet de médicaments inconnus",
 
-    ItemName_iMeds.BloodTestingKit = "Kit de prise de sang",
+    ItemName_iMeds.BloodTestingKit = "Kit pour prise de sang",
     
     ItemName_iMeds.ErythrocyteSuspensionBagABN = "Poche de globules rouges AB(IV) Rh-",
     ItemName_iMeds.ErythrocyteSuspensionBagABP = "Poche de globules rouges AB(IV) Rh+",
