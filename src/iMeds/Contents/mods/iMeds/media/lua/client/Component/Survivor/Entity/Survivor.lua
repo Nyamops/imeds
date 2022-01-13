@@ -112,6 +112,17 @@ function Survivor:setPainReduction(value)
     getPlayer():getBodyDamage():setPainReduction(value)
 end
 
+---@return number
+function Survivor:getPainReductionFromMeds()
+    return getPlayer():getBodyDamage():getPainReductionFromMeds()
+end
+
+---@param value number
+---@return void
+function Survivor:setPainReductionFromMeds(value)
+    getPlayer():getBodyDamage():setPainReductionFromMeds(value)
+end
+
 ---@param type number
 ---@return number
 function Survivor:getBodyPartHealthByType(type)
