@@ -36,6 +36,9 @@ ItemName_RU = {
     ItemName_iMeds.Nasivion = "Називион",
     ItemName_iMeds.NasivionPack = "Упаковка називиона",
 
+    ItemName_iMeds.Erythropoietin = "Эритропоэтин",
+    ItemName_iMeds.ErythropoietinPack = "Упаковка эритропоэтина",
+
     ItemName_iMeds.UnknownPack = "Упаковка неизвестного препарата",
 
     ItemName_iMeds.BloodTestingKit = "Комплект для определения группы крови",

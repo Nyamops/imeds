@@ -36,6 +36,9 @@ ItemName_EN = {
     ItemName_iMeds.Nasivion = "Nasivion",
     ItemName_iMeds.NasivionPack = "Nasivion pack",
 
+    ItemName_iMeds.Erythropoietin = "Erythropoietin",
+    ItemName_iMeds.ErythropoietinPack = "Erythropoietin pack",
+
     ItemName_iMeds.UnknownPack = "Unknown drug pack",
 
     ItemName_iMeds.BloodTestingKit = "Blood testing kit",
