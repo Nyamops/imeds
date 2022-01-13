@@ -17,8 +17,8 @@ Butamirate = {
     onsetByDosageForm = {
         [DosageForm.Oral.Liquid.alias] = 4 * 10,
     },
-    singleDose = 10,
-    maxDose = 30,
+    singleDose = 1,
+    maxDose = 3,
 }
 
 ZCore:getContainer():register(
