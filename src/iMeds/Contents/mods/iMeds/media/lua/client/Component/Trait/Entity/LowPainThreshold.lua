@@ -25,11 +25,10 @@ Events.OnTick.Add(
             return false
         end
 
-        -- +25% to pain
         getPlayer():getBodyDamage():setInitialWoundPain(100)
-        getPlayer():getBodyDamage():setInitialScratchPain(23)
-        getPlayer():getBodyDamage():setInitialThumpPain(18)
-        getPlayer():getBodyDamage():setInitialBitePain(31)
+        getPlayer():getBodyDamage():setInitialScratchPain(30)
+        getPlayer():getBodyDamage():setInitialThumpPain(25)
+        getPlayer():getBodyDamage():setInitialBitePain(40)
         getPlayer():getBodyDamage():setContinualPainIncrease(0.00125)
     end
 )
