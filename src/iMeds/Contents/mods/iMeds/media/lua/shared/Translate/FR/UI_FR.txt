@@ -126,5 +126,5 @@ UI_FR = {
     UI_Trait_UniversalDonor_Name = "Donneur universel",
     UI_Trait_UniversalDonor_Description = "Peut donner son sang à tous les groupes sanguins",
     UI_Trait_UniversalRecipient_Name = "Receveur universel",
-    UI_Trait_UniversalRecipient_Description = "CPeut recevoir le sang de tous les groupes sanguins",
+    UI_Trait_UniversalRecipient_Description = "Peut recevoir le sang de tous les groupes sanguins",
 }
