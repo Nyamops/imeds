@@ -143,8 +143,8 @@ UI_EN = {
     UI_Trait_UniversalDonor_Description = "Can become a donor for all other blood groups",
     UI_Trait_UniversalRecipient_Name = "Universal recipient",
     UI_Trait_UniversalRecipient_Description = "Can accept blood of all other blood groups",
-    UI_Trait_High_Pain_Tolerance_Name = "High pain threshold",
-    UI_Trait_High_Pain_Tolerance_Description = "Able to tolerate very severe pain",
-    UI_Trait_Low_Pain_Tolerance_Name = "Low pain threshold",
-    UI_Trait_Low_Pain_Tolerance_Description = "Very intolerant of pain",
+    UI_Trait_High_Pain_Threshold_Name = "High pain threshold",
+    UI_Trait_High_Pain_Threshold_Description = "Able to tolerate very severe pain",
+    UI_Trait_Low_Pain_Threshold_Name = "Low pain threshold",
+    UI_Trait_Low_Pain_Threshold_Description = "Very intolerant of pain",
 }

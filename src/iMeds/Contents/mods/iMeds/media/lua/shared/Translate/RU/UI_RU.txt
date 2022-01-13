@@ -144,9 +144,9 @@ UI_RU = {
     UI_Trait_UniversalDonor_Description = "Может стать донором для всех других групп крови",
     UI_Trait_UniversalRecipient_Name = "Универсальный получатель",
     UI_Trait_UniversalRecipient_Description = "Может принимать кровь всех других групп крови",
-    UI_Trait_HighPainTolerance_Name = "Высокий болевой порог",
-    UI_Trait_HighPainTolerance_Description = "Способен терпеть очень сильную боль",
-    UI_Trait_LowPainTolerance_Name = "Низкий болевой порог",
-    UI_Trait_LowPainTolerance_Description = "Очень нетерпим к боли",
+    UI_Trait_HighPainThreshold_Name = "Высокий болевой порог",
+    UI_Trait_HighPainThreshold_Description = "Способен терпеть очень сильную боль",
+    UI_Trait_LowPainThreshold_Name = "Низкий болевой порог",
+    UI_Trait_LowPainThreshold_Description = "Очень нетерпим к боли",
 
 }

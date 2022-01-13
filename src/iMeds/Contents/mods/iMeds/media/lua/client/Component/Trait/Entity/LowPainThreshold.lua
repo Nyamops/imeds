@@ -1,29 +1,27 @@
-LowPainTolerance = {
-    alias = 'LowPainTolerance',
-    name = getText('UI_Trait_LowPainTolerance_Name'),
-    description = getText('UI_Trait_LowPainTolerance_Description'),
+LowPainThreshold = {
+    alias = 'LowPainThreshold',
+    name = getText('UI_Trait_LowPainThreshold_Name'),
+    description = getText('UI_Trait_LowPainThreshold_Description'),
     cost = -6,
     freeRecipes = {},
     freeTraits = {},
     xpBoosts = {},
     xpBoostValues = {},
-    mutualExclusives = {
-        'HighPainTolerance',
-    },
+    mutualExclusives = {},
 }
 
 ZCore:getContainer():register(
     require 'Component/Trait/Entity/Trait',
-    'imeds.trait.entity.low_pain_tolerance',
+    'imeds.trait.entity.low_pain_threshold',
     {
-        LowPainTolerance
+        LowPainThreshold
     },
     'imeds.trait.entity'
 )
 
 Events.OnTick.Add(
     function()
-        if not getPlayer():HasTrait(LowPainTolerance.alias) then
+        if not getPlayer():HasTrait(LowPainThreshold.alias) then
             return false
         end
 
