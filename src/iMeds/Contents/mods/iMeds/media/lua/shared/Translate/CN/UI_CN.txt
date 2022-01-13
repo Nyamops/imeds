@@ -26,8 +26,8 @@ UI_CN = {
     UI_Item_Naloxon_Description = "阿片受体拮抗剂。阻断阿片受体，消除阿片类药物的中枢（包括呼吸抑制）和外周效应。",
     UI_Item_Naloxon_SideEffects = "恶心、呕吐、心动过速、血压升高或降低、镇痛作用消失。",
 
-    UI_Item_HemoStop_Name = "止血粉",
-    UI_Item_HemoStop_Description = "有止血作用的药粉。",
+    UI_Item_HemoStop_Name = "血立停",
+    UI_Item_HemoStop_Description = "止血粉。撒在伤口上，阻止出血。",
     UI_Item_HemoStop_SideEffects = "-",
 
     UI_Item_Umifenovir_Name = "阿比朵尔",
@@ -49,8 +49,8 @@ UI_CN = {
     UI_Item_ButamiratePack_Name = "包装咳息定",
     UI_Item_ButamiratePack_Description = "中枢性镇咳剂。咳息定不属于阿片类生物碱。它不会导致形式成瘾或成瘾。抑制咳嗽，对咳嗽中枢有直接作用。",
 
-    UI_Item_HemoStopPack_Name = "包装止血粉",
-    UI_Item_HemoStopPack_Description = "有止血作用的药粉。",
+    UI_Item_HemoStopPack_Name = "包装血立停",
+    UI_Item_HemoStopPack_Description = "止血粉。撒在伤口上，阻止出血。",
 
     UI_Item_UmifenovirPack_Name = "包装阿比朵尔",
     UI_Item_UmifenovirPack_Description = "抗病毒药物。特异性抑制甲型和乙型流感病毒，这是两种与严重急性呼吸综合征相关的冠状病毒。",

@@ -27,8 +27,8 @@ ItemName_CN = {
     ItemName_iMeds.Butamirate = "咳息定",
     ItemName_iMeds.ButamiratePack = "包装咳息定",
 
-    ItemName_iMeds.HemoStop = "止血粉",
-    ItemName_iMeds.HemoStopPack = "包装止血粉",
+    ItemName_iMeds.HemoStop = "血立停",
+    ItemName_iMeds.HemoStopPack = "包装血立停",
 
     ItemName_iMeds.Umifenovir = "阿比朵尔",
     ItemName_iMeds.UmifenovirPack = "包装阿比朵尔",
