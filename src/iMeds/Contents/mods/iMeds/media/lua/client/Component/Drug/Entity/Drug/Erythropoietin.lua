@@ -12,10 +12,10 @@ Erythropoietin = {
         [DosageForm.Parenteral.Intravenous.alias] = true,
     },
     durationByDosageForm = {
-        [DosageForm.Parenteral.Intravenous.alias] = 4 * 60,
+        [DosageForm.Parenteral.Intravenous.alias] = 2 * 60,
     },
     onsetByDosageForm = {
-        [DosageForm.Parenteral.Intravenous.alias] = 12 * 60,
+        [DosageForm.Parenteral.Intravenous.alias] = 3 * 60,
     },
     singleDose = 1,
     maxDose = 10,
