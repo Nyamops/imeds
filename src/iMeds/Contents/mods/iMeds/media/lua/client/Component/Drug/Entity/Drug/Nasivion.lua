@@ -11,13 +11,13 @@ Nasivion = {
         [DosageForm.Intranasal.Drops.alias] = true,
     },
     durationByDosageForm = {
-        [DosageForm.Intranasal.Drops.alias] = 6 * 60,
+        [DosageForm.Intranasal.Drops.alias] = 4 * 60,
     },
     onsetByDosageForm = {
         [DosageForm.Intranasal.Drops.alias] = 1 * 10,
     },
     singleDose = 1,
-    maxDose = 1,
+    maxDose = 2,
 }
 
 ZCore:getContainer():register(

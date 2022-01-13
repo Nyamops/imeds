@@ -13,18 +13,16 @@ local normalEffect = function()
         --- 3 - tissue sneeze
         --- 4 - tissue cough
         if Survivor:getBlood():getDrugs()[Butamirate.alias] ~= nil and Survivor:getBlood():getDrugs()[Butamirate.alias].isActive then
-            getPlayer():getBodyDamage():setSneezeCoughActive(0)
+            getPlayer():getBodyDamage():setSneezeCoughActive(5)
 
             return
         end
 
-        if getPlayer():getBodyDamage():getTimeToSneezeOrCough() <= 1 and getPlayer():getMoodles():getMoodleLevel(MoodleType.HasACold) < 3 then
-            getPlayer():getBodyDamage():setSneezeCoughActive(0)
-
-            return
+        if getPlayer():getBodyDamage():getTimeToSneezeOrCough() <= 1 then
+            getPlayer():getBodyDamage():setSneezeCoughActive(5)
         end
 
-        if getPlayer():getBodyDamage():getTimeToSneezeOrCough() <= 1 and getPlayer():getMoodles():getMoodleLevel(MoodleType.HasACold) >= 3 then
+        if getPlayer():getBodyDamage():getTimeToSneezeOrCough() <= 1 and getPlayer():getMoodles():getMoodleLevel(MoodleType.HasACold) > 3 then
             getPlayer():getBodyDamage():setSneezeCoughActive(2)
 
             if getPlayer():hasEquipped('Tissue') then
@@ -59,8 +57,10 @@ local overdoseEffect = function()
     end
 
     if not Survivor:getBlood():getDrugs()[Nasivion.alias].isOverdoseEffectApplied then
-        local duration = Nasivion.durationByDosageForm[DosageForm.Intranasal.Drops.alias] / 2
+        local duration = Nasivion.durationByDosageForm[DosageForm.Intranasal.Drops.alias] / 2 * TimeHandler.modifier
         Survivor:getBlood():getDrugs()[Nasivion.alias].duration = Survivor:getBlood():getDrugs()[Nasivion.alias].duration - duration
+
+        Survivor:getBlood():getDrugs()[Nasivion.alias].isOverdoseEffectApplied = true
     end
 end
 
