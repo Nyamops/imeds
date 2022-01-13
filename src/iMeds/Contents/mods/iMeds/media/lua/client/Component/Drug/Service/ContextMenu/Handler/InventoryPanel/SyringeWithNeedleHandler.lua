@@ -1,7 +1,6 @@
 SyringeWithNeedleHandler = {}
 
 function SyringeWithNeedleHandler:supports(item, player)
-    self.item = item
     self.needles = {}
 
     local items = getPlayer():getInventory():getAllTypeRecurse(Needle.fullType)
@@ -12,17 +11,17 @@ function SyringeWithNeedleHandler:supports(item, player)
         end
     end
 
-    return self.item:getFullType() == Syringe.fullType and tableLength(self.needles) > 0
+    return item:getFullType() == Syringe.fullType and tableLength(self.needles) > 0
 end
 
 function SyringeWithNeedleHandler:getActionTitle()
     return getText('UI_ContextMenu_AttachNeedleToSyringe')
 end
 
-function SyringeWithNeedleHandler:addSubMenu(player, subMenu)
+function SyringeWithNeedleHandler:addSubMenu(subMenu, player, item)
     for _, needle in ipairs(self.needles) do
-        local text = self.item:getName() .. " + " .. needle:getName()
-        subMenu:addOption(text, self.item, self.action, player, needle)
+        local text = item:getName() .. " + " .. needle:getName()
+        subMenu:addOption(text, item, self.action, player, needle)
     end
 end
 

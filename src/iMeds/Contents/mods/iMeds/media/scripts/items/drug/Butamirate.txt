@@ -7,6 +7,7 @@ module iMeds {
     {
         Weight = 0.25,
         Type = Drainable,
+        UseWhileEquipped = FALSE,
         UseDelta = 0.005,
         DisplayName = Butamirate,
         Icon = Butamirate,
@@ -20,6 +21,7 @@ module iMeds {
     {
         Weight = 0.3,
         Type = Drainable,
+        UseWhileEquipped = FALSE,
         UseDelta = 1,
         DisplayName = Butamirate Pack,
         Icon = ButamiratePack,

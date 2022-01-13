@@ -1,24 +1,23 @@
 FillSyringeHandler = {}
 
 function FillSyringeHandler:supports(item, player)
-    self.item = item
     self.drugs = {}
 
-    for i = 0, getPlayer():getInventory():getItems():size() - 1 do
-        local drug = getPlayer():getInventory():getItems():get(i)
+    for i = 0, player:getInventory():getItems():size() - 1 do
+        local drug = player:getInventory():getItems():get(i)
         if drug ~= nil
             and drug:getModData().drug ~= nil
             and drug:getModData().drug.dosageForms ~= nil
             and (
-                drug:getModData().drug.dosageForms[DosageForm.Parenteral.Intramuscular.alias] ~= nil
+            drug:getModData().drug.dosageForms[DosageForm.Parenteral.Intramuscular.alias] ~= nil
                 or drug:getModData().drug.dosageForms[DosageForm.Parenteral.Intravenous.alias] ~= nil
-            )
+        )
         then
             table.insert(self.drugs, drug)
         end
     end
 
-    return in_table(self.item:getFullType(), {SyringeWithNeedle.fullType, FullSyringeWithNeedle.fullType})
+    return in_table(item:getFullType(), { SyringeWithNeedle.fullType, FullSyringeWithNeedle.fullType })
         and tableLength(self.drugs) > 0
 end
 
@@ -26,16 +25,16 @@ function FillSyringeHandler:getActionTitle()
     return getText('UI_ContextMenu_FillSyringe')
 end
 
-function FillSyringeHandler:addSubMenu(player, subMenu)
-    if self.item:getModData().syringe.volume < self.item:getModData().syringe.maxVolume then
+function FillSyringeHandler:addSubMenu(subMenu, player, item)
+    if item:getModData().syringe.volume < item:getModData().syringe.maxVolume then
         for _, drug in ipairs(self.drugs) do
-            if self.item:getModData().syringe.drug == nil
-                or self.item:getModData().syringe.drug ~= nil
-                and self.item:getModData().syringe.drug.fullType == drug:getFullType()
+            if item:getModData().syringe.drug == nil
+                or item:getModData().syringe.drug ~= nil
+                and item:getModData().syringe.drug.fullType == drug:getFullType()
 
             then
-                local text = self.item:getName() .. " + " .. drug:getName()
-                subMenu:addOption(text, self.item, self.action, player, drug)
+                local text = item:getName() .. " + " .. drug:getName()
+                subMenu:addOption(text, item, self.action, player, drug)
             end
         end
     end

@@ -8,7 +8,7 @@ local normalEffect = function()
             Survivor:setAdditionalBodyPartPainByType(index, 0)
         end
 
-        Survivor:setPainReduction(70)
+        Survivor:setPainReductionFromMeds(70)
         Survivor:setStress(0)
         Survivor:setUnhappynessLevel(0)
         Survivor:setBoredomLevel(0)

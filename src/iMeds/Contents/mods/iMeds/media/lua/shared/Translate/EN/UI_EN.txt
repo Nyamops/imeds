@@ -34,6 +34,14 @@ UI_EN = {
     UI_Item_Umifenovir_Description = "Antiviral agent. Specifically suppresses influenza A and B viruses, coronavirus associated with severe acute respiratory syndrome.",
     UI_Item_Umifenovir_SideEffects = "-",
 
+    UI_Item_Nasivion_Name = "Nasivion",
+    UI_Item_Nasivion_Description = "Nasal drops in the form of a clear solution, with a faint smell of lavender.",
+    UI_Item_Nasivion_SideEffects = "-",
+
+    UI_Item_Erythropoietin_Name = "Erythropoietin",
+    UI_Item_Erythropoietin_Description = "One of the kidney hormones that controls the formation of red blood cells. According to its chemical structure, it is a glycoprotein. In sports, it is doping.",
+    UI_Item_Erythropoietin_SideEffects = "Weakness, fatigue, headache, fainting, shortness of breath, hypertension.",
+
     UI_Item_NaloxonPack_Name = "Naloxone pack",
     UI_Item_NaloxonPack_Description = "Opioid receptor antagonist. Blocks opioid receptors, eliminates the central (including respiratory depression) and peripheral effects of opioids.",
 
@@ -54,6 +62,12 @@ UI_EN = {
 
     UI_Item_UmifenovirPack_Name = "Umifenovir pack",
     UI_Item_UmifenovirPack_Description = "Antiviral agent. Specifically suppresses influenza A and B viruses, a coronavirus associated with severe acute respiratory syndrome.",
+
+    UI_Item_NasivionPack_Name = "Nasivion pack",
+    UI_Item_NasivionPack_Description = "Nasal drops in the form of a clear solution, with a faint smell of lavender. Helps with a runny nose, reduces irritation of the mucous membrane.",
+
+    UI_Item_ErythropoietinPack_Name = "Erythropoietin pack",
+    UI_Item_ErythropoietinPack_Description = "One of the kidney hormones that controls the formation of red blood cells. According to its chemical structure, it is a glycoprotein. In sports, it is doping.",
 
     UI_Item_BloodVolumeIncreaser_Name = "System item",
     UI_Item_BloodVolumeIncreaser_Description = "System item",
@@ -104,9 +118,11 @@ UI_EN = {
     UI_DosageForm_Parenteral_Intravenous_Action = "Perform an intravenous injection",
     UI_DosageForm_Topical_Powder_Name = "Powder for external use",
     UI_DosageForm_Topical_Powder_Action = "Apply powder",
+    UI_DosageForm_Intranasal_Drops_Name = "Nose Drops",
+    UI_DosageForm_Intranasal_Drops_Action = "Apply drops",
 
     UI_ContextMenu_Ml = "ml.",
-    UI_ContextMenu_TakeOne = "Take one",
+    UI_ContextMenu_Take = "Take",
     UI_ContextMenu_FillSyringe = "Fill the syringe",
     UI_ContextMenu_AttachNeedleToSyringe = "Attach needle",
     UI_ContextMenu_DonateBlood = "Become a donor",
@@ -127,4 +143,8 @@ UI_EN = {
     UI_Trait_UniversalDonor_Description = "Can become a donor for all other blood groups",
     UI_Trait_UniversalRecipient_Name = "Universal recipient",
     UI_Trait_UniversalRecipient_Description = "Can accept blood of all other blood groups",
+    UI_Trait_High_Pain_Threshold_Name = "High pain threshold",
+    UI_Trait_High_Pain_Threshold_Description = "Able to tolerate very severe pain",
+    UI_Trait_Low_Pain_Threshold_Name = "Low pain threshold",
+    UI_Trait_Low_Pain_Threshold_Description = "Very intolerant of pain",
 }

@@ -1,37 +1,29 @@
 UnknownPackHandler = {}
 
 function UnknownPackHandler:supports(item, player)
-    self.items = {}
-
     if player:getPerkLevel(Perks.Doctor) < 3 and not player:HasTrait(Pharmacist.alias) then
         return false
     end
 
-    if item:getFullType() == UnknownPack.fullType then
-        table.insert(self.items, item)
-    end
-
-    return tableLength(self.items) > 0
+    return item:getFullType() == UnknownPack.fullType
 end
 
 function UnknownPackHandler:getActionTitle()
-    return getText('UI_ContextMenu_TakeOne')
+    return getText('UI_ContextMenu_Take')
 end
 
-function UnknownPackHandler:addSubMenu(player, subMenu)
-    for _, item in ipairs(self.items) do
-        subMenu:addOption(item:getName(), item, self.action, player)
-    end
+function UnknownPackHandler:addSubMenu(subMenu, player, item)
+    subMenu:addOption('1', item, self.action, player, 1)
 end
 
-UnknownPackHandler.action = function(item, player)
+UnknownPackHandler.action = function(item, player, count)
     if luautils.haveToBeTransfered(player, item) then
         ISTimedActionQueue.add(
             ISInventoryTransferAction:new(player, item, item:getContainer(), player:getInventory())
         )
     end
 
-    ISTimedActionQueue.add(TakeOneFromUnknownPackAction:new(player, item))
+    ISTimedActionQueue.add(TakeOneFromUnknownPackAction:new(player, item, count))
 end
 
 ZCore:getContainer():register(
