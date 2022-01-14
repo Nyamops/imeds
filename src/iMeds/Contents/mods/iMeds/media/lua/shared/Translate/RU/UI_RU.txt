@@ -34,6 +34,14 @@ UI_RU = {
     UI_Item_Umifenovir_Description = "Противовирусное средство. Специфически подавляет вирусы гриппа А и В, коронавирус, ассоциированный с тяжелым острым респираторным синдромом.",
     UI_Item_Umifenovir_SideEffects = "-",
 
+    UI_Item_Nasivion_Name = "Упаковка називиона",
+    UI_Item_Nasivion_Description = "Капли назальные в виде прозрачного раствора, со слабым запахом лаванды.",
+    UI_Item_Nasivion_SideEffects = "-",
+
+    UI_Item_Erythropoietin_Name = "Эритропоэтин",
+    UI_Item_Erythropoietin_Description = "Один из гормонов почек, который контролирует образование эритроцитов. По химическому строению является гликопротеином. В спорте является допингом.",
+    UI_Item_Erythropoietin_SideEffects = "Слабость, утомляемость, головная боль, предобморочное состояние, одышка, гипертензия",
+
     UI_Item_NaloxonPack_Name = "Упаковка налоксона",
     UI_Item_NaloxonPack_Description = "Антагонист опиоидных рецепторов. Блокирует опиоидные рецепторы, устраняет центральное (в т.ч. угнетение дыхания) и периферическое действие опиоидов.",
 
@@ -54,6 +62,12 @@ UI_RU = {
 
     UI_Item_UmifenovirPack_Name = "Упаковка умифеновира",
     UI_Item_UmifenovirPack_Description = "Противовирусное средство. Специфически подавляет вирусы гриппа А и В, коронавирус, ассоциированный с тяжелым острым респираторным синдромом.",
+
+    UI_Item_NasivionPack_Name = "Упаковка умифеновира",
+    UI_Item_NasivionPack_Description = "Противовирусное средство. Специфически подавляет вирусы гриппа А и В, коронавирус, ассоциированный с тяжелым острым респираторным синдромом.",
+
+    UI_Item_ErythropoietinPack_Name = "Упаковка эритропоэтина",
+    UI_Item_ErythropoietinPack_Description = "Один из гормонов почек, который контролирует образование эритроцитов. По химическому строению является гликопротеином. В спорте является допингом.",
 
     UI_Item_BloodVolumeIncreaser_Name = "Системный предмет",
     UI_Item_BloodVolumeIncreaser_Description = "Системный предмет",
@@ -104,9 +118,11 @@ UI_RU = {
     UI_DosageForm_Parenteral_Intravenous_Action = "Выполнить внутривенную инъекцию",
     UI_DosageForm_Topical_Powder_Name = "Порошок для наружного применения",
     UI_DosageForm_Topical_Powder_Action = "Применить порошок",
+    UI_DosageForm_Intranasal_Drops_Name = "Капли для назального применения",
+    UI_DosageForm_Intranasal_Drops_Action = "Применить капли",
 
     UI_ContextMenu_Ml = "мл.",
-    UI_ContextMenu_TakeOne = "Взять 1 шт.",
+    UI_ContextMenu_Take = "Достать",
     UI_ContextMenu_FillSyringe = "Наполнить шприц",
     UI_ContextMenu_AttachNeedleToSyringe = "Присоединить иглу",
     UI_ContextMenu_DonateBlood = "Стать донором",
@@ -115,6 +131,7 @@ UI_RU = {
     UI_ContextMenu_ExamineDrug = "Изучить препарат",
     UI_ContextMenu_ExaminePack = "Изучить упаковку препарата",
     UI_ContextMenu_TestBlood = "Определить группу крови",
+    UI_ContextMenu_Rename = "Переименовать",
 
     UI_Window_DrugTitle = "Название препарата: %s",
     UI_Window_DrugDescription = "Описание препарата: %s",
@@ -123,4 +140,13 @@ UI_RU = {
 
     UI_Trait_Pharmacist_Name = "Фармацевт",
     UI_Trait_Pharmacist_Description = "Может опознавать препараты. Знает все о составе лекарств и показаниях к их применению",
+    UI_Trait_UniversalDonor_Name = "Универсальный донор",
+    UI_Trait_UniversalDonor_Description = "Может стать донором для всех других групп крови",
+    UI_Trait_UniversalRecipient_Name = "Универсальный получатель",
+    UI_Trait_UniversalRecipient_Description = "Может принимать кровь всех других групп крови",
+    UI_Trait_HighPainThreshold_Name = "Высокий болевой порог",
+    UI_Trait_HighPainThreshold_Description = "Способен терпеть очень сильную боль",
+    UI_Trait_LowPainThreshold_Name = "Низкий болевой порог",
+    UI_Trait_LowPainThreshold_Description = "Очень нетерпим к боли",
+
 }

@@ -8,6 +8,10 @@ local updateBloodVolume = function()
         return false
     end
 
+    if not SandboxVars.ImmersiveMedicine.IsBloodSystemActive then
+        return false
+    end
+
     local bloodVolumeReducingModifier = 0
     for _, bodyPartType in pairs(BodyPart) do
         local bodyPart = Survivor:getBodyPartByType(bodyPartType)

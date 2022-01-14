@@ -17,8 +17,8 @@ BismuthSubsalicylate = {
     onsetByDosageForm = {
         [DosageForm.Oral.Pill.alias] = 10,
     },
-    singleDose = 2,
-    maxDose = 16,
+    singleDose = 1,
+    maxDose = 8,
 }
 
 ZCore:getContainer():register(

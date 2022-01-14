@@ -8,12 +8,35 @@ function TraitInitializer:new()
 
     ---@type Logger
     private.logger = ZCore:getContainer():get('imeds.logger.default')
-    ---@type function
-    private.doTraits = BaseGameCharacterDetails.DoTraits
     ---@type Trait[]
     private.traits = ZCore:getContainer():getByTag('imeds.trait.entity')
 
-    BaseGameCharacterDetails.DoTraits = function()
+    function private:addXpBoost(trait, gameTrait)
+        for index, perkName in ipairs(trait:getXpBoosts()) do
+            local boostLevel = trait:getXpBoostValues()[index]
+            gameTrait:addXPBoost(perkName, boostLevel)
+        end
+    end
+
+    function private:addFreeRecipes(trait, gameTrait)
+        for _, recipeName in ipairs(trait:getFreeRecipes()) do
+            gameTrait:getFreeRecipes():add(recipeName)
+        end
+    end
+
+    function private:addFreeTraits(trait, gameTrait)
+        for _, freeTraitName in ipairs(trait:getFreeTraits()) do
+            gameTrait:addFreeTrait(freeTraitName)
+        end
+    end
+
+    function private:addMutualExclusives(trait)
+        for _, exclusiveTraitName in ipairs(trait:getMutualExclusives()) do
+            TraitFactory.setMutualExclusive(trait:getAlias(), exclusiveTraitName)
+        end
+    end
+
+    function public:addTraits()
         for _, trait in pairs(private.traits) do
             local gameTrait = TraitFactory.addTrait(
                 trait:getAlias(),
@@ -46,35 +69,8 @@ function TraitInitializer:new()
             end
         end
 
-        return private.doTraits(self)
+        TraitFactory.sortList();
     end
-
-    function private:addXpBoost(trait, gameTrait)
-        for index, perkName in ipairs(trait:getXpBoosts()) do
-            local boostLevel = trait:getXpBoostValues()[index]
-            gameTrait:addXPBoost(perkName, boostLevel)
-        end
-    end
-
-    function private:addFreeRecipes(trait, gameTrait)
-        for _, recipeName in ipairs(trait:getFreeRecipes()) do
-            gameTrait:getFreeRecipes():add(recipeName)
-        end
-    end
-
-    function private:addFreeTraits(trait, gameTrait)
-        for _, freeTraitName in ipairs(trait:getFreeTraits()) do
-            gameTrait:addFreeTrait(freeTraitName)
-        end
-    end
-
-    function private:addMutualExclusives(trait)
-        for _, exclusiveTraitName in ipairs(trait:getMutualExclusives()) do
-            TraitFactory.setMutualExclusive(trait:getAlias(), exclusiveTraitName)
-        end
-    end
-
-    BaseGameCharacterDetails.DoTraits()
 
     setmetatable(public, self)
     self.__index = self

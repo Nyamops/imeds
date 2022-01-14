@@ -122,6 +122,7 @@ UI_CN = {
     UI_DosageForm_Intranasal_Drops_Action = "使用滴鼻液",
 
     UI_ContextMenu_Ml = "ml.",
+
     UI_ContextMenu_Take = "拿取",
     UI_ContextMenu_FillSyringe = "装满注射器",
     UI_ContextMenu_AttachNeedleToSyringe = "给注射器装上针头",

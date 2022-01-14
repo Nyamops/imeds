@@ -4,70 +4,75 @@ TakeOneFromNeedlePackAction = {}
 TakeOneFromNeedlePackAction = ISBaseTimedAction:derive('TakeOneFromNeedlePackAction')
 
 function TakeOneFromNeedlePackAction:isValid()
-    if self.item then
-        return self.character:getInventory():contains(self.item)
-    end
-
-    return false
-end
-
-function TakeOneFromNeedlePackAction:update()
-    if self.item then
-        self.item:setJobDelta(self:getJobDelta())
-    end
+    return self.character:getInventory():contains(self.item)
 end
 
 function TakeOneFromNeedlePackAction:start()
-    if self.item then
-        self.item:setJobType(self.jobType)
-        self.item:setJobDelta(0.0)
+    self.item:setJobType(self.jobType)
+    self.item:setJobDelta(0.0)
+
+    self:setActionAnim(CharacterActionAnims.InsertBullets);
+
+    self:setOverrideHandModels(self.item:getStaticModel(), nil)
+    self.countStart = round(self.item:getDrainableUsesFloat())
+end
+
+function TakeOneFromNeedlePackAction:update()
+    if self:isFinished() then
+        self:setOverrideHandModels(nil, nil)
+        self:forceComplete()
+
+        return
     end
 
-    self:setActionAnim('Loot')
-    self.character:SetVariable('LootPosition', 'Mid')
-    self.character:reportEvent("EventLootItem")
+    local jobDelta = self.countStart - round(self.item:getDrainableUsesFloat())
+    self.item:setJobDelta(jobDelta / self.count)
+end
 
-    self:setOverrideHandModels(self.item, nil)
+function TakeOneFromNeedlePackAction:isFinished()
+    return self.countStart - round(self.item:getDrainableUsesFloat()) >= self.count or
+        not self.character:getInventory():containsWithModule(self.item:getFullType())
+end
+
+function TakeOneFromNeedlePackAction:animEvent(event, parameter)
+    if event == 'InsertBullet' then
+        self.item:Use()
+
+        local needle = InventoryItemFactory.CreateItem(Needle.fullType)
+        needle:getModData().needle = {
+            isClean = true,
+            isInfected = false,
+        }
+
+        if isClient() then
+            local args = { id = self.character:getOnlineID(), item = needle }
+            sendClientCommand(self.character, 'drug', TakeOneCommand.defaultName, args)
+        else
+            self.character:sendObjectChange('addItem', { item = needle })
+        end
+    end
 end
 
 function TakeOneFromNeedlePackAction:stop()
-    if self.item then
-        self.item:setJobDelta(0.0)
-    end
+    self.item:setJobDelta(0.0)
 
     ISBaseTimedAction.stop(self)
 end
 
 function TakeOneFromNeedlePackAction:perform()
     ISBaseTimedAction.perform(self)
-    if self.item then
-        self.item:setJobDelta(0.0)
-    end
-
-    self.item:Use()
-
-    local needle = InventoryItemFactory.CreateItem(Needle.fullType)
-    needle:getModData().needle = {
-        isClean = true,
-        isInfected = false,
-    }
-
-    if isClient() then
-        local args = { id = self.character:getOnlineID(), item = needle }
-        sendClientCommand(self.character, 'drug', TakeOneCommand.defaultName, args)
-    else
-        self.character:sendObjectChange('addItem', { item = needle })
-    end
+    self.item:setJobDelta(0.0)
 end
 
-function TakeOneFromNeedlePackAction:new(player, item)
+function TakeOneFromNeedlePackAction:new(player, item, count)
     local public = {}
     setmetatable(public, self)
     self.__index = self
     public.character = player
     public.item = item
-    public.maxTime = 60
-    public.jobType = 'TakeOneFromNeedlePackAction'
+    public.count = count
+    public.maxTime = -1
+    public.jobType = getText('UI_ContextMenu_Take')
 
     return public
 end

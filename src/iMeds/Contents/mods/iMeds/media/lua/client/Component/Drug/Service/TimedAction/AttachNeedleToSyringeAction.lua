@@ -4,27 +4,19 @@ AttachNeedleToSyringeAction = {}
 AttachNeedleToSyringeAction = ISBaseTimedAction:derive('AttachNeedleToSyringeAction')
 
 function AttachNeedleToSyringeAction:isValid()
-    if self.syringe and self.needle then
-        return self.character:getInventory():contains(self.syringe) and self.character:getInventory():contains(self.needle)
-    end
-
-    return false
+    return self.character:getInventory():contains(self.syringe) and self.character:getInventory():contains(self.needle)
 end
 
 function AttachNeedleToSyringeAction:update()
-    if self.syringe and self.needle then
-        self.syringe:setJobDelta(self:getJobDelta())
-        self.needle:setJobDelta(self:getJobDelta())
-    end
+    self.syringe:setJobDelta(self:getJobDelta())
+    self.needle:setJobDelta(self:getJobDelta())
 end
 
 function AttachNeedleToSyringeAction:start()
-    if self.syringe and self.needle then
-        self.syringe:setJobType(self.jobType)
-        self.syringe:setJobDelta(0.0)
-        self.needle:setJobType(self.jobType)
-        self.needle:setJobDelta(0.0)
-    end
+    self.syringe:setJobType(self.jobType)
+    self.syringe:setJobDelta(0.0)
+    self.needle:setJobType(self.jobType)
+    self.needle:setJobDelta(0.0)
 
     self:setActionAnim('Loot')
     self.character:SetVariable('LootPosition', 'Mid')
@@ -33,20 +25,16 @@ function AttachNeedleToSyringeAction:start()
 end
 
 function AttachNeedleToSyringeAction:stop()
-    if self.syringe and self.needle then
-        self.syringe:setJobDelta(0.0)
-        self.needle:setJobDelta(0.0)
-    end
+    self.syringe:setJobDelta(0.0)
+    self.needle:setJobDelta(0.0)
 
     ISBaseTimedAction.stop(self)
 end
 
 function AttachNeedleToSyringeAction:perform()
     ISBaseTimedAction.perform(self)
-    if self.syringe and self.needle then
-        self.syringe:setJobDelta(0.0)
-        self.needle:setJobDelta(0.0)
-    end
+    self.syringe:setJobDelta(0.0)
+    self.needle:setJobDelta(0.0)
 
     local syringe = InventoryItemFactory.CreateItem(SyringeWithNeedle.fullType)
     syringe:getModData().syringe = self.syringe:getModData().syringe
@@ -59,7 +47,13 @@ function AttachNeedleToSyringeAction:perform()
 
     syringe:setUsedDelta(0.0)
 
-    self.character:sendObjectChange('addItem', { item = syringe })
+    if isClient() then
+        local args = { id = self.character:getOnlineID(), item = syringe }
+        sendClientCommand(self.character, 'drug', AttachNeedleToSyringeCommand.defaultName, args)
+    else
+        self.character:sendObjectChange('addItem', { item = syringe })
+    end
+
     self.syringe:Use()
     self.needle:Use()
 end

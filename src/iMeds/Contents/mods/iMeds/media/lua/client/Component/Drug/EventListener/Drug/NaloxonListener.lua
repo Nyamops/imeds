@@ -30,7 +30,7 @@ local overdoseEffect = function()
 
     if not Survivor:getBlood():getDrugs()[Naloxon.alias].isOverdoseEffectApplied then
         Survivor:setFoodSicknessLevel(80)
-        Survivor:setPainReduction(0)
+        Survivor:setPainReductionFromMeds(0)
 
         Survivor:getBlood():getDrugs()[Naloxon.alias].isOverdoseEffectApplied = true
     end

@@ -12,17 +12,10 @@ DosageForm = {
         },
     },
     Intranasal = {
-        Liquid = {
-            alias = 'Liquid',
-            name = getText('UI_DosageForm_Intranasal_Liquid_Name'),
-            action = getText('UI_DosageForm_Intranasal_Liquid_Action'),
-        },
-    },
-    Inhalation = {
-        Inhaler = {
-            alias = 'Inhaler',
-            name = getText('UI_DosageForm_Inhalation_Inhaler_Name'),
-            action = getText('UI_DosageForm_Inhalation_Inhaler_Action'),
+        Drops = {
+            alias = 'Drops',
+            name = getText('UI_DosageForm_Intranasal_Drops_Name'),
+            action = getText('UI_DosageForm_Intranasal_Drops_Action'),
         },
     },
     Parenteral = {
@@ -35,6 +28,11 @@ DosageForm = {
             alias = 'Intravenous',
             name = getText('UI_DosageForm_Parenteral_Intravenous_Name'),
             action = getText('UI_DosageForm_Parenteral_Intravenous_Action'),
+        },
+        Inhaler = {
+            alias = 'Inhaler',
+            name = getText('UI_DosageForm_Parenteral_Inhaler_Name'),
+            action = getText('UI_DosageForm_Parenteral_Inhaler_Action'),
         },
     },
     Topical = {

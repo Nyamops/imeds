@@ -18,7 +18,17 @@ function SurvivorCreator:new(bloodGroupStorage)
         getPlayer():getModData().survivor.isKnowOwnBloodGroup = false
 
         Survivor:getBlood():setVolume(Blood.maxVolume)
-        Survivor:getBlood():setGroup(private.bloodGroupStorage:getRandomBloodGroup():getId())
+
+        local bloodGroup = private.bloodGroupStorage:getRandomBloodGroup()
+        if getPlayer():HasTrait(UniversalDonor.alias) then
+            bloodGroup = private.bloodGroupStorage:getById(BloodGroup.ON)
+            Survivor:setIsKnowOwnBloodGroup(true)
+        elseif getPlayer():HasTrait(UniversalRecipient.alias) then
+            bloodGroup = private.bloodGroupStorage:getById(BloodGroup.ABP)
+            Survivor:setIsKnowOwnBloodGroup(true)
+        end
+
+        Survivor:getBlood():setGroup(bloodGroup:getId())
     end
 
     setmetatable(public, self)

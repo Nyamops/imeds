@@ -18,15 +18,30 @@ function OnDrugApplierDeleteListener:new()
             end
 
             Survivor:getBlood():addDrug(drug, dosageForm, dose)
-        elseif DosageForm.Parenteral[dosageForm] ~= nil then
+
+            return
+        end
+
+        if DosageForm.Parenteral[dosageForm] ~= nil then
             Survivor:getBlood():addDrug(drug, dosageForm, data.drug.dose)
-        elseif DosageForm.Topical[dosageForm] ~= nil then
+
+            return
+        end
+
+        if DosageForm.Topical[dosageForm] ~= nil then
             if drug:getAlias() == HemoStop.alias then
                 local bodyPart = BodyPartType.FromString(data.drug.bodyPartType)
                 Survivor:getBodyPartByType(bodyPart):setBleeding(false)
                 Survivor:getBodyPartByType(bodyPart):setBleedingTime(0)
             end
 
+            return
+        end
+
+        if DosageForm.Intranasal[dosageForm] ~= nil then
+            Survivor:getBlood():addDrug(drug, dosageForm, drug:getSingleDose())
+
+            return
         end
     end
 

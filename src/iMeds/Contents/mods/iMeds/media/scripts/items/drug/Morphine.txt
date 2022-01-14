@@ -7,6 +7,7 @@ module iMeds {
     {
         Weight = 0.05,
         Type = Drainable,
+        UseWhileEquipped = FALSE,
         UseDelta = 1,
         DisplayName = Morphine,
         Icon = AmpouleRed,
@@ -20,6 +21,7 @@ module iMeds {
     {
         Weight = 0.5,
         Type = Drainable,
+        UseWhileEquipped = FALSE,
         UseDelta = 0.1,
         DisplayName = Morphine Pack,
         Icon = MorphinePack,

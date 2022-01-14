@@ -5,6 +5,10 @@ local updateSurvivorDrugsEffect = function()
 
     for drugAlias, drugData in pairs(Survivor:getBlood():getDrugs()) do
         if type(drugData) == 'table' then
+            if drugData.dose <= drugData.maxDose then
+                Survivor:getBlood():getDrugs()[drugAlias].isOverdose = false
+            end
+
             if drugData.dose > drugData.maxDose then
                 Survivor:getBlood():getDrugs()[drugAlias].isOverdose = true
                 Survivor:getBlood():getDrugs()[drugAlias].isOverdoseEffectsApplied = false

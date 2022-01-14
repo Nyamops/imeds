@@ -75,7 +75,7 @@ function TakeDrugsParenteralAction:perform()
         self.character:getStats():setPanic(self.character:getStats():getPanic() + 50);
     end
 
-    self.character:getXp():AddXP(Perks.Doctor, 10)
+    self.character:getXp():AddXP(Perks.Doctor, 0.1)
 
     local drugApplier = InventoryItemFactory.CreateItem(DrugApplier.fullType)
     drugApplier:getModData().drug = self.syringe:getModData().syringe.drug
