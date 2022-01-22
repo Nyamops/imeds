@@ -1,7 +1,8 @@
-local ticksFromPreviousHeartBeat = 0
-local lowBloodLossHeartbeatDelay = 100
-local moderateBloodLossHeartbeatDelay = 60
-local criticalBloodLossHeartbeatDelay = 300
+---@type SideEffectStorage
+local sideEffectStorage
+local tachycardia
+local bradycardia
+local visualImpairment
 
 local updateBloodVolume = function()
     if not getPlayer() or getPlayer():isDead() or not Survivor:isInitialized() then
@@ -40,7 +41,15 @@ local updateBloodVolume = function()
 
     local bloodLoss = Blood.maxVolume - Survivor:getBlood():getVolume()
 
-    ticksFromPreviousHeartBeat = ticksFromPreviousHeartBeat + 1
+    if sideEffectStorage == nil then
+        sideEffectStorage = ZCore:getContainer():get('imeds.side_effect.storage.side_effect_storage')
+        ---@type SideEffect
+        tachycardia = sideEffectStorage:getByAlias(Tachycardia.alias)
+        ---@type SideEffect
+        bradycardia = sideEffectStorage:getByAlias(Bradycardia.alias)
+        ---@type SideEffect
+        visualImpairment = sideEffectStorage:getByAlias(VisualImpairment.alias)
+    end
 
     --TODO Вынести в отдельный сервис типа BloodLossHandler
     if bloodLoss > 200 and bloodLoss <= 1500 then
@@ -51,6 +60,9 @@ local updateBloodVolume = function()
         if Survivor:getEndurance() > 0.7 then
             Survivor:setEndurance(0.7)
         end
+
+        Survivor:removeSideEffect(Tachycardia.alias)
+
     elseif bloodLoss > 1500 and bloodLoss <= 2500 then
         if Survivor:getFatigue() < 0.7 then
             Survivor:setFatigue(0.7)
@@ -68,23 +80,12 @@ local updateBloodVolume = function()
             Survivor:setThirst(0.15)
         end
 
-        --TODO Тахикардия (Вынести в отдельный эффект)
-        if ticksFromPreviousHeartBeat > lowBloodLossHeartbeatDelay then
-            getSoundManager():playUISound('heart')
-            ticksFromPreviousHeartBeat = 0
-        end
+        Survivor:addSideEffect(tachycardia, 1)
+        Survivor:removeSideEffect(VisualImpairment.alias)
 
     elseif bloodLoss > 2500 and bloodLoss <= 3500 then
-        --TODO Тахикардия (Вынести в отдельный эффект)
-        if ticksFromPreviousHeartBeat > moderateBloodLossHeartbeatDelay then
-            getSoundManager():playUISound('heart')
-            ticksFromPreviousHeartBeat = 0
-        end
-
-        --TODO Ухудшение зрения (Вынести в отдельный эффект)
-        if (getCore():getZoom(0) > 0.25) then
-            getCore():doZoomScroll(getPlayer():getPlayerNum(), -1)
-        end
+        Survivor:addSideEffect(tachycardia, 2)
+        Survivor:addSideEffect(visualImpairment, 1)
 
         Survivor:setFatigue(1)
         Survivor:setEndurance(0)
@@ -102,22 +103,15 @@ local updateBloodVolume = function()
         getPlayer():setBlockMovement(false)
         getPlayer():setBannedAttacking(false)
     elseif bloodLoss > 3500 and bloodLoss <= 3600 then
-        --TODO Брадикардия (Вынести в отдельный эффект)
-        if ticksFromPreviousHeartBeat > criticalBloodLossHeartbeatDelay then
-            getSoundManager():playUISound('heart')
-            ticksFromPreviousHeartBeat = 0
-        end
+        Survivor:addSideEffect(bradycardia, 1)
 
         --TODO Тоже надо выпилить отсюда и оформить нормально
         getPlayer():setBlockMovement(true)
         getPlayer():setBannedAttacking(true)
         getPlayer():reportEvent('EventSitOnGround')
 
-        --TODO Ухудшение зрения (Вынести в отдельный эффект)
         getPlayer():nullifyAiming()
-        if (getCore():getZoom(0) > 0.25) then
-            getCore():doZoomScroll(getPlayer():getPlayerNum(), -1)
-        end
+        Survivor:addSideEffect(visualImpairment, 1)
     elseif bloodLoss > 3600 then
         getPlayer():getBodyDamage():ReduceGeneralHealth(150)
     end
@@ -125,7 +119,7 @@ end
 
 Events.OnTick.Add(updateBloodVolume)
 
-local resetBloodVolume = function()
+local resetAll = function()
     if getPlayer():isGodMod() then
         getPlayer():setBlockMovement(false)
         getPlayer():setBannedAttacking(false)
@@ -143,7 +137,15 @@ local resetBloodVolume = function()
                 Survivor:getBlood():getDrugs()[drug:getAlias()].isOverdoseEffectApplied = false
             end
         end
+
+        for _, sideEffect in pairs(sideEffectStorage:findAll()) do
+            if Survivor:getSideEffects()[sideEffect:getAlias()] ~= nil then
+                Survivor:removeSideEffect(sideEffect:getAlias())
+            end
+        end
+
+        Survivor:setStressFromOpiateAddiction(0)
     end
 end
 
-Events.OnTick.Add(resetBloodVolume)
+Events.OnTick.Add(resetAll)
