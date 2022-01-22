@@ -4,7 +4,6 @@ UniversalRecipient = {
     description = getText('UI_Trait_UniversalRecipient_Description'),
     cost = 3,
     freeRecipes = {},
-    freeTraits = {},
     xpBoosts = {},
     xpBoostValues = {},
     mutualExclusives = {},

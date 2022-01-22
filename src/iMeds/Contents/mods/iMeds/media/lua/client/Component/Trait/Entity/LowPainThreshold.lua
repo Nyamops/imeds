@@ -4,7 +4,6 @@ LowPainThreshold = {
     description = getText('UI_Trait_LowPainThreshold_Description'),
     cost = -6,
     freeRecipes = {},
-    freeTraits = {},
     xpBoosts = {},
     xpBoostValues = {},
     mutualExclusives = {},
