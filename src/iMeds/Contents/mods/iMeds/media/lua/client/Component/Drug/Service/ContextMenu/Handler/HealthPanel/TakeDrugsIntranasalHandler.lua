@@ -26,13 +26,17 @@ function TakeDrugsIntranasalHandler:addToMenu(context)
 
     local drugs = self.items.drug
     if #drugs > 0 then
+        local options = {}
         for alias, data in pairs(DosageForm.Intranasal) do
-            local dosageFormOption = context:addOption(data.action, nil)
+            if options[alias] == nil then
+                options[alias] = context:addOption(data.action, nil)
+            end
+
             local itemMenu = context:getNew(context)
             for i = 1, #drugs do
                 local drug = self.items.drug[i]
                 if drug:getModData().drug.dosageForms[alias] ~= nil then
-                    context:addSubMenu(dosageFormOption, itemMenu)
+                    context:addSubMenu(options[alias], itemMenu)
                     itemMenu:addOption(drug:getName(), self, self.onMenuOptionSelected, drug, alias)
                 end
             end

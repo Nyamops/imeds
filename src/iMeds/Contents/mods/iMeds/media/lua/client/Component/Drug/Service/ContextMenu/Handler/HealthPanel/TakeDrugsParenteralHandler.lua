@@ -43,13 +43,17 @@ function TakeDrugsParenteralHandler:addToMenu(context)
 
     local syringes = self.items.syringe
     if #syringes > 0 then
+        local options = {}
         for alias, data in pairs(DosageForm.Parenteral) do
-            local dosageFormOption = context:addOption(data.action, nil)
+            if options[alias] == nil then
+                options[alias] = context:addOption(data.action, nil)
+            end
+
             local itemMenu = context:getNew(context)
             for i = 1, #syringes do
                 local syringe = self.items.syringe[i]
                 if syringe:getModData().syringe.drug.dosageForms[alias] ~= nil then
-                    context:addSubMenu(dosageFormOption, itemMenu)
+                    context:addSubMenu(options, itemMenu)
                     local itemMenuOption = itemMenu:addOption(syringe:getName(), nil)
                     local dosageMenu = context:getNew(context)
                     context:addSubMenu(itemMenuOption, dosageMenu)
