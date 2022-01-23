@@ -34,6 +34,14 @@ UI_CN = {
     UI_Item_Umifenovir_Description = "抗病毒药物。特异性抑制甲型和乙型流感病毒，这是两种与严重急性呼吸综合征相关的冠状病毒。",
     UI_Item_Umifenovir_SideEffects = "-",
 
+    UI_Item_Nasivion_Name = "纳吸维",
+    UI_Item_Nasivion_Description = "清澈溶液形式的滴鼻液，带有淡淡的薰衣草芳香。有助于减轻流鼻涕，减少鼻粘膜受到的刺激。",
+    UI_Item_Nasivion_SideEffects = "-",
+
+    UI_Item_Erythropoietin_Name = "促红细胞生成素",
+    UI_Item_Erythropoietin_Description = "一种控制红细胞形成的肾脏激素。从化学结构来看，它是一种糖蛋白。在体育运动中被视为兴奋剂。",
+    UI_Item_Erythropoietin_SideEffects = "虚弱，疲劳，头痛，晕厥，呼吸急促以及高血压。",
+
     UI_Item_NaloxonPack_Name = "包装纳洛酮",
     UI_Item_NaloxonPack_Description = "阿片受体拮抗剂。阻断阿片受体，消除阿片类药物的中枢（包括呼吸抑制）和外周效应。",
 
@@ -54,6 +62,12 @@ UI_CN = {
 
     UI_Item_UmifenovirPack_Name = "包装阿比朵尔",
     UI_Item_UmifenovirPack_Description = "抗病毒药物。特异性抑制甲型和乙型流感病毒，这是两种与严重急性呼吸综合征相关的冠状病毒。",
+
+    UI_Item_NasivionPack_Name = "包装纳吸维",
+    UI_Item_NasivionPack_Description = "清澈溶液形式的滴鼻液，带有淡淡的薰衣草芳香。有助于减轻流鼻涕，减少鼻粘膜受到的刺激。",
+
+    UI_Item_ErythropoietinPack_Name = "包装促红细胞生成素",
+    UI_Item_ErythropoietinPack_Description = "一种控制红细胞形成的肾脏激素。从化学结构来看，它是一种糖蛋白。在体育运动中被视为兴奋剂。",
 
     UI_Item_BloodVolumeIncreaser_Name = "系统物品",
     UI_Item_BloodVolumeIncreaser_Description = "系统物品",
@@ -104,9 +118,12 @@ UI_CN = {
     UI_DosageForm_Parenteral_Intravenous_Action = "进行静脉注射",
     UI_DosageForm_Topical_Powder_Name = "外用粉剂",
     UI_DosageForm_Topical_Powder_Action = "使用外用粉剂",
+    UI_DosageForm_Intranasal_Drops_Name = "滴鼻液",
+    UI_DosageForm_Intranasal_Drops_Action = "使用滴鼻液",
 
     UI_ContextMenu_Ml = "ml.",
-    UI_ContextMenu_Take = "拿一份",
+
+    UI_ContextMenu_Take = "拿取",
     UI_ContextMenu_FillSyringe = "装满注射器",
     UI_ContextMenu_AttachNeedleToSyringe = "给注射器装上针头",
     UI_ContextMenu_DonateBlood = "抽出血液",
@@ -127,4 +144,8 @@ UI_CN = {
     UI_Trait_UniversalDonor_Description = "可以为所有其他血型的人献血。",
     UI_Trait_UniversalRecipient_Name = "全适应受血者",
     UI_Trait_UniversalRecipient_Description = "可以输入所有血型的血液。",
+    UI_Trait_High_Pain_Threshold_Name = "高疼痛阈值",
+    UI_Trait_High_Pain_Threshold_Description = "可以忍受非常剧烈的疼痛。",
+    UI_Trait_Low_Pain_Threshold_Name = "低疼痛阈值",
+    UI_Trait_Low_Pain_Threshold_Description = "难以忍受相对较轻的疼痛。",
 }
