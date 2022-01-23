@@ -4,14 +4,14 @@ require 'ISUI/ISButton'
 
 CustomMoodleMenu = ISPanel:derive('CustomMoodleMenu')
 
-local defaultPadding = 4
+local defaultPadding = 6
 
 function CustomMoodleMenu:initialise()
     ISPanel.initialise(self)
 end
 
 function CustomMoodleMenu:render()
-    local y = 0
+    local y = 1
     for _, moodle in pairs(self.moodles) do
         local sideEffect = Survivor:getSideEffects()[moodle:getSideEffect():getAlias()]
         if sideEffect ~= nil then

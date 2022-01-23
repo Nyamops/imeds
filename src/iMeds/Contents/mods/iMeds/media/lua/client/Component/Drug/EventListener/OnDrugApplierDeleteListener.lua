@@ -40,6 +40,10 @@ function OnDrugApplierDeleteListener:new()
             return
         end
 
+        if drug:getAlias() == Morphine.alias and ZombRand(1, 100) == 100 then
+            getPlayer():getTraits():add(OpioidAddiction.alias)
+        end
+
         if DosageForm.Topical[dosageForm] ~= nil then
             if drug:getAlias() == HemoStop.alias then
                 local bodyPart = BodyPartType.FromString(data.drug.bodyPartType)
