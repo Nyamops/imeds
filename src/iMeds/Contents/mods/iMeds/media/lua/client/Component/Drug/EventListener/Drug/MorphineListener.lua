@@ -33,8 +33,7 @@ local overdoseEffect = function()
     end
 
     if not Survivor:getBlood():getDrugs()[Morphine.alias].isOverdoseEffectApplied then
-        Survivor:setFoodSicknessLevel(100)
-        Survivor:setPoisonLevel(60)
+        Survivor:getBlood():setOpiatePoisonLevel(100)
         Survivor:setEndurance(0)
         Survivor:setFatigue(1)
 

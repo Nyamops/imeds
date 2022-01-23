@@ -20,6 +20,10 @@ ZCore:getContainer():register(
 local level = { 16, 41 }
 Events.OnTick.Add(
     function()
+        if not getPlayer() or getPlayer():isDead() or not Survivor:isInitialized() then
+            return false
+        end
+
         local sideEffect = Survivor:getSideEffects()[Sweating.alias]
         if sideEffect == nil then
             return false

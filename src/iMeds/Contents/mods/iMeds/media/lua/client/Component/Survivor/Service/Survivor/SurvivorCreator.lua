@@ -15,6 +15,8 @@ function SurvivorCreator:new(bloodGroupStorage)
         }
         getPlayer():getModData().survivor.blood = {}
         getPlayer():getModData().survivor.blood.drugs = {}
+        getPlayer():getModData().survivor.blood.opiatePoisonLevel = 0
+
         getPlayer():getModData().survivor.isKnowOwnBloodGroup = false
         getPlayer():getModData().survivor.stressFromOpioidAddiction = 0
 

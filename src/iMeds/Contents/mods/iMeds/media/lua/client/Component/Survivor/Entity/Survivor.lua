@@ -319,7 +319,7 @@ end
 
 ---@return boolean
 function Survivor:isInitialized()
-    return getPlayer():getModData().survivor and getPlayer():getModData().survivor.isInitialized or false
+    return getPlayer():getModData().survivor ~= nil and getPlayer():getModData().survivor.isInitialized or false
 end
 
 ---@param bool boolean
@@ -346,6 +346,10 @@ end
 
 ---@return number
 function Survivor:getStressFromOpioidAddiction()
+    if getPlayer():getModData().survivor.stressFromOpioidAddiction == nil then
+        getPlayer():getModData().survivor.stressFromOpioidAddiction = 0
+    end
+
     return getPlayer():getModData().survivor.stressFromOpioidAddiction
 end
 

@@ -5,39 +5,13 @@ local bradycardia
 local visualImpairment
 local sweating
 
-local updateBloodVolume = function()
+local updateBloodLossEffects = function()
     if not getPlayer() or getPlayer():isDead() or not Survivor:isInitialized() then
         return false
     end
 
     if not SandboxVars.ImmersiveMedicine.IsBloodSystemActive then
         return false
-    end
-
-    local bloodVolumeReducingModifier = 0
-    for _, bodyPartType in pairs(BodyPart) do
-        local bodyPart = Survivor:getBodyPartByType(bodyPartType)
-
-        if bodyPart:bleeding() then
-            bloodVolumeReducingModifier = bloodVolumeReducingModifier + 0.02
-        end
-
-        if bodyPart:bleeding() and (bodyPart:isDeepWounded() or bodyPart:bitten()) then
-            bloodVolumeReducingModifier = bloodVolumeReducingModifier + 0.04
-        end
-    end
-
-    Survivor:getBlood():reduceVolume(bloodVolumeReducingModifier * getGameTime():getMultiplier())
-
-    if bloodVolumeReducingModifier == 0 then
-        local hungerLevel = getPlayer():getMoodles():getMoodleLevel(MoodleType.Hungry)
-        local thirstLevel = getPlayer():getMoodles():getMoodleLevel(MoodleType.Thirst)
-        local bloodVolumeIncreasingModifier = (4 - hungerLevel) / 1200 + (4 - thirstLevel) / 1200
-        Survivor:getBlood():addVolume(bloodVolumeIncreasingModifier * getGameTime():getMultiplier())
-    end
-
-    if Survivor:getBlood():getVolume() > Blood.maxVolume then
-        Survivor:getBlood():setVolume(Blood.maxVolume)
     end
 
     local bloodLoss = Blood.maxVolume - Survivor:getBlood():getVolume()
@@ -54,7 +28,6 @@ local updateBloodVolume = function()
         sweating = sideEffectStorage:getByAlias(Sweating.alias)
     end
 
-    --TODO Вынести в отдельный сервис типа BloodLossHandler
     if bloodLoss > 250 and bloodLoss <= 1000 then
         if Survivor:getFatigue() < 0.6 then
             Survivor:setFatigue(0.6)
@@ -115,35 +88,4 @@ local updateBloodVolume = function()
     end
 end
 
-Events.OnTick.Add(updateBloodVolume)
-
-local resetAll = function()
-    if getPlayer():isGodMod() then
-        getPlayer():setBlockMovement(false)
-        getPlayer():setBannedAttacking(false)
-        Survivor:getBlood():setVolume(Blood.maxVolume)
-
-        ---@type DrugStorage
-        local drugStorage = ZCore:getContainer():get('imeds.drug.storage.drug_storage')
-        for _, drug in pairs(drugStorage:findAll()) do
-            if Survivor:getBlood():getDrugs()[drug:getAlias()] ~= nil then
-                Survivor:getBlood():getDrugs()[drug:getAlias()].onset = 0
-                Survivor:getBlood():getDrugs()[drug:getAlias()].duration = 0
-                Survivor:getBlood():getDrugs()[drug:getAlias()].dose = 0
-                Survivor:getBlood():getDrugs()[drug:getAlias()].isActive = false
-                Survivor:getBlood():getDrugs()[drug:getAlias()].isOverdose = false
-                Survivor:getBlood():getDrugs()[drug:getAlias()].isOverdoseEffectApplied = false
-            end
-        end
-
-        for _, sideEffect in pairs(sideEffectStorage:findAll()) do
-            if Survivor:getSideEffects()[sideEffect:getAlias()] ~= nil then
-                Survivor:removeSideEffect(sideEffect:getAlias())
-            end
-        end
-
-        Survivor:setStressFromOpioidAddiction(0)
-    end
-end
-
-Events.OnTick.Add(resetAll)
+Events.OnTick.Add(updateBloodLossEffects)

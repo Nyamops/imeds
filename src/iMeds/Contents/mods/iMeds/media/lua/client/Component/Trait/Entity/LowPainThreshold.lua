@@ -20,6 +20,10 @@ ZCore:getContainer():register(
 
 Events.OnTick.Add(
     function()
+        if not getPlayer() or getPlayer():isDead() or not Survivor:isInitialized() then
+            return false
+        end
+
         if not getPlayer():HasTrait(LowPainThreshold.alias) then
             return false
         end

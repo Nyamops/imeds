@@ -28,6 +28,14 @@ local tickSinceLastHeartbeat = 0
 
 Events.OnTick.Add(
     function()
+        if not getPlayer() or getPlayer():isDead() or not Survivor:isInitialized() then
+            return false
+        end
+
+        if not SandboxVars.ImmersiveMedicine.IsHeartbeatEnabled then
+            return false
+        end
+
         local sideEffect = Survivor:getSideEffects()[Bradycardia.alias]
         if sideEffect == nil then
             return false

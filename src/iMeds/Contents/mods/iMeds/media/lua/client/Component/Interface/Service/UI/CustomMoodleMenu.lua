@@ -74,15 +74,10 @@ function CustomMoodleMenu:show()
 end
 
 function CustomMoodleMenu:resizeCustomMoodleMenu(oldWidth, oldHeight, newWidth, newHeight)
-    --if not getPlayer() then
-    --    return
-    --end
-    --
-    --CustomMoodleMenu.instance:setVisible(true)
-    --CustomMoodleMenu.instance:removeFromUIManager()
-    --CustomMoodleMenu.instance = nil
-    --
-    --CustomMoodleMenu:show()
+    CustomMoodleMenu.instance:removeFromUIManager()
+    CustomMoodleMenu.instance = nil
+
+    CustomMoodleMenu:show()
 end
 
 Events.OnGameStart.Add(CustomMoodleMenu.show)

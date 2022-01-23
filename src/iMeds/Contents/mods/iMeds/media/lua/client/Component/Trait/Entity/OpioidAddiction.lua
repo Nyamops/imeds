@@ -45,13 +45,17 @@ local tachycardia
 
 Events.OnTick.Add(
     function()
+        if not getPlayer() or getPlayer():isDead() or not Survivor:isInitialized() then
+            return false
+        end
+
         if not getPlayer():HasTrait(OpioidAddiction.alias) then
             return false
         end
 
         local incrementValue = 0.001
         if Survivor:getBlood():getDrugs()[Morphine.alias] ~= nil and Survivor:getBlood():getDrugs()[Morphine.alias].isActive then
-            incrementValue = 0
+            incrementValue = -0.1
         end
 
         if sideEffectStorage == nil then
@@ -69,6 +73,7 @@ Events.OnTick.Add(
         local maxStress = 0
 
         Survivor:removeSideEffect(OpioidAddiction.alias)
+        Survivor:removeSideEffect(Tachycardia.alias)
         Survivor:removeSideEffect(Sweating.alias)
 
         if Survivor:getStressFromOpioidAddiction() > 25 then
@@ -92,13 +97,17 @@ Events.OnTick.Add(
             Survivor:addSideEffect(opioidAddiction, 3)
             Survivor:addSideEffect(sweating, 2)
             Survivor:addSideEffect(tachycardia, 2)
-            Survivor:setFoodSicknessLevel(Survivor:getFoodSicknessLevel() + incrementValue * 10 * getGameTime():getMultiplier())
+            Survivor:setFoodSicknessLevel(Survivor:getFoodSicknessLevel() + incrementValue * 15 * getGameTime():getMultiplier())
             Survivor:setAdditionalBodyPartPainByType(BodyPart.Head, 100)
             maxStress = 0.76
         end
 
         if Survivor:getStressFromOpioidAddiction() > 100 then
             Survivor:setStressFromOpioidAddiction(100)
+        end
+
+        if Survivor:getStressFromOpioidAddiction() < 0 then
+            Survivor:setStressFromOpioidAddiction(0)
         end
 
         if Survivor:getStress() > maxStress then

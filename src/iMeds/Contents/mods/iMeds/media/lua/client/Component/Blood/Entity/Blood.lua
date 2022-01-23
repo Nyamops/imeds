@@ -60,6 +60,7 @@ function Blood:addDrug(drug, dosageForm, dose)
         getPlayer():getModData().survivor.blood.drugs[drug:getAlias()].onset = 0
     end
 
+    getPlayer():getModData().survivor.blood.drugs[drug:getAlias()].dose = getPlayer():getModData().survivor.blood.drugs[drug:getAlias()].dose  + dose
     for _ = 1, dose do
         local onset = drug:getOnsetByDosageForm(dosageForm)
         local duration = drug:getDurationByDosageForm(dosageForm) * TimeHandler.modifier
@@ -70,8 +71,22 @@ function Blood:addDrug(drug, dosageForm, dose)
 
         getPlayer():getModData().survivor.blood.drugs[drug:getAlias()].onset = getPlayer():getModData().survivor.blood.drugs[drug:getAlias()].onset + onset
         getPlayer():getModData().survivor.blood.drugs[drug:getAlias()].duration = getPlayer():getModData().survivor.blood.drugs[drug:getAlias()].duration + duration
-        getPlayer():getModData().survivor.blood.drugs[drug:getAlias()].dose = getPlayer():getModData().survivor.blood.drugs[drug:getAlias()].dose + 1
     end
+end
+
+---@return number
+function Blood:getOpiatePoisonLevel()
+    if getPlayer():getModData().survivor.blood.opiatePoisonLevel == nil then
+        getPlayer():getModData().survivor.blood.opiatePoisonLevel = 0
+    end
+
+    return getPlayer():getModData().survivor.blood.opiatePoisonLevel
+end
+
+---@return void
+---@param value number
+function Blood:setOpiatePoisonLevel(value)
+    getPlayer():getModData().survivor.blood.opiatePoisonLevel = value
 end
 
 return Blood
