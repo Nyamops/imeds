@@ -33,6 +33,12 @@ ItemName_CN = {
     ItemName_iMeds.Umifenovir = "阿比朵尔",
     ItemName_iMeds.UmifenovirPack = "包装阿比朵尔",
 
+    ItemName_iMeds.Nasivion = "纳吸维",
+    ItemName_iMeds.NasivionPack = "包装纳吸维",
+
+    ItemName_iMeds.Erythropoietin = "促红细胞生成素",
+    ItemName_iMeds.ErythropoietinPack = "包装促红细胞生成素",
+
     ItemName_iMeds.UnknownPack = "包装未知药物",
 
     ItemName_iMeds.BloodTestingKit = "血型检测套件",
