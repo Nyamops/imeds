@@ -1,6 +1,6 @@
 version=1
 id=2709866494
-title=Immersive Medicine [Revised] Alpha
+title=Immersive Medicine Revised [Alpha]
 tags=Build 41;Items;Misc;Multiplayer;Realistic;Traits
 visibility=public
 
