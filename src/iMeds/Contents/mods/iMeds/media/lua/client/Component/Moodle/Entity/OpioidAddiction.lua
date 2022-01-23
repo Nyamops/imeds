@@ -7,7 +7,7 @@ ZCore:getContainer():register(
             sideEffect = 'imeds.side_effect.entity.opioid_addiction',
             texture = {
                 getTexture('media/ui/Moodles/OpioidAddiction/1.png'),
-                getTexture('media/ui/Moodles/OpioidAddiction/3.png'),
+                getTexture('media/ui/Moodles/OpioidAddiction/2.png'),
                 getTexture('media/ui/Moodles/OpioidAddiction/3.png'),
             }
         },

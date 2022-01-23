@@ -7,7 +7,7 @@ ZCore:getContainer():register(
             sideEffect = 'imeds.side_effect.entity.bradycardia',
             texture = {
                 getTexture('media/ui/Moodles/Bradycardia/1.png'),
-                getTexture('media/ui/Moodles/Bradycardia/3.png'),
+                getTexture('media/ui/Moodles/Bradycardia/2.png'),
                 getTexture('media/ui/Moodles/Bradycardia/3.png'),
             }
         },
