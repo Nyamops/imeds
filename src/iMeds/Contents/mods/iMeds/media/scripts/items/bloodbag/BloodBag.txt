@@ -42,6 +42,7 @@ module iMeds {
     {
         Weight = 0.1,
         Type = Drainable,
+        UseWhileEquipped = FALSE,
         UseDelta = 1,
         DisplayName = Blood Testing Kit,
         Icon = BloodTestingKit,
