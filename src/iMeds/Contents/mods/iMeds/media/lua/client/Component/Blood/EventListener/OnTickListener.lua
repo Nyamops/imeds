@@ -3,6 +3,7 @@ local sideEffectStorage
 local tachycardia
 local bradycardia
 local visualImpairment
+local sweating
 
 local updateBloodVolume = function()
     if not getPlayer() or getPlayer():isDead() or not Survivor:isInitialized() then
@@ -49,10 +50,12 @@ local updateBloodVolume = function()
         bradycardia = sideEffectStorage:getByAlias(Bradycardia.alias)
         ---@type SideEffect
         visualImpairment = sideEffectStorage:getByAlias(VisualImpairment.alias)
+        ---@type SideEffect
+        sweating = sideEffectStorage:getByAlias(Sweating.alias)
     end
 
     --TODO Вынести в отдельный сервис типа BloodLossHandler
-    if bloodLoss > 200 and bloodLoss <= 1500 then
+    if bloodLoss > 250 and bloodLoss <= 1000 then
         if Survivor:getFatigue() < 0.6 then
             Survivor:setFatigue(0.6)
         end
@@ -62,8 +65,9 @@ local updateBloodVolume = function()
         end
 
         Survivor:removeSideEffect(Tachycardia.alias)
+        Survivor:removeSideEffect(Sweating.alias)
 
-    elseif bloodLoss > 1500 and bloodLoss <= 2500 then
+    elseif bloodLoss > 1000 and bloodLoss <= 2000 then
         if Survivor:getFatigue() < 0.7 then
             Survivor:setFatigue(0.7)
         end
@@ -72,29 +76,23 @@ local updateBloodVolume = function()
             Survivor:setEndurance(0.4)
         end
 
-        if Survivor:getWetness() < 16 then
-            Survivor:setWetness(16)
-        end
-
         if Survivor:getThirst() < 0.15 then
             Survivor:setThirst(0.15)
         end
 
+        Survivor:addSideEffect(sweating, 1)
         Survivor:addSideEffect(tachycardia, 1)
         Survivor:removeSideEffect(VisualImpairment.alias)
 
-    elseif bloodLoss > 2500 and bloodLoss <= 3500 then
+    elseif bloodLoss > 2000 and bloodLoss <= 3500 then
         Survivor:addSideEffect(tachycardia, 2)
         Survivor:addSideEffect(visualImpairment, 1)
+        Survivor:addSideEffect(sweating, 2)
 
         Survivor:setFatigue(1)
         Survivor:setEndurance(0)
         Survivor:setStress(1)
         Survivor:setTemperature(34)
-
-        if Survivor:getWetness() < 41 then
-            Survivor:setWetness(41)
-        end
 
         if Survivor:getThirst() < 0.26 then
             Survivor:setThirst(0.26)
@@ -104,6 +102,7 @@ local updateBloodVolume = function()
         getPlayer():setBannedAttacking(false)
     elseif bloodLoss > 3500 and bloodLoss <= 3600 then
         Survivor:addSideEffect(bradycardia, 3)
+        Survivor:addSideEffect(visualImpairment, 1)
 
         --TODO Тоже надо выпилить отсюда и оформить нормально
         getPlayer():setBlockMovement(true)
@@ -111,7 +110,6 @@ local updateBloodVolume = function()
         getPlayer():reportEvent('EventSitOnGround')
 
         getPlayer():nullifyAiming()
-        Survivor:addSideEffect(visualImpairment, 1)
     elseif bloodLoss > 3600 then
         getPlayer():getBodyDamage():ReduceGeneralHealth(150)
     end
@@ -144,7 +142,7 @@ local resetAll = function()
             end
         end
 
-        Survivor:setStressFromOpiateAddiction(0)
+        Survivor:setStressFromOpioidAddiction(0)
     end
 end
 

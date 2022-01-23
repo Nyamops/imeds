@@ -345,14 +345,14 @@ function Survivor:setIsKnowOwnBloodGroup(bool)
 end
 
 ---@return number
-function Survivor:getStressFromOpiateAddiction()
-    return getPlayer():getModData().survivor.stressFromOpiateAddiction
+function Survivor:getStressFromOpioidAddiction()
+    return getPlayer():getModData().survivor.stressFromOpioidAddiction
 end
 
 ---@return void
 ---@param value number
-function Survivor:setStressFromOpiateAddiction(value)
-    getPlayer():getModData().survivor.stressFromOpiateAddiction = value
+function Survivor:setStressFromOpioidAddiction(value)
+    getPlayer():getModData().survivor.stressFromOpioidAddiction = value
 end
 
 ---@return table

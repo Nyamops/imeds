@@ -40,6 +40,8 @@ ZCore:getContainer():register(
 ---@type SideEffectStorage
 local sideEffectStorage
 local opioidAddiction
+local sweating
+local tachycardia
 
 Events.OnTick.Add(
     function()
@@ -56,15 +58,20 @@ Events.OnTick.Add(
             sideEffectStorage = ZCore:getContainer():get('imeds.side_effect.storage.side_effect_storage')
             ---@type SideEffect
             opioidAddiction = sideEffectStorage:getByAlias(OpioidAddiction.alias)
+            ---@type SideEffect
+            sweating = sideEffectStorage:getByAlias(Sweating.alias)
+            ---@type SideEffect
+            tachycardia = sideEffectStorage:getByAlias(Tachycardia.alias)
         end
 
-        Survivor:setStressFromOpiateAddiction(Survivor:getStressFromOpiateAddiction() + incrementValue * getGameTime():getMultiplier())
+        Survivor:setStressFromOpioidAddiction(Survivor:getStressFromOpioidAddiction() + incrementValue * getGameTime():getMultiplier())
 
         local maxStress = 0
 
         Survivor:removeSideEffect(OpioidAddiction.alias)
+        Survivor:removeSideEffect(Sweating.alias)
 
-        if Survivor:getStressFromOpiateAddiction() > 25 then
+        if Survivor:getStressFromOpioidAddiction() > 25 then
             Survivor:addSideEffect(opioidAddiction, 1)
             Survivor:setUnhappynessLevel(Survivor:getUnhappynessLevel() + incrementValue * 4 * getGameTime():getMultiplier())
             Survivor:setStress(Survivor:getStress() + incrementValue / 20 * getGameTime():getMultiplier())
@@ -73,21 +80,25 @@ Events.OnTick.Add(
             maxStress = 0.26
         end
 
-        if Survivor:getStressFromOpiateAddiction() > 40 then
+        if Survivor:getStressFromOpioidAddiction() > 40 then
             Survivor:addSideEffect(opioidAddiction, 2)
+            Survivor:addSideEffect(sweating, 1)
+            Survivor:addSideEffect(tachycardia, 1)
             Survivor:setAdditionalBodyPartPainByType(BodyPart.Head, 40)
             maxStress = 0.6
         end
 
-        if Survivor:getStressFromOpiateAddiction() > 70 then
+        if Survivor:getStressFromOpioidAddiction() > 70 then
             Survivor:addSideEffect(opioidAddiction, 3)
-            Survivor:setFoodSicknessLevel(Survivor:getFoodSicknessLevel() + incrementValue * getGameTime():getMultiplier())
+            Survivor:addSideEffect(sweating, 2)
+            Survivor:addSideEffect(tachycardia, 2)
+            Survivor:setFoodSicknessLevel(Survivor:getFoodSicknessLevel() + incrementValue * 10 * getGameTime():getMultiplier())
             Survivor:setAdditionalBodyPartPainByType(BodyPart.Head, 100)
             maxStress = 0.76
         end
 
-        if Survivor:getStressFromOpiateAddiction() > 100 then
-            Survivor:setStressFromOpiateAddiction(100)
+        if Survivor:getStressFromOpioidAddiction() > 100 then
+            Survivor:setStressFromOpioidAddiction(100)
         end
 
         if Survivor:getStress() > maxStress then
