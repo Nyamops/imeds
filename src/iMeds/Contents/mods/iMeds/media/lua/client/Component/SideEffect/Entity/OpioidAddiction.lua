@@ -49,7 +49,7 @@ Events.OnTick.Add(
         end
 
         if sideEffect.level > 2 then
-            Survivor:setFakeInfectionLevel(Survivor:getFakeInfectionLevel() + incrementValue * 15 * getGameTime():getMultiplier())
+            Survivor:setFakeInfectionLevel(Survivor:getFakeInfectionLevel() + 0.015 * getGameTime():getMultiplier())
             Survivor:setAdditionalBodyPartPainByType(BodyPart.Head, 50)
             Survivor:setAdditionalBodyPartPainByType(BodyPart.Hand_L, 30)
             Survivor:setAdditionalBodyPartPainByType(BodyPart.Hand_R, 30)
