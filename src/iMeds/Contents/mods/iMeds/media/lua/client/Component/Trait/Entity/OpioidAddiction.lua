@@ -2,7 +2,7 @@ OpioidAddiction = {
     alias = 'OpioidAddiction',
     name = getText('UI_Trait_OpioidAddiction_Name'),
     description = getText('UI_Trait_OpioidAddiction_Description'),
-    cost = -12,
+    cost = -14,
     freeRecipes = {},
     xpBoosts = {
         Perks.Doctor,
@@ -70,36 +70,24 @@ Events.OnTick.Add(
 
         Survivor:setStressFromOpioidAddiction(Survivor:getStressFromOpioidAddiction() + incrementValue * getGameTime():getMultiplier())
 
-        local maxStress = 0
-
         Survivor:removeSideEffect(OpioidAddiction.alias)
         Survivor:removeSideEffect(Tachycardia.alias)
         Survivor:removeSideEffect(Sweating.alias)
 
         if Survivor:getStressFromOpioidAddiction() > 25 then
             Survivor:addSideEffect(opioidAddiction, 1)
-            Survivor:setUnhappynessLevel(Survivor:getUnhappynessLevel() + incrementValue * 4 * getGameTime():getMultiplier())
-            Survivor:setStress(Survivor:getStress() + incrementValue / 20 * getGameTime():getMultiplier())
-            Survivor:setAdditionalBodyPartPainByType(BodyPart.Head, 20)
-
-            maxStress = 0.26
         end
 
         if Survivor:getStressFromOpioidAddiction() > 40 then
             Survivor:addSideEffect(opioidAddiction, 2)
             Survivor:addSideEffect(sweating, 1)
             Survivor:addSideEffect(tachycardia, 1)
-            Survivor:setAdditionalBodyPartPainByType(BodyPart.Head, 40)
-            maxStress = 0.6
         end
 
         if Survivor:getStressFromOpioidAddiction() > 70 then
             Survivor:addSideEffect(opioidAddiction, 3)
             Survivor:addSideEffect(sweating, 2)
             Survivor:addSideEffect(tachycardia, 2)
-            Survivor:setFoodSicknessLevel(Survivor:getFoodSicknessLevel() + incrementValue * 15 * getGameTime():getMultiplier())
-            Survivor:setAdditionalBodyPartPainByType(BodyPart.Head, 100)
-            maxStress = 0.76
         end
 
         if Survivor:getStressFromOpioidAddiction() > 100 then
@@ -108,10 +96,6 @@ Events.OnTick.Add(
 
         if Survivor:getStressFromOpioidAddiction() < 0 then
             Survivor:setStressFromOpioidAddiction(0)
-        end
-
-        if Survivor:getStress() > maxStress then
-            Survivor:setStress(maxStress)
         end
     end
 )

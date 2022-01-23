@@ -61,6 +61,17 @@ function Survivor:setFoodSicknessLevel(value)
 end
 
 ---@return number
+function Survivor:getFakeInfectionLevel()
+    return getPlayer():getBodyDamage():getFakeInfectionLevel()
+end
+
+---@return void
+---@param value number
+function Survivor:setFakeInfectionLevel(value)
+    getPlayer():getBodyDamage():setFakeInfectionLevel(value)
+end
+
+---@return number
 function Survivor:getThirst()
     return getPlayer():getStats():getThirst()
 end
