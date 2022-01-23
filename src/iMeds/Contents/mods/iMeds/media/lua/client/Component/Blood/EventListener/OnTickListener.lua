@@ -103,7 +103,7 @@ local updateBloodVolume = function()
         getPlayer():setBlockMovement(false)
         getPlayer():setBannedAttacking(false)
     elseif bloodLoss > 3500 and bloodLoss <= 3600 then
-        Survivor:addSideEffect(bradycardia, 1)
+        Survivor:addSideEffect(bradycardia, 3)
 
         --TODO Тоже надо выпилить отсюда и оформить нормально
         getPlayer():setBlockMovement(true)
