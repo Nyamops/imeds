@@ -149,7 +149,7 @@ UI_RU = {
     UI_Trait_LowPainThreshold_Name = "Низкий болевой порог",
     UI_Trait_LowPainThreshold_Description = "Очень нетерпим к боли",
     UI_Trait_OpioidAddiction_Name = "Опиоидная зависимость",
-    UI_Trait_OpioidAddiction_Description = "После дозы опиатов снижается стресс и несчастье .<br>Несчастье повышается, если долго не принимать опиаты.",
+    UI_Trait_OpioidAddiction_Description = "Восприимчивость к опиатам снижена на 40%, болевой порог увеличен. Без опиатов вы не проживете и дня",
 
     UI_SideEffect_Bradycardia_Name = "Брадикардия",
     UI_SideEffect_Bradycardia_Lvl_1_Description = "Слабый пульс",

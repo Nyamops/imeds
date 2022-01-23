@@ -148,7 +148,7 @@ UI_EN = {
     UI_Trait_LowPainThreshold_Name = "Low pain threshold",
     UI_Trait_LowPainThreshold_Description = "Very intolerant of pain",
     UI_Trait_OpioidAddiction_Name = "Opioid addiction",
-    UI_Trait_OpioidAddiction_Description = "Stress and unhappiness decrease after a dose of opiates.<br>Unhappiness rises when you don't take opiates for a long time.",
+    UI_Trait_OpioidAddiction_Description = "Susceptibility to opiates is reduced by 40%, the pain threshold is increased. You won't live a day without opiates",
 
     UI_SideEffect_Bradycardia_Name = "Bradycardia",
     UI_SideEffect_Bradycardia_Lvl_1_Description = "Weak pulse",
