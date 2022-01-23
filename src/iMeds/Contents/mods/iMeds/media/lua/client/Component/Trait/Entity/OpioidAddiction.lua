@@ -53,7 +53,7 @@ Events.OnTick.Add(
             return false
         end
 
-        local incrementValue = 0.001
+        local incrementValue = 0.00085
         if Survivor:getBlood():getDrugs()[Morphine.alias] ~= nil and Survivor:getBlood():getDrugs()[Morphine.alias].isActive then
             incrementValue = -0.1
         end
