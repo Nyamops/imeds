@@ -49,6 +49,7 @@ description=[list]
 description=[*]Oral: tablets, syrups, liquids [i] (to take the drug, you need to select the head in the health panel)[/i];
 description=[*]Parenteral: intramuscular and intravenous injections [i] (to inject the drug, you need to select a body part in the health panel)[/i];
 description=[*]Topical: creams, powders [i] (to apply the drug, you need to select a body part in the health panel)[/i];
+description=[*]Nasal: drops [i] (to apply the drug, you need to select the head in the health panel)[/i];
 description=[/list]
 description=
 description=Found ampoules of alkagine, but no syringes? - Just drink the contents! Just don't drink too much. You're not a doctor to prescribe a dosage for yourself.
@@ -64,6 +65,7 @@ description=[*]Universal donor - can become a donor for all other blood groups;
 description=[*]Universal recipient - can accept blood of all other blood groups;
 description=[*]High pain threshold - able to tolerate very severe pain;
 description=[*]Low pain threshold - very intolerant of pain;
+description=[*]Opioid addiction - susceptibility to opiates is reduced by 40%, the pain threshold is increased. You won't live a day without opiates;
 description=[/list]
 description=
 description=[h1]Configuration for multiplayer and singleplayer[/h1]
@@ -71,10 +73,11 @@ description=[h1]In game configuration[/h1]
 description=[i]See screenshots in the gallery[/i]
 description=
 description=[list]
-description=    [*] [b]You can turn off the blood system[/b] - "Enable Blood System" option [i](active by default)[/i]
+description=    [*] [b]You can turn off the blood system[/b] - "Enable blood system" option [i](active by default)[/i]
 description=This means that the character will not lose blood, can become a donor indefinitely, and the blood type compatibility will not be checked.
-description=    [*] [b]You can turn off the blood group system[/b] - "Enable Blood groups" option [i](active by default)[/i]
+description=    [*] [b]You can turn off the blood group system[/b] - "Enable blood groups" option [i](active by default)[/i]
 description=It is responsible only for the compatibility of blood groups.
+description=    [*] [b]You can turn off the heartbeat sound[/b] - "Enable heartbeat sound" option [i](active by default)[/i]
 description=[/list]
 description=
 description=[h1]Manual configuration[/h1]
@@ -90,6 +93,7 @@ description=[code]
 description=ImmersiveMedicine = {
 description=    IsBloodSystemActive = true,
 description=    IsBloodTypeSystemActive = true,
+description=    IsHeartbeatEnabled = true,
 description=}
 description=[/code]
 description=
