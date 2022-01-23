@@ -3,8 +3,10 @@ Bradycardia = {
     name = getText('UI_SideEffect_Bradycardia_Name'),
     description = {
         getText('UI_SideEffect_Bradycardia_Lvl_1_Description'),
+        getText('UI_SideEffect_Bradycardia_Lvl_2_Description'),
+        getText('UI_SideEffect_Bradycardia_Lvl_3_Description'),
     },
-    maxLevel = 1,
+    maxLevel = 3,
     isDurationEnabled = false,
     duration = 0,
     exclusives = {
@@ -21,7 +23,7 @@ ZCore:getContainer():register(
     'imeds.side_effect.entity'
 )
 
-local delay = { 400 }
+local delay = { 200, 300, 400 }
 local tickSinceLastHeartbeat = 0
 
 Events.OnTick.Add(

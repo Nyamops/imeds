@@ -4,8 +4,9 @@ Tachycardia = {
     description = {
         getText('UI_SideEffect_Tachycardia_Lvl_1_Description'),
         getText('UI_SideEffect_Tachycardia_Lvl_2_Description'),
+        getText('UI_SideEffect_Tachycardia_Lvl_3_Description'),
     },
-    maxLevel = 2,
+    maxLevel = 3,
     isDurationEnabled = false,
     duration = 0,
     exclusives = {
@@ -22,7 +23,7 @@ ZCore:getContainer():register(
     'imeds.side_effect.entity'
 )
 
-local delay = { 100, 60 }
+local delay = { 100, 60, 40 }
 local tickSinceLastHeartbeat = 0
 
 Events.OnTick.Add(
