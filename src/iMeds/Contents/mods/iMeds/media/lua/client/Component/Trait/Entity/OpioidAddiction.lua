@@ -37,6 +37,10 @@ ZCore:getContainer():register(
     'imeds.trait.entity'
 )
 
+---@type SideEffectStorage
+local sideEffectStorage
+local opioidAddiction
+
 Events.OnTick.Add(
     function()
         if not getPlayer():HasTrait(OpioidAddiction.alias) then
@@ -48,11 +52,20 @@ Events.OnTick.Add(
             incrementValue = 0
         end
 
+        if sideEffectStorage == nil then
+            sideEffectStorage = ZCore:getContainer():get('imeds.side_effect.storage.side_effect_storage')
+            ---@type SideEffect
+            opioidAddiction = sideEffectStorage:getByAlias(OpioidAddiction.alias)
+        end
+
         Survivor:setStressFromOpiateAddiction(Survivor:getStressFromOpiateAddiction() + incrementValue * getGameTime():getMultiplier())
 
         local maxStress = 0
 
+        Survivor:removeSideEffect(OpioidAddiction.alias)
+
         if Survivor:getStressFromOpiateAddiction() > 25 then
+            Survivor:addSideEffect(opioidAddiction, 1)
             Survivor:setUnhappynessLevel(Survivor:getUnhappynessLevel() + incrementValue * 4 * getGameTime():getMultiplier())
             Survivor:setStress(Survivor:getStress() + incrementValue / 20 * getGameTime():getMultiplier())
             Survivor:setAdditionalBodyPartPainByType(BodyPart.Head, 20)
@@ -61,11 +74,13 @@ Events.OnTick.Add(
         end
 
         if Survivor:getStressFromOpiateAddiction() > 40 then
+            Survivor:addSideEffect(opioidAddiction, 2)
             Survivor:setAdditionalBodyPartPainByType(BodyPart.Head, 40)
             maxStress = 0.6
         end
 
         if Survivor:getStressFromOpiateAddiction() > 70 then
+            Survivor:addSideEffect(opioidAddiction, 3)
             Survivor:setFoodSicknessLevel(Survivor:getFoodSicknessLevel() + incrementValue * getGameTime():getMultiplier())
             Survivor:setAdditionalBodyPartPainByType(BodyPart.Head, 100)
             maxStress = 0.76
