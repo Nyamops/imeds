@@ -61,6 +61,17 @@ function Survivor:setFoodSicknessLevel(value)
 end
 
 ---@return number
+function Survivor:getFakeInfectionLevel()
+    return getPlayer():getBodyDamage():getFakeInfectionLevel()
+end
+
+---@return void
+---@param value number
+function Survivor:setFakeInfectionLevel(value)
+    getPlayer():getBodyDamage():setFakeInfectionLevel(value)
+end
+
+---@return number
 function Survivor:getThirst()
     return getPlayer():getStats():getThirst()
 end
@@ -319,7 +330,7 @@ end
 
 ---@return boolean
 function Survivor:isInitialized()
-    return getPlayer():getModData().survivor and getPlayer():getModData().survivor.isInitialized or false
+    return getPlayer():getModData().survivor ~= nil and getPlayer():getModData().survivor.isInitialized or false
 end
 
 ---@param bool boolean
@@ -342,6 +353,76 @@ end
 ---@return void
 function Survivor:setIsKnowOwnBloodGroup(bool)
     getPlayer():getModData().survivor.isKnowOwnBloodGroup = bool
+end
+
+---@return number
+function Survivor:getStressFromOpioidAddiction()
+    if getPlayer():getModData().survivor.stressFromOpioidAddiction == nil then
+        getPlayer():getModData().survivor.stressFromOpioidAddiction = 0
+    end
+
+    return getPlayer():getModData().survivor.stressFromOpioidAddiction
+end
+
+---@return void
+---@param value number
+function Survivor:setStressFromOpioidAddiction(value)
+    getPlayer():getModData().survivor.stressFromOpioidAddiction = value
+end
+
+---@return table
+function Survivor:getSideEffects()
+    if getPlayer():getModData().survivor.sideEffects == nil then
+        getPlayer():getModData().survivor.sideEffects = {}
+    end
+
+    return  getPlayer():getModData().survivor.sideEffects
+end
+
+---@param sideEffect SideEffect
+---@param level number
+function Survivor:addSideEffect(sideEffect, level)
+    if Survivor:getSideEffects()[sideEffect:getAlias()] == nil then
+        Survivor:getSideEffects()[sideEffect:getAlias()] = {}
+    end
+
+    if Survivor:getSideEffects()[sideEffect:getAlias()].isActive
+        and Survivor:getSideEffects()[sideEffect:getAlias()].level == level
+    then
+        return
+    end
+
+    if level < 0 then
+        level = 1
+    end
+
+    if level > sideEffect:getMaxLevel() then
+        level = sideEffect:getMaxLevel()
+    end
+
+    Survivor:getSideEffects()[sideEffect:getAlias()].isActive = true
+    Survivor:getSideEffects()[sideEffect:getAlias()].isDurationEnabled = sideEffect:isDurationEnabled()
+    Survivor:getSideEffects()[sideEffect:getAlias()].duration = sideEffect:getDuration()
+    Survivor:getSideEffects()[sideEffect:getAlias()].level = level
+
+    local exclusives = sideEffect:getExclusives()
+    if #exclusives > 0 then
+        for _, alias in ipairs(exclusives) do
+            Survivor:removeSideEffect(alias)
+        end
+    end
+end
+
+---@param alias string
+function Survivor:removeSideEffect(alias)
+    if Survivor:getSideEffects()[alias] == nil then
+        Survivor:getSideEffects()[alias] = {}
+    end
+
+    Survivor:getSideEffects()[alias].isActive = false
+    Survivor:getSideEffects()[alias].isDurationEnabled = false
+    Survivor:getSideEffects()[alias].duration = 0
+    Survivor:getSideEffects()[alias].level = 0
 end
 
 return Survivor

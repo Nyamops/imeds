@@ -4,7 +4,6 @@ HighPainThreshold = {
     description = getText('UI_Trait_HighPainThreshold_Description'),
     cost = 6,
     freeRecipes = {},
-    freeTraits = {},
     xpBoosts = {},
     xpBoostValues = {},
     mutualExclusives = {
@@ -23,6 +22,10 @@ ZCore:getContainer():register(
 
 Events.OnTick.Add(
     function()
+        if not getPlayer() or getPlayer():isDead() or not Survivor:isInitialized() then
+            return false
+        end
+
         if not getPlayer():HasTrait(HighPainThreshold.alias) then
             return false
         end

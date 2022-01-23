@@ -12,8 +12,8 @@ function TraitInitializer:new()
     private.traits = ZCore:getContainer():getByTag('imeds.trait.entity')
 
     function private:addXpBoost(trait, gameTrait)
-        for index, perkName in ipairs(trait:getXpBoosts()) do
-            local boostLevel = trait:getXpBoostValues()[index]
+        for _, perkName in ipairs(trait:getXpBoosts()) do
+            local boostLevel = trait:getXpBoostValues()[perkName]
             gameTrait:addXPBoost(perkName, boostLevel)
         end
     end
@@ -21,12 +21,6 @@ function TraitInitializer:new()
     function private:addFreeRecipes(trait, gameTrait)
         for _, recipeName in ipairs(trait:getFreeRecipes()) do
             gameTrait:getFreeRecipes():add(recipeName)
-        end
-    end
-
-    function private:addFreeTraits(trait, gameTrait)
-        for _, freeTraitName in ipairs(trait:getFreeTraits()) do
-            gameTrait:addFreeTrait(freeTraitName)
         end
     end
 
@@ -56,10 +50,6 @@ function TraitInitializer:new()
 
             if #trait:getFreeRecipes() > 0 then
                 private:addFreeRecipes(trait, gameTrait)
-            end
-
-            if #trait:getFreeTraits() > 0 then
-                private:addFreeTraits(trait, gameTrait)
             end
         end
 

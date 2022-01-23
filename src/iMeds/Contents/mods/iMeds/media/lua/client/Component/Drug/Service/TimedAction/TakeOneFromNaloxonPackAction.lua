@@ -69,6 +69,7 @@ function TakeOneFromNaloxonPackAction:new(player, item, count)
     public.count = count
     public.maxTime = -1
     public.jobType = getText('UI_ContextMenu_Take')
+    public.stopOnWalk = false
 
     return public
 end

@@ -6,7 +6,9 @@ module iMeds {
     item UnknownPack
     {
         Weight = 0.1,
-        Type = Normal,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 1,
         DisplayName = Unknown Pack,
         Icon = PillPackPink,
         Medical = TRUE,

@@ -11,3 +11,9 @@ option ImmersiveMedicine.IsBloodTypeSystemActive
 	type = boolean, default = true,
 	page = ImmersiveMedicine, translation = IsBloodTypeSystemActive,
 }
+
+option ImmersiveMedicine.IsHeartbeatEnabled
+{
+	type = boolean, default = true,
+	page = ImmersiveMedicine, translation = IsHeartbeatEnabled,
+}

@@ -15,7 +15,12 @@ function SurvivorCreator:new(bloodGroupStorage)
         }
         getPlayer():getModData().survivor.blood = {}
         getPlayer():getModData().survivor.blood.drugs = {}
+        getPlayer():getModData().survivor.blood.opiatePoisonLevel = 0
+
         getPlayer():getModData().survivor.isKnowOwnBloodGroup = false
+        getPlayer():getModData().survivor.stressFromOpioidAddiction = 0
+
+        getPlayer():getModData().survivor.sideEffects = {}
 
         Survivor:getBlood():setVolume(Blood.maxVolume)
 
@@ -29,6 +34,10 @@ function SurvivorCreator:new(bloodGroupStorage)
         end
 
         Survivor:getBlood():setGroup(bloodGroup:getId())
+
+        if getPlayer():HasTrait(OpioidAddiction.alias) then
+            getPlayer():getTraits():add(HighPainThreshold.alias);
+        end
     end
 
     setmetatable(public, self)

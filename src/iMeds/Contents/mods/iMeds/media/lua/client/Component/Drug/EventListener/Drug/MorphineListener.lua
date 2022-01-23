@@ -8,7 +8,7 @@ local normalEffect = function()
             Survivor:setAdditionalBodyPartPainByType(index, 0)
         end
 
-        Survivor:setPainReductionFromMeds(70)
+        Survivor:setPainReduction(70)
         Survivor:setStress(0)
         Survivor:setUnhappynessLevel(0)
         Survivor:setBoredomLevel(0)
@@ -33,10 +33,13 @@ local overdoseEffect = function()
     end
 
     if not Survivor:getBlood():getDrugs()[Morphine.alias].isOverdoseEffectApplied then
-        Survivor:setFoodSicknessLevel(100)
-        Survivor:setPoisonLevel(60)
+        Survivor:getBlood():setOpiatePoisonLevel(100)
         Survivor:setEndurance(0)
         Survivor:setFatigue(1)
+
+        if ZombRand(1, 100) > 70 then
+            getPlayer():getTraits():add(OpioidAddiction.alias)
+        end
 
         Survivor:getBlood():getDrugs()[Morphine.alias].isOverdoseEffectApplied = true
     end

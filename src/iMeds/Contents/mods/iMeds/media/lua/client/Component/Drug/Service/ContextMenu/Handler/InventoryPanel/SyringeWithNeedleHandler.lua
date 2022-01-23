@@ -6,7 +6,7 @@ function SyringeWithNeedleHandler:supports(item, player)
     local items = getPlayer():getInventory():getAllTypeRecurse(Needle.fullType)
     for i = 0, items:size() - 1 do
         local needle = items:get(i)
-        if needle ~= nil and needle:getModData().needle ~= nil then
+        if needle:getModData().needle ~= nil then
             table.insert(self.needles, needle)
         end
     end

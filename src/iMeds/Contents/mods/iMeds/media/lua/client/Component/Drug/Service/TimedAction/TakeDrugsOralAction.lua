@@ -101,12 +101,12 @@ function TakeDrugsOralAction:new(doctor, patient, drug, bodyPart, dosageForm)
     public.doctorLevel = doctor:getPerkLevel(Perks.Doctor)
     public.drug = drug
     public.bodyPart = bodyPart
-    public.stopOnWalk = true
-    public.stopOnRun = true
+    public.stopOnWalk = false
+    public.stopOnRun = false
     public.doIt = true
     public.patientPositionX = patient:getX()
     public.patientPositionY = patient:getY()
-    public.maxTime = 60 - (public.doctorLevel * 4)
+    public.maxTime = 200 - (public.doctorLevel * 4)
     public.jobType = DosageForm.Oral[dosageForm].action
     public.dosageForm = dosageForm
 

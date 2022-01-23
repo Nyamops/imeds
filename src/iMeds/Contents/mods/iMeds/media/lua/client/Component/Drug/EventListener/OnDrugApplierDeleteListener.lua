@@ -11,8 +11,24 @@ function OnDrugApplierDeleteListener:new()
         local drugStorage = ZCore:getContainer():get('imeds.drug.storage.drug_storage')
         local drug = drugStorage:getByFullType(data.drug.fullType)
 
+        local dose
         if DosageForm.Oral[dosageForm] ~= nil then
-            local dose = drug:getSingleDose()
+            dose = drug:getSingleDose()
+        elseif DosageForm.Parenteral[dosageForm] ~= nil then
+            dose = data.drug.dose
+        end
+
+        if getPlayer():HasTrait(OpioidAddiction.alias) then
+            if drug:getAlias() == Morphine.alias then
+                dose = round(dose * 0.6, 2)
+            end
+        end
+
+        if drug:getAlias() == Morphine.alias and ZombRand(1, 100) == 100 then
+            getPlayer():getTraits():add(OpioidAddiction.alias)
+        end
+
+        if DosageForm.Oral[dosageForm] ~= nil then
             if drug:getAlias() == Morphine.alias then
                 dose = round(dose / 6, 2)
             end
@@ -23,7 +39,7 @@ function OnDrugApplierDeleteListener:new()
         end
 
         if DosageForm.Parenteral[dosageForm] ~= nil then
-            Survivor:getBlood():addDrug(drug, dosageForm, data.drug.dose)
+            Survivor:getBlood():addDrug(drug, dosageForm, dose)
 
             return
         end

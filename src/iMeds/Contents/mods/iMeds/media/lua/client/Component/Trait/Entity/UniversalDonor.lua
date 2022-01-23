@@ -4,7 +4,6 @@ UniversalDonor = {
     description = getText('UI_Trait_UniversalDonor_Description'),
     cost = -1,
     freeRecipes = {},
-    freeTraits = {},
     xpBoosts = {},
     xpBoostValues = {},
     mutualExclusives = {

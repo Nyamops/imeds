@@ -16,6 +16,11 @@ local normalEffect = function()
                 Survivor:getBlood():getDrugs()[drug:getAlias()].isOverdoseEffectApplied = false
             end
         end
+
+        if Survivor:getBlood():getOpiatePoisonLevel() > 10 then
+            Survivor:setFoodSicknessLevel(0)
+            Survivor:getBlood():setOpiatePoisonLevel(0)
+        end
     end
 end
 
@@ -30,6 +35,7 @@ local overdoseEffect = function()
 
     if not Survivor:getBlood():getDrugs()[Naloxon.alias].isOverdoseEffectApplied then
         Survivor:setFoodSicknessLevel(80)
+        Survivor:setPainReduction(0)
         Survivor:setPainReductionFromMeds(0)
 
         Survivor:getBlood():getDrugs()[Naloxon.alias].isOverdoseEffectApplied = true
