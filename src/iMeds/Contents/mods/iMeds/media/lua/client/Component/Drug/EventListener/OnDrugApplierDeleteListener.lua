@@ -24,6 +24,10 @@ function OnDrugApplierDeleteListener:new()
             end
         end
 
+        if drug:getAlias() == Morphine.alias and ZombRand(1, 100) == 100 then
+            getPlayer():getTraits():add(OpioidAddiction.alias)
+        end
+
         if DosageForm.Oral[dosageForm] ~= nil then
             if drug:getAlias() == Morphine.alias then
                 dose = round(dose / 6, 2)
@@ -38,10 +42,6 @@ function OnDrugApplierDeleteListener:new()
             Survivor:getBlood():addDrug(drug, dosageForm, dose)
 
             return
-        end
-
-        if drug:getAlias() == Morphine.alias and ZombRand(1, 100) == 100 then
-            getPlayer():getTraits():add(OpioidAddiction.alias)
         end
 
         if DosageForm.Topical[dosageForm] ~= nil then

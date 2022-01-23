@@ -5,6 +5,7 @@ require 'ISUI/ISButton'
 CustomMoodleMenu = ISPanel:derive('CustomMoodleMenu')
 
 local defaultPadding = 6
+local opacity = 0.2
 
 function CustomMoodleMenu:initialise()
     ISPanel.initialise(self)
@@ -29,6 +30,7 @@ function CustomMoodleMenu:render()
             end
 
             self.activeMoodles[moodle:getAlias()]:setVisible(sideEffect.isActive)
+            self.activeMoodles[moodle:getAlias()].backgroundColor.a = opacity
 
             if sideEffect.isActive then
                 self.activeMoodles[moodle:getAlias()]:setY(y)
@@ -36,6 +38,14 @@ function CustomMoodleMenu:render()
             end
         end
     end
+end
+
+function CustomMoodleMenu:onMouseMove(x, y)
+    opacity = 1
+end
+
+function CustomMoodleMenu:onMouseMoveOutside(x, y)
+    opacity = 0.2
 end
 
 ---@return CustomMoodleMenu
@@ -48,6 +58,8 @@ function CustomMoodleMenu:new(positionX, positionY, width, height)
     self.__index = self
     public.borderColor = { r = 0, g = 0, b = 0, a = 0 }
     public.backgroundColor = { r = 0, g = 0, b = 0, a = 0 }
+    public.onMouseMove = CustomMoodleMenu.onMouseMove
+    public.onMouseMoveOutside = CustomMoodleMenu.onMouseMoveOutside
     public.positionX = positionX
     public.positionY = positionY
     public.width = width

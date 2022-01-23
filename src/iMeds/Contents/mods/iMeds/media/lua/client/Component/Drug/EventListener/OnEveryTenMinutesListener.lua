@@ -32,7 +32,7 @@ local updateSurvivorDrugsEffect = function()
                 end
             end
 
-            if drugData.dose >= 0 and drugData.dose < 1 and drugData.onset == 0 and drugData.duration == 0 then
+            if drugData.dose < 0 then
                 Survivor:getBlood():getDrugs()[drugAlias].dose = 0
             end
         end

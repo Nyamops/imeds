@@ -7,7 +7,12 @@ function ExamineDrugHandler:supports(item, player)
         return false
     end
 
-    return item:getModule() == 'iMeds' and not string.contains(item:getFullType(), 'Pack')
+    ---@type DrugStorage
+    local drugStorage = ZCore:getContainer():get('imeds.drug.storage.drug_storage')
+
+    return item:getModule() == 'iMeds'
+        and not string.contains(item:getFullType(), 'Pack')
+        and drugStorage:getByFullType(item:getFullType()) ~= nil
 end
 
 function ExamineDrugHandler:getActionTitle()
