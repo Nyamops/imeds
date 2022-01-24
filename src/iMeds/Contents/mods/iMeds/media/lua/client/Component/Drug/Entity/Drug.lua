@@ -69,7 +69,6 @@ function Drug:new(data)
         return private.onsetByDosageForm[dosageForm]
     end
 
-
     ---@return number
     function public:getSingleDose()
         return private.singleDose

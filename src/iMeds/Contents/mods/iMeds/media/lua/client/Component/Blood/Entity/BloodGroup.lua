@@ -64,8 +64,6 @@ function BloodGroup:new(data)
         return false;
     end
 
-
-
     setmetatable(public, self)
     self.__index = self
     self.__metatable = 'BloodGroup'

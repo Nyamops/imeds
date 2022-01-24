@@ -60,8 +60,8 @@ function ISHealthPanel:getDamagedParts()
         bodyParts = self:getPatient():getBodyDamageRemote():getBodyParts()
     end
 
-    for i=1,bodyParts:size() do
-        table.insert(result,  bodyParts:get(i-1))
+    for i = 1, bodyParts:size() do
+        table.insert(result, bodyParts:get(i - 1))
     end
 
     return result

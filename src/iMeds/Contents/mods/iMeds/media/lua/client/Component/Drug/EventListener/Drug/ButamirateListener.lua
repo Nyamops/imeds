@@ -20,7 +20,6 @@ local normalEffect = function()
             end
         end
 
-
         if getPlayer():IsSpeaking() then
             getPlayer():getBodyDamage():setSneezeCoughActive(0)
 

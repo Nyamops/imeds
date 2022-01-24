@@ -1,6 +1,7 @@
 ## BaseHandlerProxy
 
 Copy local table without changes from **ISHealthPanel** into **BaseHandlerProxy**
+
 ```lua
 local BaseHandler = ISBaseObject:derive("BaseHandler")
 
@@ -16,7 +17,9 @@ end
 ```
 
 ## ISHealthPanelProxy
+
 Copy full content of the **ISHealthPanel** into **ISHealthPanelProxy** and add return to the end of function
+
 ```lua
 function ISHealthPanel:doBodyPartContextMenu(bodyPart, x, y)
     ...
