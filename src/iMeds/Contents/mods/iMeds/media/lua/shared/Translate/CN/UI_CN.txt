@@ -122,7 +122,6 @@ UI_CN = {
     UI_DosageForm_Intranasal_Drops_Action = "使用滴鼻液",
 
     UI_ContextMenu_Ml = "ml.",
-
     UI_ContextMenu_Take = "拿取",
     UI_ContextMenu_FillSyringe = "装满注射器",
     UI_ContextMenu_AttachNeedleToSyringe = "给注射器装上针头",
@@ -148,4 +147,22 @@ UI_CN = {
     UI_Trait_High_Pain_Threshold_Description = "可以忍受非常剧烈的疼痛。",
     UI_Trait_Low_Pain_Threshold_Name = "低疼痛阈值",
     UI_Trait_Low_Pain_Threshold_Description = "难以忍受相对较轻的疼痛。",
+    UI_Trait_OpioidAddiction_Name = "阿片类药物成瘾",
+    UI_Trait_OpioidAddiction_Description = "阿片类药物敏感性降低40%，疼痛阈值增加。如果没有阿片类药物，你活不了一天。",
+
+    UI_SideEffect_Bradycardia_Name = "心动过缓",
+    UI_SideEffect_Bradycardia_Lvl_1_Description = "脉搏减弱。",
+    UI_SideEffect_Bradycardia_Lvl_2_Description = "脉搏明显减慢。",
+    UI_SideEffect_Bradycardia_Lvl_3_Description = "如果你不是鲸鱼的话，那你大概快死了。",
+    UI_SideEffect_OpioidAddiction_Name = "阿片类药物成瘾",
+    UI_SideEffect_OpioidAddiction_Lvl_1_Description = "对阿片的需求让你越来越感到担忧。你想来一针。",
+    UI_SideEffect_OpioidAddiction_Lvl_2_Description = "你在出汗，心跳加快。没人爱你。",
+    UI_SideEffect_OpioidAddiction_Lvl_3_Description = "你在发烧，反胃。快去来一针！马上！",
+    UI_SideEffect_Tachycardia_Name = "心动过速",
+    UI_SideEffect_Tachycardia_Lvl_1_Description = "心跳加快。",
+    UI_SideEffect_Tachycardia_Lvl_2_Description = "心跳明显高于正常值。",
+    UI_SideEffect_Tachycardia_Lvl_3_Description = "心脏快从嗓子眼里蹦出来了。",
+    UI_SideEffect_VisualImpairment_Name = "视力障碍",
+    UI_SideEffect_VisualImpairment_Lvl_1_Description = "眼前雾霭朦胧，云山雾绕。",
+    UI_SideEffect_Sweating_Name = "出汗",
 }
