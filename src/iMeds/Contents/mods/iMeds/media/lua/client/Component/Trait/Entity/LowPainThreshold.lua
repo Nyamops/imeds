@@ -18,20 +18,24 @@ ZCore:getContainer():register(
     'imeds.trait.entity'
 )
 
-Events.OnTick.Add(
-    function()
-        if not getPlayer() or getPlayer():isDead() or not Survivor:isInitialized() then
-            return false
-        end
-
-        if not getPlayer():HasTrait(LowPainThreshold.alias) then
-            return false
-        end
-
-        getPlayer():getBodyDamage():setInitialWoundPain(100)
-        getPlayer():getBodyDamage():setInitialScratchPain(30)
-        getPlayer():getBodyDamage():setInitialThumpPain(25)
-        getPlayer():getBodyDamage():setInitialBitePain(40)
-        getPlayer():getBodyDamage():setContinualPainIncrease(0.00125)
+local effect = function()
+    if not getPlayer() or getPlayer():isDead() or not Survivor:isInitialized() then
+        return false
     end
-)
+
+    if not getPlayer():HasTrait(LowPainThreshold.alias) then
+        return false
+    end
+
+    getPlayer():getBodyDamage():setInitialWoundPain(100)
+    getPlayer():getBodyDamage():setInitialScratchPain(30)
+    getPlayer():getBodyDamage():setInitialThumpPain(25)
+    getPlayer():getBodyDamage():setInitialBitePain(40)
+    getPlayer():getBodyDamage():setContinualPainIncrease(0.00125)
+end
+
+Events[ImmersiveMedicineEvent.iMedsSurvivorCreated].Add(function(module)
+    if module == 'Trait' then
+        Events.OnTick.Add(effect)
+    end
+end)

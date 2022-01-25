@@ -37,9 +37,7 @@ local updateBloodLossEffects = function()
             Survivor:setEndurance(0.7)
         end
 
-        Survivor:removeSideEffect(Tachycardia.alias)
-        Survivor:removeSideEffect(Sweating.alias)
-
+        Survivor:addSideEffect(tachycardia, 1)
     elseif bloodLoss > 1000 and bloodLoss <= 2000 then
         if Survivor:getFatigue() < 0.7 then
             Survivor:setFatigue(0.7)
@@ -54,11 +52,9 @@ local updateBloodLossEffects = function()
         end
 
         Survivor:addSideEffect(sweating, 1)
-        Survivor:addSideEffect(tachycardia, 1)
-        Survivor:removeSideEffect(VisualImpairment.alias)
-
-    elseif bloodLoss > 2000 and bloodLoss <= 3500 then
         Survivor:addSideEffect(tachycardia, 2)
+    elseif bloodLoss > 2000 and bloodLoss <= 3500 then
+        Survivor:addSideEffect(tachycardia, 3)
         Survivor:addSideEffect(visualImpairment, 1)
         Survivor:addSideEffect(sweating, 2)
 
@@ -88,4 +84,9 @@ local updateBloodLossEffects = function()
     end
 end
 
-Events.OnTick.Add(updateBloodLossEffects)
+Events[ImmersiveMedicineEvent.iMedsSurvivorCreated].Add(function(module)
+    if module == 'Blood' then
+        Events.OnTick.Add(updateBloodLossEffects)
+    end
+end)
+

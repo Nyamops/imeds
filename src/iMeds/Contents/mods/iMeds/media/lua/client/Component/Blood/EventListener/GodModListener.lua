@@ -39,4 +39,9 @@ local resetAll = function()
     end
 end
 
-Events.OnTick.Add(resetAll)
+Events[ImmersiveMedicineEvent.iMedsSurvivorCreated].Add(function(module)
+    if module == 'Blood' then
+        Events.OnTick.Add(resetAll)
+    end
+end)
+

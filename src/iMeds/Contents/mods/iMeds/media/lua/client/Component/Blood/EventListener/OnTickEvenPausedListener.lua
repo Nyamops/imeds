@@ -6,29 +6,25 @@ local removeProps = function()
     if Survivor:haveItem(BloodVolumeReducer.fullType) then
         Survivor:removeItem(BloodVolumeReducer.fullType)
 
-        ---@type EventDispatcher
-        local eventDispatcher = ZCore:getContainer():get('imeds.event.event_dispatcher')
-        eventDispatcher:dispatch('onBloodVolumeReducerDelete', {})
+        triggerEvent(ImmersiveMedicineEvent.iMedsBloodVolumeReducerDeleted)
     end
 
     if Survivor:haveItem(BloodVolumeIncreaser.fullType) then
-        ---@type EventDispatcher
-        local eventDispatcher = ZCore:getContainer():get('imeds.event.event_dispatcher')
-        eventDispatcher:dispatch(
-            'onBloodVolumeIncreaserDelete',
-            Survivor:getItem(BloodVolumeIncreaser.fullType):getModData()
-        )
+        triggerEvent(ImmersiveMedicineEvent.iMedsBloodVolumeIncreaserDeleted, Survivor:getItem(BloodVolumeIncreaser.fullType):getModData())
 
         Survivor:removeItem(BloodVolumeIncreaser.fullType)
     end
 
     if Survivor:haveItem(BloodTester.fullType) then
-        ---@type EventDispatcher
-        local eventDispatcher = ZCore:getContainer():get('imeds.event.event_dispatcher')
-        eventDispatcher:dispatch('onBloodTesterDelete', {})
+        triggerEvent(ImmersiveMedicineEvent.iMedsBloodTesterDeleted)
 
         Survivor:removeItem(BloodTester.fullType)
     end
 end
 
-Events.OnTickEvenPaused.Add(removeProps)
+Events[ImmersiveMedicineEvent.iMedsSurvivorCreated].Add(function(module)
+    if module == 'Blood' then
+        Events.OnTickEvenPaused.Add(removeProps)
+    end
+end)
+

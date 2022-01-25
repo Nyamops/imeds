@@ -22,6 +22,12 @@ function SurvivorCreator:new(bloodGroupStorage)
 
         getPlayer():getModData().survivor.sideEffects = {}
 
+        getPlayer():getModData().survivor.blood.pressure = {}
+        getPlayer():getModData().survivor.blood.pressure.systolic = BloodPressure.systolic.normal
+        getPlayer():getModData().survivor.blood.pressure.diastolic = BloodPressure.diastolic.normal
+
+        getPlayer():getModData().survivor.blood.pulse = 0
+
         Survivor:getBlood():setVolume(Blood.maxVolume)
 
         local bloodGroup = private.bloodGroupStorage:getRandomBloodGroup()

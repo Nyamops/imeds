@@ -120,6 +120,7 @@ UI_EN = {
     UI_DosageForm_Topical_Powder_Action = "Apply powder",
     UI_DosageForm_Intranasal_Drops_Name = "Nose Drops",
     UI_DosageForm_Intranasal_Drops_Action = "Apply drops",
+    UI_ContextMenu_CheckPulse = "Check pulse",
 
     UI_ContextMenu_Ml = "ml.",
     UI_ContextMenu_Take = "Take",
@@ -136,6 +137,7 @@ UI_EN = {
     UI_Window_DrugDescription = "Drug Description: %s",
     UI_Window_SideEffectDescription = "Drug side effects: %s",
     UI_Window_DosageDescription = "Maximum dosage: %s (ml/pc)",
+    UI_Window_PulseValue = "%s BPM",
 
     UI_Trait_Pharmacist_Name = "Pharmacist",
     UI_Trait_Pharmacist_Description = "Can identify drugs. Knows everything about the composition of medicines and indications for their use",
@@ -157,7 +159,7 @@ UI_EN = {
     UI_SideEffect_OpioidAddiction_Name = "Opioid addiction",
     UI_SideEffect_OpioidAddiction_Lvl_1_Description = "It's getting alarming. The desire to get a dose",
     UI_SideEffect_OpioidAddiction_Lvl_2_Description = "You are sweating, your heartbeat has increased. Unfortunately, you are not in love",
-    UI_SideEffect_OpioidAddiction_Lvl_3_Description = "You are feverish and nauseous. We need to find a dose urgently",
+    UI_SideEffect_OpioidAddiction_Lvl_3_Description = "You are feverish and nauseous. You need to find a dose urgently",
     UI_SideEffect_Tachycardia_Name = "Tachycardia",
     UI_SideEffect_Tachycardia_Lvl_1_Description = "Heartbeat increased",
     UI_SideEffect_Tachycardia_Lvl_2_Description = "Heartbeat significantly higher than normal",

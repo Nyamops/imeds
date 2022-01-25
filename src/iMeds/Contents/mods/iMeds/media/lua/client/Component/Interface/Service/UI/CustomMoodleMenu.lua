@@ -92,5 +92,9 @@ function CustomMoodleMenu:resizeCustomMoodleMenu(oldWidth, oldHeight, newWidth, 
     CustomMoodleMenu:show()
 end
 
-Events.OnGameStart.Add(CustomMoodleMenu.show)
-Events.OnResolutionChange.Add(CustomMoodleMenu.resizeCustomMoodleMenu)
+Events[ImmersiveMedicineEvent.iMedsSurvivorCreated].Add(function(module)
+    if module == 'Moodle' then
+        CustomMoodleMenu.show()
+        Events.OnResolutionChange.Add(CustomMoodleMenu.resizeCustomMoodleMenu)
+    end
+end)

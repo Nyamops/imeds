@@ -4,6 +4,12 @@ Blood = {}
 Blood.maxVolume = 5000
 Blood.minVolume = 2000
 
+Blood.pulse = {
+    min = 5,
+    normal = 50,
+    max = 160,
+}
+
 ---@return number
 function Blood:getVolume()
     return getPlayer():getModData().survivor.blood.volume
@@ -87,6 +93,30 @@ end
 ---@param value number
 function Blood:setOpiatePoisonLevel(value)
     getPlayer():getModData().survivor.blood.opiatePoisonLevel = value
+end
+
+---@return BloodPressure
+function Blood:getPressure()
+    if getPlayer():getModData().survivor.blood.pressure == nil then
+        getPlayer():getModData().survivor.blood.pressure = {}
+    end
+
+    return require 'Component/BloodPressure/Entity/BloodPressure'
+end
+
+---@return number
+function Blood:getPulse()
+    if getPlayer():getModData().survivor.blood.pulse == nil then
+        getPlayer():getModData().survivor.blood.pulse = 0
+    end
+
+    return getPlayer():getModData().survivor.blood.pulse
+end
+
+---@param value number
+---@return nil
+function Blood:setPulse(value)
+    getPlayer():getModData().survivor.blood.pulse = value
 end
 
 return Blood
