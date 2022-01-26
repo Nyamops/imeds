@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<fileGuidTable>
+    <files>
+        <path>media/clothing/clothingItems/HeartRateMonitorLeft.xml</path>
+        <guid>940e2166-2eeb-4c8a-9fce-e2e85d65cfd5</guid>
+    </files>
+    <files>
+        <path>media/clothing/clothingItems/HeartRateMonitorRight.xml</path>
+        <guid>f7b1a386-577a-443d-b61a-95870e42b3c9</guid>
+    </files>
+</fileGuidTable>
