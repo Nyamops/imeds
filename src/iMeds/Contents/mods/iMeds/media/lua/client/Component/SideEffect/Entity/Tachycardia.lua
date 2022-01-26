@@ -23,7 +23,13 @@ ZCore:getContainer():register(
     'imeds.side_effect.entity'
 )
 
-local delay = { 120, 80, 60 }
+local pulse = { 90, 120, 160 }
+
+---@return number[]
+function Tachycardia:getPulse()
+    return pulse
+end
+
 local tickSinceLastHeartbeat = 0
 
 local effect = function()
@@ -45,8 +51,7 @@ local effect = function()
     end
 
     tickSinceLastHeartbeat = tickSinceLastHeartbeat + 1
-
-    if tickSinceLastHeartbeat > delay[sideEffect.level] then
+    if tickSinceLastHeartbeat > Survivor:getBlood():getHeartbeatDelta(pulse[sideEffect.level]) then
         getSoundManager():playUISound('heart')
         tickSinceLastHeartbeat = 0
     end
