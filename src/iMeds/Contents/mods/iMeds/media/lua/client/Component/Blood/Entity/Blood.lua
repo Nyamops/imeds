@@ -6,7 +6,7 @@ Blood.minVolume = 2000
 
 Blood.pulse = {
     min = 5,
-    normal = 50,
+    normal = 60,
     max = 160,
 }
 
@@ -117,6 +117,12 @@ end
 ---@return nil
 function Blood:setPulse(value)
     getPlayer():getModData().survivor.blood.pulse = value
+end
+
+---@param pulse number
+---@return number
+function Blood:getHeartbeatDelta(pulse)
+    return round(10800 / pulse)
 end
 
 return Blood
