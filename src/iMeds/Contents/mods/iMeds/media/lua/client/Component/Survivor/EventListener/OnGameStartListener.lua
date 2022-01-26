@@ -26,5 +26,6 @@ local initializeSurvivor = function()
     end
 end
 
+Events.OnPlayerDeath.Add(function() isInitialized = false end)
 Events.OnGameStart.Add(initializeSurvivor)
 Events.OnCreatePlayer.Add(initializeSurvivor)
