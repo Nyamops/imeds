@@ -1,6 +1,6 @@
 local incrementValue = 0.04
-local tachycardiaPulse = { 90, 120, 160 }
-local bradycardiaPulse = { 60, 35, 5 }
+local tachycardiaPulse
+local bradycardiaPulse
 
 local updatePulse = function()
     if not getPlayer() or getPlayer():isDead() or not Survivor:isInitialized() then
@@ -47,5 +47,7 @@ local updatePulse = function()
 end
 
 Events[ImmersiveMedicineEvent.iMedsSurvivorCreated].Add(function()
+    tachycardiaPulse = Tachycardia:getPulse()
+    bradycardiaPulse = Bradycardia:getPulse()
     Events.OnTick.Add(updatePulse)
 end)
