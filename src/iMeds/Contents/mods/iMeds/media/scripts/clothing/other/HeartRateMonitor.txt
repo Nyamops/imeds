@@ -3,7 +3,7 @@ module Base {
     {
         DisplayCategory = FirstAid,
         Type = AlarmClockClothing,
-        DisplayName = Polar Electro PE 3000,
+        DisplayName = Knox Electro PE 3000,
         ClothingItem = HeartRateMonitorLeft,
         ClothingItemExtra = HeartRateMonitorRight,
         BodyLocation = LeftWrist,
@@ -23,7 +23,7 @@ module Base {
     {
         DisplayCategory = FirstAid,
         Type = AlarmClockClothing,
-        DisplayName = Polar Electro PE 3000,
+        DisplayName = Knox Electro PE 3000,
         ClothingItem = HeartRateMonitorRight,
         ClothingItemExtra = HeartRateMonitorLeft,
         BodyLocation = RightWrist,
