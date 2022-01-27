@@ -2,6 +2,7 @@ require 'ISUI/ISPanel'
 require 'ISUI/ISRichTextPanel'
 require 'ISUI/ISButton'
 
+--TODO ISRadioWindow / RWMPower / ISRadioAction / DeviceInspector
 HeartRateMonitorMenu = ISPanel:derive('HeartRateMonitorMenu')
 
 local defaultPadding = 6
@@ -63,7 +64,7 @@ function HeartRateMonitorMenu:show()
     local rightPadding = 81 + defaultPadding * 2
     local topPadding = 100
 
-    local menu = HeartRateMonitorMenu:new(getCore():getScreenWidth() - rightPadding - width, topPadding, width, height)
+    local menu = self:new(getCore():getScreenWidth() - rightPadding - width, topPadding, width, height)
     menu:addToUIManager()
     menu:setVisible(true)
 
@@ -81,7 +82,7 @@ function HeartRateMonitorMenu:show()
     menu.display.firstPanel = ISPanel:new(panelPositionX, panelPositionY - 2, panelWidth, panelHeight)
     menu.display.firstPanel.borderColor = { r = 0, g = 0, b = 0, a = 0 }
     menu.display.firstPanel.backgroundColor = { r = 0, g = 0, b = 0, a = 0 }
-    menu.display.firstPanel.onMouseDown = HeartRateMonitorMenu.onMouseDown
+    menu.display.firstPanel.onMouseDown = self.onMouseDown
     menu.display.firstPanel:initialise()
     menu.display.firstPanel.parent = menu.display
     menu.display:addChild(menu.display.firstPanel)
@@ -91,7 +92,7 @@ function HeartRateMonitorMenu:show()
     menu.display.secondPanel = ISPanel:new(panelPositionX, panelPositionY + 2, panelWidth, panelHeight)
     menu.display.secondPanel.borderColor = { r = 0, g = 0, b = 0, a = 0 }
     menu.display.secondPanel.backgroundColor = { r = 0, g = 0, b = 0, a = 0 }
-    menu.display.secondPanel.onMouseDown = HeartRateMonitorMenu.onMouseDown
+    menu.display.secondPanel.onMouseDown = self.onMouseDown
     menu.display.secondPanel:initialise()
     menu.display.secondPanel.parent = menu.display
     menu.display:addChild(menu.display.secondPanel)
@@ -102,7 +103,7 @@ function HeartRateMonitorMenu:show()
     local heartPositionY = (panelHeight - heartHeight) / 2
 
     menu.display.secondPanel.heart = ISImage:new(heartPositionX, heartPositionY, heartWidth, heartHeight, getTexture('media/ui/HeartRateMonitor/Heart.png'))
-    menu.display.secondPanel.heart.onMouseDown = HeartRateMonitorMenu.onMouseDown
+    menu.display.secondPanel.heart.onMouseDown = self.onMouseDown
     menu.display.secondPanel.heart:initialise()
     menu.display.secondPanel.heart.parent = menu.display.secondPanel
     menu.display.secondPanel:addChild(menu.display.secondPanel.heart)
@@ -113,7 +114,7 @@ function HeartRateMonitorMenu:show()
     local heartRateWidthPositionY = heartPositionY
 
     menu.display.secondPanel.heartRate = ISRichTextPanel:new(heartRateWidthPositionX, heartRateWidthPositionY, heartRateWidth, fontHeight)
-    menu.display.secondPanel.heartRate.onMouseDown = HeartRateMonitorMenu.onMouseDown
+    menu.display.secondPanel.heartRate.onMouseDown = self.onMouseDown
     menu.display.secondPanel.heartRate:initialise()
     menu.display.secondPanel.heartRate:noBackground()
     menu.display.secondPanel.heartRate:ignoreHeightChange()
@@ -121,13 +122,7 @@ function HeartRateMonitorMenu:show()
     menu.display.secondPanel.heartRate.marginTop = 0
     menu.display.secondPanel:addChild(menu.display.secondPanel.heartRate)
 
-    HeartRateMonitorMenu.instance = menu
-    HeartRateMonitorMenu = menu
-end
-
-function HeartRateMonitorMenu:resize(oldWidth, oldHeight, newWidth, newHeight)
-    self:disable()
-    HeartRateMonitorMenu:show()
+    self.instance = menu
 end
 
 function HeartRateMonitorMenu:disable()
@@ -135,23 +130,28 @@ function HeartRateMonitorMenu:disable()
     HeartRateMonitorMenu.instance = nil
 end
 
+function HeartRateMonitorMenu:resize(oldWidth, oldHeight, newWidth, newHeight)
+    self:disable()
+    self:show()
+end
+
 local heartbeatDelta = Blood.pulse.max
 local ticks = 0
-HeartRateMonitorMenu.updateHeartbeat = function()
-    if HeartRateMonitorMenu.instance == nil then
+function HeartRateMonitorMenu:updateHeartbeat()
+    if self.instance == nil then
         return false
     end
 
-    HeartRateMonitorMenu.instance.display.secondPanel.heart.backgroundColor.a = HeartRateMonitorMenu.instance.display.secondPanel.heart.backgroundColor.a - 0.0175
+    self.instance.display.secondPanel.heart.backgroundColor.a = self.instance.display.secondPanel.heart.backgroundColor.a - 0.0175
     if ticks % heartbeatDelta == 0 then
         local pulse = round(Survivor:getBlood():getPulse())
-        HeartRateMonitorMenu.instance.display.secondPanel.heart.backgroundColor.a = opacity
+        self.instance.display.secondPanel.heart.backgroundColor.a = opacity
         heartbeatDelta = Survivor:getBlood():getHeartbeatDelta(pulse)
 
-        HeartRateMonitorMenu.instance.display.secondPanel.heartRate.text = pulse
+        self.instance.display.secondPanel.heartRate.text = pulse
         local textWidth = getTextManager():MeasureStringX(UIFont.Small, tostring(pulse)) + 30
-        HeartRateMonitorMenu.instance.display.secondPanel.heartRate:setWidth(textWidth)
-        HeartRateMonitorMenu.instance.display.secondPanel.heartRate:paginate()
+        self.instance.display.secondPanel.heartRate:setWidth(textWidth)
+        self.instance.display.secondPanel.heartRate:paginate()
 
         ticks = 0
     end
@@ -159,17 +159,17 @@ HeartRateMonitorMenu.updateHeartbeat = function()
     ticks = ticks + 1
 end
 
-HeartRateMonitorMenu.isEquippedOrAttached = function()
+function HeartRateMonitorMenu:updateUI()
     if not Survivor:haveItem(HeartRateMonitorRight.alias) and not Survivor:haveItem(HeartRateMonitorLeft.alias) then
-        if HeartRateMonitorMenu.instance ~= nil then
-            HeartRateMonitorMenu:disable()
+        if self.instance ~= nil then
+            self:disable()
         end
 
         return false
     end
 
-    if HeartRateMonitorMenu.instance == nil then
-        HeartRateMonitorMenu.show()
+    if self.instance == nil then
+        self:show()
     end
 end
 
@@ -177,7 +177,9 @@ Events[ImmersiveMedicineEvent.iMedsSurvivorCreated].Add(function(module)
     if module == 'Moodle' then
         Events.OnResolutionChange.Add(HeartRateMonitorMenu.resize)
         Events.OnPlayerDeath.Add(HeartRateMonitorMenu.disable)
-        Events.OnTick.Add(HeartRateMonitorMenu.updateHeartbeat)
-        Events.OnTick.Add(HeartRateMonitorMenu.isEquippedOrAttached)
+        Events.OnTick.Add(function()
+            HeartRateMonitorMenu:updateHeartbeat()
+            HeartRateMonitorMenu:updateUI()
+        end)
     end
 end)
