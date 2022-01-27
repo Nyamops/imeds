@@ -23,7 +23,7 @@ ZCore:getContainer():register(
     'imeds.side_effect.entity'
 )
 
-local pulse = { 90, 120, 160 }
+local pulse = { 85, 110, 150 }
 
 ---@return number[]
 function Tachycardia:getPulse()

@@ -101,7 +101,7 @@ function Blood:getPressure()
         getPlayer():getModData().survivor.blood.pressure = {}
     end
 
-    return require 'Component/BloodPressure/Entity/BloodPressure'
+    return require 'Component/Blood/Entity/BloodPressure'
 end
 
 ---@return number

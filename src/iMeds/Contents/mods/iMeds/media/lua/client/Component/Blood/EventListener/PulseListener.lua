@@ -11,7 +11,7 @@ local updatePulse = function()
     local endurancePulse
     local panicPulse
 
-    local modifier = Blood.pulse.max - Blood.pulse.min
+    local modifier = Blood.pulse.max - Blood.pulse.normal
     -- y = (1 - endurance) * x + 50
     endurancePulse = (1 - Survivor:getEndurance()) * modifier + Blood.pulse.normal
     panicPulse = Survivor:getPanic() * modifier / 100 + Blood.pulse.normal
@@ -46,8 +46,10 @@ local updatePulse = function()
     end
 end
 
-Events[ImmersiveMedicineEvent.iMedsSurvivorCreated].Add(function()
-    tachycardiaPulse = Tachycardia:getPulse()
-    bradycardiaPulse = Bradycardia:getPulse()
-    Events.OnTick.Add(updatePulse)
+Events[ImmersiveMedicineEvent.iMedsSurvivorCreated].Add(function(module)
+    if module == 'Blood' then
+        tachycardiaPulse = Tachycardia:getPulse()
+        bradycardiaPulse = Bradycardia:getPulse()
+        Events.OnTick.Add(updatePulse)
+    end
 end)

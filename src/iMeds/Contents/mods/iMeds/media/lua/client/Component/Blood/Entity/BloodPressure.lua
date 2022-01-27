@@ -2,14 +2,14 @@
 BloodPressure = {}
 
 BloodPressure.systolic = {
-    normal = 100,
-    min = 50,
-    max = 180
+    normal = 120,
+    min = 36, -- -70%
+    max = 180, -- +50%
 }
 BloodPressure.diastolic = {
-    normal = 60,
-    min = 10,
-    max = 110,
+    normal = 80,
+    min = 24, -- -70%
+    max = 120, -- +50%
 }
 
 ---@return number
