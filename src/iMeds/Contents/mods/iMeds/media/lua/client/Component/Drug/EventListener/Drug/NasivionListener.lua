@@ -57,7 +57,7 @@ local overdoseEffect = function()
     end
 
     if not Survivor:getBlood():getDrugs()[Nasivion.alias].isOverdoseEffectApplied then
-        local duration = Nasivion.durationByDosageForm[DosageForm.Intranasal.Drops.alias] / 2 * TimeHandler.modifier
+        local duration = Nasivion.durationByDosageForm[DosageForm.Intranasal.Drops.alias] / 2 * TimeHandler.durationModifier
         Survivor:getBlood():getDrugs()[Nasivion.alias].duration = Survivor:getBlood():getDrugs()[Nasivion.alias].duration - duration
 
         Survivor:getBlood():getDrugs()[Nasivion.alias].isOverdoseEffectApplied = true

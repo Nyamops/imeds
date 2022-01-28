@@ -68,8 +68,8 @@ function Blood:addDrug(drug, dosageForm, dose)
 
     getPlayer():getModData().survivor.blood.drugs[drug:getAlias()].dose = getPlayer():getModData().survivor.blood.drugs[drug:getAlias()].dose + dose
     for _ = 1, dose do
-        local onset = drug:getOnsetByDosageForm(dosageForm)
-        local duration = drug:getDurationByDosageForm(dosageForm) * TimeHandler.modifier
+        local onset = drug:getOnsetByDosageForm(dosageForm) * TimeHandler.onset
+        local duration = drug:getDurationByDosageForm(dosageForm) * TimeHandler.durationModifier
         if getPlayer():getModData().survivor.blood.drugs[drug:getAlias()].dose > 1 then
             duration = duration / 2
             onset = 0
