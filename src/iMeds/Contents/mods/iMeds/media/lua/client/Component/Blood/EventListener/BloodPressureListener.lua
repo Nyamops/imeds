@@ -53,9 +53,6 @@ local updateBloodPressure = function()
     if Survivor:getBlood():getPressure():getDiastolic() > BloodPressure.diastolic.max then
         Survivor:getBlood():getPressure():setDiastolic(BloodPressure.diastolic.max)
     end
-
-    print('getDiastolic: ' .. Survivor:getBlood():getPressure():getDiastolic())
-    print('getSystolic: ' .. Survivor:getBlood():getPressure():getSystolic())
 end
 
 Events[ImmersiveMedicineEvent.iMedsSurvivorCreated].Add(function(module)
