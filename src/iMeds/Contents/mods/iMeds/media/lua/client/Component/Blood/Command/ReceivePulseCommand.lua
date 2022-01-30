@@ -10,7 +10,7 @@ end
 ReceivePulseCommand.execute = function(package)
     local patient = getPlayerByOnlineID(package.patientOnlineId)
     if package.pulse ~= nil and patient ~= nil then
-        PulseWindow:showDrugInfo(package.pulse, getPlayer(), patient)
+        PulseWindow:showPulse(package.pulse, getPlayer(), patient)
         PulseWindow:setVisible(true)
     end
 end

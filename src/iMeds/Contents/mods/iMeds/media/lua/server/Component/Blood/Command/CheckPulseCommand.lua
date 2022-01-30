@@ -1,6 +1,6 @@
 ---@class CheckPulseCommand
 CheckPulseCommand = {
-    defaultName = 'CheckPulse',
+    defaultName = 'checkPulse',
 }
 
 if isClient() then
