@@ -7,17 +7,15 @@ local updatePulse = function()
         return false
     end
 
-    local requestedPulse = Blood.pulse.normal
-    local endurancePulse
-    local panicPulse
+    local endurancePulseModifier
+    local panicPulseModifier
 
-    local modifier = Blood.pulse.max - Blood.pulse.normal
-    -- y = (1 - endurance) * x + 50
-    endurancePulse = (1 - Survivor:getEndurance()) * modifier + Blood.pulse.normal
-    panicPulse = Survivor:getPanic() * modifier / 100 + Blood.pulse.normal
+    endurancePulseModifier = (1 - Survivor:getEndurance() + 2) / 2
+    panicPulseModifier = (Survivor:getPanic() / 100 + 2) / 2
 
-    requestedPulse = endurancePulse > panicPulse and endurancePulse or panicPulse
+    local modifier = endurancePulseModifier > panicPulseModifier and endurancePulseModifier or panicPulseModifier
 
+    local requestedPulse = Blood.pulse.normal * modifier
     local tachycardia = Survivor:getSideEffects()[Tachycardia.alias]
     if tachycardia ~= nil and tachycardia.isActive then
         requestedPulse = tachycardiaPulse[tachycardia.level] > requestedPulse and tachycardiaPulse[tachycardia.level] or requestedPulse
