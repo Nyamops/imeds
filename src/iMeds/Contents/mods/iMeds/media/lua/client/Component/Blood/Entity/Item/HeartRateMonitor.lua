@@ -1,7 +1,7 @@
 HeartRateMonitorRight = {
-    alias = 'Base.HeartRateMonitorRight'
+    fullType = 'Base.HeartRateMonitorRight'
 }
 
 HeartRateMonitorLeft = {
-    alias = 'Base.HeartRateMonitorLeft'
+    fullType = 'Base.HeartRateMonitorLeft'
 }

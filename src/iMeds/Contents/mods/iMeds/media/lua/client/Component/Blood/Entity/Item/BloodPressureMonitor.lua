@@ -1,7 +1,7 @@
 BloodPressureMonitorRight = {
-    alias = 'Base.BloodPressureMonitorRight'
+    fullType = 'Base.BloodPressureMonitorRight'
 }
 
 BloodPressureMonitorLeft = {
-    alias = 'Base.BloodPressureMonitorLeft'
+    fullType = 'Base.BloodPressureMonitorLeft'
 }
