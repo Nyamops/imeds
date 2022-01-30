@@ -75,8 +75,8 @@ function Blood:addDrug(drug, dosageForm, dose)
             onset = 0
         end
 
-        getPlayer():getModData().survivor.blood.drugs[drug:getAlias()].onset = getPlayer():getModData().survivor.blood.drugs[drug:getAlias()].onset + onset
-        getPlayer():getModData().survivor.blood.drugs[drug:getAlias()].duration = getPlayer():getModData().survivor.blood.drugs[drug:getAlias()].duration + duration
+        getPlayer():getModData().survivor.blood.drugs[drug:getAlias()].onset = getPlayer():getModData().survivor.blood.drugs[drug:getAlias()].onset + round10(onset)
+        getPlayer():getModData().survivor.blood.drugs[drug:getAlias()].duration = getPlayer():getModData().survivor.blood.drugs[drug:getAlias()].duration + round10(duration)
     end
 end
 
