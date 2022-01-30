@@ -60,4 +60,10 @@ ItemName_RU = {
     ItemName_iMeds.PlasmaBagBP = "Пакет плазмы крови B(III) Rh+",
     ItemName_iMeds.PlasmaBagON = "Пакет плазмы крови O(I) Rh-",
     ItemName_iMeds.PlasmaBagOP = "Пакет плазмы крови O(I) Rh+",
+
+    ItemName_iMeds.Stethoscope = "Стетоскоп",
+    ItemName_Base.BloodPressureMonitorLeft = "Тонометр Nanasonic EW3039S",
+    ItemName_Base.BloodPressureMonitorRight = "Тонометр Nanasonic EW3039S",
+    ItemName_Base.HeartRateMonitorLeft = "Пульсометр Knox Electro KE 3000",
+    ItemName_Base.HeartRateMonitorRight = "Пульсометр Knox Electro KE 3000",
 }

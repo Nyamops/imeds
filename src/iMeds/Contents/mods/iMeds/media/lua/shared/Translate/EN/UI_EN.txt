@@ -132,6 +132,9 @@ UI_EN = {
     UI_ContextMenu_ExamineDrug = "Study the drug",
     UI_ContextMenu_ExaminePack = "Examine the drug pack",
     UI_ContextMenu_TestBlood = "Determine blood type",
+    UI_ContextMenu_Rename = "Rename",
+    UI_ContextMenu_CheckPulse = "Check pulse",
+    UI_ContextMenu_CheckBloodPressure = "Check blood pressure",
 
     UI_Window_DrugTitle = "Drug name: %s",
     UI_Window_DrugDescription = "Drug Description: %s",

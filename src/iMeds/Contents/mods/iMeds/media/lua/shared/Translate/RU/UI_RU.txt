@@ -133,6 +133,7 @@ UI_RU = {
     UI_ContextMenu_TestBlood = "Определить группу крови",
     UI_ContextMenu_Rename = "Переименовать",
     UI_ContextMenu_CheckPulse = "Проверить пульс",
+    UI_ContextMenu_CheckBloodPressure = "Измерить давление",
 
     UI_Window_DrugTitle = "Название препарата: %s",
     UI_Window_DrugDescription = "Описание препарата: %s",
