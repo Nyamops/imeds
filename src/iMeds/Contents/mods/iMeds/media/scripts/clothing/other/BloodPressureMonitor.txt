@@ -3,7 +3,7 @@ module Base {
     {
         DisplayCategory = FirstAid,
         Type = AlarmClockClothing,
-        DisplayName = Parasonic EW3039S,
+        DisplayName = Nanasonic EW3039S,
         ClothingItem = BloodPressureMonitorRight,
         ClothingItemExtra = BloodPressureMonitorLeft,
         BodyLocation = LeftWrist,
@@ -23,7 +23,7 @@ module Base {
     {
         DisplayCategory = FirstAid,
         Type = AlarmClockClothing,
-        DisplayName = Parasonic EW3039S,
+        DisplayName = Nanasonic EW3039S,
         ClothingItem = BloodPressureMonitorLeft,
         ClothingItemExtra = BloodPressureMonitorRight,
         BodyLocation = RightWrist,
