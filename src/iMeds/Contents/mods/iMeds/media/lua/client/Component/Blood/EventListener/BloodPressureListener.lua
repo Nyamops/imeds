@@ -1,35 +1,44 @@
 local incrementValue = 0.04
-local bloodPressurePenaltyPercentage = { 0.9, 0.75, 0.5, 0.3 }
+local bloodPressurePenaltyModifiers = { 0.9, 0.75, 0.5, 0.3 }
 
 local updateBloodPressure = function()
     if not getPlayer() or getPlayer():isDead() or not Survivor:isInitialized() then
         return false
     end
 
-    local requestedBloodPressurePercentage = 1
+    local systolicPressure = BloodPressure.systolic.normal
+    local diastolicPressure = BloodPressure.diastolic.normal
+
+    local enduranceBloodPressureModifier
+    local panicBloodPressureModifier
+
+    enduranceBloodPressureModifier = (1 - Survivor:getEndurance() + 2) / 2
+    panicBloodPressureModifier = (Survivor:getPanic() / 100 + 2) / 2
+
+    local  requestedBloodPressureModifier = enduranceBloodPressureModifier > panicBloodPressureModifier and enduranceBloodPressureModifier or panicBloodPressureModifier
+
     local bloodLoss = Blood.maxVolume - Survivor:getBlood():getVolume()
     if bloodLoss > 250 and bloodLoss <= 1000 then
-        requestedBloodPressurePercentage = bloodPressurePenaltyPercentage[1]
+        requestedBloodPressureModifier = requestedBloodPressureModifier * bloodPressurePenaltyModifiers[1]
     elseif bloodLoss > 1000 and bloodLoss <= 2000 then
-        requestedBloodPressurePercentage = bloodPressurePenaltyPercentage[2]
+        requestedBloodPressureModifier = requestedBloodPressureModifier * bloodPressurePenaltyModifiers[2]
     elseif bloodLoss > 2000 and bloodLoss <= 3500 then
-        requestedBloodPressurePercentage = bloodPressurePenaltyPercentage[3]
+        requestedBloodPressureModifier = requestedBloodPressureModifier * bloodPressurePenaltyModifiers[3]
     elseif bloodLoss > 3500 and bloodLoss <= 3600 then
-        requestedBloodPressurePercentage = bloodPressurePenaltyPercentage[4]
+        requestedBloodPressureModifier = requestedBloodPressureModifier * bloodPressurePenaltyModifiers[4]
     end
 
-    local systolicPressure = BloodPressure.systolic.normal
-    local requestedSystolicBloodPressure = BloodPressure.systolic.normal * requestedBloodPressurePercentage
+    local requestedSystolicBloodPressure = BloodPressure.systolic.normal * requestedBloodPressureModifier
+    local requestedDiastolicBloodPressure = BloodPressure.diastolic.normal * requestedBloodPressureModifier
+
     if Survivor:getBlood():getPressure():getSystolic() < requestedSystolicBloodPressure then
         systolicPressure = Survivor:getBlood():getPressure():getSystolic() + incrementValue * getGameTime():getMultiplier()
-    elseif requestedBloodPressurePercentage < 1 then
+    else
         systolicPressure = Survivor:getBlood():getPressure():getSystolic() - incrementValue * getGameTime():getMultiplier()
     end
 
     Survivor:getBlood():getPressure():setSystolic(systolicPressure)
 
-    local diastolicPressure = BloodPressure.diastolic.normal
-    local requestedDiastolicBloodPressure = BloodPressure.diastolic.normal * requestedBloodPressurePercentage
     if Survivor:getBlood():getPressure():getDiastolic() < requestedDiastolicBloodPressure then
         diastolicPressure = Survivor:getBlood():getPressure():getDiastolic() + incrementValue * getGameTime():getMultiplier()
     else
