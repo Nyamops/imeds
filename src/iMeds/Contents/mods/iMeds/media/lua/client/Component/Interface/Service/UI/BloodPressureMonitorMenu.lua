@@ -17,6 +17,16 @@ local bigIndicatorPosition = {
     { x = 0, y = 3, width = 4, height = 15 },
     { x = 2, y = 17, width = 15, height = 5 },
 }
+local smallIndicatorPosition = {
+    { x = 1, y = 0, width = 7, height = 2 },
+    { x = 7, y = 1, width = 2, height = 8 },
+    { x = 7, y = 10, width = 2, height = 8 },
+    { x = 1, y = 16, width = 7, height = 2 },
+    { x = 0, y = 10, width = 2, height = 8 },
+    { x = 0, y = 1, width = 2, height = 8 },
+    { x = 1, y = 8, width = 7, height = 3 },
+}
+
 --[[
     1
   6   2
@@ -40,6 +50,10 @@ local bigIndicatorWidth = 19
 local bigIndicatorHeight = 38
 local bigIndicatorRowWidth = 61
 local bigIndicatorRowHeight = 38
+local smallIndicatorWidth = 9
+local smallIndicatorHeight = 18
+local smallIndicatorRowWidth = 29
+local smallIndicatorRowHeight = 18
 
 function BloodPressureMonitorMenu:initialise()
     ISPanel.initialise(self)
@@ -51,6 +65,38 @@ function BloodPressureMonitorMenu:render()
     end
 
     self.backgroundColor.a = opacity
+    self.systolicRow.backgroundColor.a = opacity
+    self.diastolicRow.backgroundColor.a = opacity
+    self.pulseRow.backgroundColor.a = opacity
+    self.displayBackground.backgroundColor.a = opacity
+    self.display.backgroundColor.a = opacity
+
+    for i = 1, 3 do
+        self.systolicRow.indicators[i].backgroundColor.a = opacity
+        self.systolicRow.indicators[i].borderColor.a = opacity
+        for j = 1, 7 do
+            self.systolicRow.indicators[i].segments[j].backgroundColor.a = opacity
+            self.systolicRow.indicators[i].segments[j].borderColor.a = opacity
+        end
+    end
+
+    for i = 1, 3 do
+        self.diastolicRow.indicators[i].backgroundColor.a = opacity
+        self.diastolicRow.indicators[i].borderColor.a = opacity
+        for j = 1, 7 do
+            self.diastolicRow.indicators[i].segments[j].backgroundColor.a = opacity
+            self.diastolicRow.indicators[i].segments[j].borderColor.a = opacity
+        end
+    end
+
+    for i = 1, 3 do
+        self.pulseRow.indicators[i].backgroundColor.a = opacity
+        self.pulseRow.indicators[i].borderColor.a = opacity
+        for j = 1, 7 do
+            self.pulseRow.indicators[i].segments[j].backgroundColor.a = opacity
+            self.pulseRow.indicators[i].segments[j].borderColor.a = opacity
+        end
+    end
 end
 
 function BloodPressureMonitorMenu:onMouseMove(x, y)
@@ -75,22 +121,22 @@ function BloodPressureMonitorMenu:new(positionX, positionY, width, height)
     public = ISPanel:new(positionX, positionY, width, height)
     setmetatable(public, self)
     self.__index = self
-    public.borderColor = { r = 0, g = 1, b = 0, a = 0 }
+    public.borderColor = { r = 0, g = 0, b = 0, a = 0 }
     public.backgroundColor = { r = 0, g = 0, b = 0, a = 0 }
-    public.onMouseMove = self.onMouseMove
-    public.onMouseMoveOutside = self.onMouseMoveOutside
+    public.onMouseMove = BloodPressureMonitorMenu.onMouseMove
+    public.onMouseMoveOutside = BloodPressureMonitorMenu.onMouseMoveOutside
     public.positionX = positionX
     public.positionY = positionY
     public.width = width
     public.height = height
-    public.resizable = false
 
     return public
 end
 
 function BloodPressureMonitorMenu:addSystolicRow()
     self.systolicRow = ISPanel:new(46, 18, bigIndicatorRowWidth, bigIndicatorRowHeight)
-    self.systolicRow:noBackground()
+    self.systolicRow.borderColor = { r = 0, g = 0, b = 0, a = 0 }
+    self.systolicRow.backgroundColor = { r = 0, g = 0, b = 0, a = 0 }
     self.systolicRow:initialise()
     self.systolicRow.indicators = {}
     self.displayBackground:addChild(self.systolicRow)
@@ -99,7 +145,7 @@ function BloodPressureMonitorMenu:addSystolicRow()
     for i = 1, 3 do
         self.systolicRow.indicators[i] = ISPanel:new(bigIndicatorPositionX, 0, bigIndicatorWidth, bigIndicatorHeight)
         self.systolicRow.indicators[i].backgroundColor = { r = 146 / 255, g = 155 / 255, b = 152 / 255, a = 1 }
-        self.systolicRow.indicators[i].borderColor = { r = 0, g = 0, b = 0, a = 0 }
+        self.systolicRow.indicators[i].borderColor = { r = 146 / 255, g = 155 / 255, b = 152 / 255, a = 1 }
         self.systolicRow.indicators[i]:initialise()
         self.systolicRow.indicators[i].segments = {}
         self.systolicRow:addChild(self.systolicRow.indicators[i])
@@ -107,7 +153,7 @@ function BloodPressureMonitorMenu:addSystolicRow()
         for j = 1, 7 do
             self.systolicRow.indicators[i].segments[j] = ISPanel:new(bigIndicatorPosition[j].x, bigIndicatorPosition[j].y, bigIndicatorPosition[j].width, bigIndicatorPosition[j].height)
             self.systolicRow.indicators[i].segments[j].backgroundColor = { r = 0, g = 0, b = 0, a = 1 }
-            self.systolicRow.indicators[i].segments[j].borderColor = { r = 0, g = 0, b = 0, a = 0 }
+            self.systolicRow.indicators[i].segments[j].borderColor = { r = 0, g = 0, b = 0, a = 1 }
             self.systolicRow.indicators[i].segments[j]:initialise()
             self.systolicRow.indicators[i].segments[j]:setVisible(false)
             self.systolicRow.indicators[i]:addChild(self.systolicRow.indicators[i].segments[j])
@@ -119,7 +165,8 @@ end
 
 function BloodPressureMonitorMenu:addDiastolicRow()
     self.diastolicRow = ISPanel:new(46, 62, bigIndicatorRowWidth, bigIndicatorRowHeight)
-    self.diastolicRow:noBackground()
+    self.diastolicRow.backgroundColor = { r = 0, g = 0, b = 0, a = 0 }
+    self.diastolicRow.borderColor = { r = 0, g = 0, b = 0, a = 0 }
     self.diastolicRow:initialise()
     self.diastolicRow.indicators = {}
     self.displayBackground:addChild(self.diastolicRow)
@@ -128,7 +175,7 @@ function BloodPressureMonitorMenu:addDiastolicRow()
     for i = 1, 3 do
         self.diastolicRow.indicators[i] = ISPanel:new(bigIndicatorPositionX, 0, bigIndicatorWidth, bigIndicatorHeight)
         self.diastolicRow.indicators[i].backgroundColor = { r = 146 / 255, g = 155 / 255, b = 152 / 255, a = 1 }
-        self.diastolicRow.indicators[i].borderColor = { r = 0, g = 0, b = 0, a = 0 }
+        self.diastolicRow.indicators[i].borderColor = { r = 146 / 255, g = 155 / 255, b = 152 / 255, a = 1 }
         self.diastolicRow.indicators[i]:initialise()
         self.diastolicRow.indicators[i].segments = {}
         self.diastolicRow:addChild(self.diastolicRow.indicators[i])
@@ -136,13 +183,43 @@ function BloodPressureMonitorMenu:addDiastolicRow()
         for j = 1, 7 do
             self.diastolicRow.indicators[i].segments[j] = ISPanel:new(bigIndicatorPosition[j].x, bigIndicatorPosition[j].y, bigIndicatorPosition[j].width, bigIndicatorPosition[j].height)
             self.diastolicRow.indicators[i].segments[j].backgroundColor = { r = 0, g = 0, b = 0, a = 1 }
-            self.diastolicRow.indicators[i].segments[j].borderColor = { r = 0, g = 0, b = 0, a = 0 }
+            self.diastolicRow.indicators[i].segments[j].borderColor = { r = 0, g = 0, b = 0, a = 1 }
             self.diastolicRow.indicators[i].segments[j]:initialise()
             self.diastolicRow.indicators[i].segments[j]:setVisible(false)
             self.diastolicRow.indicators[i]:addChild(self.diastolicRow.indicators[i].segments[j])
         end
 
         bigIndicatorPositionX = bigIndicatorPositionX + bigIndicatorWidth + 2
+    end
+end
+
+function BloodPressureMonitorMenu:addPulseRow()
+    self.pulseRow = ISPanel:new(74, 103, smallIndicatorRowWidth, smallIndicatorRowHeight)
+    self.pulseRow.backgroundColor = { r = 0, g = 0, b = 0, a = 0 }
+    self.pulseRow.borderColor = { r = 0, g = 0, b = 0, a = 0 }
+    self.pulseRow:initialise()
+    self.pulseRow.indicators = {}
+    self.displayBackground:addChild(self.pulseRow)
+
+    local smallIndicatorPositionX = 0
+    for i = 1, 3 do
+        self.pulseRow.indicators[i] = ISPanel:new(smallIndicatorPositionX, 0, smallIndicatorWidth, smallIndicatorHeight)
+        self.pulseRow.indicators[i].backgroundColor = { r = 146 / 255, g = 155 / 255, b = 152 / 255, a = 1 }
+        self.pulseRow.indicators[i].borderColor = { r = 146 / 255, g = 155 / 255, b = 152 / 255, a = 1 }
+        self.pulseRow.indicators[i]:initialise()
+        self.pulseRow.indicators[i].segments = {}
+        self.pulseRow:addChild(self.pulseRow.indicators[i])
+
+        for j = 1, 7 do
+            self.pulseRow.indicators[i].segments[j] = ISPanel:new(smallIndicatorPosition[j].x, smallIndicatorPosition[j].y, smallIndicatorPosition[j].width, smallIndicatorPosition[j].height)
+            self.pulseRow.indicators[i].segments[j].backgroundColor = { r = 0, g = 0, b = 0, a = 1 }
+            self.pulseRow.indicators[i].segments[j].borderColor = { r = 0, g = 0, b = 0, a = 1 }
+            self.pulseRow.indicators[i].segments[j]:initialise()
+            self.pulseRow.indicators[i].segments[j]:setVisible(false)
+            self.pulseRow.indicators[i]:addChild(self.pulseRow.indicators[i].segments[j])
+        end
+
+        smallIndicatorPositionX = smallIndicatorPositionX + smallIndicatorWidth + 1
     end
 end
 
@@ -166,6 +243,7 @@ function BloodPressureMonitorMenu:show()
 
     self.addSystolicRow(menu)
     self.addDiastolicRow(menu)
+    self.addPulseRow(menu)
 
     menu.display = ISImage:new(0, 0, width, height, getTexture('media/ui/BloodPressureMonitor/Display.png'))
     menu.display:initialise()
@@ -173,12 +251,12 @@ function BloodPressureMonitorMenu:show()
     menu:addChild(menu.display)
 
     local buttonPositionX = 7
-    local buttonPositionY = 167
+    local buttonPositionY = 153
     local buttonWidth = 138
-    local buttonHeight = 33
+    local buttonHeight = 34
 
     menu.display.button = ISButton:new(buttonPositionX, buttonPositionY, buttonWidth, buttonHeight, '', menu, self.checkBloodPressure)
-    menu.display.button.internal = "CLOSE"
+    menu.display.button.internal = 'On/Off'
     menu.display.button.anchorLeft = false
     menu.display.button.anchorRight = true
     menu.display.button.anchorTop = false
@@ -195,8 +273,22 @@ function BloodPressureMonitorMenu:show()
     self = menu
 end
 
+local isEnabled = false
 function BloodPressureMonitorMenu:checkBloodPressure()
-    ISTimedActionQueue.add(CheckBloodPressureAction:new(getPlayer(), BloodPressureMonitorMenu.instance.item))
+    if not isEnabled then
+        local bodyPart = getPlayer():getBodyDamage():getBodyPart(BodyPart.Hand_R)
+        if BloodPressureMonitorMenu.instance.wristMonitor:getFullType() == BloodPressureMonitorLeft.fullType then
+            bodyPart = getPlayer():getBodyDamage():getBodyPart(BodyPart.Hand_L)
+        end
+
+        ISTimedActionQueue.add(CheckBloodPressureAction:new(getPlayer(), getPlayer(), BloodPressureMonitorMenu.instance.wristMonitor, bodyPart))
+    else
+        self:resetSystolicIndicators()
+        self:resetDiastolicIndicators()
+        self:resetPulseIndicators()
+    end
+
+    isEnabled = not isEnabled
 end
 
 function BloodPressureMonitorMenu:disable()
@@ -210,7 +302,7 @@ function BloodPressureMonitorMenu:resize(oldWidth, oldHeight, newWidth, newHeigh
 end
 
 function BloodPressureMonitorMenu:getDigitsFromNumber(number)
-    number = tostring(number)
+    number = tostring(round(number))
 
     local values = {}
     if string.len(number) == 3 then
@@ -247,6 +339,18 @@ function BloodPressureMonitorMenu:updateDiastolicBloodPressure()
     end
 end
 
+function BloodPressureMonitorMenu:updatePulse()
+    self:resetPulseIndicators()
+    local digits = self:getDigitsFromNumber(Survivor:getBlood():getPulse())
+    for i = 3, 1, -1 do
+        if digits[i] ~= nil then
+            for _, segmentId in ipairs(segmentsByNumber[tonumber(digits[i])]) do
+                self.instance.pulseRow.indicators[i].segments[segmentId]:setVisible(true)
+            end
+        end
+    end
+end
+
 function BloodPressureMonitorMenu:resetSystolicIndicators()
     for i = 1, 3 do
         for j = 1, 7 do
@@ -263,16 +367,28 @@ function BloodPressureMonitorMenu:resetDiastolicIndicators()
     end
 end
 
-function BloodPressureMonitorMenu:updateUI()
-    local wristMonitor
+function BloodPressureMonitorMenu:resetPulseIndicators()
+    for i = 1, 3 do
+        for j = 1, 7 do
+            self.instance.pulseRow.indicators[i].segments[j]:setVisible(false)
+        end
+    end
+end
+
+function BloodPressureMonitorMenu:getEquippedWrist()
+    local wrist
     for i = 0, getPlayer():getInventory():getItems():size() - 1 do
         local item = getPlayer():getInventory():getItems():get(i)
-        if in_table(item:getFullType(), { BloodPressureMonitorRight.alias, BloodPressureMonitorLeft.alias }) and getPlayer():isEquipped(item) then
-            wristMonitor = item
+        if in_table(item:getFullType(), { BloodPressureMonitorRight.fullType, BloodPressureMonitorLeft.fullType }) and getPlayer():isEquipped(item) then
+            wrist = item
         end
     end
 
-    if wristMonitor == nil then
+    return wrist
+end
+
+function BloodPressureMonitorMenu:updateUI()
+    if self:getEquippedWrist() == nil then
         if self.instance ~= nil then
             self:disable()
         end
@@ -282,7 +398,7 @@ function BloodPressureMonitorMenu:updateUI()
 
     if self.instance == nil then
         self:show()
-        self.instance.item = wristMonitor
+        self.instance.wristMonitor = self:getEquippedWrist()
     end
 end
 
