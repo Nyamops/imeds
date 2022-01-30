@@ -123,6 +123,7 @@ function HeartRateMonitorMenu:show()
     menu.display.secondPanel:addChild(menu.display.secondPanel.heartRate)
 
     self.instance = menu
+    self = menu
 end
 
 function HeartRateMonitorMenu:disable()
@@ -159,8 +160,19 @@ function HeartRateMonitorMenu:updateHeartbeat()
     ticks = ticks + 1
 end
 
+function HeartRateMonitorMenu:isEquipped()
+    for i = 0, getPlayer():getInventory():getItems():size() - 1 do
+        local item = getPlayer():getInventory():getItems():get(i)
+        if in_table(item:getFullType(), { HeartRateMonitorRight.fullType, HeartRateMonitorLeft.fullType }) and getPlayer():isEquipped(item) then
+            return true
+        end
+    end
+
+    return false
+end
+
 function HeartRateMonitorMenu:updateUI()
-    if not Survivor:haveItem(HeartRateMonitorRight.alias) and not Survivor:haveItem(HeartRateMonitorLeft.alias) then
+    if not self:isEquipped() then
         if self.instance ~= nil then
             self:disable()
         end
