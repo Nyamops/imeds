@@ -134,12 +134,14 @@ UI_RU = {
     UI_ContextMenu_Rename = "Переименовать",
     UI_ContextMenu_CheckPulse = "Проверить пульс",
     UI_ContextMenu_CheckBloodPressure = "Измерить давление",
+    UI_ContextMenu_CheckBloodVolume = "Определить объем крови",
 
     UI_Window_DrugTitle = "Название препарата: %s",
     UI_Window_DrugDescription = "Описание препарата: %s",
     UI_Window_SideEffectDescription = "Побочные эффекты препарата: %s",
     UI_Window_DosageDescription = "Максимальная дозировка: %s (мл/шт)",
-    UI_Window_PulseValue = "%s BPM",
+    UI_Window_PulseValue = "%s уд/мин",
+    UI_Window_BloodVolumeValue = "~%s ml",
 
     UI_Trait_Pharmacist_Name = "Фармацевт",
     UI_Trait_Pharmacist_Description = "Может опознавать препараты. Знает все о составе лекарств и показаниях к их применению",

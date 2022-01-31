@@ -10,6 +10,13 @@ Blood.pulse = {
     max = 160,
 }
 
+Blood.algoverBurryShockIndex = {
+    [0] = { threshold = 0.5, 0 },
+    [1] = { threshold = 0.8, 0.15, 0.20}, -- 15-20%
+    [2] = { threshold = 1, 0.2, 0.4 }, -- 20-40%
+    [3] = { threshold = 1.3, 0.4, 0.5 }, -- >40%
+}
+
 ---@return number
 function Blood:getVolume()
     return getPlayer():getModData().survivor.blood.volume
@@ -123,6 +130,31 @@ end
 ---@return number
 function Blood:getHeartbeatDelta(pulse)
     return round(10800 / pulse)
+end
+
+---@return table<string, number|nil>
+function Blood:getBloodLossVolume()
+    local value = round(self:getPulse() / self:getPressure():getSystolic() + 0.05, 1)
+    local shockDegreeResult = 0
+    for shockDegree, data in pairs(self.algoverBurryShockIndex) do
+        if value >= data.threshold then
+            shockDegreeResult = shockDegree
+        end
+    end
+
+    local fromVolume = 0
+    local toVolume
+    if shockDegreeResult > 0 and shockDegreeResult < 3 then
+        fromVolume = Blood.maxVolume * Blood.algoverBurryShockIndex[shockDegreeResult][1]
+        toVolume = Blood.maxVolume * Blood.algoverBurryShockIndex[shockDegreeResult][2]
+    elseif shockDegreeResult == 3 then
+        fromVolume = Blood.maxVolume * Blood.algoverBurryShockIndex[shockDegreeResult][1]
+    end
+
+    return {
+        from = fromVolume,
+        to = toVolume,
+    }
 end
 
 return Blood

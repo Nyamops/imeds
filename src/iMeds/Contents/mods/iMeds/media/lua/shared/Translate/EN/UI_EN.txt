@@ -135,12 +135,14 @@ UI_EN = {
     UI_ContextMenu_Rename = "Rename",
     UI_ContextMenu_CheckPulse = "Check pulse",
     UI_ContextMenu_CheckBloodPressure = "Check blood pressure",
+    UI_ContextMenu_CheckBloodVolume = "Check blood volume",
 
     UI_Window_DrugTitle = "Drug name: %s",
     UI_Window_DrugDescription = "Drug Description: %s",
     UI_Window_SideEffectDescription = "Drug side effects: %s",
     UI_Window_DosageDescription = "Maximum dosage: %s (ml/pc)",
     UI_Window_PulseValue = "%s BPM",
+    UI_Window_BloodVolumeValue = "~ %s ml",
 
     UI_Trait_Pharmacist_Name = "Pharmacist",
     UI_Trait_Pharmacist_Description = "Can identify drugs. Knows everything about the composition of medicines and indications for their use",
