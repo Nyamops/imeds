@@ -4,8 +4,12 @@ Pharmacist = {
     description = getText('UI_Trait_Pharmacist_Description'),
     cost = 4,
     freeRecipes = {},
-    xpBoosts = {},
-    xpBoostValues = {},
+    xpBoosts = {
+        Perks.Doctor,
+    },
+    xpBoostValues = {
+        [Perks.Doctor] = 1,
+    },
     mutualExclusives = {
         'Illiterate',
     },
