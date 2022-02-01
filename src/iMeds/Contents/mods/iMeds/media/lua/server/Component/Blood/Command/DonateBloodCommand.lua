@@ -11,6 +11,7 @@ DonateBloodCommand.execute = function(player, args)
     local otherPlayer = getPlayerByOnlineID(args.id)
     if otherPlayer then
         local bloodVolumeReducer = InventoryItemFactory.CreateItem('iMeds.BloodVolumeReducer')
+        print(player:getSteamID() .. ' performing blood donation to ' .. otherPlayer:getSteamID())
         otherPlayer:sendObjectChange('addItem', { item = bloodVolumeReducer })
     end
 end

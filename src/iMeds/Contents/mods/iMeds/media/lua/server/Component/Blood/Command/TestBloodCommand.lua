@@ -11,7 +11,7 @@ TestBloodCommand.execute = function(player, args)
     local otherPlayer = getPlayerByOnlineID(args.id)
     if otherPlayer then
         local bloodTester = InventoryItemFactory.CreateItem('iMeds.BloodTester')
-
+        print(player:getSteamID() .. ' performing blood testing to ' .. otherPlayer:getSteamID())
         otherPlayer:sendObjectChange('addItem', { item = bloodTester })
     end
 end
