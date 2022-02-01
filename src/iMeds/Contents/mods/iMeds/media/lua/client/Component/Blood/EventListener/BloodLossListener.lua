@@ -33,8 +33,8 @@ local updateBloodLossEffects = function()
             Survivor:setFatigue(0.6)
         end
 
-        if Survivor:getEndurance() > 0.7 then
-            Survivor:setEndurance(0.7)
+        if Survivor:getEndurance() > 0.75 then
+            Survivor:setEndurance(0.75)
         end
 
         Survivor:addSideEffect(tachycardia, 1)
@@ -43,8 +43,8 @@ local updateBloodLossEffects = function()
             Survivor:setFatigue(0.7)
         end
 
-        if Survivor:getEndurance() > 0.4 then
-            Survivor:setEndurance(0.4)
+        if Survivor:getEndurance() > 0.5 then
+            Survivor:setEndurance(0.5)
         end
 
         --if Survivor:getThirst() < 0.15 then
