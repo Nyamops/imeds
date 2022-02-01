@@ -4,7 +4,7 @@ local normalEffect = function()
     end
 
     if Survivor:getBlood():getDrugs()[Erythropoietin.alias].isActive then
-        Survivor:setEndurance(Survivor:getEndurance() + 0.002 * getGameTime():getMultiplier())
+        Survivor:setEndurance(Survivor:getEndurance() + 0.0025 * getGameTime():getMultiplier())
     end
 end
 
