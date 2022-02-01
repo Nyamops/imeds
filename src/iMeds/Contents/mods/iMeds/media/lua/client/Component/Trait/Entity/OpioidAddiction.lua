@@ -5,12 +5,10 @@ OpioidAddiction = {
     cost = -10,
     freeRecipes = {},
     xpBoosts = {
-        Perks.Doctor,
         Perks.Strength,
         Perks.Fitness,
     },
     xpBoostValues = {
-        [Perks.Doctor] = 1,
         [Perks.Strength] = -2,
         [Perks.Fitness] = -2,
     },
