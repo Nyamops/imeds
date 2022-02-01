@@ -19,15 +19,8 @@ ZCore:getContainer():register(
     },
     'imeds.trait.entity'
 )
-local effect = function()
-    if not getPlayer() or getPlayer():isDead() or not Survivor:isInitialized() then
-        return false
-    end
 
-    if not getPlayer():HasTrait(HighPainThreshold.alias) then
-        return false
-    end
-
+HighPainThreshold.effect = function()
     if Survivor:getPainReduction() < 15 then
         Survivor:setPainReduction(15)
     end
@@ -38,6 +31,18 @@ local effect = function()
     getPlayer():getBodyDamage():setInitialThumpPain(10)
     getPlayer():getBodyDamage():setInitialBitePain(18)
     getPlayer():getBodyDamage():setContinualPainIncrease(0.00075)
+end
+
+local effect = function()
+    if not getPlayer() or getPlayer():isDead() or not Survivor:isInitialized() then
+        return false
+    end
+
+    if not getPlayer():HasTrait(HighPainThreshold.alias) then
+        return false
+    end
+
+    HighPainThreshold.effect()
 end
 
 Events[ImmersiveMedicineEvent.iMedsSurvivorCreated].Add(function(module)
