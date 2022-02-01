@@ -52,7 +52,9 @@ local effect = function()
         return false
     end
 
-    local incrementValue = 0.00085
+    HighPainThreshold.effect()
+
+    local incrementValue = 0.00065
     if Survivor:getBlood():getDrugs()[Morphine.alias] ~= nil and Survivor:getBlood():getDrugs()[Morphine.alias].isActive then
         incrementValue = -0.1
     end
@@ -68,7 +70,6 @@ local effect = function()
     end
 
     Survivor:setStressFromOpioidAddiction(Survivor:getStressFromOpioidAddiction() + incrementValue * getGameTime():getMultiplier())
-
     if Survivor:getStressFromOpioidAddiction() > 25 then
         Survivor:addSideEffect(opioidAddiction, 1)
     end

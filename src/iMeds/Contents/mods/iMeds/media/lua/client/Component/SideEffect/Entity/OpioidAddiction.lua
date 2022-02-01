@@ -56,7 +56,7 @@ local effect = function()
         Survivor:setAdditionalBodyPartPainByType(BodyPart.ForeArm_R, 30)
     end
 
-    if Survivor:getStress() > maxStress[sideEffect.level] then
+    if Survivor:getStress() <= maxStress[sideEffect.level] then
         Survivor:setStress(maxStress[sideEffect.level])
     end
 end
