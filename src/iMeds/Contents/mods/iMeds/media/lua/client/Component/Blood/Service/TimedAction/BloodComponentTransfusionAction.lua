@@ -90,7 +90,7 @@ function BloodComponentTransfusionAction:perform()
         self.character:getStats():setPanic(self.character:getStats():getPanic() + 50)
     end
 
-    self.character:getXp():AddXP(Perks.Doctor, 10)
+    self.character:getXp():AddXP(Perks.Doctor, 1)
 
     local bloodVolumeIncreaser = InventoryItemFactory.CreateItem(BloodVolumeIncreaser.fullType)
     bloodVolumeIncreaser:getModData().blood = {
@@ -107,7 +107,7 @@ function BloodComponentTransfusionAction:perform()
     bloodVolumeIncreaser:getModData().blood.isRotten = self.erythrocyteSuspensionBag:isRotten() or self.plasmaBag:isRotten()
 
     if isClient() then
-        local args = { id = self.otherPlayer:getOnlineID(), item = bloodVolumeIncreaser }
+        local args = { patientOnlineId = self.otherPlayer:getOnlineID(), doctorOnlineId = self.character:getOnlineID(), item = bloodVolumeIncreaser }
         sendClientCommand(self.character, 'blood', TransferBloodCommand.defaultName, args)
     else
         self.character:sendObjectChange('addItem', { item = bloodVolumeIncreaser })

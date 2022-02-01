@@ -84,7 +84,7 @@ function TransferBloodAction:perform()
         self.character:getStats():setPanic(self.character:getStats():getPanic() + 50);
     end
 
-    self.character:getXp():AddXP(Perks.Doctor, 10);
+    self.character:getXp():AddXP(Perks.Doctor, 1)
 
     local bloodVolumeIncreaser = InventoryItemFactory.CreateItem(BloodVolumeIncreaser.fullType)
     bloodVolumeIncreaser:getModData().blood = self.fullBloodBag:getModData().blood
@@ -92,7 +92,7 @@ function TransferBloodAction:perform()
     bloodVolumeIncreaser:getModData().blood.isRotten = self.fullBloodBag:isRotten()
 
     if isClient() then
-        local args = { id = self.otherPlayer:getOnlineID(), item = bloodVolumeIncreaser }
+        local args = { patientOnlineId = self.otherPlayer:getOnlineID(), doctorOnlineId = self.character:getOnlineID(), item = bloodVolumeIncreaser }
         sendClientCommand(self.character, 'blood', TransferBloodCommand.defaultName, args)
     else
         self.character:sendObjectChange('addItem', { item = bloodVolumeIncreaser })
@@ -116,7 +116,6 @@ function TransferBloodAction:new(doctor, patient, fullBloodBag, catheter, bodyPa
     public.bodyPart = bodyPart;
     public.stopOnWalk = true;
     public.stopOnRun = true;
-    public.doIt = true;
     public.patientPositionX = patient:getX();
     public.patientPositionY = patient:getY();
     public.maxTime = 600 - (public.doctorLevel * 4);

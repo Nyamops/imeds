@@ -1,27 +1,37 @@
 TimeHandler = {}
 
-TimeHandler.initializeModifier = function()
-    local modifier = 0
-    local tenMinutesInSeconds = 600
-    if SandboxVars.DayLength == 1 then
-        -- 1 real minute = 96 in game minutes; 6.25 real seconds = 10 in game minutes
-        modifier = 5
-    elseif SandboxVars.DayLength == 2 then
-        modifier = 5
-    elseif SandboxVars.DayLength == 3 then
-        modifier = 2
-    elseif SandboxVars.DayLength == 4 then
-        modifier = 2
-    else
-        local inGameMinuteByOneRealMinute = 24 / (SandboxVars.DayLength - 2)
-        local inGameTenMinutesByOneRealSecond = tenMinutesInSeconds / inGameMinuteByOneRealMinute
-        modifier = tenMinutesInSeconds / inGameTenMinutesByOneRealSecond
-        if modifier > 2 then
-            modifier = 2
-        end
-    end
+local modifiers = {
+    { duration = 5, onset = 1 }, -- 15
+    { duration = 5, onset = 1 }, -- 30
+    { duration = 2, onset = 1 }, -- 1
+    { duration = 2, onset = 1 }, -- 2
+    { duration = 1.5, onset = 0.5 }, -- 3
+    { duration = 1.5, onset = 0.5 }, -- 4
+    { duration = 1, onset = 0.5 }, -- 5
+    { duration = 1, onset = 0.5 }, -- 6
+    { duration = 0.5, onset = 0.15 }, -- 7
+    { duration = 0.5, onset = 0.15 }, -- 8
+    { duration = 0.25, onset = 0.15 }, -- 9
+    { duration = 0.25, onset = 0.15 }, -- 10
+    { duration = 0.125, onset = 0.15 }, -- 11
+    { duration = 0.125, onset = 0.15 }, -- 12
+    { duration = 0.120, onset = 0.1 }, -- 13
+    { duration = 0.120, onset = 0.1 }, -- 14
+    { duration = 0.115, onset = 0.1 }, -- 15
+    { duration = 0.115, onset = 0.1 }, -- 16
+    { duration = 0.1, onset = 0.1 }, -- 17
+    { duration = 0.1, onset = 0.1 }, -- 18
+    { duration = 0.095, onset = 0.1 }, -- 19
+    { duration = 0.095, onset = 0.1 }, -- 20
+    { duration = 0.09, onset = 0.1 }, -- 21
+    { duration = 0.09, onset = 0.1 }, -- 22
+    { duration = 0.083, onset = 0.1 }, -- 23
+    { duration = 0.083, onset = 0.1 }, -- 24
+}
 
-    TimeHandler.modifier = modifier
+TimeHandler.initializeModifier = function()
+    TimeHandler.durationModifier = modifiers[SandboxVars.DayLength].duration
+    TimeHandler.onset = modifiers[SandboxVars.DayLength].onset
 end
 
 Events.OnGameStart.Add(TimeHandler.initializeModifier)

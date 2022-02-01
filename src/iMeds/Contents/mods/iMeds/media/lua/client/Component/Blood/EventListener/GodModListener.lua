@@ -36,7 +36,15 @@ local resetAll = function()
 
         Survivor:setStressFromOpioidAddiction(0)
         Survivor:getBlood():setOpiatePoisonLevel(0)
+        Survivor:getBlood():setPulse(Blood.pulse.normal)
+        Survivor:getBlood():getPressure():setSystolic(BloodPressure.systolic.normal)
+        Survivor:getBlood():getPressure():setDiastolic(BloodPressure.diastolic.normal)
     end
 end
 
-Events.OnTick.Add(resetAll)
+Events[ImmersiveMedicineEvent.iMedsSurvivorCreated].Add(function(module)
+    if module == 'Blood' then
+        Events.OnTick.Add(resetAll)
+    end
+end)
+

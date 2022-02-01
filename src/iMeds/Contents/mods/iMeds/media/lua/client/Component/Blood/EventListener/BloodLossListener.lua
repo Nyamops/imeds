@@ -33,32 +33,28 @@ local updateBloodLossEffects = function()
             Survivor:setFatigue(0.6)
         end
 
-        if Survivor:getEndurance() > 0.7 then
-            Survivor:setEndurance(0.7)
+        if Survivor:getEndurance() > 0.75 then
+            Survivor:setEndurance(0.75)
         end
 
-        Survivor:removeSideEffect(Tachycardia.alias)
-        Survivor:removeSideEffect(Sweating.alias)
-
+        Survivor:addSideEffect(tachycardia, 1)
     elseif bloodLoss > 1000 and bloodLoss <= 2000 then
         if Survivor:getFatigue() < 0.7 then
             Survivor:setFatigue(0.7)
         end
 
-        if Survivor:getEndurance() > 0.4 then
-            Survivor:setEndurance(0.4)
+        if Survivor:getEndurance() > 0.5 then
+            Survivor:setEndurance(0.5)
         end
 
-        if Survivor:getThirst() < 0.15 then
-            Survivor:setThirst(0.15)
-        end
+        --if Survivor:getThirst() < 0.15 then
+        --    Survivor:setThirst(0.15)
+        --end
 
         Survivor:addSideEffect(sweating, 1)
-        Survivor:addSideEffect(tachycardia, 1)
-        Survivor:removeSideEffect(VisualImpairment.alias)
-
-    elseif bloodLoss > 2000 and bloodLoss <= 3500 then
         Survivor:addSideEffect(tachycardia, 2)
+    elseif bloodLoss > 2000 and bloodLoss <= 3500 then
+        Survivor:addSideEffect(tachycardia, 3)
         Survivor:addSideEffect(visualImpairment, 1)
         Survivor:addSideEffect(sweating, 2)
 
@@ -67,9 +63,9 @@ local updateBloodLossEffects = function()
         Survivor:setStress(1)
         Survivor:setTemperature(34)
 
-        if Survivor:getThirst() < 0.26 then
-            Survivor:setThirst(0.26)
-        end
+        --if Survivor:getThirst() < 0.26 then
+        --    Survivor:setThirst(0.26)
+        --end
 
         getPlayer():setBlockMovement(false)
         getPlayer():setBannedAttacking(false)
@@ -88,4 +84,9 @@ local updateBloodLossEffects = function()
     end
 end
 
-Events.OnTick.Add(updateBloodLossEffects)
+Events[ImmersiveMedicineEvent.iMedsSurvivorCreated].Add(function(module)
+    if module == 'Blood' then
+        Events.OnTick.Add(updateBloodLossEffects)
+    end
+end)
+

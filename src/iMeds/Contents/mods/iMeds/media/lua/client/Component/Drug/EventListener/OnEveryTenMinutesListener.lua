@@ -40,4 +40,9 @@ local updateSurvivorDrugsEffect = function()
 
 end
 
-Events.EveryTenMinutes.Add(updateSurvivorDrugsEffect)
+Events[ImmersiveMedicineEvent.iMedsSurvivorCreated].Add(function(module)
+    if module == 'Drug' then
+        Events.EveryTenMinutes.Add(updateSurvivorDrugsEffect)
+    end
+end)
+

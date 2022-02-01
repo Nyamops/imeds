@@ -60,6 +60,10 @@ function ExamineDrugAction:new(player, item)
     public.maxTime = 10
     public.jobType = 'ExamineDrugAction'
 
+    if player:isTimedActionInstant() then
+        public.maxTime = 1
+    end
+
     return public
 end
 

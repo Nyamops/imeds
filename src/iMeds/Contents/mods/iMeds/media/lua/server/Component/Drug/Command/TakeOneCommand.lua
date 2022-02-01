@@ -1,6 +1,6 @@
 ---@class TakeOneCommand
 TakeOneCommand = {
-    defaultName = 'TakeOne',
+    defaultName = 'takeOne',
 }
 
 if isClient() then

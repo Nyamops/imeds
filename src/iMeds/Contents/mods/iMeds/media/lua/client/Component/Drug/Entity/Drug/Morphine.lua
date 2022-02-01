@@ -14,7 +14,7 @@ Morphine = {
         [DosageForm.Parenteral.Intramuscular.alias] = true,
     },
     durationByDosageForm = {
-        [DosageForm.Oral.Liquid.alias] = 4 * 60,
+        [DosageForm.Oral.Liquid.alias] = 60,
         [DosageForm.Parenteral.Intravenous.alias] = 3 * 60,
         [DosageForm.Parenteral.Intramuscular.alias] = 3 * 60,
     },

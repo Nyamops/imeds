@@ -84,10 +84,10 @@ function DonateBloodAction:perform()
         self.character:getStats():setPanic(self.character:getStats():getPanic() + 50);
     end
 
-    self.character:getXp():AddXP(Perks.Doctor, 10);
+    self.character:getXp():AddXP(Perks.Doctor, 1)
 
     if isClient() then
-        local args = { id = self.otherPlayer:getOnlineID() }
+        local args = { patientOnlineId = self.otherPlayer:getOnlineID(), doctorOnlineId = self.character:getOnlineID() }
         sendClientCommand(self.character, 'blood', DonateBloodCommand.defaultName, args)
     else
         local bloodVolumeReducer = InventoryItemFactory.CreateItem(BloodVolumeReducer.fullType)
@@ -106,7 +106,6 @@ function DonateBloodAction:new(doctor, patient, emptyBloodBag, catheter, bodyPar
     self.__index = self
     public.character = doctor;
     public.otherPlayer = patient;
-    public.doctorLevel = doctor:getPerkLevel(Perks.Doctor);
     public.emptyBloodBag = emptyBloodBag;
     public.catheter = catheter;
     public.bodyPart = bodyPart;
@@ -115,6 +114,7 @@ function DonateBloodAction:new(doctor, patient, emptyBloodBag, catheter, bodyPar
     public.doIt = true;
     public.patientPositionX = patient:getX();
     public.patientPositionY = patient:getY();
+    public.doctorLevel = doctor:getPerkLevel(Perks.Doctor);
     public.maxTime = 600 - (public.doctorLevel * 4);
 
     if doctor:isTimedActionInstant() then

@@ -19,23 +19,28 @@ ZCore:getContainer():register(
     'imeds.side_effect.entity'
 )
 
-Events.OnTick.Add(
-    function()
-        if not getPlayer() or getPlayer():isDead() or not Survivor:isInitialized() then
-            return false
-        end
-
-        local sideEffect = Survivor:getSideEffects()[VisualImpairment.alias]
-        if sideEffect == nil then
-            return false
-        end
-
-        if not sideEffect.isActive then
-            return false
-        end
-
-        if (getCore():getZoom(0) > 0.25) then
-            getCore():doZoomScroll(getPlayer():getPlayerNum(), -1)
-        end
+local effect = function()
+    if not getPlayer() or getPlayer():isDead() or not Survivor:isInitialized() then
+        return false
     end
-)
+
+    local sideEffect = Survivor:getSideEffects()[VisualImpairment.alias]
+    if sideEffect == nil then
+        return false
+    end
+
+    if not sideEffect.isActive then
+        return false
+    end
+
+    if (getCore():getZoom(0) > 0.25) then
+        getCore():doZoomScroll(getPlayer():getPlayerNum(), -1)
+    end
+end
+
+Events[ImmersiveMedicineEvent.iMedsSurvivorCreated].Add(function(module)
+    if module == 'SideEffect' then
+        Events.OnTick.Add(effect)
+    end
+end)
+

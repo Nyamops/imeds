@@ -8,18 +8,28 @@ local normalEffect = function()
             Survivor:setAdditionalBodyPartPainByType(index, 0)
         end
 
-        Survivor:setPainReduction(70)
+        if Survivor:getPainReduction() < 70 then
+            Survivor:setPainReduction(70)
+        end
+
         Survivor:setStress(0)
         Survivor:setUnhappynessLevel(0)
         Survivor:setBoredomLevel(0)
         Survivor:setPanic(0)
 
-        local drunkenness = Survivor:getBlood():getDrugs()[Morphine.alias].dose * 50
+        local drunkennessModifier = 50
+        if getPlayer():HasTrait(OpioidAddiction.alias) then
+            drunkennessModifier = 25
+        end
+
+        local drunkenness = Survivor:getBlood():getDrugs()[Morphine.alias].dose * drunkennessModifier
         if drunkenness > 100 then
             drunkenness = 100
         end
 
-        Survivor:setDrunkenness(drunkenness)
+        if Survivor:getDrunkenness() < drunkenness then
+            Survivor:setDrunkenness(drunkenness)
+        end
     end
 end
 

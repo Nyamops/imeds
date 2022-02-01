@@ -60,4 +60,10 @@ ItemName_EN = {
     ItemName_iMeds.PlasmaBagBP = "Blood plasma bag B(III) Rh+",
     ItemName_iMeds.PlasmaBagON = "Blood plasma bag O(I) Rh-",
     ItemName_iMeds.PlasmaBagOP = "O(I)Rh+ blood plasma bag",
+
+    ItemName_iMeds.Stethoscope = "Stethoscope",
+    ItemName_Base.BloodPressureMonitorLeft = "Tonometer Nanasonic EW3039S",
+    ItemName_Base.BloodPressureMonitorRight = "Tonometer Nanasonic EW3039S",
+    ItemName_Base.HeartRateMonitorLeft = "Sport tester Knox Electro KE 3000",
+    ItemName_Base.HeartRateMonitorRight = "Sport tester Knox Electro KE 3000",
 }

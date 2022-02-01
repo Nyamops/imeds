@@ -34,4 +34,9 @@ local updateBloodVolume = function()
     end
 end
 
-Events.OnTick.Add(updateBloodVolume)
+Events[ImmersiveMedicineEvent.iMedsSurvivorCreated].Add(function(module)
+    if module == 'Blood' then
+        Events.OnTick.Add(updateBloodVolume)
+    end
+end)
+

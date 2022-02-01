@@ -1,6 +1,6 @@
 ---@class AttachNeedleToSyringeCommand
 AttachNeedleToSyringeCommand = {
-    defaultName = 'AttachNeedleToSyringe',
+    defaultName = 'attachNeedleToSyringe',
 }
 
 if isClient() then
@@ -17,8 +17,6 @@ end
 Events.OnClientCommand.Add(
     function(module, command, player, args)
         if module == 'drug' and command == AttachNeedleToSyringeCommand.defaultName then
-
-
             AttachNeedleToSyringeCommand.execute(player, args)
         end
     end

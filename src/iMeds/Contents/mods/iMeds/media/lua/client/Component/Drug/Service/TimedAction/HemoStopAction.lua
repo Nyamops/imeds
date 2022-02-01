@@ -70,7 +70,7 @@ function HemoStopAction:perform()
     drugApplier:getModData().drug.bodyPartType = BodyPartType.ToString(self.bodyPart:getType())
 
     if isClient() then
-        local args = { id = self.otherPlayer:getOnlineID(), item = drugApplier }
+        local args = { doctorOnlineId = self.character:getOnlineID(), patientOnlineId = self.otherPlayer:getOnlineID(), item = drugApplier }
         sendClientCommand(self.character, 'drug', TakeDrugsCommand.defaultName, args)
     else
         self.character:sendObjectChange('addItem', { item = drugApplier })

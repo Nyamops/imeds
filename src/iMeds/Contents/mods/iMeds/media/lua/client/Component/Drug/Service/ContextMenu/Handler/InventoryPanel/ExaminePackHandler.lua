@@ -1,6 +1,10 @@
 ExaminePackHandler = {}
 
 function ExaminePackHandler:supports(item, player)
+    if player:HasTrait('Illiterate') then
+        return false
+    end
+
     ---@type DrugPackStorage
     local drugPackStorage = ZCore:getContainer():get('imeds.drug.storage.drug_pack_storage')
 

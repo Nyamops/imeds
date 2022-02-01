@@ -12,6 +12,10 @@ function CustomMoodleMenu:initialise()
 end
 
 function CustomMoodleMenu:render()
+    if not Survivor:isInitialized() then
+        return false
+    end
+
     local y = 1
     for _, moodle in pairs(self.moodles) do
         local sideEffect = Survivor:getSideEffects()[moodle:getSideEffect():getAlias()]
@@ -85,12 +89,21 @@ function CustomMoodleMenu:show()
     menu:setVisible(true)
 end
 
-function CustomMoodleMenu:resizeCustomMoodleMenu(oldWidth, oldHeight, newWidth, newHeight)
+function CustomMoodleMenu:resize(oldWidth, oldHeight, newWidth, newHeight)
     CustomMoodleMenu.instance:removeFromUIManager()
     CustomMoodleMenu.instance = nil
 
     CustomMoodleMenu:show()
 end
 
-Events.OnGameStart.Add(CustomMoodleMenu.show)
-Events.OnResolutionChange.Add(CustomMoodleMenu.resizeCustomMoodleMenu)
+function CustomMoodleMenu:disable()
+    CustomMoodleMenu.instance:removeFromUIManager()
+    CustomMoodleMenu.instance = nil
+end
+
+Events[ImmersiveMedicineEvent.iMedsSurvivorCreated].Add(function(module)
+    if module == 'Moodle' then
+        CustomMoodleMenu.show()
+        Events.OnResolutionChange.Add(CustomMoodleMenu.resize)
+    end
+end)

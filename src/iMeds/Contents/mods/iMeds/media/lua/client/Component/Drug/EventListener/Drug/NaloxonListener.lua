@@ -34,12 +34,15 @@ local overdoseEffect = function()
     end
 
     if not Survivor:getBlood():getDrugs()[Naloxon.alias].isOverdoseEffectApplied then
-        Survivor:setFoodSicknessLevel(80)
-        Survivor:setPainReduction(0)
-        Survivor:setPainReductionFromMeds(0)
+        if Survivor:getFoodSicknessLevel() < 80 then
+            Survivor:setFoodSicknessLevel(80)
+        end
 
         Survivor:getBlood():getDrugs()[Naloxon.alias].isOverdoseEffectApplied = true
     end
+
+    Survivor:setPainReduction(0)
+    Survivor:setPainReductionFromMeds(0)
 end
 
 Events.OnTick.Add(normalEffect)

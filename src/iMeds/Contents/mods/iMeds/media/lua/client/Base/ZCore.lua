@@ -28,7 +28,6 @@ Events.OnGameBoot.Add(
         local container = ZCore:getContainer()
 
         container:register(require 'Component/Logger/Logger', 'imeds.logger.default', {})
-        container:register(require 'Component/Event/EventDispatcher', 'imeds.event.event_dispatcher', {})
 
         local logger = container:get('imeds.logger.default')
         logger:info('Immercive Medicine core successfully loaded!')

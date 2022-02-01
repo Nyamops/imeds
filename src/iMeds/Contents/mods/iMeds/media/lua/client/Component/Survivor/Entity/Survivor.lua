@@ -137,7 +137,7 @@ end
 ---@param type number
 ---@return number
 function Survivor:getBodyPartHealthByType(type)
-    return  Survivor:getBodyPartByType(type):getHealth()
+    return Survivor:getBodyPartByType(type):getHealth()
 end
 
 ---@param type number
@@ -376,7 +376,7 @@ function Survivor:getSideEffects()
         getPlayer():getModData().survivor.sideEffects = {}
     end
 
-    return  getPlayer():getModData().survivor.sideEffects
+    return getPlayer():getModData().survivor.sideEffects
 end
 
 ---@param sideEffect SideEffect

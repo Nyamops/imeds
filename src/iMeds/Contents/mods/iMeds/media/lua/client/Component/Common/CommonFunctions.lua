@@ -85,3 +85,6 @@ function var_dump(...)
     end
 end
 
+function round10(number)
+    return math.floor(number / 10 + 0.5) * 10
+end

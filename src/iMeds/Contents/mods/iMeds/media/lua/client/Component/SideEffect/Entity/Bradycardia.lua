@@ -23,33 +23,42 @@ ZCore:getContainer():register(
     'imeds.side_effect.entity'
 )
 
-local delay = { 200, 300, 400 }
+local pulse = { 50, 30, 5 }
+
+---@return number[]
+function Bradycardia:getPulse()
+    return pulse
+end
+
 local tickSinceLastHeartbeat = 0
 
-Events.OnTick.Add(
-    function()
-        if not getPlayer() or getPlayer():isDead() or not Survivor:isInitialized() then
-            return false
-        end
-
-        if not SandboxVars.ImmersiveMedicine.IsHeartbeatEnabled then
-            return false
-        end
-
-        local sideEffect = Survivor:getSideEffects()[Bradycardia.alias]
-        if sideEffect == nil then
-            return false
-        end
-
-        if not sideEffect.isActive then
-            return false
-        end
-
-        tickSinceLastHeartbeat = tickSinceLastHeartbeat + 1
-
-        if tickSinceLastHeartbeat > delay[sideEffect.level] then
-            getSoundManager():playUISound('heart')
-            tickSinceLastHeartbeat = 0
-        end
+local effect = function()
+    if not getPlayer() or getPlayer():isDead() or not Survivor:isInitialized() then
+        return false
     end
-)
+
+    if not SandboxVars.ImmersiveMedicine.IsHeartbeatEnabled then
+        return false
+    end
+
+    local sideEffect = Survivor:getSideEffects()[Bradycardia.alias]
+    if sideEffect == nil then
+        return false
+    end
+
+    if not sideEffect.isActive then
+        return false
+    end
+
+    tickSinceLastHeartbeat = tickSinceLastHeartbeat + 1
+    if tickSinceLastHeartbeat > Survivor:getBlood():getHeartbeatDelta(pulse[sideEffect.level]) then
+        getSoundManager():playUISound('heart')
+        tickSinceLastHeartbeat = 0
+    end
+end
+
+Events[ImmersiveMedicineEvent.iMedsSurvivorCreated].Add(function(module)
+    if module == 'SideEffect' then
+        Events.OnTick.Add(effect)
+    end
+end)

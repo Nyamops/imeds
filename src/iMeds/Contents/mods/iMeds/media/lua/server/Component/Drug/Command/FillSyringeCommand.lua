@@ -1,6 +1,6 @@
 ---@class FillSyringeCommand
 FillSyringeCommand = {
-    defaultName = 'AttachNeedleToSyringe',
+    defaultName = 'fillSyringe',
 }
 
 if isClient() then
@@ -17,8 +17,6 @@ end
 Events.OnClientCommand.Add(
     function(module, command, player, args)
         if module == 'drug' and command == FillSyringeCommand.defaultName then
-
-
             FillSyringeCommand.execute(player, args)
         end
     end

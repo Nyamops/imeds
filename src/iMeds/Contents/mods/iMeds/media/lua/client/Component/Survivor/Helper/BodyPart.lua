@@ -16,6 +16,7 @@ BodyPart = {
     UpperLeg_L = BodyPartType.UpperLeg_L,
     UpperLeg_R = BodyPartType.UpperLeg_R,
     Neck = BodyPartType.Neck,
+    Groin = BodyPartType.Groin,
 }
 
 return BodyPart

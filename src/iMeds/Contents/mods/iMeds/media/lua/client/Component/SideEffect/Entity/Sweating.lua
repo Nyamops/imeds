@@ -18,23 +18,27 @@ ZCore:getContainer():register(
 )
 
 local level = { 16, 41 }
-Events.OnTick.Add(
-    function()
-        if not getPlayer() or getPlayer():isDead() or not Survivor:isInitialized() then
-            return false
-        end
-
-        local sideEffect = Survivor:getSideEffects()[Sweating.alias]
-        if sideEffect == nil then
-            return false
-        end
-
-        if not sideEffect.isActive then
-            return false
-        end
-
-        if Survivor:getWetness() < level[sideEffect.level] then
-            Survivor:setWetness(level[sideEffect.level])
-        end
+local effect = function()
+    if not getPlayer() or getPlayer():isDead() or not Survivor:isInitialized() then
+        return false
     end
-)
+
+    local sideEffect = Survivor:getSideEffects()[Sweating.alias]
+    if sideEffect == nil then
+        return false
+    end
+
+    if not sideEffect.isActive then
+        return false
+    end
+
+    if Survivor:getWetness() < level[sideEffect.level] then
+        Survivor:setWetness(level[sideEffect.level])
+    end
+end
+
+Events[ImmersiveMedicineEvent.iMedsSurvivorCreated].Add(function(module)
+    if module == 'SideEffect' then
+        Events.OnTick.Add(effect)
+    end
+end)
