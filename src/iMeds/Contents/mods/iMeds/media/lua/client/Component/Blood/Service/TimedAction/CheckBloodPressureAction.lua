@@ -95,6 +95,10 @@ function CheckBloodPressureAction:new(doctor, patient, item, bodyPart)
     public.patientPositionX = patient:getX()
     public.patientPositionY = patient:getY()
 
+    if doctor:isTimedActionInstant() then
+        public.maxTime = 1
+    end
+
     return public
 end
 

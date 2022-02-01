@@ -2,7 +2,7 @@ OpioidAddiction = {
     alias = 'OpioidAddiction',
     name = getText('UI_Trait_OpioidAddiction_Name'),
     description = getText('UI_Trait_OpioidAddiction_Description'),
-    cost = -14,
+    cost = -12,
     freeRecipes = {},
     xpBoosts = {
         Perks.Doctor,
@@ -54,9 +54,9 @@ local effect = function()
 
     HighPainThreshold.effect()
 
-    local incrementValue = 0.00065
+    local modifier = 0.00065
     if Survivor:getBlood():getDrugs()[Morphine.alias] ~= nil and Survivor:getBlood():getDrugs()[Morphine.alias].isActive then
-        incrementValue = -0.1
+        modifier = -0.1
     end
 
     if sideEffectStorage == nil then
@@ -69,7 +69,7 @@ local effect = function()
         tachycardia = sideEffectStorage:getByAlias(Tachycardia.alias)
     end
 
-    Survivor:setStressFromOpioidAddiction(Survivor:getStressFromOpioidAddiction() + incrementValue * getGameTime():getMultiplier())
+    Survivor:setStressFromOpioidAddiction(Survivor:getStressFromOpioidAddiction() + modifier * getGameTime():getMultiplier())
     if Survivor:getStressFromOpioidAddiction() > 25 then
         Survivor:addSideEffect(opioidAddiction, 1)
     end

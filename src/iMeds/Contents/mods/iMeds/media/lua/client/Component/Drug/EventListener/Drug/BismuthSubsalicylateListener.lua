@@ -29,7 +29,10 @@ local overdoseEffect = function()
     end
 
     if not Survivor:getBlood():getDrugs()[BismuthSubsalicylate.alias].isOverdoseEffectApplied then
-        Survivor:setFoodSicknessLevel(80)
+        if Survivor:getFoodSicknessLevel() < 80 then
+            Survivor:setFoodSicknessLevel(80)
+        end
+
         Survivor:getBlood():getDrugs()[BismuthSubsalicylate.alias].isOverdoseEffectApplied = true
     end
 end

@@ -3,7 +3,7 @@ module iMeds {
         Base
     }
 
-    recipe Disinfect blood bag
+    recipe Disinfect Blood Bag
     {
         destroy FullBloodBag/ErythrocyteSuspensionBagABN/ErythrocyteSuspensionBagABP/ErythrocyteSuspensionBagAN/ErythrocyteSuspensionBagAP/ErythrocyteSuspensionBagBN/ErythrocyteSuspensionBagBP/ErythrocyteSuspensionBagON/ErythrocyteSuspensionBagOP,
         Disinfectant=3,

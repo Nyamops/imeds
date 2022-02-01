@@ -68,6 +68,10 @@ function AttachNeedleToSyringeAction:new(player, syringe, needle)
     public.maxTime = 60
     public.jobType = 'AttachNeedleToSyringeAction'
 
+    if doctor:isTimedActionInstant() then
+        public.maxTime = 1
+    end
+
     return public
 end
 

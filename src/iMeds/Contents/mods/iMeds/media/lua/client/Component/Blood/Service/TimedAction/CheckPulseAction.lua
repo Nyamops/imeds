@@ -68,13 +68,13 @@ function CheckPulseAction:new(doctor, patient, item, bodyPart)
     public.character = doctor
     public.otherPlayer = patient
     public.item = item
-    public.doctorLevel = doctor:getPerkLevel(Perks.Doctor)
     public.bodyPart = bodyPart
     public.stopOnWalk = false
     public.stopOnRun = false
     public.jobType = getText('UI_ContextMenu_CheckPulse')
     public.patientPositionX = patient:getX()
     public.patientPositionY = patient:getY()
+    public.doctorLevel = doctor:getPerkLevel(Perks.Doctor)
     public.maxTime = 300 - (public.doctorLevel * 4)
 
     if doctor:isTimedActionInstant() then

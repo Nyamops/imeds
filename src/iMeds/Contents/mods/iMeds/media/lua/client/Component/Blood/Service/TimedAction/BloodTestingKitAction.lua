@@ -75,7 +75,7 @@ function BloodTestingKitAction:perform()
         self.character:getStats():setPanic(self.character:getStats():getPanic() + 50)
     end
 
-    self.character:getXp():AddXP(Perks.Doctor, 10)
+    self.character:getXp():AddXP(Perks.Doctor, 1)
 
     if isClient() then
         local args = { id = self.otherPlayer:getOnlineID() }

@@ -18,8 +18,13 @@ local overdoseEffect = function()
     end
 
     if not Survivor:getBlood():getDrugs()[Erythropoietin.alias].isOverdoseEffectApplied then
-        Survivor:setEndurance(0.15)
-        Survivor:setFatigue(0.6)
+        if Survivor:getEndurance() > 0.15 then
+            Survivor:setEndurance(0.15)
+        end
+
+        if Survivor:getFatigue() < 0.6 then
+            Survivor:setFatigue(0.6)
+        end
     end
 end
 

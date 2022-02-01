@@ -1,0 +1,3 @@
+Recipe_EN = {
+	Recipe_Disinfect_Blood_Bag = "Disinfect blood bag",
+}

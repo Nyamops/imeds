@@ -3,7 +3,11 @@ local normalEffect = function()
         return false
     end
 
-    if Survivor:getBlood():getDrugs()[Alkagin.alias].isActive then
+    if not Survivor:getBlood():getDrugs()[Alkagin.alias].isActive then
+        return false
+    end
+
+    if Survivor:getPainReduction() < 35 then
         Survivor:setPainReduction(35)
     end
 end
@@ -18,7 +22,9 @@ local overdoseEffect = function()
     end
 
     if not Survivor:getBlood():getDrugs()[Alkagin.alias].isOverdoseEffectApplied then
-        Survivor:setFoodSicknessLevel(80)
+        if Survivor:getFoodSicknessLevel() < 80 then
+            Survivor:setFoodSicknessLevel(80)
+        end
 
         Survivor:getBlood():getDrugs()[Alkagin.alias].isOverdoseEffectApplied = true
     end

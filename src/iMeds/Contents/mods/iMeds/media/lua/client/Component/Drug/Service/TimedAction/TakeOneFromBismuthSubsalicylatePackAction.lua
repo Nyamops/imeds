@@ -71,6 +71,10 @@ function TakeOneFromBismuthSubsalicylatePackAction:new(player, item, count)
     public.jobType = getText('UI_ContextMenu_Take')
     public.stopOnWalk = false
 
+    if doctor:isTimedActionInstant() then
+        public.maxTime = 1
+    end
+
     return public
 end
 

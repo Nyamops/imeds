@@ -1,0 +1,3 @@
+Recipe_RU = {
+	Recipe_Disinfect_Blood_Bag = "Очистить пакет крови",
+}
