@@ -17,7 +17,7 @@ CheckBloodVolumeCommand.execute = function(player, args)
 
     local package = { patientOnlineId = args.patientOnlineId, doctorOnlineId = args.doctorOnlineId }
     if args.bloodVolume == nil then
-        print(player:getSteamID() .. ' performing blood volume check to ' .. otherPlayer:getSteamID())
+        print(doctor:getSteamID() .. ' performing blood volume check to ' .. patient:getSteamID())
         --send request to patient
         sendServerCommand(patient, 'blood', 'receiveBloodVolumeCheckRequest', package)
     else

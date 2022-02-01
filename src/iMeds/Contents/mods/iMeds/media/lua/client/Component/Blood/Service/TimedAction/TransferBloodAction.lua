@@ -92,7 +92,7 @@ function TransferBloodAction:perform()
     bloodVolumeIncreaser:getModData().blood.isRotten = self.fullBloodBag:isRotten()
 
     if isClient() then
-        local args = { id = self.otherPlayer:getOnlineID(), item = bloodVolumeIncreaser }
+        local args = { patientOnlineId = self.otherPlayer:getOnlineID(), doctorOnlineId = self.character:getOnlineID(), item = bloodVolumeIncreaser }
         sendClientCommand(self.character, 'blood', TransferBloodCommand.defaultName, args)
     else
         self.character:sendObjectChange('addItem', { item = bloodVolumeIncreaser })

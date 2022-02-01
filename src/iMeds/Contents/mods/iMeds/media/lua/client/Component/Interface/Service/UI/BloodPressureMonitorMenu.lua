@@ -405,7 +405,6 @@ end
 Events[ImmersiveMedicineEvent.iMedsSurvivorCreated].Add(function(module)
     if module == 'Moodle' then
         Events.OnResolutionChange.Add(BloodPressureMonitorMenu.resize)
-        Events.OnPlayerDeath.Add(BloodPressureMonitorMenu.disable)
         Events.OnTick.Add(function()
             BloodPressureMonitorMenu:updateUI()
         end)

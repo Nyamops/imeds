@@ -13,7 +13,7 @@ module iMeds {
         Category:Health,
     }
 
-    recipe Clean Rag
+    recipe Clean Blood Bag
     {
         FullBloodBag/ErythrocyteSuspensionBagABN/ErythrocyteSuspensionBagABP/ErythrocyteSuspensionBagAN/ErythrocyteSuspensionBagAP/ErythrocyteSuspensionBagBN/ErythrocyteSuspensionBagBP/ErythrocyteSuspensionBagON/ErythrocyteSuspensionBagOP,
         Water,

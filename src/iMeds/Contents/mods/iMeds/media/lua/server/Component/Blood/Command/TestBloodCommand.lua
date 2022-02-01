@@ -1,6 +1,6 @@
 ---@class TestBloodCommand
 TestBloodCommand = {
-    defaultName = 'TestBlood',
+    defaultName = 'testBlood',
 }
 
 if isClient() then
@@ -8,19 +8,19 @@ if isClient() then
 end
 
 TestBloodCommand.execute = function(player, args)
-    local otherPlayer = getPlayerByOnlineID(args.id)
-    if otherPlayer then
+    local doctor = getPlayerByOnlineID(args.doctorOnlineId)
+    local patient = getPlayerByOnlineID(args.patientOnlineId)
+
+    if doctor ~= nil and patient ~= nil then
         local bloodTester = InventoryItemFactory.CreateItem('iMeds.BloodTester')
-        print(player:getSteamID() .. ' performing blood testing to ' .. otherPlayer:getSteamID())
-        otherPlayer:sendObjectChange('addItem', { item = bloodTester })
+        print(doctor:getSteamID() .. ' performing blood testing to ' .. patient:getSteamID())
+        patient:sendObjectChange('addItem', { item = bloodTester })
     end
 end
 
 Events.OnClientCommand.Add(
     function(module, command, player, args)
         if module == 'blood' and command == TestBloodCommand.defaultName then
-
-
             TestBloodCommand.execute(player, args)
         end
     end

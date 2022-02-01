@@ -87,7 +87,7 @@ function DonateBloodAction:perform()
     self.character:getXp():AddXP(Perks.Doctor, 1)
 
     if isClient() then
-        local args = { id = self.otherPlayer:getOnlineID() }
+        local args = { patientOnlineId = self.otherPlayer:getOnlineID(), doctorOnlineId = self.character:getOnlineID() }
         sendClientCommand(self.character, 'blood', DonateBloodCommand.defaultName, args)
     else
         local bloodVolumeReducer = InventoryItemFactory.CreateItem(BloodVolumeReducer.fullType)

@@ -2,7 +2,7 @@ module Base {
     item BloodPressureMonitorLeft
     {
         DisplayCategory = FirstAid,
-        Type = AlarmClockClothing,
+        Type = Clothing,
         DisplayName = Nanasonic EW3039S,
         ClothingItem = BloodPressureMonitorRight,
         ClothingItemExtra = BloodPressureMonitorLeft,
@@ -22,7 +22,7 @@ module Base {
     item BloodPressureMonitorRight
     {
         DisplayCategory = FirstAid,
-        Type = AlarmClockClothing,
+        Type = Clothing,
         DisplayName = Nanasonic EW3039S,
         ClothingItem = BloodPressureMonitorLeft,
         ClothingItemExtra = BloodPressureMonitorRight,

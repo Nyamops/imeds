@@ -78,7 +78,7 @@ function BloodTestingKitAction:perform()
     self.character:getXp():AddXP(Perks.Doctor, 1)
 
     if isClient() then
-        local args = { id = self.otherPlayer:getOnlineID() }
+        local args = { patientOnlineId = self.otherPlayer:getOnlineID(), doctorOnlineId = self.character:getOnlineID() }
         sendClientCommand(self.character, 'blood', TestBloodCommand.defaultName, args)
     else
         local bloodTester = InventoryItemFactory.CreateItem('iMeds.BloodTester')

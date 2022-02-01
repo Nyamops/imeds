@@ -8,9 +8,10 @@ if not isClient() then
 end
 
 ReceiveBloodVolumeCommand.execute = function(package)
+    local doctor = getPlayerByOnlineID(package.doctorOnlineId)
     local patient = getPlayerByOnlineID(package.patientOnlineId)
-    if package.bloodVolume ~= nil and patient ~= nil then
-        BloodVolumeWindow:showBloodVolume(package.bloodVolume, self.character, self.otherPlayer)
+    if package.bloodVolume ~= nil and patient ~= nil and doctor ~= nil then
+        BloodVolumeWindow:showBloodVolume(package.bloodVolume, doctor, patient)
         BloodVolumeWindow:setVisible(true)
     end
 end

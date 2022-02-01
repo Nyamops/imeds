@@ -105,6 +105,5 @@ Events[ImmersiveMedicineEvent.iMedsSurvivorCreated].Add(function(module)
     if module == 'Moodle' then
         CustomMoodleMenu.show()
         Events.OnResolutionChange.Add(CustomMoodleMenu.resize)
-        Events.OnPlayerDeath.Add(CustomMoodleMenu.disable)
     end
 end)

@@ -47,9 +47,9 @@ local updateBloodLossEffects = function()
             Survivor:setEndurance(0.4)
         end
 
-        if Survivor:getThirst() < 0.15 then
-            Survivor:setThirst(0.15)
-        end
+        --if Survivor:getThirst() < 0.15 then
+        --    Survivor:setThirst(0.15)
+        --end
 
         Survivor:addSideEffect(sweating, 1)
         Survivor:addSideEffect(tachycardia, 2)
@@ -63,9 +63,9 @@ local updateBloodLossEffects = function()
         Survivor:setStress(1)
         Survivor:setTemperature(34)
 
-        if Survivor:getThirst() < 0.26 then
-            Survivor:setThirst(0.26)
-        end
+        --if Survivor:getThirst() < 0.26 then
+        --    Survivor:setThirst(0.26)
+        --end
 
         getPlayer():setBlockMovement(false)
         getPlayer():setBannedAttacking(false)

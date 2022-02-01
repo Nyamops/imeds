@@ -62,7 +62,7 @@ function HeartRateMonitorMenu:show()
     local width = 150
     local height = 96
     local rightPadding = 81 + defaultPadding * 2
-    local topPadding = 100
+    local topPadding = 300 + defaultPadding
 
     local menu = self:new(getCore():getScreenWidth() - rightPadding - width, topPadding, width, height)
     menu:addToUIManager()
@@ -188,7 +188,6 @@ end
 Events[ImmersiveMedicineEvent.iMedsSurvivorCreated].Add(function(module)
     if module == 'Moodle' then
         Events.OnResolutionChange.Add(HeartRateMonitorMenu.resize)
-        Events.OnPlayerDeath.Add(HeartRateMonitorMenu.disable)
         Events.OnTick.Add(function()
             HeartRateMonitorMenu:updateHeartbeat()
             HeartRateMonitorMenu:updateUI()

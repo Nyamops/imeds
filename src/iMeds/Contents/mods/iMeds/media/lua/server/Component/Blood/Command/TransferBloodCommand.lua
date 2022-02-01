@@ -1,6 +1,6 @@
 ---@class TransferBloodCommand
 TransferBloodCommand = {
-    defaultName = 'TransferBlood',
+    defaultName = 'transferBlood',
 }
 
 if isClient() then
@@ -8,10 +8,12 @@ if isClient() then
 end
 
 TransferBloodCommand.execute = function(player, args)
-    local otherPlayer = getPlayerByOnlineID(args.id)
-    if otherPlayer then
-        print(player:getSteamID() .. ' performing blood transfusion to ' .. otherPlayer:getSteamID())
-        otherPlayer:sendObjectChange('addItem', { item = args.item })
+    local doctor = getPlayerByOnlineID(args.doctorOnlineId)
+    local patient = getPlayerByOnlineID(args.patientOnlineId)
+
+    if doctor ~= nil and patient ~= nil then
+        print(doctor:getSteamID() .. ' performing blood transfusion to ' .. patient:getSteamID())
+        patient:sendObjectChange('addItem', { item = args.item })
     end
 end
 

@@ -17,7 +17,7 @@ CheckPulseCommand.execute = function(player, args)
 
     local package = { patientOnlineId = args.patientOnlineId, doctorOnlineId = args.doctorOnlineId }
     if args.pulse == nil then
-        print(player:getSteamID() .. ' performing pulse check to ' .. otherPlayer:getSteamID())
+        print(doctor:getSteamID() .. ' performing pulse check to ' .. patient:getSteamID())
         --send request to patient
         sendServerCommand(patient, 'blood', 'receivePulseCheckRequest', package)
     else
