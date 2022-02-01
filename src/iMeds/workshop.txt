@@ -26,6 +26,18 @@ description=
 description=Becoming a donor is easy. You need: a blood testing kit, an empty blood bag, a catheter for intravenous transfusion. And a refrigerator. If you overdo it and you need to store a friend or blood bags somewhere.
 description=[i]To perform a blood transfusion, you need to select either the right or left forearm in the health panel[/i]
 description=
+description=[h1]Blood pressure and pulse systems[/h1]
+description=Now your character has a pulse and pressure in addition to the blood system!
+description=
+description=To determine the pulse, you need to select either the forearms, neck or groin in the health panel.
+description=But I have a better solution for you - Sport Tester Knox Electro KE 3000
+description=[img]https://i.imgur.com/mjPCOLA.png[/img]
+description=This wristband will show your pulse in real time!
+description=
+description=To determine the pressure of the character, you will need the Tonometer Nanasonic EW3039S!
+description=[img]https://i.imgur.com/L0pYqJg.png[/img]
+description=All you need is just press the button.
+description=
 description=[h1]Drugs and dosage forms[/h1]
 description=I have a whole line of drugs in store for you. There are not many of them yet, but the list will be replenished:
 description=[list]
@@ -124,5 +136,3 @@ description=
 description=Thanks for the icons to [url=https://steamcommunity.com/id/pseudownxd/]TMP[/url]
 description=
 description=[url=https://github.com/Nyamops/imeds]GitHub[/url]
-description=Workshop ID: 2709866494
-description=Mod ID: iMeds
