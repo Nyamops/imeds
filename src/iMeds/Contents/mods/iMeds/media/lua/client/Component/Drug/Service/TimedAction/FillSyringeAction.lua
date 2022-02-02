@@ -78,7 +78,7 @@ function FillSyringeAction:new(player, syringe, drug)
     public.maxTime = 150
     public.jobType = 'FillSyringeAction'
 
-    if doctor:isTimedActionInstant() then
+    if player:isTimedActionInstant() then
         public.maxTime = 1
     end
 
