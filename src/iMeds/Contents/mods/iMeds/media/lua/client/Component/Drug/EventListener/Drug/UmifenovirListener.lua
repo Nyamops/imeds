@@ -8,11 +8,11 @@ local normalEffect = function()
             return false
         end
 
-        if getPlayer():getModData().survivor.infectionMortalityDuration == nil then
-            getPlayer():getModData().survivor.infectionMortalityDuration = Survivor:getInfectionMortalityDuration() * 1.5
+        if getSpecificPlayer(0):getModData().survivor.infectionMortalityDuration == nil then
+            getSpecificPlayer(0):getModData().survivor.infectionMortalityDuration = Survivor:getInfectionMortalityDuration() * 1.5
         end
 
-        if Survivor:getInfectionMortalityDuration() < getPlayer():getModData().survivor.infectionMortalityDuration then
+        if Survivor:getInfectionMortalityDuration() < getSpecificPlayer(0):getModData().survivor.infectionMortalityDuration then
             local mortalityDuration = Survivor:getInfectionMortalityDuration() + 0.00015 * getGameTime():getMultiplier()
             Survivor:setInfectionMortalityDuration(mortalityDuration)
         end

@@ -161,9 +161,9 @@ function HeartRateMonitorMenu:updateHeartbeat()
 end
 
 function HeartRateMonitorMenu:isEquipped()
-    for i = 0, getPlayer():getInventory():getItems():size() - 1 do
-        local item = getPlayer():getInventory():getItems():get(i)
-        if in_table(item:getFullType(), { HeartRateMonitorRight.fullType, HeartRateMonitorLeft.fullType }) and getPlayer():isEquipped(item) then
+    for i = 0, getSpecificPlayer(0):getInventory():getItems():size() - 1 do
+        local item = getSpecificPlayer(0):getInventory():getItems():get(i)
+        if in_table(item:getFullType(), { HeartRateMonitorRight.fullType, HeartRateMonitorLeft.fullType }) and getSpecificPlayer(0):isEquipped(item) then
             return true
         end
     end

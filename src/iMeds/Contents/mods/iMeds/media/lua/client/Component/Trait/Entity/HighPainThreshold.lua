@@ -26,19 +26,19 @@ HighPainThreshold.effect = function()
     end
 
     -- -25% to pain
-    getPlayer():getBodyDamage():setInitialWoundPain(60)
-    getPlayer():getBodyDamage():setInitialScratchPain(13)
-    getPlayer():getBodyDamage():setInitialThumpPain(10)
-    getPlayer():getBodyDamage():setInitialBitePain(18)
-    getPlayer():getBodyDamage():setContinualPainIncrease(0.00075)
+    getSpecificPlayer(0):getBodyDamage():setInitialWoundPain(60)
+    getSpecificPlayer(0):getBodyDamage():setInitialScratchPain(13)
+    getSpecificPlayer(0):getBodyDamage():setInitialThumpPain(10)
+    getSpecificPlayer(0):getBodyDamage():setInitialBitePain(18)
+    getSpecificPlayer(0):getBodyDamage():setContinualPainIncrease(0.00075)
 end
 
 local effect = function()
-    if not getPlayer() or getPlayer():isDead() or not Survivor:isInitialized() then
+    if not getSpecificPlayer(0) or getSpecificPlayer(0):isDead() or not Survivor:isInitialized() then
         return false
     end
 
-    if not getPlayer():HasTrait(HighPainThreshold.alias) then
+    if not getSpecificPlayer(0):HasTrait(HighPainThreshold.alias) then
         return false
     end
 

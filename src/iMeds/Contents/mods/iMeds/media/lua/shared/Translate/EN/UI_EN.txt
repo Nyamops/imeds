@@ -136,6 +136,7 @@ UI_EN = {
     UI_ContextMenu_CheckPulse = "Check pulse",
     UI_ContextMenu_CheckBloodPressure = "Check blood pressure",
     UI_ContextMenu_CheckBloodVolume = "Check blood volume",
+    UI_ContextMenu_RinseWoundTrimEdgesStitch = "Rinse, trim the edges and stitch",
 
     UI_Window_DrugTitle = "Drug name: %s",
     UI_Window_DrugDescription = "Drug Description: %s",

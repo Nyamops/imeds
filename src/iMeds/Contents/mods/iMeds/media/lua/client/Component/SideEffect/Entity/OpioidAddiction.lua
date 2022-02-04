@@ -24,7 +24,7 @@ ZCore:getContainer():register(
 local maxStress = { 0.26, 0.6, 0.76 }
 
 local effect = function()
-    if not getPlayer() or getPlayer():isDead() or not Survivor:isInitialized() then
+    if not getSpecificPlayer(0) or getSpecificPlayer(0):isDead() or not Survivor:isInitialized() then
         return false
     end
 
@@ -35,6 +35,10 @@ local effect = function()
 
     if not sideEffect.isActive then
         return false
+    end
+
+    if sideEffect.level == 0 then
+        Survivor:setFakeInfectionLevel(Survivor:getFakeInfectionLevel() - 0.05 * getGameTime():getMultiplier())
     end
 
     if sideEffect.level > 0 then
@@ -49,6 +53,10 @@ local effect = function()
 
     if sideEffect.level > 2 then
         Survivor:setFakeInfectionLevel(Survivor:getFakeInfectionLevel() + 0.015 * getGameTime():getMultiplier())
+        if Survivor:getFakeInfectionLevel() > 100 then
+            Survivor:setFakeInfectionLevel(100)
+        end
+
         Survivor:setAdditionalBodyPartPainByType(BodyPart.Head, 50)
         Survivor:setAdditionalBodyPartPainByType(BodyPart.Hand_L, 30)
         Survivor:setAdditionalBodyPartPainByType(BodyPart.Hand_R, 30)
@@ -58,6 +66,14 @@ local effect = function()
 
     if Survivor:getStress() <= maxStress[sideEffect.level] then
         Survivor:setStress(maxStress[sideEffect.level])
+    end
+
+    if Survivor:getStress() > 1 then
+        Survivor:setStress(1)
+    end
+
+    if Survivor:getFakeInfectionLevel() < 0 then
+        Survivor:setFakeInfectionLevel(0)
     end
 end
 

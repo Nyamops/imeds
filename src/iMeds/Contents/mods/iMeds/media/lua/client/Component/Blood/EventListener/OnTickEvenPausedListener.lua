@@ -1,5 +1,5 @@
 local removeProps = function()
-    if not getPlayer() or getPlayer():isDead() then
+    if not getSpecificPlayer(0) or getSpecificPlayer(0):isDead() then
         return false
     end
 

@@ -14,7 +14,7 @@ ReceiveBloodPressureCheckRequestCommand.execute = function(package)
             diastolic = Survivor:getBlood():getPressure():getDiastolic(),
         }
         package.pulse = Survivor:getBlood():getPulse()
-        sendClientCommand(getPlayer(), 'blood', CheckBloodPressureCommand.defaultName, package)
+        sendClientCommand(getSpecificPlayer(0), 'blood', CheckBloodPressureCommand.defaultName, package)
     end
 end
 

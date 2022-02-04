@@ -276,12 +276,12 @@ end
 local isEnabled = false
 function BloodPressureMonitorMenu:checkBloodPressure()
     if not isEnabled then
-        local bodyPart = getPlayer():getBodyDamage():getBodyPart(BodyPart.Hand_R)
+        local bodyPart = getSpecificPlayer(0):getBodyDamage():getBodyPart(BodyPart.Hand_R)
         if BloodPressureMonitorMenu.instance.wristMonitor:getFullType() == BloodPressureMonitorLeft.fullType then
-            bodyPart = getPlayer():getBodyDamage():getBodyPart(BodyPart.Hand_L)
+            bodyPart = getSpecificPlayer(0):getBodyDamage():getBodyPart(BodyPart.Hand_L)
         end
 
-        ISTimedActionQueue.add(CheckBloodPressureAction:new(getPlayer(), getPlayer(), BloodPressureMonitorMenu.instance.wristMonitor, bodyPart))
+        ISTimedActionQueue.add(CheckBloodPressureAction:new(getSpecificPlayer(0), getSpecificPlayer(0), BloodPressureMonitorMenu.instance.wristMonitor, bodyPart))
     else
         self:resetSystolicIndicators()
         self:resetDiastolicIndicators()
@@ -377,9 +377,9 @@ end
 
 function BloodPressureMonitorMenu:getEquippedWrist()
     local wrist
-    for i = 0, getPlayer():getInventory():getItems():size() - 1 do
-        local item = getPlayer():getInventory():getItems():get(i)
-        if in_table(item:getFullType(), { BloodPressureMonitorRight.fullType, BloodPressureMonitorLeft.fullType }) and getPlayer():isEquipped(item) then
+    for i = 0, getSpecificPlayer(0):getInventory():getItems():size() - 1 do
+        local item = getSpecificPlayer(0):getInventory():getItems():get(i)
+        if in_table(item:getFullType(), { BloodPressureMonitorRight.fullType, BloodPressureMonitorLeft.fullType }) and getSpecificPlayer(0):isEquipped(item) then
             wrist = item
         end
     end

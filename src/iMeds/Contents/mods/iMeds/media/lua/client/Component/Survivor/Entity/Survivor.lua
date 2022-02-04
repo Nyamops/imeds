@@ -2,101 +2,101 @@ Survivor = {}
 
 ---@return table<string, any>
 function Survivor:getModData()
-    return getPlayer():getModData()
+    return getSpecificPlayer(0):getModData()
 end
 
 ---@return number
 function Survivor:getPain()
-    return getPlayer():getStats():getPain()
+    return getSpecificPlayer(0):getStats():getPain()
 end
 
 ---@param value number
 ---@return void
 function Survivor:setPain(value)
-    getPlayer():getStats():setPain(value)
+    getSpecificPlayer(0):getStats():setPain(value)
 end
 
 ---@return number
 function Survivor:getDrunkenness()
-    return getPlayer():getStats():getDrunkenness()
+    return getSpecificPlayer(0):getStats():getDrunkenness()
 end
 
 ---@return void
 ---@param value number
 function Survivor:setDrunkenness(value)
-    getPlayer():getStats():setDrunkenness(value)
+    getSpecificPlayer(0):getStats():setDrunkenness(value)
 end
 
 ---@return number
 function Survivor:getEndurance()
-    return getPlayer():getStats():getEndurance()
+    return getSpecificPlayer(0):getStats():getEndurance()
 end
 
 ---@return void
 ---@param value number
 function Survivor:setEndurance(value)
-    getPlayer():getStats():setEndurance(value)
+    getSpecificPlayer(0):getStats():setEndurance(value)
 end
 
 ---@return number
 function Survivor:getFatigue()
-    return getPlayer():getStats():getFatigue()
+    return getSpecificPlayer(0):getStats():getFatigue()
 end
 
 ---@return void
 ---@param value number
 function Survivor:setFatigue(value)
-    getPlayer():getStats():setFatigue(value)
+    getSpecificPlayer(0):getStats():setFatigue(value)
 end
 
 ---@return number
 function Survivor:getFoodSicknessLevel()
-    return getPlayer():getBodyDamage():getFoodSicknessLevel()
+    return getSpecificPlayer(0):getBodyDamage():getFoodSicknessLevel()
 end
 
 ---@return void
 ---@param value number
 function Survivor:setFoodSicknessLevel(value)
-    getPlayer():getBodyDamage():setFoodSicknessLevel(value)
+    getSpecificPlayer(0):getBodyDamage():setFoodSicknessLevel(value)
 end
 
 ---@return number
 function Survivor:getFakeInfectionLevel()
-    return getPlayer():getBodyDamage():getFakeInfectionLevel()
+    return getSpecificPlayer(0):getBodyDamage():getFakeInfectionLevel()
 end
 
 ---@return void
 ---@param value number
 function Survivor:setFakeInfectionLevel(value)
-    getPlayer():getBodyDamage():setFakeInfectionLevel(value)
+    getSpecificPlayer(0):getBodyDamage():setFakeInfectionLevel(value)
 end
 
 ---@return number
 function Survivor:getThirst()
-    return getPlayer():getStats():getThirst()
+    return getSpecificPlayer(0):getStats():getThirst()
 end
 
 ---@return void
 ---@param value number
 function Survivor:setThirst(value)
-    getPlayer():getStats():setThirst(value)
+    getSpecificPlayer(0):getStats():setThirst(value)
 end
 
 ---@return number
 function Survivor:getHunger()
-    return getPlayer():getStats():getHunger()
+    return getSpecificPlayer(0):getStats():getHunger()
 end
 
 ---@param value number
 ---@return void
 function Survivor:setHunger(value)
-    getPlayer():getStats():setHunger(value)
+    getSpecificPlayer(0):getStats():setHunger(value)
 end
 
 ---@param type string
 ---@return table
 function Survivor:getBodyPartByType(type)
-    return getPlayer():getBodyDamage():getBodyPart(type)
+    return getSpecificPlayer(0):getBodyDamage():getBodyPart(type)
 end
 
 ---@param type number
@@ -114,24 +114,24 @@ end
 
 ---@return number
 function Survivor:getPainReduction()
-    return getPlayer():getBodyDamage():getPainReduction()
+    return getSpecificPlayer(0):getBodyDamage():getPainReduction()
 end
 
 ---@param value number
 ---@return void
 function Survivor:setPainReduction(value)
-    getPlayer():getBodyDamage():setPainReduction(value)
+    getSpecificPlayer(0):getBodyDamage():setPainReduction(value)
 end
 
 ---@return number
 function Survivor:getPainReductionFromMeds()
-    return getPlayer():getBodyDamage():getPainReductionFromMeds()
+    return getSpecificPlayer(0):getBodyDamage():getPainReductionFromMeds()
 end
 
 ---@param value number
 ---@return void
 function Survivor:setPainReductionFromMeds(value)
-    getPlayer():getBodyDamage():setPainReductionFromMeds(value)
+    getSpecificPlayer(0):getBodyDamage():setPainReductionFromMeds(value)
 end
 
 ---@param type number
@@ -149,194 +149,194 @@ end
 
 ---@return number
 function Survivor:getStress()
-    return getPlayer():getStats():getStress()
+    return getSpecificPlayer(0):getStats():getStress()
 end
 
 ---@return void
 ---@param value number
 function Survivor:setStress(value)
-    getPlayer():getStats():setStress(value)
+    getSpecificPlayer(0):getStats():setStress(value)
 end
 
 ---@return number
 function Survivor:getPoisonLevel()
-    return getPlayer():getBodyDamage():getPoisonLevel()
+    return getSpecificPlayer(0):getBodyDamage():getPoisonLevel()
 end
 
 ---@return void
 ---@param value number
 function Survivor:setPoisonLevel(value)
-    getPlayer():getBodyDamage():setPoisonLevel(value)
+    getSpecificPlayer(0):getBodyDamage():setPoisonLevel(value)
 end
 
 ---@return number
 function Survivor:getPanic()
-    return getPlayer():getStats():getPanic()
+    return getSpecificPlayer(0):getStats():getPanic()
 end
 
 ---@return void
 ---@param value number
 function Survivor:setPanic(value)
-    getPlayer():getStats():setPanic(value)
+    getSpecificPlayer(0):getStats():setPanic(value)
 end
 
 ---@return number
 function Survivor:getTemperature()
-    return getPlayer():getBodyDamage():getTemperature()
+    return getSpecificPlayer(0):getBodyDamage():getTemperature()
 end
 
 ---@return void
 ---@param value number
 function Survivor:setTemperature(value)
-    getPlayer():getBodyDamage():setTemperature(value)
+    getSpecificPlayer(0):getBodyDamage():setTemperature(value)
 end
 
 ---@return number
 function Survivor:getInfectionLevel()
-    return getPlayer():getBodyDamage():getInfectionLevel()
+    return getSpecificPlayer(0):getBodyDamage():getInfectionLevel()
 end
 
 ---@return void
 ---@param value number
 function Survivor:setWetness(value)
-    getPlayer():getBodyDamage():setWetness(value)
+    getSpecificPlayer(0):getBodyDamage():setWetness(value)
 end
 
 ---@return number
 function Survivor:getWetness()
-    return getPlayer():getBodyDamage():getWetness()
+    return getSpecificPlayer(0):getBodyDamage():getWetness()
 end
 
 ---@return void
 ---@param value number
 function Survivor:setInfectionLevel(value)
-    getPlayer():getBodyDamage():setInfectionLevel(value)
+    getSpecificPlayer(0):getBodyDamage():setInfectionLevel(value)
 end
 
 ---@return number
 function Survivor:getGeneralHealth()
-    return getPlayer():getBodyDamage():getOverallBodyHealth()
+    return getSpecificPlayer(0):getBodyDamage():getOverallBodyHealth()
 end
 
 ---@return void
 ---@param value number
 function Survivor:addGeneralHealth(value)
-    getPlayer():getBodyDamage():AddGeneralHealth(value)
+    getSpecificPlayer(0):getBodyDamage():AddGeneralHealth(value)
 end
 
 ---@return void
 ---@param value number
 function Survivor:reduceGeneralHealth(value)
-    getPlayer():getBodyDamage():ReduceGeneralHealth(value)
+    getSpecificPlayer(0):getBodyDamage():ReduceGeneralHealth(value)
 end
 
 ---@return table
 function Survivor:getPrimaryHandItem()
-    return getPlayer():getPrimaryHandItem()
+    return getSpecificPlayer(0):getPrimaryHandItem()
 end
 
 ---@return void
 ---@param item table
 function Survivor:setPrimaryHandItem(item)
-    getPlayer():setPrimaryHandItem(item)
+    getSpecificPlayer(0):setPrimaryHandItem(item)
 end
 
 ---@return boolean
 function Survivor:isBannedAttacking()
-    return getPlayer():isBannedAttacking()
+    return getSpecificPlayer(0):isBannedAttacking()
 end
 
 ---@return void
 ---@param bool boolean
 function Survivor:setBannedAttacking(bool)
-    getPlayer():setBannedAttacking(bool)
+    getSpecificPlayer(0):setBannedAttacking(bool)
 end
 
 ---@return boolean
 function Survivor:isMoving()
-    return getPlayer():getPlayerMoveDir():getLength() ~= 0
+    return getSpecificPlayer(0):getPlayerMoveDir():getLength() ~= 0
 end
 
 ---@return boolean
 function Survivor:isInfected()
-    return getPlayer():getBodyDamage():IsInfected()
+    return getSpecificPlayer(0):getBodyDamage():IsInfected()
 end
 
 ---@return void
 ---@param bool boolean
 function Survivor:setIsInfected(bool)
-    getPlayer():getBodyDamage():setInf(bool)
+    getSpecificPlayer(0):getBodyDamage():setInf(bool)
 end
 
 ---@return table|nil
 ---@param fullType string
 function Survivor:getItem(fullType)
-    return getPlayer():getInventory():FindAndReturn(fullType)
+    return getSpecificPlayer(0):getInventory():FindAndReturn(fullType)
 end
 
 ---@return table
 ---@param fullType string
 function Survivor:addItem(fullType)
-    return getPlayer():getInventory():AddItem(fullType)
+    return getSpecificPlayer(0):getInventory():AddItem(fullType)
 end
 
 ---@return void
 ---@param fullType string
 function Survivor:removeItem(fullType)
-    if getPlayer():getInventory():containsWithModule(fullType) then
-        local item = getPlayer():getInventory():FindAndReturn(fullType)
-        getPlayer():getInventory():Remove(item)
+    if getSpecificPlayer(0):getInventory():containsWithModule(fullType) then
+        local item = getSpecificPlayer(0):getInventory():FindAndReturn(fullType)
+        getSpecificPlayer(0):getInventory():Remove(item)
     end
 end
 
 ---@param fullType string
 ---@return boolean
 function Survivor:haveItem(fullType)
-    return getPlayer():getInventory():containsWithModule(fullType)
+    return getSpecificPlayer(0):getInventory():containsWithModule(fullType)
 end
 
 ---@return number
 function Survivor:getUnhappynessLevel()
-    return getPlayer():getBodyDamage():getUnhappynessLevel()
+    return getSpecificPlayer(0):getBodyDamage():getUnhappynessLevel()
 end
 
 ---@return void
 ---@param value number
 function Survivor:setUnhappynessLevel(value)
-    getPlayer():getBodyDamage():setUnhappynessLevel(value)
+    getSpecificPlayer(0):getBodyDamage():setUnhappynessLevel(value)
 end
 
 ---@return number
 function Survivor:getBoredomLevel()
-    return getPlayer():getBodyDamage():getBoredomLevel()
+    return getSpecificPlayer(0):getBodyDamage():getBoredomLevel()
 end
 
 ---@return void
 ---@param value number
 function Survivor:setBoredomLevel(value)
-    getPlayer():getBodyDamage():setBoredomLevel(value);
+    getSpecificPlayer(0):getBodyDamage():setBoredomLevel(value);
 end
 
 ---@return number
 function Survivor:getInfectionMortalityDuration()
-    return getPlayer():getBodyDamage():getInfectionMortalityDuration()
+    return getSpecificPlayer(0):getBodyDamage():getInfectionMortalityDuration()
 end
 
 ---@return void
 ---@param value number
 function Survivor:setInfectionMortalityDuration(value)
-    getPlayer():getBodyDamage():setInfectionMortalityDuration(value)
+    getSpecificPlayer(0):getBodyDamage():setInfectionMortalityDuration(value)
 end
 
 ---@return boolean
 function Survivor:isInitialized()
-    return getPlayer():getModData().survivor ~= nil and getPlayer():getModData().survivor.isInitialized or false
+    return getSpecificPlayer(0):getModData().survivor ~= nil and getSpecificPlayer(0):getModData().survivor.isInitialized or false
 end
 
 ---@param bool boolean
 ---@return void
 function Survivor:setIsInitialized(bool)
-    getPlayer():getModData().survivor.isInitialized = bool
+    getSpecificPlayer(0):getModData().survivor.isInitialized = bool
 end
 
 ---@return Blood
@@ -346,37 +346,37 @@ end
 
 ---@return boolean
 function Survivor:isKnowOwnBloodGroup()
-    return getPlayer():getModData().survivor.isKnowOwnBloodGroup
+    return getSpecificPlayer(0):getModData().survivor.isKnowOwnBloodGroup
 end
 
 ---@param bool boolean
 ---@return void
 function Survivor:setIsKnowOwnBloodGroup(bool)
-    getPlayer():getModData().survivor.isKnowOwnBloodGroup = bool
+    getSpecificPlayer(0):getModData().survivor.isKnowOwnBloodGroup = bool
 end
 
 ---@return number
 function Survivor:getStressFromOpioidAddiction()
-    if getPlayer():getModData().survivor.stressFromOpioidAddiction == nil then
-        getPlayer():getModData().survivor.stressFromOpioidAddiction = 0
+    if getSpecificPlayer(0):getModData().survivor.stressFromOpioidAddiction == nil then
+        getSpecificPlayer(0):getModData().survivor.stressFromOpioidAddiction = 0
     end
 
-    return getPlayer():getModData().survivor.stressFromOpioidAddiction
+    return getSpecificPlayer(0):getModData().survivor.stressFromOpioidAddiction
 end
 
 ---@return void
 ---@param value number
 function Survivor:setStressFromOpioidAddiction(value)
-    getPlayer():getModData().survivor.stressFromOpioidAddiction = value
+    getSpecificPlayer(0):getModData().survivor.stressFromOpioidAddiction = value
 end
 
 ---@return table
 function Survivor:getSideEffects()
-    if getPlayer():getModData().survivor.sideEffects == nil then
-        getPlayer():getModData().survivor.sideEffects = {}
+    if getSpecificPlayer(0):getModData().survivor.sideEffects == nil then
+        getSpecificPlayer(0):getModData().survivor.sideEffects = {}
     end
 
-    return getPlayer():getModData().survivor.sideEffects
+    return getSpecificPlayer(0):getModData().survivor.sideEffects
 end
 
 ---@param sideEffect SideEffect
@@ -423,6 +423,19 @@ function Survivor:removeSideEffect(alias)
     Survivor:getSideEffects()[alias].isDurationEnabled = false
     Survivor:getSideEffects()[alias].duration = 0
     Survivor:getSideEffects()[alias].level = 0
+end
+
+---@param index number
+function Survivor:getRequiredWaterByBodyPartIndex(index)
+    local units = 0
+    local humanVisual = getSpecificPlayer(0):getHumanVisual()
+    local bodyPart = BloodBodyPartType.FromIndex(index)
+
+    if humanVisual:getBlood(bodyPart) + humanVisual:getDirt(bodyPart) > 0 then
+        units = units + 1
+    end
+
+    return units
 end
 
 return Survivor

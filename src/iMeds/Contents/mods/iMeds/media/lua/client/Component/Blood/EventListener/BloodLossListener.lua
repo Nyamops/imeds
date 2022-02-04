@@ -6,7 +6,7 @@ local visualImpairment
 local sweating
 
 local updateBloodLossEffects = function()
-    if not getPlayer() or getPlayer():isDead() or not Survivor:isInitialized() then
+    if not getSpecificPlayer(0) or getSpecificPlayer(0):isDead() or not Survivor:isInitialized() then
         return false
     end
 
@@ -67,20 +67,20 @@ local updateBloodLossEffects = function()
         --    Survivor:setThirst(0.26)
         --end
 
-        getPlayer():setBlockMovement(false)
-        getPlayer():setBannedAttacking(false)
+        getSpecificPlayer(0):setBlockMovement(false)
+        getSpecificPlayer(0):setBannedAttacking(false)
     elseif bloodLoss > 3500 and bloodLoss <= 3600 then
         Survivor:addSideEffect(bradycardia, 3)
         Survivor:addSideEffect(visualImpairment, 1)
 
         --TODO Тоже надо выпилить отсюда и оформить нормально
-        getPlayer():setBlockMovement(true)
-        getPlayer():setBannedAttacking(true)
-        getPlayer():reportEvent('EventSitOnGround')
+        getSpecificPlayer(0):setBlockMovement(true)
+        getSpecificPlayer(0):setBannedAttacking(true)
+        getSpecificPlayer(0):reportEvent('EventSitOnGround')
 
-        getPlayer():nullifyAiming()
+        getSpecificPlayer(0):nullifyAiming()
     elseif bloodLoss > 3600 then
-        getPlayer():getBodyDamage():ReduceGeneralHealth(150)
+        getSpecificPlayer(0):getBodyDamage():ReduceGeneralHealth(150)
     end
 end
 

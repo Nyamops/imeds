@@ -10,39 +10,39 @@ function SurvivorCreator:new(bloodGroupStorage)
     private.bloodGroupStorage = bloodGroupStorage
 
     function public:create()
-        getPlayer():getModData().survivor = {
+        getSpecificPlayer(0):getModData().survivor = {
             isInitialized = false,
         }
-        getPlayer():getModData().survivor.blood = {}
-        getPlayer():getModData().survivor.blood.drugs = {}
-        getPlayer():getModData().survivor.blood.opiatePoisonLevel = 0
+        getSpecificPlayer(0):getModData().survivor.blood = {}
+        getSpecificPlayer(0):getModData().survivor.blood.drugs = {}
+        getSpecificPlayer(0):getModData().survivor.blood.opiatePoisonLevel = 0
 
-        getPlayer():getModData().survivor.isKnowOwnBloodGroup = false
-        getPlayer():getModData().survivor.stressFromOpioidAddiction = 0
+        getSpecificPlayer(0):getModData().survivor.isKnowOwnBloodGroup = false
+        getSpecificPlayer(0):getModData().survivor.stressFromOpioidAddiction = 0
 
-        getPlayer():getModData().survivor.sideEffects = {}
+        getSpecificPlayer(0):getModData().survivor.sideEffects = {}
 
-        getPlayer():getModData().survivor.blood.pressure = {}
-        getPlayer():getModData().survivor.blood.pressure.systolic = BloodPressure.systolic.normal
-        getPlayer():getModData().survivor.blood.pressure.diastolic = BloodPressure.diastolic.normal
+        getSpecificPlayer(0):getModData().survivor.blood.pressure = {}
+        getSpecificPlayer(0):getModData().survivor.blood.pressure.systolic = BloodPressure.systolic.normal
+        getSpecificPlayer(0):getModData().survivor.blood.pressure.diastolic = BloodPressure.diastolic.normal
 
-        getPlayer():getModData().survivor.blood.pulse = 0
+        getSpecificPlayer(0):getModData().survivor.blood.pulse = 0
 
         Survivor:getBlood():setVolume(Blood.maxVolume)
 
         local bloodGroup = private.bloodGroupStorage:getRandomBloodGroup()
-        if getPlayer():HasTrait(UniversalDonor.alias) then
+        if getSpecificPlayer(0):HasTrait(UniversalDonor.alias) then
             bloodGroup = private.bloodGroupStorage:getById(BloodGroup.ON)
             Survivor:setIsKnowOwnBloodGroup(true)
-        elseif getPlayer():HasTrait(UniversalRecipient.alias) then
+        elseif getSpecificPlayer(0):HasTrait(UniversalRecipient.alias) then
             bloodGroup = private.bloodGroupStorage:getById(BloodGroup.ABP)
             Survivor:setIsKnowOwnBloodGroup(true)
         end
 
         Survivor:getBlood():setGroup(bloodGroup:getId())
 
-        if getPlayer():HasTrait(OpioidAddiction.alias) then
-            getPlayer():getTraits():add(HighPainThreshold.alias);
+        if getSpecificPlayer(0):HasTrait(OpioidAddictionTrait.alias) then
+            getSpecificPlayer(0):getTraits():add(HighPainThreshold.alias);
         end
     end
 

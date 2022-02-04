@@ -1,4 +1,4 @@
-OpioidAddiction = {
+OpioidAddictionTrait = {
     alias = 'OpioidAddiction',
     name = getText('UI_Trait_OpioidAddiction_Name'),
     description = getText('UI_Trait_OpioidAddiction_Description'),
@@ -26,7 +26,7 @@ ZCore:getContainer():register(
     require 'Component/Trait/Entity/Trait',
     'imeds.trait.entity.opioid_addiction',
     {
-        OpioidAddiction
+        OpioidAddictionTrait
     },
     'imeds.trait.entity'
 )
@@ -38,11 +38,11 @@ local sweating
 local tachycardia
 
 local effect = function()
-    if not getPlayer() or getPlayer():isDead() or not Survivor:isInitialized() then
+    if not getSpecificPlayer(0) or getSpecificPlayer(0):isDead() or not Survivor:isInitialized() then
         return false
     end
 
-    if not getPlayer():HasTrait(OpioidAddiction.alias) then
+    if not getSpecificPlayer(0):HasTrait(OpioidAddictionTrait.alias) then
         return false
     end
 

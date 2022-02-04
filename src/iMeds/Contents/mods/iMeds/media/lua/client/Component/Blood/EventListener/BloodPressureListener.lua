@@ -2,7 +2,7 @@ local incrementValue = 0.04
 local bloodPressurePenaltyModifiers = { 0.9, 0.75, 0.5, 0.3 }
 
 local updateBloodPressure = function()
-    if not getPlayer() or getPlayer():isDead() or not Survivor:isInitialized() then
+    if not getSpecificPlayer(0) or getSpecificPlayer(0):isDead() or not Survivor:isInitialized() then
         return false
     end
 

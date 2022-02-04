@@ -135,6 +135,7 @@ UI_RU = {
     UI_ContextMenu_CheckPulse = "Проверить пульс",
     UI_ContextMenu_CheckBloodPressure = "Измерить давление",
     UI_ContextMenu_CheckBloodVolume = "Определить объем крови",
+    UI_ContextMenu_RinseWoundTrimEdgesStitch = "Промыть, обрезать края и наложить шов",
 
     UI_Window_DrugTitle = "Название препарата: %s",
     UI_Window_DrugDescription = "Описание препарата: %s",

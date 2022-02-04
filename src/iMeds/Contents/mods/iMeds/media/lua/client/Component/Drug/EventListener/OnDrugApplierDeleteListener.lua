@@ -11,14 +11,14 @@ local onDrugApplierDeleteListener = function(data)
         dose = data.drug.dose
     end
 
-    if getPlayer():HasTrait(OpioidAddiction.alias) then
+    if getSpecificPlayer(0):HasTrait(OpioidAddictionTrait.alias) then
         if drug:getAlias() == Morphine.alias then
             dose = round(dose * 0.6, 2)
         end
     end
 
     if drug:getAlias() == Morphine.alias and ZombRand(1, 100) == 100 then
-        getPlayer():getTraits():add(OpioidAddiction.alias)
+        getSpecificPlayer(0):getTraits():add(OpioidAddiction.alias)
     end
 
     if DosageForm.Oral[dosageForm] ~= nil then

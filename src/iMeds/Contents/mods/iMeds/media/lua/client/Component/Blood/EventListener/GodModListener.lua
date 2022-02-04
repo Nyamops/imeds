@@ -2,17 +2,17 @@
 local sideEffectStorage
 
 local resetAll = function()
-    if not getPlayer() or getPlayer():isDead() or not Survivor:isInitialized() then
+    if not getSpecificPlayer(0) or getSpecificPlayer(0):isDead() or not Survivor:isInitialized() then
         return false
     end
 
-    if getPlayer():isGodMod() then
+    if getSpecificPlayer(0):isGodMod() then
         if sideEffectStorage == nil then
             sideEffectStorage = ZCore:getContainer():get('imeds.side_effect.storage.side_effect_storage')
         end
 
-        getPlayer():setBlockMovement(false)
-        getPlayer():setBannedAttacking(false)
+        getSpecificPlayer(0):setBlockMovement(false)
+        getSpecificPlayer(0):setBannedAttacking(false)
         Survivor:getBlood():setVolume(Blood.maxVolume)
 
         ---@type DrugStorage

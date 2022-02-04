@@ -18,7 +18,7 @@ ReceiveBloodVolumeCheckRequestCommand.execute = function(package)
 
         package.bloodVolume = bloodVolume
 
-        sendClientCommand(getPlayer(), 'blood', CheckBloodVolumeCommand.defaultName, package)
+        sendClientCommand(getSpecificPlayer(0), 'blood', CheckBloodVolumeCommand.defaultName, package)
     end
 end
 
