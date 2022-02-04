@@ -20,7 +20,7 @@ ZCore:getContainer():register(
 )
 
 local effect = function()
-    if not getPlayer() or getPlayer():isDead() or not Survivor:isInitialized() then
+    if not getSpecificPlayer(0) or getSpecificPlayer(0):isDead() or not Survivor:isInitialized() then
         return false
     end
 
@@ -34,7 +34,7 @@ local effect = function()
     end
 
     if (getCore():getZoom(0) > 0.25) then
-        getCore():doZoomScroll(getPlayer():getPlayerNum(), -1)
+        getCore():doZoomScroll(getSpecificPlayer(0):getPlayerNum(), -1)
     end
 end
 

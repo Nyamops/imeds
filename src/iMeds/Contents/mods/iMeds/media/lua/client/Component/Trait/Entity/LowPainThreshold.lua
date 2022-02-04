@@ -19,19 +19,19 @@ ZCore:getContainer():register(
 )
 
 local effect = function()
-    if not getPlayer() or getPlayer():isDead() or not Survivor:isInitialized() then
+    if not getSpecificPlayer(0) or getSpecificPlayer(0):isDead() or not Survivor:isInitialized() then
         return false
     end
 
-    if not getPlayer():HasTrait(LowPainThreshold.alias) then
+    if not getSpecificPlayer(0):HasTrait(LowPainThreshold.alias) then
         return false
     end
 
-    getPlayer():getBodyDamage():setInitialWoundPain(100)
-    getPlayer():getBodyDamage():setInitialScratchPain(30)
-    getPlayer():getBodyDamage():setInitialThumpPain(25)
-    getPlayer():getBodyDamage():setInitialBitePain(40)
-    getPlayer():getBodyDamage():setContinualPainIncrease(0.00125)
+    getSpecificPlayer(0):getBodyDamage():setInitialWoundPain(100)
+    getSpecificPlayer(0):getBodyDamage():setInitialScratchPain(30)
+    getSpecificPlayer(0):getBodyDamage():setInitialThumpPain(25)
+    getSpecificPlayer(0):getBodyDamage():setInitialBitePain(40)
+    getSpecificPlayer(0):getBodyDamage():setContinualPainIncrease(0.00125)
 end
 
 Events[ImmersiveMedicineEvent.iMedsSurvivorCreated].Add(function(module)

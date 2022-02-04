@@ -1,12 +1,14 @@
 local removeSideEffect = function()
-    if not getPlayer() or getPlayer():isDead() or not Survivor:isInitialized() then
+    if not getSpecificPlayer(0) or getSpecificPlayer(0):isDead() or not Survivor:isInitialized() then
         return false
     end
 
-    Survivor:removeSideEffect(Sweating.alias)
-    Survivor:removeSideEffect(Tachycardia.alias)
-    Survivor:removeSideEffect(Bradycardia.alias)
-    Survivor:removeSideEffect(VisualImpairment.alias)
+    ---@type SideEffectStorage
+    local sideEffectStorage = ZCore:getContainer():get('imeds.side_effect.storage.side_effect_storage')
+
+    for _, sideEffect in pairs(sideEffectStorage:findAll()) do
+        Survivor:removeSideEffect(sideEffect:getAlias())
+    end
 end
 
 Events[ImmersiveMedicineEvent.iMedsSurvivorCreated].Add(function(module)

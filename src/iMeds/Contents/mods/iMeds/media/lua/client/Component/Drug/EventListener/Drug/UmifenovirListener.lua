@@ -4,13 +4,17 @@ local normalEffect = function()
     end
 
     if Survivor:getBlood():getDrugs()[Umifenovir.alias].isActive then
-        if Survivor:isInfected() and Survivor:getInfectionMortalityDuration() < 100 then
-            local mortalityDuration = Survivor:getInfectionMortalityDuration() + 0.0001 * getGameTime():getMultiplier()
-            Survivor:setInfectionMortalityDuration(mortalityDuration)
+        if not Survivor:isInfected() then
+            return false
         end
 
-        if Survivor:getInfectionMortalityDuration() > 100 then
-            Survivor:setInfectionMortalityDuration(100)
+        if getSpecificPlayer(0):getModData().survivor.infectionMortalityDuration == nil then
+            getSpecificPlayer(0):getModData().survivor.infectionMortalityDuration = Survivor:getInfectionMortalityDuration() * 1.5
+        end
+
+        if Survivor:getInfectionMortalityDuration() < getSpecificPlayer(0):getModData().survivor.infectionMortalityDuration then
+            local mortalityDuration = Survivor:getInfectionMortalityDuration() + 0.00015 * getGameTime():getMultiplier()
+            Survivor:setInfectionMortalityDuration(mortalityDuration)
         end
     end
 end

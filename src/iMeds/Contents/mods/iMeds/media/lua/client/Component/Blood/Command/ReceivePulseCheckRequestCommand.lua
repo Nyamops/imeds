@@ -10,7 +10,7 @@ end
 ReceivePulseCheckRequestCommand.execute = function(package)
     if package.doctorOnlineId ~= nil and package.patientOnlineId ~= nil then
         package.pulse = Survivor:getBlood():getPulse()
-        sendClientCommand(getPlayer(), 'blood', CheckPulseCommand.defaultName, package)
+        sendClientCommand(getSpecificPlayer(0), 'blood', CheckPulseCommand.defaultName, package)
     end
 end
 

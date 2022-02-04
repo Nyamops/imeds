@@ -17,9 +17,9 @@ local normalEffect = function()
         Survivor:setBoredomLevel(0)
         Survivor:setPanic(0)
 
-        local drunkennessModifier = 50
-        if getPlayer():HasTrait(OpioidAddiction.alias) then
-            drunkennessModifier = 25
+        local drunkennessModifier = 30
+        if getSpecificPlayer(0):HasTrait(OpioidAddictionTrait.alias) then
+            drunkennessModifier = 15
         end
 
         local drunkenness = Survivor:getBlood():getDrugs()[Morphine.alias].dose * drunkennessModifier
@@ -48,7 +48,7 @@ local overdoseEffect = function()
         Survivor:setFatigue(1)
 
         if ZombRand(1, 100) > 70 then
-            getPlayer():getTraits():add(OpioidAddiction.alias)
+            getSpecificPlayer(0):getTraits():add(OpioidAddiction.alias)
         end
 
         Survivor:getBlood():getDrugs()[Morphine.alias].isOverdoseEffectApplied = true

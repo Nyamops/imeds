@@ -23,6 +23,8 @@ local suburbsDistribution = {
                 "iMeds.BloodTestingKit", LootRarity.ExtraRare,
                 "iMeds.NasivionPack", LootRarity.ExtraRare,
                 "iMeds.ErythropoietinPack", LootRarity.ExtraRare,
+                "Base.BloodPressureMonitorLeft", LootRarity.ExtraRare,
+                "Base.HeartRateMonitorLeft", LootRarity.ExtraRare,
             }
         },
         inventorymale = {
@@ -39,6 +41,8 @@ local suburbsDistribution = {
                 "iMeds.BloodTestingKit", LootRarity.ExtraRare,
                 "iMeds.NasivionPack", LootRarity.ExtraRare,
                 "iMeds.ErythropoietinPack", LootRarity.ExtraRare,
+                "Base.BloodPressureMonitorLeft", LootRarity.ExtraRare,
+                "Base.HeartRateMonitorLeft", LootRarity.ExtraRare,
             }
         },
         medicine = {
@@ -56,6 +60,8 @@ local suburbsDistribution = {
                 "iMeds.BloodTestingKit", LootRarity.Uncommon,
                 "iMeds.NasivionPack", LootRarity.VeryRare,
                 "iMeds.ErythropoietinPack", LootRarity.VeryRare,
+                "Base.BloodPressureMonitorLeft", LootRarity.ExtraRare,
+                "Base.HeartRateMonitorLeft", LootRarity.ExtraRare,
             },
         },
     },
@@ -73,6 +79,8 @@ local suburbsDistribution = {
             "iMeds.NeedlePack", LootRarity.VeryRare,
             "iMeds.NasivionPack", LootRarity.VeryRare,
             "iMeds.ErythropoietinPack", LootRarity.VeryRare,
+            "Base.BloodPressureMonitorLeft", LootRarity.ExtraRare,
+            "Base.HeartRateMonitorLeft", LootRarity.ExtraRare,
         },
     },
 
@@ -89,6 +97,8 @@ local suburbsDistribution = {
             "iMeds.NeedlePack", LootRarity.VeryRare,
             "iMeds.NasivionPack", LootRarity.VeryRare,
             "iMeds.ErythropoietinPack", LootRarity.VeryRare,
+            "Base.BloodPressureMonitorLeft", LootRarity.ExtraRare,
+            "Base.HeartRateMonitorLeft", LootRarity.ExtraRare,
         },
     },
 
@@ -108,6 +118,8 @@ local suburbsDistribution = {
             "iMeds.NeedlePack", LootRarity.VeryRare,
             "iMeds.NasivionPack", LootRarity.VeryRare,
             "iMeds.ErythropoietinPack", LootRarity.VeryRare,
+            "Base.BloodPressureMonitorLeft", LootRarity.ExtraRare,
+            "Base.HeartRateMonitorLeft", LootRarity.ExtraRare,
         },
     },
 
@@ -136,6 +148,7 @@ local suburbsDistribution = {
             "iMeds.NeedlePack", LootRarity.Rare,
             "iMeds.NasivionPack", LootRarity.Rare,
             "iMeds.ErythropoietinPack", LootRarity.Rare,
+            "Base.BloodPressureMonitorLeft", LootRarity.ExtraRare,
         },
     },
 }
@@ -268,6 +281,16 @@ local proceduralDistributions = {
                 "iMeds.ErythropoietinPack", LootRarity.Rare,
                 "iMeds.ErythropoietinPack", LootRarity.Rare,
                 "iMeds.ErythropoietinPack", LootRarity.Rare,
+
+                "Base.BloodPressureMonitorLeft", LootRarity.ExtraRare,
+                "Base.BloodPressureMonitorLeft", LootRarity.ExtraRare,
+                "Base.BloodPressureMonitorLeft", LootRarity.ExtraRare,
+                "Base.BloodPressureMonitorLeft", LootRarity.ExtraRare,
+
+                "Base.HeartRateMonitorLeft", LootRarity.ExtraRare,
+                "Base.HeartRateMonitorLeft", LootRarity.ExtraRare,
+                "Base.HeartRateMonitorLeft", LootRarity.ExtraRare,
+                "Base.HeartRateMonitorLeft", LootRarity.ExtraRare,
             },
         },
 
@@ -277,6 +300,7 @@ local proceduralDistributions = {
                 "iMeds.UnknownPack", LootRarity.VeryRare,
                 "iMeds.SyringePack", LootRarity.Rare,
                 "iMeds.NeedlePack", LootRarity.Rare,
+                "Base.BloodPressureMonitorLeft", LootRarity.ExtraRare,
             },
         },
 
@@ -352,6 +376,13 @@ local proceduralDistributions = {
                 "iMeds.SyringePack", LootRarity.Uncommon,
                 "iMeds.NeedlePack", LootRarity.Uncommon,
                 "iMeds.NasivionPack", LootRarity.Uncommon,
+
+                "Base.BloodPressureMonitorLeft", LootRarity.Uncommon,
+                "Base.BloodPressureMonitorLeft", LootRarity.Rare,
+                "Base.BloodPressureMonitorLeft", LootRarity.Rare,
+
+                "Base.HeartRateMonitorLeft", LootRarity.ExtraRare,
+                "Base.HeartRateMonitorLeft", LootRarity.ExtraRare,
             },
         },
 
@@ -377,6 +408,14 @@ local proceduralDistributions = {
                 "iMeds.NeedlePack", LootRarity.Uncommon,
                 "iMeds.NeedlePack", LootRarity.Uncommon,
                 "iMeds.NeedlePack", LootRarity.Uncommon,
+
+                "Base.BloodPressureMonitorLeft", LootRarity.Uncommon,
+                "Base.BloodPressureMonitorLeft", LootRarity.Uncommon,
+                "Base.BloodPressureMonitorLeft", LootRarity.ExtraRare,
+                "Base.BloodPressureMonitorLeft", LootRarity.ExtraRare,
+
+                "Base.HeartRateMonitorLeft", LootRarity.ExtraRare,
+                "Base.HeartRateMonitorLeft", LootRarity.ExtraRare,
             },
         },
 
@@ -491,6 +530,14 @@ local proceduralDistributions = {
                 "iMeds.NeedlePack", LootRarity.Uncommon,
                 "iMeds.NeedlePack", LootRarity.Uncommon,
                 "iMeds.NeedlePack", LootRarity.Uncommon,
+
+                "Base.BloodPressureMonitorLeft", LootRarity.Uncommon,
+                "Base.BloodPressureMonitorLeft", LootRarity.Uncommon,
+                "Base.BloodPressureMonitorLeft", LootRarity.ExtraRare,
+                "Base.BloodPressureMonitorLeft", LootRarity.ExtraRare,
+
+                "Base.HeartRateMonitorLeft", LootRarity.ExtraRare,
+                "Base.HeartRateMonitorLeft", LootRarity.ExtraRare,
             },
         },
 
@@ -516,6 +563,14 @@ local proceduralDistributions = {
                 "iMeds.NeedlePack", LootRarity.Uncommon,
                 "iMeds.NasivionPack", LootRarity.Uncommon,
                 "iMeds.NasivionPack", LootRarity.Uncommon,
+
+                "Base.BloodPressureMonitorLeft", LootRarity.Uncommon,
+                "Base.BloodPressureMonitorLeft", LootRarity.Uncommon,
+                "Base.BloodPressureMonitorLeft", LootRarity.ExtraRare,
+                "Base.BloodPressureMonitorLeft", LootRarity.ExtraRare,
+
+                "Base.HeartRateMonitorLeft", LootRarity.ExtraRare,
+                "Base.HeartRateMonitorLeft", LootRarity.ExtraRare,
             },
         },
     }

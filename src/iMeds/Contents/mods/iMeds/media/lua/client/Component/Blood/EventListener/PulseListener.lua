@@ -3,7 +3,7 @@ local tachycardiaPulse
 local bradycardiaPulse
 
 local updatePulse = function()
-    if not getPlayer() or getPlayer():isDead() or not Survivor:isInitialized() then
+    if not getSpecificPlayer(0) or getSpecificPlayer(0):isDead() or not Survivor:isInitialized() then
         return false
     end
 

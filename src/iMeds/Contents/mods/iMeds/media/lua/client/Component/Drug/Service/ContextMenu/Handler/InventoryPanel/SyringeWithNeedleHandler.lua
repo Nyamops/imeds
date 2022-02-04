@@ -3,7 +3,7 @@ SyringeWithNeedleHandler = {}
 function SyringeWithNeedleHandler:supports(item, player)
     self.needles = {}
 
-    local items = getPlayer():getInventory():getAllTypeRecurse(Needle.fullType)
+    local items = getSpecificPlayer(0):getInventory():getAllTypeRecurse(Needle.fullType)
     for i = 0, items:size() - 1 do
         local needle = items:get(i)
         if needle:getModData().needle ~= nil then
