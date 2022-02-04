@@ -2,7 +2,7 @@ Pharmacist = {
     alias = 'Pharmacist',
     name = getText('UI_Trait_Pharmacist_Name'),
     description = getText('UI_Trait_Pharmacist_Description'),
-    cost = 2,
+    cost = 4,
     freeRecipes = {},
     xpBoosts = {
         Perks.Doctor,
