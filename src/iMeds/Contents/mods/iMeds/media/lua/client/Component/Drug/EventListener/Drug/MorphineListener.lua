@@ -17,9 +17,9 @@ local normalEffect = function()
         Survivor:setBoredomLevel(0)
         Survivor:setPanic(0)
 
-        local drunkennessModifier = 35
+        local drunkennessModifier = 30
         if getPlayer():HasTrait(OpioidAddiction.alias) then
-            drunkennessModifier = 18
+            drunkennessModifier = 15
         end
 
         local drunkenness = Survivor:getBlood():getDrugs()[Morphine.alias].dose * drunkennessModifier
