@@ -47,8 +47,8 @@ local overdoseEffect = function()
         Survivor:setEndurance(0)
         Survivor:setFatigue(1)
 
-        if ZombRand(1, 100) > 70 then
-            getSpecificPlayer(0):getTraits():add(OpioidAddiction.alias)
+        if ZombRand(1, 100) > 70 and not getSpecificPlayer(0):HasTrait(OpioidAddictionTrait.alias) then
+            getSpecificPlayer(0):getTraits():add(OpioidAddictionTrait.alias)
         end
 
         Survivor:getBlood():getDrugs()[Morphine.alias].isOverdoseEffectApplied = true

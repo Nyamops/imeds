@@ -33,12 +33,14 @@ local effect = function()
         return false
     end
 
-    if not sideEffect.isActive then
-        return false
+    if Survivor:getFakeInfectionLevel() < 0 then
+        Survivor:setFakeInfectionLevel(0)
     end
 
-    if sideEffect.level == 0 then
+    if not sideEffect.isActive then
         Survivor:setFakeInfectionLevel(Survivor:getFakeInfectionLevel() - 0.05 * getGameTime():getMultiplier())
+
+        return false
     end
 
     if sideEffect.level > 0 then
@@ -70,10 +72,6 @@ local effect = function()
 
     if Survivor:getStress() > 1 then
         Survivor:setStress(1)
-    end
-
-    if Survivor:getFakeInfectionLevel() < 0 then
-        Survivor:setFakeInfectionLevel(0)
     end
 end
 

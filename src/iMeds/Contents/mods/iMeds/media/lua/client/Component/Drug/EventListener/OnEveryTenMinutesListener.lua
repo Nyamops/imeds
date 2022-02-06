@@ -29,6 +29,7 @@ local updateSurvivorDrugsEffect = function()
                     Survivor:getBlood():getDrugs()[drugAlias].isActive = false
                     Survivor:getBlood():getDrugs()[drugAlias].isOverdose = false
                     Survivor:getBlood():getDrugs()[drugAlias].isOverdoseEffectsApplied = false
+                    Survivor:getBlood():getDrugs()[drugAlias].dose = 0
                 end
             end
 
