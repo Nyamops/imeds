@@ -12,11 +12,11 @@ local updateBloodVolume = function()
         local bodyPart = Survivor:getBodyPartByType(bodyPartType)
 
         if bodyPart:bleeding() then
-            bloodVolumeReducingModifier = bloodVolumeReducingModifier + 0.02
+            bloodVolumeReducingModifier = bloodVolumeReducingModifier + 0.025
         end
 
-        if bodyPart:bleeding() and (bodyPart:isDeepWounded() or bodyPart:bitten()) then
-            bloodVolumeReducingModifier = bloodVolumeReducingModifier + 0.04
+        if bodyPart:bleeding() and (bodyPart:isDeepWounded() or bodyPart:bitten() or bodyPart:haveGlass() or bodyPart:haveBullet() or bodyPart:isCut()) then
+            bloodVolumeReducingModifier = bloodVolumeReducingModifier + 0.045
         end
     end
 
