@@ -248,6 +248,7 @@ function BloodPressureMonitorMenu:show()
     menu.display = ISImage:new(0, 0, width, height, getTexture('media/ui/BloodPressureMonitor/Display.png'))
     menu.display:initialise()
     menu.display.parent = menu
+    menu.display.backgroundColor = { r = 0, g = 0, b = 0, a = 0 }
     menu:addChild(menu.display)
 
     local buttonPositionX = 7
@@ -406,6 +407,14 @@ Events[ImmersiveMedicineEvent.iMedsSurvivorCreated].Add(function(module)
     if module == 'Moodle' then
         Events.OnResolutionChange.Add(BloodPressureMonitorMenu.resize)
         Events.OnTick.Add(function()
+            if not getSpecificPlayer(0) or getSpecificPlayer(0):isDead() or not Survivor:isInitialized() then
+                if BloodPressureMonitorMenu.instance ~= nil then
+                    BloodPressureMonitorMenu:disable()
+                end
+
+                return false
+            end
+
             BloodPressureMonitorMenu:updateUI()
         end)
     end

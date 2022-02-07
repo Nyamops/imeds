@@ -17,8 +17,8 @@ local onDrugApplierDeleteListener = function(data)
         end
     end
 
-    if drug:getAlias() == Morphine.alias and ZombRand(1, 100) == 100 then
-        getSpecificPlayer(0):getTraits():add(OpioidAddiction.alias)
+    if drug:getAlias() == Morphine.alias and ZombRand(1, 100) == 100 and not getSpecificPlayer(0):HasTrait(OpioidAddictionTrait.alias) then
+        getSpecificPlayer(0):getTraits():add(OpioidAddictionTrait.alias)
     end
 
     if DosageForm.Oral[dosageForm] ~= nil then

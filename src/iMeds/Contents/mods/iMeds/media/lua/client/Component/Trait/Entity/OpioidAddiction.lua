@@ -48,9 +48,9 @@ local effect = function()
 
     HighPainThreshold.effect()
 
-    local modifier = 0.00065
+    local modifier = 0.00035
     if Survivor:getBlood():getDrugs()[Morphine.alias] ~= nil and Survivor:getBlood():getDrugs()[Morphine.alias].isActive then
-        modifier = -0.1
+        modifier = -0.15
     end
 
     if sideEffectStorage == nil then
