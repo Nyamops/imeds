@@ -60,4 +60,10 @@ ItemName_CN = {
     ItemName_iMeds.PlasmaBagBP = "血浆包 B(III)型 Rh阳性",
     ItemName_iMeds.PlasmaBagON = "血浆包 O(I)型 Rh阴性",
     ItemName_iMeds.PlasmaBagOP = "血浆包 O(I)型 Rh阳性",
+
+    ItemName_iMeds.Stethoscope = "听诊器",
+    ItemName_Base.BloodPressureMonitorLeft = "血压计（松下 EW3039S）",
+    ItemName_Base.BloodPressureMonitorRight = "血压计（松下 EW3039S）",
+    ItemName_Base.HeartRateMonitorLeft = "心率监测器（诺克斯电子 KE 3000）",
+    ItemName_Base.HeartRateMonitorRight = "心率监测器（诺克斯电子 KE 3000）",
 }
