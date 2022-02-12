@@ -123,6 +123,7 @@ function BloodPressureMonitorMenu:new(positionX, positionY, width, height)
     self.__index = self
     public.borderColor = { r = 0, g = 0, b = 0, a = 0 }
     public.backgroundColor = { r = 0, g = 0, b = 0, a = 0 }
+    public:noBackground()
     public.onMouseMove = BloodPressureMonitorMenu.onMouseMove
     public.onMouseMoveOutside = BloodPressureMonitorMenu.onMouseMoveOutside
     public.positionX = positionX
@@ -248,7 +249,6 @@ function BloodPressureMonitorMenu:show()
     menu.display = ISImage:new(0, 0, width, height, getTexture('media/ui/BloodPressureMonitor/Display.png'))
     menu.display:initialise()
     menu.display.parent = menu
-    menu.display.backgroundColor = { r = 0, g = 0, b = 0, a = 0 }
     menu:addChild(menu.display)
 
     local buttonPositionX = 7
