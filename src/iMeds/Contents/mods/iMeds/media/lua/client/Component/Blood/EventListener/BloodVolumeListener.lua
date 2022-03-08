@@ -12,11 +12,11 @@ local updateBloodVolume = function()
         local bodyPart = Survivor:getBodyPartByType(bodyPartType)
 
         if bodyPart:bleeding() then
-            bloodVolumeReduceModifier = bloodVolumeReduceModifier + SandboxVars.ImmersiveMedicine.BloodVolumeReduceModifier
+            bloodVolumeReduceModifier = bloodVolumeReduceModifier + SandboxVars.ImmersiveMedicine.BloodVolumeReduceModifier / 1000
         end
 
         if bodyPart:bleeding() and (bodyPart:isDeepWounded() or bodyPart:bitten() or bodyPart:haveGlass() or bodyPart:haveBullet() or bodyPart:isCut()) then
-            bloodVolumeReduceModifier = bloodVolumeReduceModifier + SandboxVars.ImmersiveMedicine.BloodVolumeReduceModifier * 2
+            bloodVolumeReduceModifier = bloodVolumeReduceModifier + SandboxVars.ImmersiveMedicine.BloodVolumeReduceModifier / 1000 * 2
         end
     end
 

@@ -20,8 +20,8 @@ option ImmersiveMedicine.IsHeartbeatEnabled
 
 option ImmersiveMedicine.BloodVolumeReduceModifier
 {
-    type = double, default = 0.025,
-	min = 0.025, max = 0.1,
+    type = integer, default = 25,
+	min = 25, max = 100,
 	translation = BloodVolumeReduceModifier,
 	page = ImmersiveMedicine, translation = BloodVolumeReduceModifier,
 }
