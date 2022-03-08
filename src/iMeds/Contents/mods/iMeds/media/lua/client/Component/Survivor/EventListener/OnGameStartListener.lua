@@ -1,6 +1,6 @@
 local isInitialized = false
 local initializeSurvivor = function()
-    if not getSpecificPlayer(0) or getSpecificPlayer(0):isDead() then
+    if Survivor:isDeadOrNotExist() then
         return false
     end
 

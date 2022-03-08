@@ -6,7 +6,7 @@ local visualImpairment
 local sweating
 
 local updateBloodLossEffects = function()
-    if not getSpecificPlayer(0) or getSpecificPlayer(0):isDead() or not Survivor:isInitialized() then
+    if Survivor:isDeadOrNotExist() or not Survivor:isInitialized() then
         return false
     end
 

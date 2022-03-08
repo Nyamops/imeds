@@ -1,5 +1,5 @@
 local updateBloodVolume = function()
-    if not getSpecificPlayer(0) or getSpecificPlayer(0):isDead() or not Survivor:isInitialized() then
+    if Survivor:isDeadOrNotExist() or not Survivor:isInitialized() then
         return false
     end
 
@@ -7,26 +7,26 @@ local updateBloodVolume = function()
         return false
     end
 
-    local bloodVolumeReducingModifier = 0
+    local bloodVolumeReduceModifier = 0
     for _, bodyPartType in pairs(BodyPart) do
         local bodyPart = Survivor:getBodyPartByType(bodyPartType)
 
         if bodyPart:bleeding() then
-            bloodVolumeReducingModifier = bloodVolumeReducingModifier + 0.02
+            bloodVolumeReduceModifier = bloodVolumeReduceModifier + SandboxVars.ImmersiveMedicine.BloodVolumeReduceModifier / 1000
         end
 
-        if bodyPart:bleeding() and (bodyPart:isDeepWounded() or bodyPart:bitten()) then
-            bloodVolumeReducingModifier = bloodVolumeReducingModifier + 0.04
+        if bodyPart:bleeding() and (bodyPart:isDeepWounded() or bodyPart:bitten() or bodyPart:haveGlass() or bodyPart:haveBullet() or bodyPart:isCut()) then
+            bloodVolumeReduceModifier = bloodVolumeReduceModifier + SandboxVars.ImmersiveMedicine.BloodVolumeReduceModifier / 1000 * 2
         end
     end
 
-    Survivor:getBlood():reduceVolume(bloodVolumeReducingModifier * getGameTime():getMultiplier())
+    Survivor:getBlood():reduceVolume(bloodVolumeReduceModifier * getGameTime():getMultiplier())
 
-    if bloodVolumeReducingModifier == 0 then
+    if bloodVolumeReduceModifier == 0 then
         local hungerLevel = getSpecificPlayer(0):getMoodles():getMoodleLevel(MoodleType.Hungry)
         local thirstLevel = getSpecificPlayer(0):getMoodles():getMoodleLevel(MoodleType.Thirst)
         local bloodVolumeIncreasingModifier = (4 - hungerLevel) / 1200 + (4 - thirstLevel) / 1200
-        Survivor:getBlood():addVolume(bloodVolumeIncreasingModifier * getGameTime():getMultiplier())
+        Survivor:getBlood():addVolume(bloodVolumeIncreasingModifier * SandboxVars.ImmersiveMedicine.BloodVolumeIncreaseModifier * getGameTime():getMultiplier())
     end
 
     if Survivor:getBlood():getVolume() > Blood.maxVolume then

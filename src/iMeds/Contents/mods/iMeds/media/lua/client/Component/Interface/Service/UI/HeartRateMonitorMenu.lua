@@ -8,19 +8,25 @@ HeartRateMonitorMenu = ISPanel:derive('HeartRateMonitorMenu')
 local defaultPadding = 6
 local opacity = 0.2
 local isPinned = false
+local isDragged = false
 
 function HeartRateMonitorMenu:initialise()
     ISPanel.initialise(self)
 end
 
 function HeartRateMonitorMenu:render()
-    if not Survivor:isInitialized() or isPinned then
+    if not Survivor:isInitialized() then
         return false
+    end
+
+    if isDragged then
+        self:setX(getMouseX() - self.dragPanel:getWidth() / 2)
+        self:setY(getMouseY() - self.dragPanel:getHeight() / 2)
     end
 
     self.backgroundColor.a = opacity
     self.display.backgroundColor.a = opacity
-    self.display.secondPanel.heartRate:setVisible(opacity == 1 and true or false)
+    self.heartRate:setVisible(opacity == 1 and true or false)
 end
 
 function HeartRateMonitorMenu:onMouseMove(x, y)
@@ -33,8 +39,12 @@ function HeartRateMonitorMenu:onMouseMoveOutside(x, y)
     end
 end
 
-function HeartRateMonitorMenu:onMouseDown(x, y)
+function HeartRateMonitorMenu:onPinClicked(x, y)
     isPinned = not isPinned
+end
+
+function HeartRateMonitorMenu:onDragClicked(x, y)
+    isDragged = not isDragged
 end
 
 ---@return HeartRateMonitorMenu
@@ -73,54 +83,59 @@ function HeartRateMonitorMenu:show()
 
     menu.display = ISImage:new(0, 0, width, height, getTexture('media/ui/HeartRateMonitor/Display.png'))
     menu.display:initialise()
-    menu.display.parent = menu
     menu:addChild(menu.display)
 
     local panelPositionX = (width - panelWidth) / 2
     local panelPositionY = height / 2 - panelHeight
 
-    menu.display.firstPanel = ISPanel:new(panelPositionX, panelPositionY - 2, panelWidth, panelHeight)
-    menu.display.firstPanel.borderColor = { r = 0, g = 0, b = 0, a = 0 }
-    menu.display.firstPanel.backgroundColor = { r = 0, g = 0, b = 0, a = 0 }
-    menu.display.firstPanel.onMouseDown = self.onMouseDown
-    menu.display.firstPanel:initialise()
-    menu.display.firstPanel.parent = menu.display
-    menu.display:addChild(menu.display.firstPanel)
+    menu.firstPanel = ISPanel:new(panelPositionX, panelPositionY - 2, panelWidth, panelHeight)
+    menu.firstPanel.borderColor = { r = 0, g = 0, b = 0, a = 0 }
+    menu.firstPanel.backgroundColor = { r = 0, g = 0, b = 0, a = 0 }
+    menu.firstPanel.onMouseDown = self.onPinClicked
+    menu.firstPanel:initialise()
+    menu.display:addChild(menu.firstPanel)
 
     panelPositionY = panelPositionY + panelPositionY
 
-    menu.display.secondPanel = ISPanel:new(panelPositionX, panelPositionY + 2, panelWidth, panelHeight)
-    menu.display.secondPanel.borderColor = { r = 0, g = 0, b = 0, a = 0 }
-    menu.display.secondPanel.backgroundColor = { r = 0, g = 0, b = 0, a = 0 }
-    menu.display.secondPanel.onMouseDown = self.onMouseDown
-    menu.display.secondPanel:initialise()
-    menu.display.secondPanel.parent = menu.display
-    menu.display:addChild(menu.display.secondPanel)
+    menu.secondPanel = ISPanel:new(panelPositionX, panelPositionY + 2, panelWidth, panelHeight)
+    menu.secondPanel.borderColor = { r = 0, g = 0, b = 0, a = 0 }
+    menu.secondPanel.backgroundColor = { r = 0, g = 0, b = 0, a = 0 }
+    menu.secondPanel.onMouseDown = self.onPinClicked
+    menu.secondPanel:initialise()
+    menu.display:addChild(menu.secondPanel)
 
     local heartWidth = 15
     local heartHeight = 14
     local heartPositionX = panelWidth / 2 - heartWidth
     local heartPositionY = (panelHeight - heartHeight) / 2
 
-    menu.display.secondPanel.heart = ISImage:new(heartPositionX, heartPositionY, heartWidth, heartHeight, getTexture('media/ui/HeartRateMonitor/Heart.png'))
-    menu.display.secondPanel.heart.onMouseDown = self.onMouseDown
-    menu.display.secondPanel.heart:initialise()
-    menu.display.secondPanel.heart.parent = menu.display.secondPanel
-    menu.display.secondPanel:addChild(menu.display.secondPanel.heart)
+    menu.heart = ISImage:new(heartPositionX, heartPositionY, heartWidth, heartHeight, getTexture('media/ui/HeartRateMonitor/Heart.png'))
+    menu.heart.onMouseDown = self.onPinClicked
+    menu.heart:initialise()
+    menu.secondPanel:addChild(menu.heart)
 
     local fontHeight = getTextManager():getFontHeight(UIFont.Small)
     local heartRateWidth = 30
     local heartRateWidthPositionX = heartPositionX
     local heartRateWidthPositionY = heartPositionY
 
-    menu.display.secondPanel.heartRate = ISRichTextPanel:new(heartRateWidthPositionX, heartRateWidthPositionY, heartRateWidth, fontHeight)
-    menu.display.secondPanel.heartRate.onMouseDown = self.onMouseDown
-    menu.display.secondPanel.heartRate:initialise()
-    menu.display.secondPanel.heartRate:noBackground()
-    menu.display.secondPanel.heartRate:ignoreHeightChange()
-    menu.display.secondPanel.heartRate.autosetheight = false
-    menu.display.secondPanel.heartRate.marginTop = 0
-    menu.display.secondPanel:addChild(menu.display.secondPanel.heartRate)
+    menu.heartRate = ISRichTextPanel:new(heartRateWidthPositionX, heartRateWidthPositionY, heartRateWidth, fontHeight)
+    menu.heartRate.onMouseDown = self.onPinClicked
+    menu.heartRate:initialise()
+    menu.heartRate:noBackground()
+    menu.heartRate:ignoreHeightChange()
+    menu.heartRate.autosetheight = false
+    menu.heartRate.marginTop = 0
+    menu.secondPanel:addChild(menu.heartRate)
+
+    menu.dragPanel = ISPanel:new(0, 0, menu:getWidth(), 19)
+    menu.dragPanel.borderColor = { r = 0, g = 0, b = 0, a = 0 }
+    menu.dragPanel.backgroundColor = { r = 0, g = 0, b = 0, a = 0 }
+    menu.dragPanel.onMouseDown = self.onDragClicked
+    menu.dragPanel:initialise()
+    menu:addChild(menu.dragPanel)
+
+    menu:initialise()
 
     self.instance = menu
     self = menu
@@ -143,16 +158,16 @@ function HeartRateMonitorMenu:updateHeartbeat()
         return false
     end
 
-    self.instance.display.secondPanel.heart.backgroundColor.a = self.instance.display.secondPanel.heart.backgroundColor.a - 0.0175
+    self.instance.heart.backgroundColor.a = self.instance.heart.backgroundColor.a - 0.0175
     if ticks % heartbeatDelta == 0 then
         local pulse = round(Survivor:getBlood():getPulse())
-        self.instance.display.secondPanel.heart.backgroundColor.a = opacity
+        self.instance.heart.backgroundColor.a = opacity
         heartbeatDelta = Survivor:getBlood():getHeartbeatDelta(pulse)
 
-        self.instance.display.secondPanel.heartRate.text = pulse
+        self.instance.heartRate.text = pulse
         local textWidth = getTextManager():MeasureStringX(UIFont.Small, tostring(pulse)) + 30
-        self.instance.display.secondPanel.heartRate:setWidth(textWidth)
-        self.instance.display.secondPanel.heartRate:paginate()
+        self.instance.heartRate:setWidth(textWidth)
+        self.instance.heartRate:paginate()
 
         ticks = 0
     end
@@ -189,7 +204,7 @@ Events[ImmersiveMedicineEvent.iMedsSurvivorCreated].Add(function(module)
     if module == 'Moodle' then
         Events.OnResolutionChange.Add(HeartRateMonitorMenu.resize)
         Events.OnTick.Add(function()
-            if not getSpecificPlayer(0) or getSpecificPlayer(0):isDead() or not Survivor:isInitialized() then
+            if Survivor:isDeadOrNotExist() or not Survivor:isInitialized() then
                 if HeartRateMonitorMenu.instance ~= nil then
                     HeartRateMonitorMenu:disable()
                 end
