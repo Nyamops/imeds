@@ -10,8 +10,8 @@ local updatePulse = function()
     local endurancePulseModifier
     local panicPulseModifier
 
-    endurancePulseModifier = (1 - Survivor:getEndurance() + 2) / 2
-    panicPulseModifier = (Survivor:getPanic() / 100 + 2) / 2
+    endurancePulseModifier = (1 - Survivor:getEndurance() + 1) / 1
+    panicPulseModifier = (Survivor:getPanic() / 100 + 1) / 1
 
     local modifier = endurancePulseModifier > panicPulseModifier and endurancePulseModifier or panicPulseModifier
 
