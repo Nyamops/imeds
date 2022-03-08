@@ -26,7 +26,7 @@ local updateBloodVolume = function()
         local hungerLevel = getSpecificPlayer(0):getMoodles():getMoodleLevel(MoodleType.Hungry)
         local thirstLevel = getSpecificPlayer(0):getMoodles():getMoodleLevel(MoodleType.Thirst)
         local bloodVolumeIncreasingModifier = (4 - hungerLevel) / 1200 + (4 - thirstLevel) / 1200
-        Survivor:getBlood():addVolume(bloodVolumeIncreasingModifier * getGameTime():getMultiplier())
+        Survivor:getBlood():addVolume(bloodVolumeIncreasingModifier * SandboxVars.ImmersiveMedicine.BloodVolumeIncreaseModifier * getGameTime():getMultiplier())
     end
 
     if Survivor:getBlood():getVolume() > Blood.maxVolume then
