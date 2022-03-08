@@ -189,7 +189,7 @@ Events[ImmersiveMedicineEvent.iMedsSurvivorCreated].Add(function(module)
     if module == 'Moodle' then
         Events.OnResolutionChange.Add(HeartRateMonitorMenu.resize)
         Events.OnTick.Add(function()
-            if not getSpecificPlayer(0) or getSpecificPlayer(0):isDead() or not Survivor:isInitialized() then
+            if Survivor:isDeadOrNotExist() or not Survivor:isInitialized() then
                 if HeartRateMonitorMenu.instance ~= nil then
                     HeartRateMonitorMenu:disable()
                 end

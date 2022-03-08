@@ -24,7 +24,7 @@ ZCore:getContainer():register(
 local maxStress = { 0.26, 0.6, 0.76 }
 
 local effect = function()
-    if not getSpecificPlayer(0) or getSpecificPlayer(0):isDead() or not Survivor:isInitialized() then
+    if Survivor:isDeadOrNotExist() or not Survivor:isInitialized() then
         return false
     end
 

@@ -330,7 +330,9 @@ end
 
 ---@return boolean
 function Survivor:isInitialized()
-    return getSpecificPlayer(0):getModData().survivor ~= nil and getSpecificPlayer(0):getModData().survivor.isInitialized or false
+    return getSpecificPlayer(0) ~= nil
+        and getSpecificPlayer(0):getModData().survivor ~= nil
+        and getSpecificPlayer(0):getModData().survivor.isInitialized
 end
 
 ---@param bool boolean
@@ -436,6 +438,11 @@ function Survivor:getRequiredWaterByBodyPartIndex(index)
     end
 
     return units
+end
+
+---@return boolean
+function Survivor:isDeadOrNotExist()
+    return not getSpecificPlayer(0) or getSpecificPlayer(0):isDead()
 end
 
 return Survivor
