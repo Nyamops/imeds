@@ -1,8 +1,7 @@
-local isHealthPanelProxy = require 'Component/Interface/Service/ContextMenu/Proxy/ISHealthPanelProxy'
 local private = {}
 
-private.dropItemsOnBodyPart = isHealthPanelProxy.dropItemsOnBodyPart
-private.doBodyPartContextMenu = isHealthPanelProxy.doBodyPartContextMenu
+private.dropItemsOnBodyPart = ISHealthPanel.dropItemsOnBodyPart
+private.doBodyPartContextMenu = ISHealthPanel.doBodyPartContextMenu
 
 function ISHealthPanel:dropItemsOnBodyPart(bodyPart, items)
     private.dropItemsOnBodyPart(self, bodyPart, items)
@@ -26,7 +25,9 @@ end
 
 function ISHealthPanel:doBodyPartContextMenu(bodyPart, x, y)
     local handlers = {}
-    local context = private.doBodyPartContextMenu(self, bodyPart, x, y)
+    local playerNum = self.otherPlayer and self.otherPlayer:getPlayerNum() or self.character:getPlayerNum()
+    private.doBodyPartContextMenu(self, bodyPart, x, y)
+    local context = getPlayerContextMenu(playerNum)
 
     ---@param handler HandlerDecorator
     for _, handler in pairs(ZCore:getContainer():getByTag('imeds.context_menu.health_panel.handler')) do
@@ -40,10 +41,9 @@ function ISHealthPanel:doBodyPartContextMenu(bodyPart, x, y)
     end
 
     if self.blockingMessage or context:isEmpty() then
-        context:setVisible(false);
+        context:setVisible(false)
     end
 
-    local playerNum = self.otherPlayer and self.otherPlayer:getPlayerNum() or self.character:getPlayerNum()
     if JoypadState.players[playerNum + 1] and context:getIsVisible() then
         context.mouseOver = 1
         context.origin = self
