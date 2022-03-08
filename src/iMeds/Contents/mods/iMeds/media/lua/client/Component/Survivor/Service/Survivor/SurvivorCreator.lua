@@ -40,10 +40,6 @@ function SurvivorCreator:new(bloodGroupStorage)
         end
 
         Survivor:getBlood():setGroup(bloodGroup:getId())
-
-        if getSpecificPlayer(0):HasTrait(OpioidAddictionTrait.alias) then
-            getSpecificPlayer(0):getTraits():add(HighPainThreshold.alias);
-        end
     end
 
     setmetatable(public, self)
