@@ -8,6 +8,7 @@ BloodPressureMonitorMenu = ISPanel:derive('BloodPressureMonitorMenu')
 local defaultPadding = 6
 local opacity = 0.2
 local isPinned = false
+local isDragged = false
 local bigIndicatorPosition = {
     { x = 1, y = 0, width = 17, height = 4 },
     { x = 15, y = 3, width = 4, height = 15 },
@@ -60,8 +61,13 @@ function BloodPressureMonitorMenu:initialise()
 end
 
 function BloodPressureMonitorMenu:render()
-    if not Survivor:isInitialized() or isPinned then
+    if not Survivor:isInitialized() then
         return false
+    end
+
+    if isDragged then
+        self:setX(getMouseX() - self.dragPanel:getWidth() / 2)
+        self:setY(getMouseY() - self.dragPanel:getHeight() / 2)
     end
 
     self.backgroundColor.a = opacity
@@ -109,8 +115,12 @@ function BloodPressureMonitorMenu:onMouseMoveOutside(x, y)
     end
 end
 
-function BloodPressureMonitorMenu:onMouseDown(x, y)
+function BloodPressureMonitorMenu:onPinClicked(x, y)
     isPinned = not isPinned
+end
+
+function BloodPressureMonitorMenu:onDragClicked(x, y)
+    isDragged = not isDragged
 end
 
 ---@return BloodPressureMonitorMenu
@@ -248,7 +258,6 @@ function BloodPressureMonitorMenu:show()
 
     menu.display = ISImage:new(0, 0, width, height, getTexture('media/ui/BloodPressureMonitor/Display.png'))
     menu.display:initialise()
-    menu.display.parent = menu
     menu:addChild(menu.display)
 
     local buttonPositionX = 7
@@ -267,8 +276,16 @@ function BloodPressureMonitorMenu:show()
     menu.display.button.borderColor = { r = 0, g = 0, b = 0, a = 0 }
     menu.display.button.backgroundColor = { r = 0, g = 0, b = 0, a = 0 }
     menu.display.button.backgroundColorMouseOver.a = 0
-    menu.display.button.parent = menu.display
     menu.display:addChild(menu.display.button)
+
+
+
+    menu.dragPanel = ISPanel:new(0, 0, menu:getWidth(), 19)
+    menu.dragPanel.borderColor = { r = 0, g = 0, b = 0, a = 0 }
+    menu.dragPanel.backgroundColor = { r = 0, g = 0, b = 0, a = 0 }
+    menu.dragPanel.onMouseDown = self.onDragClicked
+    menu.dragPanel:initialise()
+    menu:addChild(menu.dragPanel)
 
     self.instance = menu
     self = menu
