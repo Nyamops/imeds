@@ -7,22 +7,22 @@ local updateBloodVolume = function()
         return false
     end
 
-    local bloodVolumeReducingModifier = 0
+    local bloodVolumeReduceModifier = 0
     for _, bodyPartType in pairs(BodyPart) do
         local bodyPart = Survivor:getBodyPartByType(bodyPartType)
 
         if bodyPart:bleeding() then
-            bloodVolumeReducingModifier = bloodVolumeReducingModifier + 0.025
+            bloodVolumeReduceModifier = bloodVolumeReduceModifier + SandboxVars.ImmersiveMedicine.BloodVolumeReduceModifier
         end
 
         if bodyPart:bleeding() and (bodyPart:isDeepWounded() or bodyPart:bitten() or bodyPart:haveGlass() or bodyPart:haveBullet() or bodyPart:isCut()) then
-            bloodVolumeReducingModifier = bloodVolumeReducingModifier + 0.045
+            bloodVolumeReduceModifier = bloodVolumeReduceModifier + SandboxVars.ImmersiveMedicine.BloodVolumeReduceModifier * 2
         end
     end
 
-    Survivor:getBlood():reduceVolume(bloodVolumeReducingModifier * getGameTime():getMultiplier())
+    Survivor:getBlood():reduceVolume(bloodVolumeReduceModifier * getGameTime():getMultiplier())
 
-    if bloodVolumeReducingModifier == 0 then
+    if bloodVolumeReduceModifier == 0 then
         local hungerLevel = getSpecificPlayer(0):getMoodles():getMoodleLevel(MoodleType.Hungry)
         local thirstLevel = getSpecificPlayer(0):getMoodles():getMoodleLevel(MoodleType.Thirst)
         local bloodVolumeIncreasingModifier = (4 - hungerLevel) / 1200 + (4 - thirstLevel) / 1200

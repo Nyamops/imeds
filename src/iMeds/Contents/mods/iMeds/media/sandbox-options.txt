@@ -17,3 +17,11 @@ option ImmersiveMedicine.IsHeartbeatEnabled
 	type = boolean, default = true,
 	page = ImmersiveMedicine, translation = IsHeartbeatEnabled,
 }
+
+option ImmersiveMedicine.BloodVolumeReduceModifier
+{
+    type = double, default = 0.025,
+	min = 0.025, max = 0.1,
+	translation = BloodVolumeReduceModifier,
+	page = ImmersiveMedicine, translation = BloodVolumeReduceModifier,
+}
