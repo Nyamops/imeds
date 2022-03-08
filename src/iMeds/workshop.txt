@@ -106,6 +106,8 @@ description=ImmersiveMedicine = {
 description=    IsBloodSystemActive = true,
 description=    IsBloodTypeSystemActive = true,
 description=    IsHeartbeatEnabled = true,
+description=    BloodVolumeReduceModifier = 25,
+description=    BloodVolumeIncreaseModifier = 1,
 description=}
 description=[/code]
 description=
