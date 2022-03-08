@@ -90,8 +90,9 @@ function TakeDrugsParenteralAction:perform()
     end
 
     for _ = 1, self.dosage do
+        self.syringe:getModData().syringe.drug.dose = self.syringe:getModData().syringe.drug.dose - 1
+        self.syringe:getModData().syringe.volume = self.syringe:getModData().syringe.volume - 1
         self.syringe:Use()
-        self.syringe.drug.dose = self.syringe.drug.dose - 1
     end
 
     ISHealthPanel.setBodyPartActionForPlayer(self.otherPlayer, self.bodyPart, nil, nil, nil)
