@@ -40,9 +40,7 @@ function ISHealthPanel:doBodyPartContextMenu(bodyPart, x, y)
         handler:addToMenu(context)
     end
 
-    if self.blockingMessage or context:isEmpty() then
-        context:setVisible(false)
-    end
+    context:setVisible(not self.blockingMessage and not context:isEmpty())
 
     if JoypadState.players[playerNum + 1] and context:getIsVisible() then
         context.mouseOver = 1
