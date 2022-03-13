@@ -18,13 +18,13 @@ ReceiveBloodVolumeCheckRequestCommand.execute = function(package)
 
         package.bloodVolume = bloodVolume
 
-        sendClientCommand(getSpecificPlayer(0), 'blood', CheckBloodVolumeCommand.defaultName, package)
+        sendClientCommand(getSpecificPlayer(0), iMedsComponent.Blood, CheckBloodVolumeCommand.defaultName, package)
     end
 end
 
 Events.OnServerCommand.Add(
     function(module, command, package)
-        if module == 'blood' and command == ReceiveBloodVolumeCheckRequestCommand.defaultName then
+        if module == iMedsComponent.Blood and command == ReceiveBloodVolumeCheckRequestCommand.defaultName then
             ReceiveBloodVolumeCheckRequestCommand.execute(package)
         end
     end

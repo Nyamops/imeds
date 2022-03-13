@@ -49,7 +49,7 @@ function TakeOneFromSyringePackAction:animEvent(event, parameter)
 
         if isClient() then
             local args = { id = self.character:getOnlineID(), item = syringe }
-            sendClientCommand(self.character, 'drug', TakeOneCommand.defaultName, args)
+            sendClientCommand(self.character, iMedsComponent.Drug, TakeOneCommand.defaultName, args)
         else
             self.character:sendObjectChange('addItem', { item = syringe })
         end

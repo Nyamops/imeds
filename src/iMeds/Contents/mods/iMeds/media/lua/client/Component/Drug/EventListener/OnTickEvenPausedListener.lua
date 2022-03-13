@@ -11,7 +11,7 @@ local removeProps = function()
 end
 
 Events[ImmersiveMedicineEvent.iMedsSurvivorCreated].Add(function(module)
-    if module == 'Drug' then
+    if module == iMedsComponent.Drug then
         Events.OnTickEvenPaused.Add(removeProps)
     end
 end)

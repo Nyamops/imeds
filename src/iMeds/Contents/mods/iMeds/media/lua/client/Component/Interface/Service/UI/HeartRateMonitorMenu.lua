@@ -201,7 +201,7 @@ function HeartRateMonitorMenu:updateUI()
 end
 
 Events[ImmersiveMedicineEvent.iMedsSurvivorCreated].Add(function(module)
-    if module == 'Moodle' then
+    if module == iMedsComponent.Moodle then
         Events.OnResolutionChange.Add(HeartRateMonitorMenu.resize)
         Events.OnTick.Add(function()
             if Survivor:isDeadOrNotExist() or not Survivor:isInitialized() then

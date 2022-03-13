@@ -102,7 +102,7 @@ function CustomMoodleMenu:disable()
 end
 
 Events[ImmersiveMedicineEvent.iMedsSurvivorCreated].Add(function(module)
-    if module == 'Moodle' then
+    if module == iMedsComponent.Moodle then
         CustomMoodleMenu.show()
         Events.OnResolutionChange.Add(CustomMoodleMenu.resize)
     end

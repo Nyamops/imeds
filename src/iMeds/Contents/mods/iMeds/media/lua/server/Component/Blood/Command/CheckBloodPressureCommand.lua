@@ -19,18 +19,18 @@ CheckBloodPressureCommand.execute = function(player, args)
     if args.pulse == nil or args.bloodPressure == nil then
         print(doctor:getSteamID() .. ' performing blood pressure check to ' .. patient:getSteamID())
         --send request to patient
-        sendServerCommand(patient, 'blood', 'receiveBloodPressureCheckRequest', package)
+        sendServerCommand(patient, iMedsComponent.Blood, 'receiveBloodPressureCheckRequest', package)
     else
         --receive response from patient and send to doctor
         package.bloodPressure = args.bloodPressure
         package.pulse = args.pulse
-        sendServerCommand(doctor, 'blood', 'receiveBloodPressure', package)
+        sendServerCommand(doctor, iMedsComponent.Blood, 'receiveBloodPressure', package)
     end
 end
 
 Events.OnClientCommand.Add(
     function(module, command, player, args)
-        if module == 'blood' and command == CheckBloodPressureCommand.defaultName then
+        if module == iMedsComponent.Blood and command == CheckBloodPressureCommand.defaultName then
             CheckBloodPressureCommand.execute(player, args)
         end
     end

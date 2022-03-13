@@ -19,7 +19,7 @@ end
 
 Events.OnClientCommand.Add(
     function(module, command, player, args)
-        if module == 'blood' and command == TransferBloodCommand.defaultName then
+        if module == iMedsComponent.Blood and command == TransferBloodCommand.defaultName then
             TransferBloodCommand.execute(player, args)
         end
     end

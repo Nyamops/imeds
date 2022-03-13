@@ -80,23 +80,9 @@ function StitchCutWoundAction:start()
         self.cleaningItem:Use()
     end
 
-    for _, bodyPart in ipairs({ BodyPartType.Hand_R, BodyPartType.Hand_L, BodyPartType.ForeArm_R, BodyPartType.ForeArm_L }) do
-        local bloodBodyPart = BloodBodyPartType.FromIndex(BodyPartType.ToIndex(bodyPart))
-        if self.character:getHumanVisual():getBlood(bloodBodyPart) > 0 and self.cleaningItem ~= nil and round(self.cleaningItem:getDrainableUsesFloat()) > 0 then
-            self.cleaningItem:Use()
-            self.character:getHumanVisual():setBlood(bloodBodyPart, 0)
-        end
-    end
-
-    if self.cleaningItem ~= nil and round(self.cleaningItem:getDrainableUsesFloat()) > 0 and self.scalpel:getBloodLevel() > 0 then
-        self.cleaningItem:Use()
-        self.scalpel:setBloodLevel(0)
-    end
-
-    if self.cleaningItem ~= nil and round(self.cleaningItem:getDrainableUsesFloat()) > 0 and self.glove ~= nil and self.glove:getBloodLevel() > 0 then
-        self.cleaningItem:Use()
-        self.glove:setBloodLevel(0)
-    end
+    Preparation:washHands(self.character, self.cleaningItem)
+    Preparation:cleanSurgicalInstrument(self.scalpel, self.cleaningItem)
+    Preparation:cleanSurgicalEquipment(self.glove, self.cleaningItem)
 
     if self.character == self.otherPlayer then
         self:setActionAnim(CharacterActionAnims.Bandage)
@@ -214,10 +200,10 @@ function StitchCutWoundAction:perform()
 
     if isClient() then
         local args = { doctorOnlineId = self.character:getOnlineID(), patientOnlineId = self.otherPlayer:getOnlineID(), bodyPartIndex = self.bodyPart:getIndex(), isToggled = false, lacerationTime = 0 }
-        sendClientCommand(self.character, 'surgery', SendLaceration.defaultName, args)
-        sendStitch(self.otherPlayer:getOnlineID(), self.bodyPart:getIndex(), true, self.bodyPart:getStitchTime())
+        sendClientCommand(self.character, iMedsComponent.Surgery, SendLaceration.defaultName, args)
+        sendStitch(self.character, self.otherPlayer, self.bodyPart, self.needle, true);
 
-        if self.doctor:getAccessLevel() ~= 'None' then
+        if self.character:getAccessLevel() ~= 'None' then
             sendAdditionalPain(self.otherPlayer:getOnlineID(), self.bodyPart:getIndex(), pain)
         end
     end
@@ -242,7 +228,6 @@ function StitchCutWoundAction:new(doctor, patient, needle, bodyPart, thread, cle
     public.sutureNeedleHolder = sutureNeedleHolder
     public.glove = glove
     public.bodyPart = bodyPart
-    public.doctor = doctor
     public.stopOnWalk = true
     public.stopOnRun = true
     public.patientPositionX = patient:getX()

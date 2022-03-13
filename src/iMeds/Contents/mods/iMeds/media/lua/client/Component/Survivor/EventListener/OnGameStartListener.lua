@@ -17,11 +17,11 @@ local initializeSurvivor = function()
     end
 
     if not isInitialized then
-        triggerEvent(ImmersiveMedicineEvent.iMedsSurvivorCreated, 'Drug');
-        triggerEvent(ImmersiveMedicineEvent.iMedsSurvivorCreated, 'Moodle');
-        triggerEvent(ImmersiveMedicineEvent.iMedsSurvivorCreated, 'SideEffect');
-        triggerEvent(ImmersiveMedicineEvent.iMedsSurvivorCreated, 'Trait');
-        triggerEvent(ImmersiveMedicineEvent.iMedsSurvivorCreated, 'Blood');
+        triggerEvent(ImmersiveMedicineEvent.iMedsSurvivorCreated, iMedsComponent.Drug);
+        triggerEvent(ImmersiveMedicineEvent.iMedsSurvivorCreated, iMedsComponent.Moodle);
+        triggerEvent(ImmersiveMedicineEvent.iMedsSurvivorCreated, iMedsComponent.SideEffect);
+        triggerEvent(ImmersiveMedicineEvent.iMedsSurvivorCreated, iMedsComponent.Trait);
+        triggerEvent(ImmersiveMedicineEvent.iMedsSurvivorCreated, iMedsComponent.Blood);
         isInitialized = true
     end
 end

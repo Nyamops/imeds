@@ -16,7 +16,7 @@ end
 
 Events.OnClientCommand.Add(
     function(module, command, player, args)
-        if module == 'drug' and command == TakeOneCommand.defaultName then
+        if module == iMedsComponent.Drug and command == TakeOneCommand.defaultName then
             TakeOneCommand.execute(player, args)
         end
     end

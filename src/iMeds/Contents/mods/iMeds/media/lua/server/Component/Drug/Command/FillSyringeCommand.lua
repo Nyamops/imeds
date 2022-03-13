@@ -16,7 +16,7 @@ end
 
 Events.OnClientCommand.Add(
     function(module, command, player, args)
-        if module == 'drug' and command == FillSyringeCommand.defaultName then
+        if module == iMedsComponent.Drug and command == FillSyringeCommand.defaultName then
             FillSyringeCommand.execute(player, args)
         end
     end

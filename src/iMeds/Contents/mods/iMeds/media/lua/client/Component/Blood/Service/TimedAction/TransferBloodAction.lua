@@ -93,7 +93,7 @@ function TransferBloodAction:perform()
 
     if isClient() then
         local args = { patientOnlineId = self.otherPlayer:getOnlineID(), doctorOnlineId = self.character:getOnlineID(), item = bloodVolumeIncreaser }
-        sendClientCommand(self.character, 'blood', TransferBloodCommand.defaultName, args)
+        sendClientCommand(self.character, iMedsComponent.Blood, TransferBloodCommand.defaultName, args)
     else
         self.character:sendObjectChange('addItem', { item = bloodVolumeIncreaser })
     end

@@ -49,7 +49,7 @@ function AttachNeedleToSyringeAction:perform()
 
     if isClient() then
         local args = { id = self.character:getOnlineID(), item = syringe }
-        sendClientCommand(self.character, 'drug', AttachNeedleToSyringeCommand.defaultName, args)
+        sendClientCommand(self.character, iMedsComponent.Drug, AttachNeedleToSyringeCommand.defaultName, args)
     else
         self.character:sendObjectChange('addItem', { item = syringe })
     end

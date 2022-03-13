@@ -79,7 +79,7 @@ function BloodTestingKitAction:perform()
 
     if isClient() then
         local args = { patientOnlineId = self.otherPlayer:getOnlineID(), doctorOnlineId = self.character:getOnlineID() }
-        sendClientCommand(self.character, 'blood', TestBloodCommand.defaultName, args)
+        sendClientCommand(self.character, iMedsComponent.Blood, TestBloodCommand.defaultName, args)
     else
         local bloodTester = InventoryItemFactory.CreateItem('iMeds.BloodTester')
         self.character:sendObjectChange('addItem', { item = bloodTester })

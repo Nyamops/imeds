@@ -39,7 +39,7 @@ local effect = function()
 end
 
 Events[ImmersiveMedicineEvent.iMedsSurvivorCreated].Add(function(module)
-    if module == 'SideEffect' then
+    if module == iMedsComponent.SideEffect then
         Events.OnTick.Add(effect)
     end
 end)

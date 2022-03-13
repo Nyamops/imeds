@@ -35,7 +35,7 @@ local effect = function()
 end
 
 Events[ImmersiveMedicineEvent.iMedsSurvivorCreated].Add(function(module)
-    if module == 'Trait' then
+    if module == iMedsComponent.Trait then
         Events.OnTick.Add(effect)
     end
 end)

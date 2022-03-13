@@ -22,7 +22,7 @@ end
 
 Events.OnServerCommand.Add(
     function(module, command, package)
-        if module == 'surgery' and command == ReceiveLaceration.defaultName then
+        if module == iMedsComponent.Surgery and command == ReceiveLaceration.defaultName then
             ReceiveLaceration.execute(package)
         end
     end

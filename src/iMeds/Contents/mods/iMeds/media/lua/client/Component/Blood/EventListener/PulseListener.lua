@@ -45,7 +45,7 @@ local updatePulse = function()
 end
 
 Events[ImmersiveMedicineEvent.iMedsSurvivorCreated].Add(function(module)
-    if module == 'Blood' then
+    if module == iMedsComponent.Blood then
         tachycardiaPulse = Tachycardia:getPulse()
         bradycardiaPulse = Bradycardia:getPulse()
         Events.OnTick.Add(updatePulse)

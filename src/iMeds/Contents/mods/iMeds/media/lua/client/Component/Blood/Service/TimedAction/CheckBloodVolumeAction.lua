@@ -79,7 +79,7 @@ function CheckBloodVolumeAction:perform()
 
     if isClient() and self.character ~= self.otherPlayer then
         local args = { patientOnlineId = self.otherPlayer:getOnlineID(), doctorOnlineId = self.character:getOnlineID() }
-        sendClientCommand(self.character, 'blood', CheckBloodVolumeCommand.defaultName, args)
+        sendClientCommand(self.character, iMedsComponent.Blood, CheckBloodVolumeCommand.defaultName, args)
     else
         local bloodVolumeThreshold = Survivor:getBlood():getBloodLossVolume()
         local bloodVolume = Blood.maxVolume

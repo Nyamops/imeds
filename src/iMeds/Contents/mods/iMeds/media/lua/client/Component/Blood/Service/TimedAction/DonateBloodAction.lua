@@ -88,7 +88,7 @@ function DonateBloodAction:perform()
 
     if isClient() then
         local args = { patientOnlineId = self.otherPlayer:getOnlineID(), doctorOnlineId = self.character:getOnlineID() }
-        sendClientCommand(self.character, 'blood', DonateBloodCommand.defaultName, args)
+        sendClientCommand(self.character, iMedsComponent.Blood, DonateBloodCommand.defaultName, args)
     else
         local bloodVolumeReducer = InventoryItemFactory.CreateItem(BloodVolumeReducer.fullType)
         self.character:sendObjectChange('addItem', { item = bloodVolumeReducer })

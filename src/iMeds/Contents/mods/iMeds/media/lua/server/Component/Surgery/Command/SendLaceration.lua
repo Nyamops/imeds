@@ -15,12 +15,12 @@ SendLaceration.execute = function(player, args)
         return false
     end
 
-    sendServerCommand(patient, 'surgery', 'receiveLaceration', args)
+    sendServerCommand(patient, iMedsComponent.Surgery, 'receiveLaceration', args)
 end
 
 Events.OnClientCommand.Add(
     function(module, command, player, args)
-        if module == 'surgery' and command == SendLaceration.defaultName then
+        if module == iMedsComponent.Surgery and command == SendLaceration.defaultName then
             SendLaceration.execute(player, args)
         end
     end

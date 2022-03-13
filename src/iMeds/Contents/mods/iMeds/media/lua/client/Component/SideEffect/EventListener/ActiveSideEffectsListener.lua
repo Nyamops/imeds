@@ -12,7 +12,7 @@ local removeSideEffect = function()
 end
 
 Events[ImmersiveMedicineEvent.iMedsSurvivorCreated].Add(function(module)
-    if module == 'SideEffect' then
+    if module == iMedsComponent.SideEffect then
         Events.OnTick.Add(removeSideEffect)
     end
 end)

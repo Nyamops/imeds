@@ -71,7 +71,7 @@ function HemoStopAction:perform()
 
     if isClient() then
         local args = { doctorOnlineId = self.character:getOnlineID(), patientOnlineId = self.otherPlayer:getOnlineID(), item = drugApplier }
-        sendClientCommand(self.character, 'drug', TakeDrugsCommand.defaultName, args)
+        sendClientCommand(self.character, iMedsComponent.Drug, TakeDrugsCommand.defaultName, args)
     else
         self.character:sendObjectChange('addItem', { item = drugApplier })
     end

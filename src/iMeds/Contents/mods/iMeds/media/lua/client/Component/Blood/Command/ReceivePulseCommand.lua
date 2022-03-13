@@ -17,7 +17,7 @@ end
 
 Events.OnServerCommand.Add(
     function(module, command, package)
-        if module == 'blood' and command == ReceivePulseCommand.defaultName then
+        if module == iMedsComponent.Blood and command == ReceivePulseCommand.defaultName then
             ReceivePulseCommand.execute(package)
         end
     end

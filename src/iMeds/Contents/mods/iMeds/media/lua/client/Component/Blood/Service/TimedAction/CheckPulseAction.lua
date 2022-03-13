@@ -52,7 +52,7 @@ function CheckPulseAction:perform()
 
     if isClient() then
         local args = { patientOnlineId = self.otherPlayer:getOnlineID(), doctorOnlineId = self.character:getOnlineID() }
-        sendClientCommand(self.character, 'blood', CheckPulseCommand.defaultName, args)
+        sendClientCommand(self.character, iMedsComponent.Blood, CheckPulseCommand.defaultName, args)
     else
         PulseWindow:showPulse(Survivor:getBlood():getPulse(), self.character, self.character)
         PulseWindow:setVisible(true)

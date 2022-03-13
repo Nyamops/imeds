@@ -19,17 +19,17 @@ CheckBloodVolumeCommand.execute = function(player, args)
     if args.bloodVolume == nil then
         print(doctor:getSteamID() .. ' performing blood volume check to ' .. patient:getSteamID())
         --send request to patient
-        sendServerCommand(patient, 'blood', 'receiveBloodVolumeCheckRequest', package)
+        sendServerCommand(patient, iMedsComponent.Blood, 'receiveBloodVolumeCheckRequest', package)
     else
         --receive response from patient and send to doctor
         package.bloodVolume = args.bloodVolume
-        sendServerCommand(doctor, 'blood', 'receiveBloodVolume', package)
+        sendServerCommand(doctor, iMedsComponent.Blood, 'receiveBloodVolume', package)
     end
 end
 
 Events.OnClientCommand.Add(
     function(module, command, player, args)
-        if module == 'blood' and command == CheckBloodVolumeCommand.defaultName then
+        if module == iMedsComponent.Blood and command == CheckBloodVolumeCommand.defaultName then
             CheckBloodVolumeCommand.execute(player, args)
         end
     end

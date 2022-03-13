@@ -21,15 +21,6 @@ function in_table (e, t)
     return false
 end
 
----@param child table
----@param parent table
----@return void
-function extend (child, parent)
-    for k, v in pairs(parent) do
-        child[k] = v
-    end
-end
-
 function unpack (t, i)
     i = i or 1
     if t[i] ~= nil then

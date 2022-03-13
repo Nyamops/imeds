@@ -69,7 +69,7 @@ function CheckBloodPressureAction:perform()
 
     if isClient() and self.character ~= self.otherPlayer then
         local args = { patientOnlineId = self.otherPlayer:getOnlineID(), doctorOnlineId = self.character:getOnlineID() }
-        sendClientCommand(self.character, 'blood', CheckBloodPressureCommand.defaultName, args)
+        sendClientCommand(self.character, iMedsComponent.Blood, CheckBloodPressureCommand.defaultName, args)
     else
         BloodPressureMonitorMenu:updateSystolicBloodPressure()
         BloodPressureMonitorMenu:updateDiastolicBloodPressure()
