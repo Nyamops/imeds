@@ -1,39 +1,69 @@
 ItemName_IT = {
     ItemName_iMeds.EmptyBloodBag = "Sacca di sangue vuota",
-    ItemName_iMeds.FullBloodBag = "Sacca di sangue vuota piena",
+    ItemName_iMeds.FullBloodBag = "Sacca di sangue piena",
     ItemName_iMeds.PeripheralVenousCatheter = "Agocannula",
     ItemName_iMeds.BloodVolumeReducer = "Elemento di sistema",
     ItemName_iMeds.DrugApplier = "Elemento di sistema",
     ItemName_iMeds.BloodVolumeIncreaser = "Elemento di sistema",
-    ItemName_iMeds.SyringePack = "Confezione di siringhe da 5 ml",
+    ItemName_iMeds.SyringePack = "Confezione di siringhe da 5 ml.",
     ItemName_iMeds.Syringe = "Siringa da 5 ml",
-    ItemName_iMeds.NeedlePack = "Confezione di aghi da iniezione",
-    ItemName_iMeds.Needle = "Ago da iniezione",
-    ItemName_iMeds.SyringeWithNeedle = "Siringa per iniezioni i/v i/m",
-    ItemName_iMeds.FullSyringeWithNeedle = "Siringa con medicinale",
+    ItemName_iMeds.NeedlePack = "Confezione di aghi per iniezione",
+    ItemName_iMeds.Needle = "Ago per iniezione",
+    ItemName_iMeds.SyringeWithNeedle = "Siringa per iniezioni e/v i/m",
+    ItemName_iMeds.FullSyringeWithNeedle = "Siringa con farmaco",
 
     ItemName_iMeds.Alkagin = "Alkagin",
     ItemName_iMeds.AlkaginPack = "Confezione di Alkagin",
 
     ItemName_iMeds.BismuthSubsalicylate = "Subsalicilato di bismuto",
-    ItemName_iMeds.BismuthSubsalicylatePack = "Confezione di subsalicilato di bismuto",
+    ItemName_iMeds.BismuthSubsalicylatePack = "Confezione di Subsalicilato di bismuto",
 
     ItemName_iMeds.Morphine = "Morfina",
-    ItemName_iMeds.MorphinePack = "Confezione di morfina",
+    ItemName_iMeds.MorphinePack = "Confezione di Morfina",
 
     ItemName_iMeds.Naloxon = "Naloxone",
-    ItemName_iMeds.NaloxonPack = "Confezione di naloxone",
+    ItemName_iMeds.NaloxonPack = "Confezione di Naloxone",
 
     ItemName_iMeds.Butamirate = "Butamirato",
-    ItemName_iMeds.ButamiratePack = "Confezione di butamirato",
+    ItemName_iMeds.ButamiratePack = "Confezione di Butamirato",
 
     ItemName_iMeds.HemoStop = "HemoStop",
     ItemName_iMeds.HemoStopPack = "Confezione di HemoStop",
 
     ItemName_iMeds.Umifenovir = "Umifenovir",
-    ItemName_iMeds.UmifenovirPack = "Confezione di umifenovir",
+    ItemName_iMeds.UmifenovirPack = "Confezione di Umifenovir",
 
-    ItemName_iMeds.UnknownPack = "Confezione di farmaco sconosciuto",
+    ItemName_iMeds.Nasivion = "Nasivion",
+    ItemName_iMeds.NasivionPack = "Confezione di Nasivion",
 
-    ItemName_iMeds.BloodTestingKit = "Kit per analisi del sangue",
+    ItemName_iMeds.Erythropoietin = "Eritropoietina",
+    ItemName_iMeds.ErythropoietinPack = "Confezione di Eritropoietina",
+
+    ItemName_iMeds.UnknownPack = "Confezione di medicinale sconosciuto",
+
+    ItemName_iMeds.BloodTestingKit = "Kit per la Rilevazione del gruppo sanguigno",
+
+    ItemName_iMeds.ErythrocyteSuspensionBagABN = "Sacca di sospensione di Eritrociti AB(IV) Rh-",
+    ItemName_iMeds.ErythrocyteSuspensionBagABP = "Sacca di sospensione di Eritrociti AB(IV) Rh+",
+    ItemName_iMeds.ErythrocyteSuspensionBagAN = "Sacca di sospensione di Eritrociti A(II) Rh-",
+    ItemName_iMeds.ErythrocyteSuspensionBagAP = "Sacca di sospensione di Eritrociti A(II) Rh+",
+    ItemName_iMeds.ErythrocyteSuspensionBagBN = "Sacca di sospensione di Eritrociti B(III) Rh-",
+    ItemName_iMeds.ErythrocyteSuspensionBagBP = "Sacca di sospensione di Eritrociti B(III) Rh+",
+    ItemName_iMeds.ErythrocyteSuspensionBagON = "Sacca di sospensione di Eritrociti O(I) Rh-",
+    ItemName_iMeds.ErythrocyteSuspensionBagOP = "Sacca di sospensione di Eritrociti O(I) Rh+",
+
+    ItemName_iMeds.PlasmaBagABN = "Sacca di plasma AB(IV) Rh-",
+    ItemName_iMeds.PlasmaBagABP = "Sacca di plasma AB(IV) Rh+",
+    ItemName_iMeds.PlasmaBagAN = "Sacca di plasma A(II) Rh-",
+    ItemName_iMeds.PlasmaBagAP = "Sacca di plasma A(II) Rh+",
+    ItemName_iMeds.PlasmaBagBN = "Sacca di plasma B(III) Rh-",
+    ItemName_iMeds.PlasmaBagBP = "Sacca di plasma B(III) Rh+",
+    ItemName_iMeds.PlasmaBagON = "Sacca di plasma O(I) Rh-",
+    ItemName_iMeds.PlasmaBagOP = "Sacca di plasma O(I)Rh+",
+
+    ItemName_iMeds.Stethoscope = "Stetofonendoscopio",
+    ItemName_Base.BloodPressureMonitorLeft = "Tonometro Nanasonic EW3039S",
+    ItemName_Base.BloodPressureMonitorRight = "Tonometro Nanasonic EW3039S",
+    ItemName_Base.HeartRateMonitorLeft = "Sensore di battito cardiaco Knox Electro KE 3000",
+    ItemName_Base.HeartRateMonitorRight = "Sensore di battito cardiaco Knox Electro KE 3000",
 }
