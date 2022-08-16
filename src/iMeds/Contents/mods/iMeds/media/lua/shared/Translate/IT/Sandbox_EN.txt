@@ -1,0 +1,8 @@
+Sandbox_IT = {
+    Sandbox_ImmersiveMedicine = "Medicina immersiva",
+    Sandbox_IsBloodSystemActive = "Abilita Sistema del Sangue",
+    Sandbox_IsBloodTypeSystemActive = "Abilita Gruppi sanguigni",
+    Sandbox_IsHeartbeatEnabled = "Abilita suono del battito cardiaco",
+    Sandbox_BloodVolumeReduceModifier = "Modificatore riduzione volume sanguigno",
+    Sandbox_BloodVolumeIncreaseModifier = "Modificatore aumento volume sanguigno",
+}
